@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Developper manual of RasPy &mdash; RasPy 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RasPy 0.0.1 documentation" href="index.html" />
+    <link rel="up" title="Welcome to RasPy documentation!" href="index.html" />
+    <link rel="next" title="raspy.common package" href="raspy.common.html" />
+    <link rel="prev" title="User manual of RasPy" href="man_user.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="raspy.common.html" title="raspy.common package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="man_user.html" title="User manual of RasPy"
+             accesskey="P">previous</a> |</li>
+        <li><a href="contents.html">RasPy 0.0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Welcome to RasPy documentation!</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="developper-manual-of-raspy">
+<h1>Developper manual of RasPy<a class="headerlink" href="#developper-manual-of-raspy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="raspbian">
+<h3>Raspbian<a class="headerlink" href="#raspbian" title="Permalink to this headline">¶</a></h3>
+<p>Install official raspbian from here : <a class="reference external" href="http://www.raspbian.org/">http://www.raspbian.org/</a>.</p>
+<p>Newbies can install it from : <a class="reference external" href="http://www.raspberrypi.org/downloads/">http://www.raspberrypi.org/downloads/</a>.</p>
+<p>Developpers or others can also install it on standard distributions (Ubuntu, Debian, RedHat, ...).</p>
+</div>
+<div class="section" id="update-packages">
+<h3>Update packages<a class="headerlink" href="#update-packages" title="Permalink to this headline">¶</a></h3>
+<p>You can now update packages</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get -y update
+sudo apt-get -y dist-upgrade
+</pre></div>
+</div>
+<p>Some packages need to be removed as some new version are available from eggs :</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get remove python-zmq libzmq1 libzmq3 libzmq3-dev libzmq-dev python-nose2 python-nose pylint
+</pre></div>
+</div>
+<p>We also need to install some packages :</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get -y install build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-it">
+<h3>Download it<a class="headerlink" href="#download-it" title="Permalink to this headline">¶</a></h3>
+<p>You should now download RasPy using git. You should not download and install RasPy with root user.
+Idealy, you should create a special user for running RasPy or the pi user. Keep in mind root is baaaddddd.</p>
+<div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/bibi21000/RasPy.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-your-system">
+<h3>Configure your system<a class="headerlink" href="#configure-your-system" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>access rights</li>
+<li>sudo nopasswd</li>
+<li>...</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h3>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>If you want to develop for RasPy, you need to install it in develop mode :</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo make develop
+</pre></div>
+</div>
+<p>Otherwise install it normaly</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo make install
+</pre></div>
+</div>
+<p>Install some missing eggs ... to be sure</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo pip install nose-progressive nose-html
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-the-tests">
+<h3>Run the tests<a class="headerlink" href="#run-the-tests" title="Permalink to this headline">¶</a></h3>
+<p>You can now check that everything is fine running the tests :</p>
+<div class="highlight-bash"><div class="highlight"><pre>make tests
+</pre></div>
+</div>
+<p>If it fails ... run it again :)
+At last, copy / paste the full screen output and send it to the core team.</p>
+</div>
+<div class="section" id="start-it">
+<h3>Start it<a class="headerlink" href="#start-it" title="Permalink to this headline">¶</a></h3>
+<p>In the next monthes, you should be abble to start it :</p>
+<div class="highlight-bash"><div class="highlight"><pre>make start
+</pre></div>
+</div>
+</div>
+<div class="section" id="read-the-doc">
+<h3>Read the doc<a class="headerlink" href="#read-the-doc" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>docs/pdf</li>
+<li>docs/html</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="develop">
+<h2>Develop<a class="headerlink" href="#develop" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="phylosophy">
+<h3>Phylosophy<a class="headerlink" href="#phylosophy" title="Permalink to this headline">¶</a></h3>
+<p>Tests, tests, ... and tests :</p>
+<blockquote>
+<div><ul class="simple">
+<li>A bug -&gt; a test -&gt; a patch</li>
+<li>A new feature -&gt; many test</li>
+</ul>
+</div></blockquote>
+<p>And documentation</p>
+<blockquote>
+<div><ul class="simple">
+<li>A new feature -&gt; documentation</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>sphinx</li>
+</ul>
+</div></blockquote>
+<p>You can generate the full documentation using :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>make docs
+</pre></div>
+</div>
+</div></blockquote>
+<p>You can also generate a part of it, for example :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd </span>docs
+make html
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="tests">
+<h3>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h3>
+<p>Nosetests and pylint are used to test quality of code. There reports are here :</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="file:../nosetests/nosetests.html">Nosetests report</a></li>
+<li><a class="reference external" href="file:../coverage/index.html">Coverage report</a></li>
+<li><a class="reference external" href="file:../pylint/report.html">Pylint report</a></li>
+</ul>
+</div></blockquote>
+<p>Coverage is not the goal but it&#8217;s one : a module must have a coverage of 90% to be accpeted by core team. Otherwise it will block the packaging process.
+Of course, a FAILED test will also.</p>
+<p>You can run the developpers test running :</p>
+<div class="highlight-bash"><div class="highlight"><pre>make devtests
+</pre></div>
+</div>
+<p>If you&#8217;re on a raspberry, you can run the full tests like this :</p>
+<div class="highlight-bash"><div class="highlight"><pre>make tests
+</pre></div>
+</div>
+<p>Running only one test module :</p>
+<div class="highlight-bash"><div class="highlight"><pre>/usr/local/bin/nosetests --verbosity<span class="o">=</span>2 --cover-package<span class="o">=</span>raspy --with-coverage --cover-inclusive --cover-tests tests/devices/test_sensor.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-new-device">
+<h3>A new device<a class="headerlink" href="#a-new-device" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="a-new-server">
+<h3>A new server<a class="headerlink" href="#a-new-server" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="raspy-package">
+<h2>raspy package<a class="headerlink" href="#raspy-package" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="subpackages">
+<h3>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="raspy.common.html">raspy.common package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="raspy.common.devices.html">raspy.common.devices package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="raspy.common.devices.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="raspy.common.devices.html#module-raspy.common.devices.device">raspy.common.devices.device module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="raspy.common.devices.html#module-raspy.common.devices.media">raspy.common.devices.media module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="raspy.common.devices.html#module-raspy.common.devices.sensor">raspy.common.devices.sensor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="raspy.common.devices.html#module-raspy.common.devices">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.MDP">raspy.common.MDP module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.client">raspy.common.client module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.dynamic">raspy.common.dynamic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.executive">raspy.common.executive module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.kvcliapi">raspy.common.kvcliapi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.kvsimple">raspy.common.kvsimple module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.mdcliapi">raspy.common.mdcliapi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.mdwrkapi">raspy.common.mdwrkapi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.runner">raspy.common.runner module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.server">raspy.common.server module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.statistics">raspy.common.statistics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.supervisor">raspy.common.supervisor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.zhelpers">raspy.common.zhelpers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="raspy.servers.html">raspy.servers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="raspy.servers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.servers.html#module-raspy.servers.broker">raspy.servers.broker module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.servers.html#module-raspy.servers.core">raspy.servers.core module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.servers.html#module-raspy.servers.fake">raspy.servers.fake module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.servers.html#module-raspy.servers.onewire">raspy.servers.onewire module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.servers.html#module-raspy.servers.titanic">raspy.servers.titanic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.servers.html#module-raspy.servers">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-raspy">
+<span id="module-contents"></span><h3>Module contents<a class="headerlink" href="#module-raspy" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Developper manual of RasPy</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#raspbian">Raspbian</a></li>
+<li><a class="reference internal" href="#update-packages">Update packages</a></li>
+<li><a class="reference internal" href="#download-it">Download it</a></li>
+<li><a class="reference internal" href="#configure-your-system">Configure your system</a></li>
+<li><a class="reference internal" href="#id1">Installation</a></li>
+<li><a class="reference internal" href="#run-the-tests">Run the tests</a></li>
+<li><a class="reference internal" href="#start-it">Start it</a></li>
+<li><a class="reference internal" href="#read-the-doc">Read the doc</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#develop">Develop</a><ul>
+<li><a class="reference internal" href="#phylosophy">Phylosophy</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#tests">Tests</a></li>
+<li><a class="reference internal" href="#a-new-device">A new device</a></li>
+<li><a class="reference internal" href="#a-new-server">A new server</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#raspy-package">raspy package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#module-raspy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="man_user.html"
+                        title="previous chapter">User manual of RasPy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="raspy.common.html"
+                        title="next chapter">raspy.common package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/man_dev.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="raspy.common.html" title="raspy.common package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="man_user.html" title="User manual of RasPy"
+             >previous</a> |</li>
+        <li><a href="contents.html">RasPy 0.0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Welcome to RasPy documentation!</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014-2015, Sébastien GALLET.
+    </div>
+  </body>
+</html>

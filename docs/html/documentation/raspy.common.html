@@ -1,0 +1,947 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>raspy.common package &mdash; RasPy 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RasPy 0.0.1 documentation" href="index.html" />
+    <link rel="up" title="Developper manual of RasPy" href="man_dev.html" />
+    <link rel="next" title="raspy.common.devices package" href="raspy.common.devices.html" />
+    <link rel="prev" title="Developper manual of RasPy" href="man_dev.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="raspy.common.devices.html" title="raspy.common.devices package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="man_dev.html" title="Developper manual of RasPy"
+             accesskey="P">previous</a> |</li>
+        <li><a href="contents.html">RasPy 0.0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Welcome to RasPy documentation!</a> &raquo;</li>
+          <li><a href="man_dev.html" accesskey="U">Developper manual of RasPy</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="raspy-common-package">
+<h1>raspy.common package<a class="headerlink" href="#raspy-common-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="raspy.common.devices.html">raspy.common.devices package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.devices.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.devices.html#module-raspy.common.devices.device">raspy.common.devices.device module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.devices.html#module-raspy.common.devices.media">raspy.common.devices.media module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.devices.html#module-raspy.common.devices.sensor">raspy.common.devices.sensor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.devices.html#module-raspy.common.devices">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-raspy.common.MDP">
+<span id="raspy-common-mdp-module"></span><h2>raspy.common.MDP module<a class="headerlink" href="#module-raspy.common.MDP" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="raspy.common.MDP.ClientError">
+<em class="property">exception </em><tt class="descclassname">raspy.common.MDP.</tt><tt class="descname">ClientError</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#raspy.common.MDP.ClientError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspy.common.MDP.GenericError" title="raspy.common.MDP.GenericError"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.MDP.GenericError</span></tt></a></p>
+<p>Client side exception</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="raspy.common.MDP.GenericError">
+<em class="property">exception </em><tt class="descclassname">raspy.common.MDP.</tt><tt class="descname">GenericError</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#raspy.common.MDP.GenericError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<p>Generic exception</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="raspy.common.MDP.ServerError">
+<em class="property">exception </em><tt class="descclassname">raspy.common.MDP.</tt><tt class="descname">ServerError</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#raspy.common.MDP.ServerError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspy.common.MDP.GenericError" title="raspy.common.MDP.GenericError"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.MDP.GenericError</span></tt></a></p>
+<p>Server side exception</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="raspy.common.MDP.logger">
+<tt class="descclassname">raspy.common.MDP.</tt><tt class="descname">logger</tt><em class="property"> = &lt;logging.Logger object at 0x2b3756ade190&gt;</em><a class="headerlink" href="#raspy.common.MDP.logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Majordomo Protocol definitions</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="raspy.common.MDP.routing_key">
+<tt class="descclassname">raspy.common.MDP.</tt><tt class="descname">routing_key</tt><big>(</big><em>hostname</em>, <em>service</em><big>)</big><a class="headerlink" href="#raspy.common.MDP.routing_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.client">
+<span id="raspy-common-client-module"></span><h2>raspy.common.client module<a class="headerlink" href="#module-raspy.common.client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.common.client.Client">
+<em class="property">class </em><tt class="descclassname">raspy.common.client.</tt><tt class="descname">Client</tt><big>(</big><em>hostname='localhost'</em>, <em>service='worker'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em>, <em>poll=1500</em>, <em>ttl=900</em><big>)</big><a class="headerlink" href="#raspy.common.client.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspy.common.executive.Executive" title="raspy.common.executive.Executive"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.executive.Executive</span></tt></a></p>
+<p>The generic worker</p>
+<p>From <a class="reference external" href="http://zguide.zeromq.org/py:all#header-48">http://zguide.zeromq.org/py:all#header-48</a></p>
+<dl class="method">
+<dt id="raspy.common.client.Client.request">
+<tt class="descname">request</tt><big>(</big><em>service=None, data=['mmi.echo'], callback=None, args=(), kwargs={}</em><big>)</big><a class="headerlink" href="#raspy.common.client.Client.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request a job to a worker</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.client.Client.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.client.Client.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the client</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.client.Client.status">
+<tt class="descname">status</tt><big>(</big><em>uuid</em><big>)</big><a class="headerlink" href="#raspy.common.client.Client.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request a job to a worker</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.dynamic">
+<span id="raspy-common-dynamic-module"></span><h2>raspy.common.dynamic module<a class="headerlink" href="#module-raspy.common.dynamic" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="raspy.common.dynamic.importCode">
+<tt class="descclassname">raspy.common.dynamic.</tt><tt class="descname">importCode</tt><big>(</big><em>code</em>, <em>name</em>, <em>add_to_sys_modules=False</em><big>)</big><a class="headerlink" href="#raspy.common.dynamic.importCode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.executive">
+<span id="raspy-common-executive-module"></span><h2>raspy.common.executive module<a class="headerlink" href="#module-raspy.common.executive" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.common.executive.Executive">
+<em class="property">class </em><tt class="descclassname">raspy.common.executive.</tt><tt class="descname">Executive</tt><big>(</big><em>hostname='localhost'</em>, <em>service='executive'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em><big>)</big><a class="headerlink" href="#raspy.common.executive.Executive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>The Executive mother class for all workers</p>
+<dl class="docutils">
+<dt>todo :</dt>
+<dd><ul class="first last simple">
+<li>bug : can&#8217;t stop when jobs in queues</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="raspy.common.executive.Executive.destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.executive.Executive.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for threads and destroy contexts.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.executive.Executive.get_instance_id">
+<tt class="descname">get_instance_id</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.executive.Executive.get_instance_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the instance of the exective</p>
+<p>... todo : must be multihost and multithread.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.executive.Executive.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.executive.Executive.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the executive</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.executive.Executive.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.executive.Executive.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown executive.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.common.executive.ExecutiveProcess">
+<em class="property">class </em><tt class="descclassname">raspy.common.executive.</tt><tt class="descname">ExecutiveProcess</tt><big>(</big><em>executive</em>, <em>executive_name</em><big>)</big><a class="headerlink" href="#raspy.common.executive.ExecutiveProcess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">multiprocessing.process.Process</span></tt></p>
+<p>Process executing tasks from a given tasks queue</p>
+<dl class="method">
+<dt id="raspy.common.executive.ExecutiveProcess.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.executive.ExecutiveProcess.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.executive.ExecutiveProcess.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.executive.ExecutiveProcess.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to deactivate the client connection completely.</p>
+<p>Will delete the stream and the underlying socket.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The instance MUST not be used after <a class="reference internal" href="#raspy.common.executive.ExecutiveProcess.shutdown" title="raspy.common.executive.ExecutiveProcess.shutdown"><tt class="xref py py-func docutils literal"><span class="pre">shutdown()</span></tt></a> has been called.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.kvcliapi">
+<span id="raspy-common-kvcliapi-module"></span><h2>raspy.common.kvcliapi module<a class="headerlink" href="#module-raspy.common.kvcliapi" title="Permalink to this headline">¶</a></h2>
+<p>kvsimple - simple key-value message class for example applications</p>
+<p>Author: Min RK &lt;<a class="reference external" href="mailto:benjaminrk&#37;&#52;&#48;gmail&#46;com">benjaminrk<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</p>
+<p>From : <a class="reference external" href="http://zguide.zeromq.org/py:kvsimple">http://zguide.zeromq.org/py:kvsimple</a></p>
+<dl class="class">
+<dt id="raspy.common.kvcliapi.KvPublisherClient">
+<em class="property">class </em><tt class="descclassname">raspy.common.kvcliapi.</tt><tt class="descname">KvPublisherClient</tt><big>(</big><em>hostname='localhost'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em><big>)</big><a class="headerlink" href="#raspy.common.kvcliapi.KvPublisherClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>KeyValue Protocol Client API, Python version.</p>
+<p>Implements the client defined at <a class="reference external" href="http://zguide.zeromq.org/page:all#Working-with-Subtrees">http://zguide.zeromq.org/page:all#Working-with-Subtrees</a></p>
+<p>From <a class="reference external" href="https://raw.githubusercontent.com/imatix/zguide/master/examples/Python/clonecli4.py">https://raw.githubusercontent.com/imatix/zguide/master/examples/Python/clonecli4.py</a></p>
+<dl class="method">
+<dt id="raspy.common.kvcliapi.KvPublisherClient.destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.kvcliapi.KvPublisherClient.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.kvcliapi.KvPublisherClient.send">
+<tt class="descname">send</tt><big>(</big><em>subtree='subtree'</em>, <em>key='key'</em>, <em>body='body'</em><big>)</big><a class="headerlink" href="#raspy.common.kvcliapi.KvPublisherClient.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send the update</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.common.kvcliapi.KvSubscriberClient">
+<em class="property">class </em><tt class="descclassname">raspy.common.kvcliapi.</tt><tt class="descname">KvSubscriberClient</tt><big>(</big><em>hostname='localhost'</em>, <em>subtree='subtree'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em>, <em>speed=1.0</em><big>)</big><a class="headerlink" href="#raspy.common.kvcliapi.KvSubscriberClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>KeyValue Protocol Client API, Python version.</p>
+<p>Implements the client defined at <a class="reference external" href="http://zguide.zeromq.org/page:all#Working-with-Subtrees">http://zguide.zeromq.org/page:all#Working-with-Subtrees</a>
+From <a class="reference external" href="https://raw.githubusercontent.com/imatix/zguide/master/examples/Python/clonecli4.py">https://raw.githubusercontent.com/imatix/zguide/master/examples/Python/clonecli4.py</a></p>
+<dl class="method">
+<dt id="raspy.common.kvcliapi.KvSubscriberClient.destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.kvcliapi.KvSubscriberClient.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.kvcliapi.KvSubscriberClient.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.kvcliapi.KvSubscriberClient.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the poller</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.kvcliapi.KvSubscriberClient.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.kvcliapi.KvSubscriberClient.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown the broker.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.kvsimple">
+<span id="raspy-common-kvsimple-module"></span><h2>raspy.common.kvsimple module<a class="headerlink" href="#module-raspy.common.kvsimple" title="Permalink to this headline">¶</a></h2>
+<p>kvsimple - simple key-value message class for example applications</p>
+<p>Author: Min RK &lt;<a class="reference external" href="mailto:benjaminrk&#37;&#52;&#48;gmail&#46;com">benjaminrk<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</p>
+<p>From : <a class="reference external" href="http://zguide.zeromq.org/py:kvsimple">http://zguide.zeromq.org/py:kvsimple</a></p>
+<dl class="class">
+<dt id="raspy.common.kvsimple.KVMsg">
+<em class="property">class </em><tt class="descclassname">raspy.common.kvsimple.</tt><tt class="descname">KVMsg</tt><big>(</big><em>sequence</em>, <em>key=None</em>, <em>body=None</em><big>)</big><a class="headerlink" href="#raspy.common.kvsimple.KVMsg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="docutils">
+<dt>Message is formatted on wire as 3 frames:</dt>
+<dd><ul class="first last simple">
+<li>frame 0: key (0MQ string)</li>
+<li>frame 1: sequence (8 bytes, network order)</li>
+<li>frame 2: body (blob)</li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="raspy.common.kvsimple.KVMsg.body">
+<tt class="descname">body</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.kvsimple.KVMsg.body" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.kvsimple.KVMsg.dump">
+<tt class="descname">dump</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.kvsimple.KVMsg.dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump me to a string&#8221;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.kvsimple.KVMsg.key">
+<tt class="descname">key</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.kvsimple.KVMsg.key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="raspy.common.kvsimple.KVMsg.recv">
+<em class="property">classmethod </em><tt class="descname">recv</tt><big>(</big><em>socket</em><big>)</big><a class="headerlink" href="#raspy.common.kvsimple.KVMsg.recv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads key-value message from socket, returns new kvmsg instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.kvsimple.KVMsg.send">
+<tt class="descname">send</tt><big>(</big><em>socket</em><big>)</big><a class="headerlink" href="#raspy.common.kvsimple.KVMsg.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send key-value message to socket; any empty frames are sent as such.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.kvsimple.KVMsg.sequence">
+<tt class="descname">sequence</tt><em class="property"> = 0</em><a class="headerlink" href="#raspy.common.kvsimple.KVMsg.sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.kvsimple.KVMsg.store">
+<tt class="descname">store</tt><big>(</big><em>dikt</em><big>)</big><a class="headerlink" href="#raspy.common.kvsimple.KVMsg.store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store me in a dict if I have anything to store</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.mdcliapi">
+<span id="raspy-common-mdcliapi-module"></span><h2>raspy.common.mdcliapi module<a class="headerlink" href="#module-raspy.common.mdcliapi" title="Permalink to this headline">¶</a></h2>
+<p>Majordomo Protocol Client API, Python version.</p>
+<p>Implements the MDP/Worker spec at http:#rfc.zeromq.org/spec:7.</p>
+<p>Author: Min RK &lt;<a class="reference external" href="mailto:benjaminrk&#37;&#52;&#48;gmail&#46;com">benjaminrk<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;
+Based on Java example by Arkadiusz Orzechowski</p>
+<dl class="class">
+<dt id="raspy.common.mdcliapi.MajorDomoClient">
+<em class="property">class </em><tt class="descclassname">raspy.common.mdcliapi.</tt><tt class="descname">MajorDomoClient</tt><big>(</big><em>broker</em><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Majordomo Protocol Client API, Python version.</p>
+<p>Implements the MDP/Worker spec at http:#rfc.zeromq.org/spec:7.</p>
+<dl class="attribute">
+<dt id="raspy.common.mdcliapi.MajorDomoClient.broker">
+<tt class="descname">broker</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.broker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdcliapi.MajorDomoClient.client">
+<tt class="descname">client</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.client" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdcliapi.MajorDomoClient.ctx">
+<tt class="descname">ctx</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.ctx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdcliapi.MajorDomoClient.destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdcliapi.MajorDomoClient.poller">
+<tt class="descname">poller</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.poller" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdcliapi.MajorDomoClient.reconnect_to_broker">
+<tt class="descname">reconnect_to_broker</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.reconnect_to_broker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect or reconnect to broker</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdcliapi.MajorDomoClient.retries">
+<tt class="descname">retries</tt><em class="property"> = 3</em><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.retries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdcliapi.MajorDomoClient.send">
+<tt class="descname">send</tt><big>(</big><em>service</em>, <em>request</em><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send request to broker and get reply by hook or crook.</p>
+<p>Takes ownership of request message and destroys it when sent.
+Returns the reply message or None if there was no reply.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdcliapi.MajorDomoClient.timeout">
+<tt class="descname">timeout</tt><em class="property"> = 2500</em><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.timeout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdcliapi.MajorDomoClient.verbose">
+<tt class="descname">verbose</tt><em class="property"> = False</em><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.verbose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.mdwrkapi">
+<span id="raspy-common-mdwrkapi-module"></span><h2>raspy.common.mdwrkapi module<a class="headerlink" href="#module-raspy.common.mdwrkapi" title="Permalink to this headline">¶</a></h2>
+<p>Majordomo Protocol Worker API, Python version</p>
+<p>Implements the MDP/Worker spec at http:#rfc.zeromq.org/spec:7.</p>
+<p>Author: Min RK &lt;<a class="reference external" href="mailto:benjaminrk&#37;&#52;&#48;gmail&#46;com">benjaminrk<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;
+Based on Java example by Arkadiusz Orzechowski</p>
+<dl class="class">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker">
+<em class="property">class </em><tt class="descclassname">raspy.common.mdwrkapi.</tt><tt class="descname">MajorDomoWorker</tt><big>(</big><em>broker</em>, <em>service</em><big>)</big><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Majordomo Protocol Worker API, Python version</p>
+<p>Implements the MDP/Worker spec at http:#rfc.zeromq.org/spec:7.</p>
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.HEARTBEAT_LIVENESS">
+<tt class="descname">HEARTBEAT_LIVENESS</tt><em class="property"> = 3</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.HEARTBEAT_LIVENESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.broker">
+<tt class="descname">broker</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.broker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.ctx">
+<tt class="descname">ctx</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.ctx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.expect_reply">
+<tt class="descname">expect_reply</tt><em class="property"> = False</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.expect_reply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.heartbeat">
+<tt class="descname">heartbeat</tt><em class="property"> = 2500</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.heartbeat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.heartbeat_at">
+<tt class="descname">heartbeat_at</tt><em class="property"> = 0</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.heartbeat_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.liveness">
+<tt class="descname">liveness</tt><em class="property"> = 0</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.liveness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.reconnect">
+<tt class="descname">reconnect</tt><em class="property"> = 2500</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.reconnect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.reconnect_to_broker">
+<tt class="descname">reconnect_to_broker</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.reconnect_to_broker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect or reconnect to broker</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.recv">
+<tt class="descname">recv</tt><big>(</big><em>reply=None</em><big>)</big><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.recv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send reply, if any, to broker and wait for next request.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.reply_to">
+<tt class="descname">reply_to</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.reply_to" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.send_to_broker">
+<tt class="descname">send_to_broker</tt><big>(</big><em>command</em>, <em>option=None</em>, <em>msg=None</em><big>)</big><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.send_to_broker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send message to broker.</p>
+<p>. If no msg is provided, creates one internally</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.service">
+<tt class="descname">service</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown executive.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.status">
+<tt class="descname">status</tt><em class="property"> = True</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>The status of the worker. Should be update by callback in the future</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.timeout">
+<tt class="descname">timeout</tt><em class="property"> = 2500</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.timeout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.verbose">
+<tt class="descname">verbose</tt><em class="property"> = False</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.verbose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.mdwrkapi.MajorDomoWorker.worker">
+<tt class="descname">worker</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.mdwrkapi.MajorDomoWorker.worker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.runner">
+<span id="raspy-common-runner-module"></span><h2>raspy.common.runner module<a class="headerlink" href="#module-raspy.common.runner" title="Permalink to this headline">¶</a></h2>
+<p>The runner</p>
+<p>Start a worker or a broker as a daemon.</p>
+<p>Must be updated to work with multiple workers.</p>
+<p>What do we need :</p>
+<ul class="simple">
+<li>the user ou userid</li>
+<li>the log file</li>
+<li>the error output</li>
+<li>the standard output</li>
+<li>the pid file</li>
+<li>the working directory</li>
+</ul>
+<p>Based on the runner of python-daemon :</p>
+<ul class="simple">
+<li>Copyright © 2009–2010 Ben Finney &lt;<a class="reference external" href="mailto:ben+python&#37;&#52;&#48;benfinney&#46;id&#46;au">ben+python<span>&#64;</span>benfinney<span>&#46;</span>id<span>&#46;</span>au</a>&gt;</li>
+<li>Copyright © 2007–2008 Robert Niederreiter, Jens Klein</li>
+<li>Copyright © 2003 Clark Evans</li>
+<li>Copyright © 2002 Noah Spurrier</li>
+<li>Copyright © 2001 Jürgen Hermann</li>
+</ul>
+<dl class="class">
+<dt id="raspy.common.runner.Runner">
+<em class="property">class </em><tt class="descclassname">raspy.common.runner.</tt><tt class="descname">Runner</tt><big>(</big><em>hostname=None</em>, <em>service='myrunnerinstance'</em>, <em>user=None</em>, <em>log_dir='/var/log'</em>, <em>conf_dir='/etc'</em>, <em>run_dir='/var/run'</em>, <em>context=None</em>, <em>endpoint_autoconf=None</em><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Controller for a callable running in a separate background process.</p>
+<p>The first command-line argument is the action to take:</p>
+<ul class="simple">
+<li>&#8216;start&#8217;: Become a daemon and call <cite>app.run()</cite>.</li>
+<li>&#8216;stop&#8217;: Exit the daemon process specified in the PID file.</li>
+<li>&#8216;restart&#8217;: Stop, then start.</li>
+<li>&#8216;status&#8217;: Show the status of the process.</li>
+</ul>
+<dl class="attribute">
+<dt id="raspy.common.runner.Runner.action_funcs">
+<tt class="descname">action_funcs</tt><em class="property"> = {'status': &lt;function _status at 0x2b37591efde8&gt;, 'reload': &lt;function _reload at 0x2b37591efed8&gt;, 'stop': &lt;function _stop at 0x2b37591efcf8&gt;, 'start': &lt;function _start at 0x2b37591efa28&gt;, 'kill': &lt;function _kill at 0x2b37591efd70&gt;, 'front': &lt;function _front at 0x2b37591efb90&gt;, 'restart': &lt;function _restart at 0x2b37591efe60&gt;}</em><a class="headerlink" href="#raspy.common.runner.Runner.action_funcs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.runner.Runner.app_reload">
+<tt class="descname">app_reload</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.app_reload" title="Permalink to this definition">¶</a></dt>
+<dd><p>The reload process of the application</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.runner.Runner.app_run">
+<tt class="descname">app_run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.app_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>The running process of the application</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.runner.Runner.app_shutdown">
+<tt class="descname">app_shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.app_shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>The shutdown process of the application</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.runner.Runner.do_action">
+<tt class="descname">do_action</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.do_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the requested action.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.runner.Runner.parse_args">
+<tt class="descname">parse_args</tt><big>(</big><em>argv=None</em><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.parse_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse command-line arguments.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.runner.Runner.sighup_handler">
+<tt class="descname">sighup_handler</tt><big>(</big><em>signal</em>, <em>frame</em><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.sighup_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.runner.Runner.sigterm_handler">
+<tt class="descname">sigterm_handler</tt><big>(</big><em>signal</em>, <em>frame</em><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.sigterm_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.runner.Runner.start_message">
+<tt class="descname">start_message</tt><em class="property"> = 'started with pid %(pid)d'</em><a class="headerlink" href="#raspy.common.runner.Runner.start_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.runner.Runner.status_message_not_running">
+<tt class="descname">status_message_not_running</tt><em class="property"> = 'process is not running'</em><a class="headerlink" href="#raspy.common.runner.Runner.status_message_not_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.runner.Runner.status_message_running">
+<tt class="descname">status_message_running</tt><em class="property"> = 'process is running'</em><a class="headerlink" href="#raspy.common.runner.Runner.status_message_running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="raspy.common.runner.RunnerError">
+<em class="property">exception </em><tt class="descclassname">raspy.common.runner.</tt><tt class="descname">RunnerError</tt><a class="headerlink" href="#raspy.common.runner.RunnerError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<p>Abstract base class for errors.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="raspy.common.runner.RunnerInvalidActionError">
+<em class="property">exception </em><tt class="descclassname">raspy.common.runner.</tt><tt class="descname">RunnerInvalidActionError</tt><a class="headerlink" href="#raspy.common.runner.RunnerInvalidActionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.ValueError</span></tt>, <a class="reference internal" href="#raspy.common.runner.RunnerError" title="raspy.common.runner.RunnerError"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.runner.RunnerError</span></tt></a></p>
+<p>Raised when specified action is invalid.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="raspy.common.runner.RunnerStartFailureError">
+<em class="property">exception </em><tt class="descclassname">raspy.common.runner.</tt><tt class="descname">RunnerStartFailureError</tt><a class="headerlink" href="#raspy.common.runner.RunnerStartFailureError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.RuntimeError</span></tt>, <a class="reference internal" href="#raspy.common.runner.RunnerError" title="raspy.common.runner.RunnerError"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.runner.RunnerError</span></tt></a></p>
+<p>Raised when failure starting.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="raspy.common.runner.RunnerStopFailureError">
+<em class="property">exception </em><tt class="descclassname">raspy.common.runner.</tt><tt class="descname">RunnerStopFailureError</tt><a class="headerlink" href="#raspy.common.runner.RunnerStopFailureError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.RuntimeError</span></tt>, <a class="reference internal" href="#raspy.common.runner.RunnerError" title="raspy.common.runner.RunnerError"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.runner.RunnerError</span></tt></a></p>
+<p>Raised when failure stopping.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="raspy.common.runner.emit_message">
+<tt class="descclassname">raspy.common.runner.</tt><tt class="descname">emit_message</tt><big>(</big><em>message</em>, <em>stream=None</em><big>)</big><a class="headerlink" href="#raspy.common.runner.emit_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Emit a message to the specified stream (default <cite>sys.stderr</cite>).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="raspy.common.runner.is_pidfile_stale">
+<tt class="descclassname">raspy.common.runner.</tt><tt class="descname">is_pidfile_stale</tt><big>(</big><em>pidfile</em><big>)</big><a class="headerlink" href="#raspy.common.runner.is_pidfile_stale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether a PID file is stale.</p>
+<p>Return <tt class="docutils literal"><span class="pre">True</span></tt> (“stale”) if the contents of the PID file are
+valid but do not match the PID of a currently-running process;
+otherwise return <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="raspy.common.runner.make_pidlockfile">
+<tt class="descclassname">raspy.common.runner.</tt><tt class="descname">make_pidlockfile</tt><big>(</big><em>path</em>, <em>acquire_timeout</em><big>)</big><a class="headerlink" href="#raspy.common.runner.make_pidlockfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a PIDLockFile instance with the given filesystem path.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.server">
+<span id="raspy-common-server-module"></span><h2>raspy.common.server module<a class="headerlink" href="#module-raspy.common.server" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.common.server.Server">
+<em class="property">class </em><tt class="descclassname">raspy.common.server.</tt><tt class="descname">Server</tt><big>(</big><em>hostname='localhost'</em>, <em>service='worker'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em><big>)</big><a class="headerlink" href="#raspy.common.server.Server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspy.common.executive.Executive" title="raspy.common.executive.Executive"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.executive.Executive</span></tt></a>, <a class="reference internal" href="#raspy.common.statistics.Statistics" title="raspy.common.statistics.Statistics"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.statistics.Statistics</span></tt></a></p>
+<p>The generic worker</p>
+<p>From <a class="reference external" href="http://zguide.zeromq.org/py:all#header-48">http://zguide.zeromq.org/py:all#header-48</a></p>
+<dl class="method">
+<dt id="raspy.common.server.Server.worker_mmi">
+<tt class="descname">worker_mmi</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.server.Server.worker_mmi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve mmi informations of the worker</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.statistics">
+<span id="raspy-common-statistics-module"></span><h2>raspy.common.statistics module<a class="headerlink" href="#module-raspy.common.statistics" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.common.statistics.SNMP">
+<em class="property">class </em><tt class="descclassname">raspy.common.statistics.</tt><tt class="descname">SNMP</tt><big>(</big><em>oid='module.snmp.key'</em>, <em>doc='A statistic integer value'</em>, <em>initial=0</em><big>)</big><a class="headerlink" href="#raspy.common.statistics.SNMP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Abstract statistic item</p>
+<dl class="method">
+<dt id="raspy.common.statistics.SNMP.set">
+<tt class="descname">set</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#raspy.common.statistics.SNMP.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a value to the snmp object</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.common.statistics.SNMPCounter">
+<em class="property">class </em><tt class="descclassname">raspy.common.statistics.</tt><tt class="descname">SNMPCounter</tt><big>(</big><em>oid='module.snmp.key'</em>, <em>doc='A statistic counter value with overflow'</em>, <em>initial=0</em>, <em>overflow=4294967296</em><big>)</big><a class="headerlink" href="#raspy.common.statistics.SNMPCounter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspy.common.statistics.SNMP" title="raspy.common.statistics.SNMP"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.statistics.SNMP</span></tt></a></p>
+<p>Long (32bits) with overflow</p>
+<dl class="method">
+<dt id="raspy.common.statistics.SNMPCounter.set">
+<tt class="descname">set</tt><big>(</big><em>value=1</em><big>)</big><a class="headerlink" href="#raspy.common.statistics.SNMPCounter.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add value (default=1) to current value. Also manage overflow.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.common.statistics.SNMPFloat">
+<em class="property">class </em><tt class="descclassname">raspy.common.statistics.</tt><tt class="descname">SNMPFloat</tt><big>(</big><em>oid='module.snmp.key'</em>, <em>doc='A statistic float value'</em>, <em>initial=0.0</em><big>)</big><a class="headerlink" href="#raspy.common.statistics.SNMPFloat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspy.common.statistics.SNMP" title="raspy.common.statistics.SNMP"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.statistics.SNMP</span></tt></a></p>
+<p>Float counter</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.common.statistics.SNMPString">
+<em class="property">class </em><tt class="descclassname">raspy.common.statistics.</tt><tt class="descname">SNMPString</tt><big>(</big><em>oid='module.snmp.key'</em>, <em>doc='A statistic string value'</em>, <em>initial=''</em><big>)</big><a class="headerlink" href="#raspy.common.statistics.SNMPString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspy.common.statistics.SNMP" title="raspy.common.statistics.SNMP"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.statistics.SNMP</span></tt></a></p>
+<p>Float counter</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.common.statistics.Statistics">
+<em class="property">class </em><tt class="descclassname">raspy.common.statistics.</tt><tt class="descname">Statistics</tt><a class="headerlink" href="#raspy.common.statistics.Statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>The statistics manager</p>
+<dl class="method">
+<dt id="raspy.common.statistics.Statistics.add_statistic">
+<tt class="descname">add_statistic</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.statistics.Statistics.add_statistic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new statistic to the manager</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.statistics.Statistics.remove_statistic">
+<tt class="descname">remove_statistic</tt><big>(</big><em>oid</em><big>)</big><a class="headerlink" href="#raspy.common.statistics.Statistics.remove_statistic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a statistic from the manager</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.statistics.Statistics.update_statistic">
+<tt class="descname">update_statistic</tt><big>(</big><em>oid=''</em><big>)</big><a class="headerlink" href="#raspy.common.statistics.Statistics.update_statistic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new statistic to the manager</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.statistics.Statistics.worker_statistics">
+<tt class="descname">worker_statistics</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.statistics.Statistics.worker_statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send statistics via mmi</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.supervisor">
+<span id="raspy-common-supervisor-module"></span><h2>raspy.common.supervisor module<a class="headerlink" href="#module-raspy.common.supervisor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.common.supervisor.Supervisor">
+<em class="property">class </em><tt class="descclassname">raspy.common.supervisor.</tt><tt class="descname">Supervisor</tt><big>(</big><em>runner=None</em><big>)</big><a class="headerlink" href="#raspy.common.supervisor.Supervisor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The worker supervisor</p>
+<p>Start executives in separate process see futures
+Each executive start multiples threads of workers</p>
+<dl class="docutils">
+<dt>todo :</dt>
+<dd><ul class="first last simple">
+<li>bug : can&#8217;t stop when jobs in queues</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="raspy.common.supervisor.Supervisor.get_instance_id">
+<tt class="descname">get_instance_id</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.supervisor.Supervisor.get_instance_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the instance of the worker : must be multihost and multithread.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.supervisor.Supervisor.reload">
+<tt class="descname">reload</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.supervisor.Supervisor.reload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request the workers confguration against the configurator.</p>
+<p>Will unregister all workers, stop all timers and ignore all further
+messages.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The instance MUST not be used after <a class="reference internal" href="#raspy.common.supervisor.Supervisor.shutdown" title="raspy.common.supervisor.Supervisor.shutdown"><tt class="xref py py-func docutils literal"><span class="pre">shutdown()</span></tt></a> has been called.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.supervisor.Supervisor.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.supervisor.Supervisor.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the IOLoop instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.supervisor.Supervisor.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.supervisor.Supervisor.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown supervisor.</p>
+<p>Will unregister all workers, stop all timers and ignore all further
+messages.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The instance MUST not be used after <a class="reference internal" href="#raspy.common.supervisor.Supervisor.shutdown" title="raspy.common.supervisor.Supervisor.shutdown"><tt class="xref py py-func docutils literal"><span class="pre">shutdown()</span></tt></a> has been called.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.supervisor.Supervisor.stop_executives">
+<tt class="descname">stop_executives</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.supervisor.Supervisor.stop_executives" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown executives.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common.zhelpers">
+<span id="raspy-common-zhelpers-module"></span><h2>raspy.common.zhelpers module<a class="headerlink" href="#module-raspy.common.zhelpers" title="Permalink to this headline">¶</a></h2>
+<p>Helper module for example applications. Mimics ZeroMQ Guide&#8217;s zhelpers.h.</p>
+<dl class="function">
+<dt id="raspy.common.zhelpers.dump">
+<tt class="descclassname">raspy.common.zhelpers.</tt><tt class="descname">dump</tt><big>(</big><em>msg_or_socket</em><big>)</big><a class="headerlink" href="#raspy.common.zhelpers.dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives all message parts from socket, printing each frame neatly</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="raspy.common.zhelpers.set_id">
+<tt class="descclassname">raspy.common.zhelpers.</tt><tt class="descname">set_id</tt><big>(</big><em>zsocket</em><big>)</big><a class="headerlink" href="#raspy.common.zhelpers.set_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set simple random printable identity on socket</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="raspy.common.zhelpers.zpipe">
+<tt class="descclassname">raspy.common.zhelpers.</tt><tt class="descname">zpipe</tt><big>(</big><em>ctx</em><big>)</big><a class="headerlink" href="#raspy.common.zhelpers.zpipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>build inproc pipe for talking to threads</p>
+<p>mimic pipe used in czmq zthread_fork.</p>
+<p>Returns a pair of PAIRs connected via inproc</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.common">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-raspy.common" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">raspy.common package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-raspy.common.MDP">raspy.common.MDP module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.client">raspy.common.client module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.dynamic">raspy.common.dynamic module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.executive">raspy.common.executive module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.kvcliapi">raspy.common.kvcliapi module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.kvsimple">raspy.common.kvsimple module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.mdcliapi">raspy.common.mdcliapi module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.mdwrkapi">raspy.common.mdwrkapi module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.runner">raspy.common.runner module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.server">raspy.common.server module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.statistics">raspy.common.statistics module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.supervisor">raspy.common.supervisor module</a></li>
+<li><a class="reference internal" href="#module-raspy.common.zhelpers">raspy.common.zhelpers module</a></li>
+<li><a class="reference internal" href="#module-raspy.common">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="man_dev.html"
+                        title="previous chapter">Developper manual of RasPy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="raspy.common.devices.html"
+                        title="next chapter">raspy.common.devices package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/raspy.common.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="raspy.common.devices.html" title="raspy.common.devices package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="man_dev.html" title="Developper manual of RasPy"
+             >previous</a> |</li>
+        <li><a href="contents.html">RasPy 0.0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Welcome to RasPy documentation!</a> &raquo;</li>
+          <li><a href="man_dev.html" >Developper manual of RasPy</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014-2015, Sébastien GALLET.
+    </div>
+  </body>
+</html>

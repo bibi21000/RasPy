@@ -1,0 +1,70 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+__license__ = """
+    This file is part of RasPy.
+
+    RasPy is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    RasPy is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with RasPy. If not, see <http://www.gnu.org/licenses/>.
+"""
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+
+import os,sys
+sys.path.insert(0, os.path.abspath('..'))
+from common.supervisor import RasPySupervisor
+from common.runner import Runner
+
+########## UPDATE THIS #########
+
+CONFIGURATOR="amqp://192.168.14.64/%s"%"Config"
+
+########## END         #########
+
+USER="sebastien"
+SERVICE="supervisor"
+
+class MySupervisor(Runner):
+
+    def app_run(self):
+        self.supervisor = RasPySupervisor(runner=self)
+        self.supervisor.run()
+
+    def app_shutdown(self):
+        self.supervisor.shutdown()
+        self.supervisor = None
+
+    def app_reload(self):
+        self.supervisor.reload()
+#DEBUG
+if not os.path.exists('/home/%s/RasPy/running/run'%USER):
+    print "Can't open /home/%s/RasPy/running/run."%USER
+    exit()
+if not os.path.exists('/home/%s/RasPy/running/log'%USER):
+    print "Can't open /home/%s/RasPy/running/log."%USER
+    exit()
+
+#~ host=socket.gethostname()
+#~ print(host)
+#~ daemon_runner = MySupervisor(hostname=host, service=SERVICE, \
+                  #~ stdout_path=STDOUT, stderr_path=STDERR, \
+                  #~ pidfile_path=PID, user=USER,
+                  #~ conffile="/etc/bigged.ini")
+daemon_runner = MySupervisor(service=SERVICE, user=USER, \
+                  run_dir="/home/%s/RasPy/running/run" % USER, log_dir="/home/%s/RasPy/running/log" % USER, \
+                  endpoint_autoconf=CONFIGURATOR)
+#This ensures that the logger file handle does not get closed during daemonization
+#daemon_runner.daemon_context.files_preserve=[handler.stream]
+daemon_runner.do_action()
+

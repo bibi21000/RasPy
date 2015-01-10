@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>raspy.servers package &mdash; RasPy 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="RasPy 0.0.1 documentation" href="index.html" />
+    <link rel="up" title="Developper manual of RasPy" href="man_dev.html" />
+    <link rel="prev" title="raspy.common.devices package" href="raspy.common.devices.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="raspy.common.devices.html" title="raspy.common.devices package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="contents.html">RasPy 0.0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Welcome to RasPy documentation!</a> &raquo;</li>
+          <li><a href="man_dev.html" accesskey="U">Developper manual of RasPy</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="raspy-servers-package">
+<h1>raspy.servers package<a class="headerlink" href="#raspy-servers-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-raspy.servers.broker">
+<span id="raspy-servers-broker-module"></span><h2>raspy.servers.broker module<a class="headerlink" href="#module-raspy.servers.broker" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.servers.broker.Broker">
+<em class="property">class </em><tt class="descclassname">raspy.servers.broker.</tt><tt class="descname">Broker</tt><big>(</big><em>hostname='localhost'</em>, <em>service='broker'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=15514</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="raspy.common.html#raspy.common.executive.Executive" title="raspy.common.executive.Executive"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.executive.Executive</span></tt></a></p>
+<p>Majordomo Protocol broker and key/value proxy.</p>
+<p><strong>Discovery process</strong></p>
+<p>Here is the way for a client to discover all devices on network</p>
+<p class="seqdiag">
+<img src="_images/seqdiag-934da08e629df5a29038e417be4536201756e758.png" alt="None" width="832" height="560" />
+</p>
+<p>You can do the same for crons and scenarios</p>
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.HEARTBEAT_EXPIRY">
+<tt class="descname">HEARTBEAT_EXPIRY</tt><em class="property"> = 7500</em><a class="headerlink" href="#raspy.servers.broker.Broker.HEARTBEAT_EXPIRY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.HEARTBEAT_INTERVAL">
+<tt class="descname">HEARTBEAT_INTERVAL</tt><em class="property"> = 2500</em><a class="headerlink" href="#raspy.servers.broker.Broker.HEARTBEAT_INTERVAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.HEARTBEAT_LIVENESS">
+<tt class="descname">HEARTBEAT_LIVENESS</tt><em class="property"> = 3</em><a class="headerlink" href="#raspy.servers.broker.Broker.HEARTBEAT_LIVENESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.INTERNAL_SERVICE_PREFIX">
+<tt class="descname">INTERNAL_SERVICE_PREFIX</tt><em class="property"> = 'mmi.'</em><a class="headerlink" href="#raspy.servers.broker.Broker.INTERNAL_SERVICE_PREFIX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.ctx">
+<tt class="descname">ctx</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Broker.ctx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.delete_worker">
+<tt class="descname">delete_worker</tt><big>(</big><em>worker</em>, <em>disconnect</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.delete_worker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes worker from all data structures, and deletes worker.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnect all workers, destroy context.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.dispatch">
+<tt class="descname">dispatch</tt><big>(</big><em>service</em>, <em>msg</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.dispatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dispatch requests to waiting workers as possible</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.heartbeat_at">
+<tt class="descname">heartbeat_at</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Broker.heartbeat_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.poller">
+<tt class="descname">poller</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Broker.poller" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.process_client">
+<tt class="descname">process_client</tt><big>(</big><em>sender</em>, <em>msg</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.process_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a request coming from a client.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.process_worker">
+<tt class="descname">process_worker</tt><big>(</big><em>sender</em>, <em>msg</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.process_worker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process message sent to us by a worker.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.purge_workers">
+<tt class="descname">purge_workers</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.purge_workers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for &amp; kill expired workers.</p>
+<p>Workers are oldest to most recent, so we stop at the first alive worker.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.require_service">
+<tt class="descname">require_service</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.require_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Locates the service (creates if necessary).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.require_worker">
+<tt class="descname">require_worker</tt><big>(</big><em>address</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.require_worker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the worker (creates if necessary).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main broker work happens here</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.send_heartbeats">
+<tt class="descname">send_heartbeats</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.send_heartbeats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send heartbeats to idle workers if it&#8217;s time</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.send_to_worker">
+<tt class="descname">send_to_worker</tt><big>(</big><em>worker</em>, <em>command</em>, <em>option</em>, <em>msg=None</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.send_to_worker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send message to worker.</p>
+<p>. If message is provided, sends that message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.service_internal">
+<tt class="descname">service_internal</tt><big>(</big><em>service</em>, <em>msg</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.service_internal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle internal service according to 8/MMI specification</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.services">
+<tt class="descname">services</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Broker.services" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown the broker.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.socket">
+<tt class="descname">socket</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Broker.socket" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.waiting">
+<tt class="descname">waiting</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Broker.waiting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Broker.worker_waiting">
+<tt class="descname">worker_waiting</tt><big>(</big><em>worker</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Broker.worker_waiting" title="Permalink to this definition">¶</a></dt>
+<dd><p>This worker is now waiting for work.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Broker.workers">
+<tt class="descname">workers</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Broker.workers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.servers.broker.Proxy">
+<em class="property">class </em><tt class="descclassname">raspy.servers.broker.</tt><tt class="descname">Proxy</tt><big>(</big><em>hostname='localhost'</em>, <em>service='broker'</em>, <em>broker_ip='*'</em>, <em>broker_port=5514</em>, <em>speed=1.0</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">threading.Thread</span></tt></p>
+<p>The publisher</p>
+<dl class="docutils">
+<dt>Tree :</dt>
+<dd><ul class="first last simple">
+<li>/event/</li>
+<li>/scenario/</li>
+<li>/device/</li>
+</ul>
+</dd>
+</dl>
+<p>from : <a class="reference external" href="http://zguide.zeromq.org/page:all#Working-with-Subtrees">http://zguide.zeromq.org/page:all#Working-with-Subtrees</a></p>
+<dl class="method">
+<dt id="raspy.servers.broker.Proxy.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.broker.Proxy.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the proxy</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Proxy.send_single">
+<tt class="descname">send_single</tt><big>(</big><em>key</em>, <em>kvmsg</em>, <em>route</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Proxy.send_single" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send one state snapshot key-value pair to a socket</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.broker.Proxy.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.broker.Proxy.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown the proxy.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.servers.broker.Route">
+<em class="property">class </em><tt class="descclassname">raspy.servers.broker.</tt><tt class="descname">Route</tt><big>(</big><em>socket</em>, <em>identity</em>, <em>subtree</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Route" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="raspy.servers.broker.Service">
+<em class="property">class </em><tt class="descclassname">raspy.servers.broker.</tt><tt class="descname">Service</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>a single Service</p>
+<dl class="attribute">
+<dt id="raspy.servers.broker.Service.name">
+<tt class="descname">name</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Service.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Service.requests">
+<tt class="descname">requests</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Service.requests" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Service.waiting">
+<tt class="descname">waiting</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Service.waiting" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.servers.broker.Worker">
+<em class="property">class </em><tt class="descclassname">raspy.servers.broker.</tt><tt class="descname">Worker</tt><big>(</big><em>identity</em>, <em>address</em>, <em>lifetime</em><big>)</big><a class="headerlink" href="#raspy.servers.broker.Worker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>a Worker, idle or active</p>
+<dl class="attribute">
+<dt id="raspy.servers.broker.Worker.address">
+<tt class="descname">address</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Worker.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Worker.expiry">
+<tt class="descname">expiry</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Worker.expiry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Worker.identity">
+<tt class="descname">identity</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Worker.identity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.broker.Worker.service">
+<tt class="descname">service</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.broker.Worker.service" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.servers.core">
+<span id="raspy-servers-core-module"></span><h2>raspy.servers.core module<a class="headerlink" href="#module-raspy.servers.core" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.servers.core.Core">
+<em class="property">class </em><tt class="descclassname">raspy.servers.core.</tt><tt class="descname">Core</tt><big>(</big><em>hostname='localhost'</em>, <em>service='core'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em><big>)</big><a class="headerlink" href="#raspy.servers.core.Core" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="raspy.common.html#raspy.common.server.Server" title="raspy.common.server.Server"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.server.Server</span></tt></a></p>
+<p>The Core server</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Cron</dt>
+<dd><ul class="first last simple">
+<li>Generate events in the publisher</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Scenario</dt>
+<dd><ul class="first last simple">
+<li>a scenario can run in background at startup (ie thermostat) or fired by an event (ie cron, sun is down, temperature is under 0°C)</li>
+<li>a scenario can be a loop so it must be launch in a separate thread : start filling, loop until water level is ok : need to call self._stopevent.isSet() in it so that the tread can shutdown.</li>
+<li>look for updates in entries list (cron, sensors, variables in the publisher) : a list mapped in friendly user&#8217;s names (using store)</li>
+<li>it can publish some values with publisher</li>
+<li>do some work using inline code python :</li>
+<li>send commands to devices, cron jobs, start other scenario, update some variables in publisher</li>
+<li>we can export/import scenarios : share with friends</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>NTP / Sytem Time / RTC Sync</dt>
+<dd><ul class="first last simple">
+<li>sync from ntp to rtc</li>
+<li>sync from trc to system : using sudo with no password</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="method">
+<dt id="raspy.servers.core.Core.worker_cron">
+<tt class="descname">worker_cron</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.core.Core.worker_cron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle cron requests</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.Core.worker_scenario">
+<tt class="descname">worker_scenario</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.core.Core.worker_scenario" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle scenario&#8217;s requests</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.Core.worker_scenarios">
+<tt class="descname">worker_scenarios</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.core.Core.worker_scenarios" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle scenarios requests (list_keys, ...)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.servers.core.Cron">
+<em class="property">class </em><tt class="descclassname">raspy.servers.core.</tt><tt class="descname">Cron</tt><a class="headerlink" href="#raspy.servers.core.Cron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A cron job</p>
+<dl class="attribute">
+<dt id="raspy.servers.core.Cron.aps_job">
+<tt class="descname">aps_job</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.core.Cron.aps_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.servers.core.CronManager">
+<em class="property">class </em><tt class="descclassname">raspy.servers.core.</tt><tt class="descname">CronManager</tt><a class="headerlink" href="#raspy.servers.core.CronManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>The manager of cron job</p>
+<dl class="attribute">
+<dt id="raspy.servers.core.CronManager.jobs">
+<tt class="descname">jobs</tt><em class="property"> = {}</em><a class="headerlink" href="#raspy.servers.core.CronManager.jobs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.servers.core.Scenario">
+<em class="property">class </em><tt class="descclassname">raspy.servers.core.</tt><tt class="descname">Scenario</tt><big>(</big><em>name='scenar1'</em>, <em>publisher=None</em><big>)</big><a class="headerlink" href="#raspy.servers.core.Scenario" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">threading.Thread</span></tt></p>
+<p>A scenario</p>
+<dl class="attribute">
+<dt id="raspy.servers.core.Scenario.code">
+<tt class="descname">code</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.servers.core.Scenario.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>The code we must exec</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.core.Scenario.conf">
+<tt class="descname">conf</tt><em class="property"> = {}</em><a class="headerlink" href="#raspy.servers.core.Scenario.conf" title="Permalink to this definition">¶</a></dt>
+<dd><p>The configuration of the scenario</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.core.Scenario.entries">
+<tt class="descname">entries</tt><em class="property"> = {}</em><a class="headerlink" href="#raspy.servers.core.Scenario.entries" title="Permalink to this definition">¶</a></dt>
+<dd><p>The entries we must look at for an event driven scenario</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.Scenario.fire">
+<tt class="descname">fire</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.core.Scenario.fire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the scenario must be fired using entries and that is not already running. If so, call sself.run()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the thread must be launch (self.run()), False otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.Scenario.load">
+<tt class="descname">load</tt><big>(</big><em>store</em><big>)</big><a class="headerlink" href="#raspy.servers.core.Scenario.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the scenario from titanic store</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>store</strong> &#8211; the store to get info from</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">titani_store</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the scenario was loaded from store</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.Scenario.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.core.Scenario.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the scenario</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.core.Scenario.running">
+<tt class="descname">running</tt><em class="property"> = False</em><a class="headerlink" href="#raspy.servers.core.Scenario.running" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is the scenario running</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.Scenario.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.core.Scenario.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown the scenario</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.Scenario.store">
+<tt class="descname">store</tt><big>(</big><em>store</em><big>)</big><a class="headerlink" href="#raspy.servers.core.Scenario.store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store the scenario to titanic store</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.servers.core.ScenarioManager">
+<em class="property">class </em><tt class="descclassname">raspy.servers.core.</tt><tt class="descname">ScenarioManager</tt><big>(</big><em>publisher=None</em><big>)</big><a class="headerlink" href="#raspy.servers.core.ScenarioManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>The manager of scenarios</p>
+<p><a class="reference external" href="http://etutorials.org/Programming/Python+tutorial/Part+III+Python+Library+and+Extension+Modules/Chapter+13.+Controlling+Execution/13.1+Dynamic+Execution+and+the+exec+Statement/">http://etutorials.org/Programming/Python+tutorial/Part+III+Python+Library+and+Extension+Modules/Chapter+13.+Controlling+Execution/13.1+Dynamic+Execution+and+the+exec+Statement/</a>
+<a class="reference external" href="http://lucumr.pocoo.org/2011/2/1/exec-in-python/">http://lucumr.pocoo.org/2011/2/1/exec-in-python/</a>
+<a class="reference external" href="http://late.am/post/2012/04/30/the-exec-statement-and-a-python-mystery">http://late.am/post/2012/04/30/the-exec-statement-and-a-python-mystery</a></p>
+<dl class="method">
+<dt id="raspy.servers.core.ScenarioManager.add">
+<tt class="descname">add</tt><big>(</big><em>name='scenar1'</em>, <em>entries={}</em>, <em>code=None</em>, <em>conf={}</em><big>)</big><a class="headerlink" href="#raspy.servers.core.ScenarioManager.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a scenario</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.ScenarioManager.delete">
+<tt class="descname">delete</tt><big>(</big><em>name='scenar1'</em><big>)</big><a class="headerlink" href="#raspy.servers.core.ScenarioManager.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete a scenario</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.ScenarioManager.list">
+<tt class="descname">list</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.core.ScenarioManager.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all scenarios with conf, entries, ... as json dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.ScenarioManager.list_keys">
+<tt class="descname">list_keys</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.core.ScenarioManager.list_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all scenarios key (=name) ... as json list</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.ScenarioManager.load">
+<tt class="descname">load</tt><big>(</big><em>store</em><big>)</big><a class="headerlink" href="#raspy.servers.core.ScenarioManager.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the scenarios from titanic store</p>
+<dl class="docutils">
+<dt>store keys :</dt>
+<dd><ul class="first last simple">
+<li>scenario.main.conf : a json dict for configuration of scenario</li>
+<li>scenario.main.keys : a json list of the scenario&#8217;s names</li>
+<li>scenario.key1.conf : a json dict for configuration of scenario key1</li>
+<li>scenario.key1.entries : a json dict of entries of scenario key1</li>
+<li>scenario.key1.code : a json string of code of scenario key1</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.servers.core.ScenarioManager.scenarios">
+<tt class="descname">scenarios</tt><em class="property"> = {}</em><a class="headerlink" href="#raspy.servers.core.ScenarioManager.scenarios" title="Permalink to this definition">¶</a></dt>
+<dd><p>The scenarios</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.ScenarioManager.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.core.ScenarioManager.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown the scenario manager</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.ScenarioManager.store">
+<tt class="descname">store</tt><big>(</big><em>store</em><big>)</big><a class="headerlink" href="#raspy.servers.core.ScenarioManager.store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store the scenarios to titanic store</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.core.ScenarioManager.update">
+<tt class="descname">update</tt><big>(</big><em>name='scenar1'</em>, <em>entries={}</em>, <em>code=None</em>, <em>conf={}</em><big>)</big><a class="headerlink" href="#raspy.servers.core.ScenarioManager.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a scenario</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.servers.fake">
+<span id="raspy-servers-fake-module"></span><h2>raspy.servers.fake module<a class="headerlink" href="#module-raspy.servers.fake" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.servers.fake.Fake">
+<em class="property">class </em><tt class="descclassname">raspy.servers.fake.</tt><tt class="descname">Fake</tt><big>(</big><em>hostname='localhost'</em>, <em>service='fake'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em><big>)</big><a class="headerlink" href="#raspy.servers.fake.Fake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="raspy.common.html#raspy.common.server.Server" title="raspy.common.server.Server"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.server.Server</span></tt></a></p>
+<p>A fake server to test RasPy</p>
+<ul class="simple">
+<li>we must developp &#8220;real&#8221; fake device : ie a temperature sensors must not send random values</li>
+<li>a cyclic sensor : parameters : cycle length, min, max and unit. Will do cycle from min temp to max temp (at cycle/2) and fall back tp min temp at end of if</li>
+<li>a linear sensor</li>
+<li></li>
+</ul>
+<dl class="method">
+<dt id="raspy.servers.fake.Fake.worker_devices">
+<tt class="descname">worker_devices</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.fake.Fake.worker_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle devices requests</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.servers.onewire">
+<span id="raspy-servers-onewire-module"></span><h2>raspy.servers.onewire module<a class="headerlink" href="#module-raspy.servers.onewire" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.servers.onewire.OneWire">
+<em class="property">class </em><tt class="descclassname">raspy.servers.onewire.</tt><tt class="descname">OneWire</tt><big>(</big><em>hostname='localhost'</em>, <em>service='onewire'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em>, <em>devices_dir='/sys/bus/w1/devices'</em><big>)</big><a class="headerlink" href="#raspy.servers.onewire.OneWire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="raspy.common.html#raspy.common.server.Server" title="raspy.common.server.Server"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.server.Server</span></tt></a></p>
+<p>The OneWire server</p>
+<p>From <a class="reference external" href="https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi">https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi</a></p>
+<dl class="method">
+<dt id="raspy.servers.onewire.OneWire.worker_devices">
+<tt class="descname">worker_devices</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.onewire.OneWire.worker_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle devices requests</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.servers.titanic">
+<span id="raspy-servers-titanic-module"></span><h2>raspy.servers.titanic module<a class="headerlink" href="#module-raspy.servers.titanic" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.servers.titanic.Titanic">
+<em class="property">class </em><tt class="descclassname">raspy.servers.titanic.</tt><tt class="descname">Titanic</tt><big>(</big><em>hostname='localhost'</em>, <em>service='titanic'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em>, <em>data_dir='/tmp/raspy'</em><big>)</big><a class="headerlink" href="#raspy.servers.titanic.Titanic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="raspy.common.html#raspy.common.executive.Executive" title="raspy.common.executive.Executive"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.executive.Executive</span></tt></a></p>
+<p>The Titanic helper</p>
+<p>Also integrates a store for keys/values</p>
+<dl class="docutils">
+<dt>From <a class="reference external" href="http://zguide.zeromq.org/py:all#Disconnected-Reliability-Titanic-Pattern">http://zguide.zeromq.org/py:all#Disconnected-Reliability-Titanic-Pattern</a></dt>
+<dd><a class="reference external" href="http://zguide.zeromq.org/py:all#Service-Oriented-Reliable-Queuing-Majordomo-Pattern">http://zguide.zeromq.org/py:all#Service-Oriented-Reliable-Queuing-Majordomo-Pattern</a>
+<a class="reference external" href="https://github.com/imatix/zguide/tree/master/examples/Python">https://github.com/imatix/zguide/tree/master/examples/Python</a></dd>
+</dl>
+<dl class="method">
+<dt id="raspy.servers.titanic.Titanic.reply_filename">
+<tt class="descname">reply_filename</tt><big>(</big><em>uuid</em><big>)</big><a class="headerlink" href="#raspy.servers.titanic.Titanic.reply_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns freshly allocated reply filename for given UUID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.titanic.Titanic.request_filename">
+<tt class="descname">request_filename</tt><big>(</big><em>uuid</em><big>)</big><a class="headerlink" href="#raspy.servers.titanic.Titanic.request_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns freshly allocated request filename for given UUID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.titanic.Titanic.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.titanic.Titanic.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the hub</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.titanic.Titanic.service_success">
+<tt class="descname">service_success</tt><big>(</big><em>client</em>, <em>uuid</em><big>)</big><a class="headerlink" href="#raspy.servers.titanic.Titanic.service_success" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempt to process a single request, return True if successful</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.titanic.Titanic.store_filename">
+<tt class="descname">store_filename</tt><big>(</big><em>service</em><big>)</big><a class="headerlink" href="#raspy.servers.titanic.Titanic.store_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns store filename for given service</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.titanic.Titanic.titanic_close">
+<tt class="descname">titanic_close</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.titanic.Titanic.titanic_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle titanic.close</p>
+<p>titanic.close: confirm that a reply has been stored and processed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.titanic.Titanic.titanic_reply">
+<tt class="descname">titanic_reply</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.titanic.Titanic.titanic_reply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle titanic.service</p>
+<p>titanic.reply: fetch a reply, if available, for a given request UUID.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.titanic.Titanic.titanic_request">
+<tt class="descname">titanic_request</tt><big>(</big><em>pipe</em><big>)</big><a class="headerlink" href="#raspy.servers.titanic.Titanic.titanic_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle titanic.request</p>
+<p>titanic.request: store a request message, and return a UUID for the request.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.titanic.Titanic.titanic_store">
+<tt class="descname">titanic_store</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.titanic.Titanic.titanic_store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle store services</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.servers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-raspy.servers" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">raspy.servers package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-raspy.servers.broker">raspy.servers.broker module</a></li>
+<li><a class="reference internal" href="#module-raspy.servers.core">raspy.servers.core module</a></li>
+<li><a class="reference internal" href="#module-raspy.servers.fake">raspy.servers.fake module</a></li>
+<li><a class="reference internal" href="#module-raspy.servers.onewire">raspy.servers.onewire module</a></li>
+<li><a class="reference internal" href="#module-raspy.servers.titanic">raspy.servers.titanic module</a></li>
+<li><a class="reference internal" href="#module-raspy.servers">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="raspy.common.devices.html"
+                        title="previous chapter">raspy.common.devices package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/raspy.servers.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="raspy.common.devices.html" title="raspy.common.devices package"
+             >previous</a> |</li>
+        <li><a href="contents.html">RasPy 0.0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Welcome to RasPy documentation!</a> &raquo;</li>
+          <li><a href="man_dev.html" >Developper manual of RasPy</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014-2015, Sébastien GALLET.
+    </div>
+  </body>
+</html>

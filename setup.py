@@ -81,5 +81,6 @@ setup(
                      'nose >= 1.3.1',
                      'coverage >= 3.7.1',
                      'pylint >= 1.3.0',
+                     'docutils >= 0.11',
                     ]
 )

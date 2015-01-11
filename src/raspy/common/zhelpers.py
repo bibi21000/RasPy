@@ -31,7 +31,7 @@ def dump(msg_or_socket):
 def set_id(zsocket):
     """Set simple random printable identity on socket"""
     #identity = u"%04x-%04x" % (randint(0, 0x10000), randint(0, 0x10000))
-    identity = u"{0:04x}-{1:04x}".format(randint(0, 0x10000), randint(0, 0x10000))
+    identity = "{0:04x}-{1:04x}".format(randint(0, 0x10000), randint(0, 0x10000))
     zsocket.setsockopt_string(zmq.IDENTITY, identity)
 
 

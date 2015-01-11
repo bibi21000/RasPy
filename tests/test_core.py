@@ -36,7 +36,7 @@ from raspy.common.mdcliapi import MajorDomoClient
 import threading
 import logging
 
-from common import TestServer, ServerBase
+from tests.common import TestServer, ServerBase
 
 class TestCore(TestServer, ServerBase):
     service="core"

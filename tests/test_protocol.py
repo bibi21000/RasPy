@@ -42,7 +42,7 @@ import zmq
 from cStringIO import StringIO
 from contextlib import contextmanager
 
-from common import TestRasPy, TestExecutive
+from tests.common import TestRasPy, TestExecutive
 
 class TestProtocol(TestRasPy):
     """

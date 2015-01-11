@@ -8,6 +8,7 @@ python:
   - "3.4"
 # command to install dependencies
 install:
+  - pip install setuptools
   - pip install docutils
   - python setup.py -q install
 # command to run tests
@@ -15,5 +16,5 @@ script: nosetests
 # package dependencies
 before_install:
  - sudo apt-get update -y -qq
- - sudo apt-get install -y -qq build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-setuptools
+ - sudo apt-get install -y -qq build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git
  - sudo apt-get remove -y -qq python-zmq libzmq1 libzmq-dev

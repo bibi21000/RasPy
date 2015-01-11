@@ -32,7 +32,7 @@ from raspy.common.devices import *
 import raspy.common.devices as devices
 from raspy.common.devices.device import DReg
 
-from common import TestDevice, BaseDevice
+from tests.common import TestDevice, BaseDevice
 import json as mjson
 
 class BaseSensor(object):

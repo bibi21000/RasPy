@@ -28,20 +28,22 @@ SLEEP=0.25
 import sys, os
 import time
 import unittest
-from pprint import pprint
+import threading
+import logging
+import json as mjson
+from cStringIO import StringIO
+from contextlib import contextmanager
+
+from nose.plugins.skip import SkipTest
 
 import raspy.common.MDP as MDP
 from raspy.servers.broker import Broker
 from raspy.servers.titanic import Titanic
 from raspy.common.server import Server
 from raspy.common.mdcliapi import MajorDomoClient
-import threading
-import logging
-
-from cStringIO import StringIO
-from contextlib import contextmanager
-
-from nose.plugins.skip import SkipTest
+from raspy.common.devices import *
+import raspy.common.devices as devices
+from raspy.common.devices.device import DReg
 
 @contextmanager
 def capture(command, *args, **kwargs):
@@ -213,6 +215,38 @@ class ServerBase():
         self.assertNotEqual(reply, None)
         self.assertEqual(reply[-1], MDP.T_NOTIMPLEMENTED)
         self.stopServer()
+
+class TestDevice(TestRasPy):
+    key="base"
+
+class BaseDevice(object):
+
+    def test_000_device_register(self):
+        device_name = 'test_%s_device' % self.oid
+        conf = mjson.dumps(\
+            { 'oid' : '%s.%s' % (self.key, self.oid), \
+              'name' : device_name, \
+            })
+        device = DReg.new(json=conf)
+        self.assertEqual(device.name, device_name)
+        template = device.template
+        self.assertNotEqual(template, None)
+        self.assertTrue('config' in template)
+        json = device.json
+        self.assertNotEqual(json, None)
+        self.assertTrue('oid' in json)
+        self.assertTrue('name' in json)
+
+    def test_001_device_register_bad(self):
+        device_name = 'test_%s_device' % self.oid
+        conf = mjson.dumps(\
+            { 'oid' : '%s.%s' % (self.key, self.oid), \
+            })
+        self.assertRaises(KeyError, DReg.new,json=conf)
+        conf = mjson.dumps(\
+            { 'name' : device_name, \
+            })
+        self.assertRaises(KeyError, DReg.new,json=conf)
 
 if __name__ == '__main__':
     sys.argv.append('-v')

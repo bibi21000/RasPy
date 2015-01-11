@@ -80,7 +80,6 @@ setup(
                      'nose-progressive == 1.5.1',
                      'nose >= 1.3.1',
                      'coverage >= 3.7.1',
-                     'pylint >= 1.3.0',
                      'python-daemon >= 2.0.0',
                     ]
 )

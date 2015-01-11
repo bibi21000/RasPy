@@ -26,8 +26,12 @@ import threading
 from uuid import uuid4
 import traceback
 import os
-from ConfigParser import SafeConfigParser
-import ConfigParser
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
 import zmq
 import raspy.common.MDP as MDP
 from raspy.common.executive import Executive

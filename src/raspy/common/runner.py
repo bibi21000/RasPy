@@ -241,7 +241,7 @@ class Runner(object):
         pid = self.pidfile.read_pid()
         try:
             os.kill(pid, signal.SIGTERM)
-        except OSError, exc:
+        except OSError as exc:
             raise RunnerStopFailureError(
                 "Failed to terminate %(pid)d: %(exc)s" % vars())
 

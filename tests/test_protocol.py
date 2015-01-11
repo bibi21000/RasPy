@@ -39,8 +39,6 @@ from raspy.common.kvcliapi import KvPublisherClient, KvSubscriberClient
 import threading
 import logging
 import zmq
-from cStringIO import StringIO
-from contextlib import contextmanager
 
 from tests.common import TestRasPy, TestExecutive
 

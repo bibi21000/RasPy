@@ -80,16 +80,20 @@ mode :
 
    sudo make develop
 
-Otherwise install it normaly
+Otherwise install it normaly ... but not now ;) :
 
    sudo make install
 
 And be patient ... installation need to compile zmq ... It takes a
-while
+while ...
 
 
 Run the tests
 =============
+
+Check that the SLEEP constant in tests/common.py ist set to 1.0 or 1.5
+
+   vim tests/common.py
 
 You can now check that everything is fine running the tests :
 

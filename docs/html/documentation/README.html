@@ -106,14 +106,18 @@ Idealy, you should create a special user for running RasPy or the pi user. Keep 
 <div class="highlight-bash"><div class="highlight"><pre>sudo make develop
 </pre></div>
 </div>
-<p>Otherwise install it normaly</p>
+<p>Otherwise install it normaly ... but not now ;) :</p>
 <div class="highlight-bash"><div class="highlight"><pre>sudo make install
 </pre></div>
 </div>
-<p>And be patient ... installation need to compile zmq ... It takes a while</p>
+<p>And be patient ... installation need to compile zmq ... It takes a while ...</p>
 </div>
 <div class="section" id="run-the-tests">
 <h2>Run the tests<a class="headerlink" href="#run-the-tests" title="Permalink to this headline">¶</a></h2>
+<p>Check that the SLEEP constant in tests/common.py ist set to 1.0 or 1.5</p>
+<div class="highlight-bash"><div class="highlight"><pre>vim tests/common.py
+</pre></div>
+</div>
 <p>You can now check that everything is fine running the tests :</p>
 <div class="highlight-bash"><div class="highlight"><pre>make tests
 </pre></div>

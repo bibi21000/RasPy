@@ -44,7 +44,7 @@ You can now update packages
 
 We need to install some packages to download and build RasPy:
 
-   sudo apt-get -y install build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-setuptools python-docutils
+   sudo apt-get -y install build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-setuptools python-docutils python-pylint
 
 Some packages need to be removed as new versions are available from
 eggs :

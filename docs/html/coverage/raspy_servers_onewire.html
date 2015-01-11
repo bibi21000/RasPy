@@ -225,25 +225,25 @@
 <p id='t32' class='stm run hide_run'><span class='key'>import</span> <span class='nam'>logging</span><span class='strut'>&nbsp;</span></p>
 <p id='t33' class='pln'><span class='strut'>&nbsp;</span></p>
 <p id='t34' class='stm run hide_run'><span class='key'>class</span> <span class='nam'>OneWire</span><span class='op'>(</span><span class='nam'>Server</span><span class='op'>)</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
-<p id='t35' class='pln'>&nbsp; &nbsp; <span class='str'>&quot;&quot;&quot;The OneWire server</span><span class='strut'>&nbsp;</span></p>
-<p id='t36' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t37' class='pln'><span class='str'>&nbsp; &nbsp; Configuration</span><span class='strut'>&nbsp;</span></p>
-<p id='t38' class='pln'><span class='str'>&nbsp; &nbsp; -------------</span><span class='strut'>&nbsp;</span></p>
-<p id='t39' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t40' class='pln'><span class='str'>&nbsp; &nbsp; You need to load kernel module :</span><span class='strut'>&nbsp;</span></p>
-<p id='t41' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t42' class='pln'><span class='str'>&nbsp; &nbsp; .. code-block:: bash</span><span class='strut'>&nbsp;</span></p>
-<p id='t43' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t44' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; sudo vim /etc/modules</span><span class='strut'>&nbsp;</span></p>
-<p id='t45' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t46' class='pln'><span class='str'>&nbsp; &nbsp; .. code-block:: bash</span><span class='strut'>&nbsp;</span></p>
-<p id='t47' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t48' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; # /etc/modules: kernel modules to load at boot time.</span><span class='strut'>&nbsp;</span></p>
-<p id='t49' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; #</span><span class='strut'>&nbsp;</span></p>
-<p id='t50' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; # This file contains the names of kernel modules that should be loaded</span><span class='strut'>&nbsp;</span></p>
-<p id='t51' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; # at boot time, one per line. Lines beginning with &quot;#&quot; are ignored.</span><span class='strut'>&nbsp;</span></p>
-<p id='t52' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; # Parameters can be specified after the module name.</span><span class='strut'>&nbsp;</span></p>
-<p id='t53' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t35' class='pln'>&nbsp; &nbsp; <span class='str'>&quot;&quot;&quot;</span><span class='strut'>&nbsp;</span></p>
+<p id='t36' class='pln'><span class='str'>&nbsp; &nbsp; The OneWire server</span><span class='strut'>&nbsp;</span></p>
+<p id='t37' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t38' class='pln'><span class='str'>&nbsp; &nbsp; Configuration</span><span class='strut'>&nbsp;</span></p>
+<p id='t39' class='pln'><span class='str'>&nbsp; &nbsp; -------------</span><span class='strut'>&nbsp;</span></p>
+<p id='t40' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t41' class='pln'><span class='str'>&nbsp; &nbsp; You need to load kernel module :</span><span class='strut'>&nbsp;</span></p>
+<p id='t42' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t43' class='pln'><span class='str'>&nbsp; &nbsp; .. code-block:: bash</span><span class='strut'>&nbsp;</span></p>
+<p id='t44' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t45' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; sudo vim /etc/modules</span><span class='strut'>&nbsp;</span></p>
+<p id='t46' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t47' class='pln'><span class='str'>&nbsp; &nbsp; .. code-block:: bash</span><span class='strut'>&nbsp;</span></p>
+<p id='t48' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t49' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; # /etc/modules: kernel modules to load at boot time.</span><span class='strut'>&nbsp;</span></p>
+<p id='t50' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; #</span><span class='strut'>&nbsp;</span></p>
+<p id='t51' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; # This file contains the names of kernel modules that should be loaded</span><span class='strut'>&nbsp;</span></p>
+<p id='t52' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; # at boot time, one per line. Lines beginning with &quot;#&quot; are ignored.</span><span class='strut'>&nbsp;</span></p>
+<p id='t53' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; # Parameters can be specified after the module name.</span><span class='strut'>&nbsp;</span></p>
 <p id='t54' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; w1-therm</span><span class='strut'>&nbsp;</span></p>
 <p id='t55' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; w1-gpio pullup=1</span><span class='strut'>&nbsp;</span></p>
 <p id='t56' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; i2c-dev</span><span class='strut'>&nbsp;</span></p>
@@ -260,15 +260,15 @@
 <p id='t67' class='pln'><span class='str'>&nbsp; &nbsp; .. code-block:: bash</span><span class='strut'>&nbsp;</span></p>
 <p id='t68' class='pln'><span class='strut'>&nbsp;</span></p>
 <p id='t69' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; # blacklist spi and i2c by default (many users don&#39;t need them)</span><span class='strut'>&nbsp;</span></p>
-<p id='t70' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t71' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; blacklist spi-bcm2708</span><span class='strut'>&nbsp;</span></p>
-<p id='t72' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; blacklist i2c-bcm2708</span><span class='strut'>&nbsp;</span></p>
-<p id='t73' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; blacklist snd-soc-pcm512x</span><span class='strut'>&nbsp;</span></p>
-<p id='t74' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; blacklist snd-soc-wm8804</span><span class='strut'>&nbsp;</span></p>
-<p id='t75' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t76' class='pln'><span class='str'>&nbsp; &nbsp; At last, we must load the module in init script sothat we don&#39;t need to update this.</span><span class='strut'>&nbsp;</span></p>
-<p id='t77' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t78' class='pln'><span class='str'>&nbsp; &nbsp; From https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi</span><span class='strut'>&nbsp;</span></p>
+<p id='t70' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; blacklist spi-bcm2708</span><span class='strut'>&nbsp;</span></p>
+<p id='t71' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; blacklist i2c-bcm2708</span><span class='strut'>&nbsp;</span></p>
+<p id='t72' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; blacklist snd-soc-pcm512x</span><span class='strut'>&nbsp;</span></p>
+<p id='t73' class='pln'><span class='str'>&nbsp; &nbsp; &nbsp; &nbsp; blacklist snd-soc-wm8804</span><span class='strut'>&nbsp;</span></p>
+<p id='t74' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t75' class='pln'><span class='str'>&nbsp; &nbsp; At last, we must load the module in init script sothat we don&#39;t need to update this.</span><span class='strut'>&nbsp;</span></p>
+<p id='t76' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t77' class='pln'><span class='str'>&nbsp; &nbsp; From https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi</span><span class='strut'>&nbsp;</span></p>
+<p id='t78' class='pln'><span class='strut'>&nbsp;</span></p>
 <p id='t79' class='pln'><span class='str'>&nbsp; &nbsp; &quot;&quot;&quot;</span><span class='strut'>&nbsp;</span></p>
 <p id='t80' class='pln'><span class='strut'>&nbsp;</span></p>
 <p id='t81' class='stm run hide_run'>&nbsp; &nbsp; <span class='key'>def</span> <span class='nam'>__init__</span><span class='op'>(</span><span class='nam'>self</span><span class='op'>,</span> <span class='nam'>hostname</span><span class='op'>=</span><span class='str'>&#39;localhost&#39;</span><span class='op'>,</span> <span class='nam'>service</span><span class='op'>=</span><span class='str'>&quot;onewire&quot;</span><span class='op'>,</span> <span class='nam'>broker_ip</span><span class='op'>=</span><span class='str'>&#39;127.0.0.1&#39;</span><span class='op'>,</span> <span class='nam'>broker_port</span><span class='op'>=</span><span class='num'>5514</span><span class='op'>,</span> <span class='xx'>\</span><span class='strut'>&nbsp;</span></p>

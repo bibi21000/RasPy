@@ -21,7 +21,7 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import cPickle as pickle
+import pickle
 import threading
 from uuid import uuid4
 import traceback

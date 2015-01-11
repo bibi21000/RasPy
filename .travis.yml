@@ -13,7 +13,6 @@ install:
 script: nosetests
 # package dependencies
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get dist-upgrade -qq
- - sudo apt-get install -qq build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-setuptools python-docutils
- - sudo apt-get remove -qq python-zmq libzmq1 libzmq-dev
+ - sudo apt-get update -y -qq
+ - sudo apt-get install -y -qq build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-setuptools python-docutils
+ - sudo apt-get remove -y -qq python-zmq libzmq1 libzmq-dev

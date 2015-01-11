@@ -78,6 +78,7 @@ setup(
                      'Flask == 0.10.1',
                      'Flask-Testing == 0.4.2',
                      'Flask-WTF == 0.9.5',
+                     'Babel >= 1.0',
                      'Flask-Babel == 0.9',
                      'Jinja2 >= 2.5.5',
                      'nose-html == 1.1',

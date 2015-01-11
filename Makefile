@@ -5,7 +5,7 @@
 BUILDDIR      = _build
 NOSE          = /usr/local/bin/nosetests
 NOSEOPTS      = --verbosity=2
-NOSECOVER     = --cover-package=raspy --cover-min-percentage= --with-coverage --cover-inclusive --cover-tests --cover-html --cover-html-dir=docs/html/coverage --with-html --html-file=docs/html/nosetests/nosetests.html
+NOSECOVER     = --cover-package=raspy,raspyweb,raspyui --cover-min-percentage= --with-coverage --cover-inclusive --cover-tests --cover-html --cover-html-dir=docs/html/coverage --with-html --html-file=docs/html/nosetests/nosetests.html
 PYLINT        = /usr/local/bin/pylint
 PYLINTOPTS    = --max-line-length=130 --max-args=9 --extension-pkg-whitelist=zmq
 
@@ -40,6 +40,8 @@ uninstall: clean
 	-sudo rm -rf dist
 	-sudo rm -rf raspy.egg-info
 	-sudo rm -rf src/raspy.egg-info
+	-sudo rm -rf raspyweb.egg-info
+	-sudo rm -rf src-http/raspyweb.egg-info
 	-sudo rm -Rf /usr/local/lib/python2.7/dist-packages/raspy*
 
 docs: cleandocs
@@ -60,6 +62,8 @@ install:
 
 develop:
 	sudo python setup.py develop
+	sudo python setup-http.py develop
+	sudo python setup-ui.py develop
 	@echo
 	@echo "Installation for developpers finished."
 
@@ -83,7 +87,7 @@ git: clean docs
 
 pylint:
 	-mkdir -p docs/html/pylint
-	-$(PYLINT) $(PYLINTOPTS) src/raspy src/scripts
+	-$(PYLINT) $(PYLINTOPTS) src/raspy src/scripts src-http/raspyweb src-http/scripts src-ui/raspyweb src-ui/scripts
 	@echo
 	@echo "Pylint finished."
 

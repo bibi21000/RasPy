@@ -9,7 +9,7 @@ NOSECOVER     = --cover-package=raspy --with-coverage --cover-inclusive --cover-
 PYLINT        = /usr/local/bin/pylint
 PYLINTOPTS    = --max-line-length=130 --max-args=9 --extension-pkg-whitelist=zmq
 
-.PHONY: help clean all develop install uninstall cleandoc docs tests devtests pylint
+.PHONY: help clean all develop install uninstall cleandoc docs tests devtests pylint git
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -22,7 +22,7 @@ help:
 	@echo "  pylint     to check code quality"
 	@echo "  clean      to clean the development directory"
 
-cleandoc: clean
+cleandocs: clean
 	-rm -rf docs/html
 	-rm -rf docs/pdf
 
@@ -39,14 +39,13 @@ uninstall: clean
 	-sudo rm -rf raspy.egg-info
 	-sudo rm -rf src/raspy.egg-info
 
-docs: cleandoc
+docs: cleandocs
 	-mkdir -p docs/html/nosetests
 	-mkdir -p docs/html/coverage
 	-mkdir -p docs/html/pylint
 	-$(NOSE) $(NOSEOPTS) $(NOSECOVER) tests/
 	-$(PYLINT) --output-format=html $(PYLINTOPTS) src/raspy src/scripts >docs/html/pylint/report.html
 	cd docs && make docs
-	cd docs/html && ln -s documentation/index.html index.html
 	cp docs/_build/text/README.txt README.md
 	@echo
 	@echo "Documentation finished."
@@ -64,7 +63,7 @@ develop:
 tests:
 	export NOSESKIP=False && $(NOSE) $(NOSEOPTS) tests/ --with-progressive; unset NOSESKIP
 	@echo
-	@echo "Tests finished."
+	@echo "Tests for Raspberry pi finished."
 
 devtests:
 	-mkdir -p docs/html/nosetests
@@ -72,6 +71,12 @@ devtests:
 	-$(NOSE) $(NOSEOPTS) $(NOSECOVER) tests/
 	@echo
 	@echo "Tests for developpers finished."
+
+git: clean docs
+	git commit -m "Auto-commit for docs" README.md docs/
+	git push
+	@echo
+	@echo "Commits pushed on github."
 
 pylint:
 	-mkdir -p docs/html/pylint

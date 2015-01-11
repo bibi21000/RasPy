@@ -25,7 +25,7 @@ __email__ = 'bibi21000@gmail.com'
 
 # Update this value when running on raspberry
 # 1.5 is a good choice
-SLEEP = 0.25
+SLEEP = 0.50
 
 import sys, os
 import time

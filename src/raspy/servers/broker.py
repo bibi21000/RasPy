@@ -270,7 +270,9 @@ class Broker(Executive):
         for key in self.workers.keys():
             try:
                 self.delete_worker(self.workers[key], True)
-            except ValueError, RuntimeError:
+            except ValueError:
+                pass
+            except RuntimeError:
                 pass
         self.ctx.destroy(0)
 

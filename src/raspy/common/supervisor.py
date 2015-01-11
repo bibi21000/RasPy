@@ -68,7 +68,7 @@ class Supervisor():
         """
         if self.reload_in_progress == True or self._stop == True:
             return
-        print "reload"
+        #print "reload"
         self.reload_in_progress = True
         self.stop_executives()
         if os.path.isfile(self.options['conffile_path']):

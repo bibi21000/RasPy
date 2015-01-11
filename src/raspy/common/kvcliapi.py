@@ -44,7 +44,6 @@ class KvPublisherClient(object):
             subtree = "/" + subtree
         if subtree[len(subtree)-1] != "/":
             subtree = subtree + "/"
-        print subtree
         kvmsg = KVMsg(0)
         kvmsg.key = subtree + "%s" % key
         kvmsg.body = "%s" % body

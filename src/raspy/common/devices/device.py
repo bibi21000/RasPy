@@ -156,8 +156,6 @@ class DeviceRegister(object):
         """
         conf = mjson.loads(kwargs['json'])
         oid = conf['oid']
-        print oid
-        print self._register
         assert oid in self._register
         logging.debug("DReg - Create new device for oid %s" % oid)
         #That works ... but I don't know why !!!

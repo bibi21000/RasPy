@@ -93,18 +93,18 @@
 <p id='n30' class='pln'><a href='#n30'>30</a></p>
 <p id='n31' class='stm run hide_run'><a href='#n31'>31</a></p>
 <p id='n32' class='pln'><a href='#n32'>32</a></p>
-<p id='n33' class='stm mis'><a href='#n33'>33</a></p>
+<p id='n33' class='pln'><a href='#n33'>33</a></p>
 <p id='n34' class='stm mis'><a href='#n34'>34</a></p>
-<p id='n35' class='pln'><a href='#n35'>35</a></p>
+<p id='n35' class='stm mis'><a href='#n35'>35</a></p>
 <p id='n36' class='pln'><a href='#n36'>36</a></p>
-<p id='n37' class='stm run hide_run'><a href='#n37'>37</a></p>
-<p id='n38' class='pln'><a href='#n38'>38</a></p>
+<p id='n37' class='pln'><a href='#n37'>37</a></p>
+<p id='n38' class='stm run hide_run'><a href='#n38'>38</a></p>
 <p id='n39' class='pln'><a href='#n39'>39</a></p>
 <p id='n40' class='pln'><a href='#n40'>40</a></p>
 <p id='n41' class='pln'><a href='#n41'>41</a></p>
 <p id='n42' class='pln'><a href='#n42'>42</a></p>
 <p id='n43' class='pln'><a href='#n43'>43</a></p>
-<p id='n44' class='stm run hide_run'><a href='#n44'>44</a></p>
+<p id='n44' class='pln'><a href='#n44'>44</a></p>
 <p id='n45' class='stm run hide_run'><a href='#n45'>45</a></p>
 <p id='n46' class='stm run hide_run'><a href='#n46'>46</a></p>
 <p id='n47' class='stm run hide_run'><a href='#n47'>47</a></p>
@@ -112,6 +112,7 @@
 <p id='n49' class='stm run hide_run'><a href='#n49'>49</a></p>
 <p id='n50' class='stm run hide_run'><a href='#n50'>50</a></p>
 <p id='n51' class='stm run hide_run'><a href='#n51'>51</a></p>
+<p id='n52' class='stm run hide_run'><a href='#n52'>52</a></p>
                 
             </td>
             <td class='text' valign='top'>
@@ -147,25 +148,26 @@
 <p id='t30' class='pln'><span class='strut'>&nbsp;</span></p>
 <p id='t31' class='stm run hide_run'><span class='key'>def</span> <span class='nam'>set_id</span><span class='op'>(</span><span class='nam'>zsocket</span><span class='op'>)</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
 <p id='t32' class='pln'>&nbsp; &nbsp; <span class='str'>&quot;&quot;&quot;Set simple random printable identity on socket&quot;&quot;&quot;</span><span class='strut'>&nbsp;</span></p>
-<p id='t33' class='stm mis'>&nbsp; &nbsp; <span class='nam'>identity</span> <span class='op'>=</span> <span class='str'>u&quot;%04x-%04x&quot;</span> <span class='op'>%</span> <span class='op'>(</span><span class='nam'>randint</span><span class='op'>(</span><span class='num'>0</span><span class='op'>,</span> <span class='num'>0x10000</span><span class='op'>)</span><span class='op'>,</span> <span class='nam'>randint</span><span class='op'>(</span><span class='num'>0</span><span class='op'>,</span> <span class='num'>0x10000</span><span class='op'>)</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
-<p id='t34' class='stm mis'>&nbsp; &nbsp; <span class='nam'>zsocket</span><span class='op'>.</span><span class='nam'>setsockopt_string</span><span class='op'>(</span><span class='nam'>zmq</span><span class='op'>.</span><span class='nam'>IDENTITY</span><span class='op'>,</span> <span class='nam'>identity</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
-<p id='t35' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t33' class='pln'>&nbsp; &nbsp; <span class='com'>#identity = u&quot;%04x-%04x&quot; % (randint(0, 0x10000), randint(0, 0x10000))</span><span class='strut'>&nbsp;</span></p>
+<p id='t34' class='stm mis'>&nbsp; &nbsp; <span class='nam'>identity</span> <span class='op'>=</span> <span class='str'>u&quot;{0:04x}-{1:04x}&quot;</span><span class='op'>.</span><span class='nam'>format</span><span class='op'>(</span><span class='nam'>randint</span><span class='op'>(</span><span class='num'>0</span><span class='op'>,</span> <span class='num'>0x10000</span><span class='op'>)</span><span class='op'>,</span> <span class='nam'>randint</span><span class='op'>(</span><span class='num'>0</span><span class='op'>,</span> <span class='num'>0x10000</span><span class='op'>)</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
+<p id='t35' class='stm mis'>&nbsp; &nbsp; <span class='nam'>zsocket</span><span class='op'>.</span><span class='nam'>setsockopt_string</span><span class='op'>(</span><span class='nam'>zmq</span><span class='op'>.</span><span class='nam'>IDENTITY</span><span class='op'>,</span> <span class='nam'>identity</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
 <p id='t36' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t37' class='stm run hide_run'><span class='key'>def</span> <span class='nam'>zpipe</span><span class='op'>(</span><span class='nam'>ctx</span><span class='op'>)</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
-<p id='t38' class='pln'>&nbsp; &nbsp; <span class='str'>&quot;&quot;&quot;build inproc pipe for talking to threads</span><span class='strut'>&nbsp;</span></p>
-<p id='t39' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t40' class='pln'><span class='str'>&nbsp; &nbsp; mimic pipe used in czmq zthread_fork.</span><span class='strut'>&nbsp;</span></p>
-<p id='t41' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t42' class='pln'><span class='str'>&nbsp; &nbsp; Returns a pair of PAIRs connected via inproc</span><span class='strut'>&nbsp;</span></p>
-<p id='t43' class='pln'><span class='str'>&nbsp; &nbsp; &quot;&quot;&quot;</span><span class='strut'>&nbsp;</span></p>
-<p id='t44' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>a</span> <span class='op'>=</span> <span class='nam'>ctx</span><span class='op'>.</span><span class='nam'>socket</span><span class='op'>(</span><span class='nam'>zmq</span><span class='op'>.</span><span class='nam'>PAIR</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
-<p id='t45' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>b</span> <span class='op'>=</span> <span class='nam'>ctx</span><span class='op'>.</span><span class='nam'>socket</span><span class='op'>(</span><span class='nam'>zmq</span><span class='op'>.</span><span class='nam'>PAIR</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
-<p id='t46' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>a</span><span class='op'>.</span><span class='nam'>linger</span> <span class='op'>=</span> <span class='nam'>b</span><span class='op'>.</span><span class='nam'>linger</span> <span class='op'>=</span> <span class='num'>0</span><span class='strut'>&nbsp;</span></p>
-<p id='t47' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>a</span><span class='op'>.</span><span class='nam'>hwm</span> <span class='op'>=</span> <span class='nam'>b</span><span class='op'>.</span><span class='nam'>hwm</span> <span class='op'>=</span> <span class='num'>1</span><span class='strut'>&nbsp;</span></p>
-<p id='t48' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>iface</span> <span class='op'>=</span> <span class='str'>&quot;inproc://%s&quot;</span> <span class='op'>%</span> <span class='nam'>binascii</span><span class='op'>.</span><span class='nam'>hexlify</span><span class='op'>(</span><span class='nam'>os</span><span class='op'>.</span><span class='nam'>urandom</span><span class='op'>(</span><span class='num'>8</span><span class='op'>)</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
-<p id='t49' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>a</span><span class='op'>.</span><span class='nam'>bind</span><span class='op'>(</span><span class='nam'>iface</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
-<p id='t50' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>b</span><span class='op'>.</span><span class='nam'>connect</span><span class='op'>(</span><span class='nam'>iface</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
-<p id='t51' class='stm run hide_run'>&nbsp; &nbsp; <span class='key'>return</span> <span class='nam'>a</span><span class='op'>,</span> <span class='nam'>b</span><span class='strut'>&nbsp;</span></p>
+<p id='t37' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t38' class='stm run hide_run'><span class='key'>def</span> <span class='nam'>zpipe</span><span class='op'>(</span><span class='nam'>ctx</span><span class='op'>)</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
+<p id='t39' class='pln'>&nbsp; &nbsp; <span class='str'>&quot;&quot;&quot;build inproc pipe for talking to threads</span><span class='strut'>&nbsp;</span></p>
+<p id='t40' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t41' class='pln'><span class='str'>&nbsp; &nbsp; mimic pipe used in czmq zthread_fork.</span><span class='strut'>&nbsp;</span></p>
+<p id='t42' class='pln'><span class='strut'>&nbsp;</span></p>
+<p id='t43' class='pln'><span class='str'>&nbsp; &nbsp; Returns a pair of PAIRs connected via inproc</span><span class='strut'>&nbsp;</span></p>
+<p id='t44' class='pln'><span class='str'>&nbsp; &nbsp; &quot;&quot;&quot;</span><span class='strut'>&nbsp;</span></p>
+<p id='t45' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>a</span> <span class='op'>=</span> <span class='nam'>ctx</span><span class='op'>.</span><span class='nam'>socket</span><span class='op'>(</span><span class='nam'>zmq</span><span class='op'>.</span><span class='nam'>PAIR</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
+<p id='t46' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>b</span> <span class='op'>=</span> <span class='nam'>ctx</span><span class='op'>.</span><span class='nam'>socket</span><span class='op'>(</span><span class='nam'>zmq</span><span class='op'>.</span><span class='nam'>PAIR</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
+<p id='t47' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>a</span><span class='op'>.</span><span class='nam'>linger</span> <span class='op'>=</span> <span class='nam'>b</span><span class='op'>.</span><span class='nam'>linger</span> <span class='op'>=</span> <span class='num'>0</span><span class='strut'>&nbsp;</span></p>
+<p id='t48' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>a</span><span class='op'>.</span><span class='nam'>hwm</span> <span class='op'>=</span> <span class='nam'>b</span><span class='op'>.</span><span class='nam'>hwm</span> <span class='op'>=</span> <span class='num'>1</span><span class='strut'>&nbsp;</span></p>
+<p id='t49' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>iface</span> <span class='op'>=</span> <span class='str'>&quot;inproc://{0:s}&quot;</span><span class='op'>.</span><span class='nam'>format</span><span class='op'>(</span><span class='nam'>binascii</span><span class='op'>.</span><span class='nam'>hexlify</span><span class='op'>(</span><span class='nam'>os</span><span class='op'>.</span><span class='nam'>urandom</span><span class='op'>(</span><span class='num'>8</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
+<p id='t50' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>a</span><span class='op'>.</span><span class='nam'>bind</span><span class='op'>(</span><span class='nam'>iface</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
+<p id='t51' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>b</span><span class='op'>.</span><span class='nam'>connect</span><span class='op'>(</span><span class='nam'>iface</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
+<p id='t52' class='stm run hide_run'>&nbsp; &nbsp; <span class='key'>return</span> <span class='nam'>a</span><span class='op'>,</span> <span class='nam'>b</span><span class='strut'>&nbsp;</span></p>
                 
             </td>
         </tr>

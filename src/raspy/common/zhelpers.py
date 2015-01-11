@@ -30,7 +30,8 @@ def dump(msg_or_socket):
 
 def set_id(zsocket):
     """Set simple random printable identity on socket"""
-    identity = u"%04x-%04x" % (randint(0, 0x10000), randint(0, 0x10000))
+    #identity = u"%04x-%04x" % (randint(0, 0x10000), randint(0, 0x10000))
+    identity = u"{0:04x}-{1:04x}".format(randint(0, 0x10000), randint(0, 0x10000))
     zsocket.setsockopt_string(zmq.IDENTITY, identity)
 
 
@@ -45,7 +46,7 @@ def zpipe(ctx):
     b = ctx.socket(zmq.PAIR)
     a.linger = b.linger = 0
     a.hwm = b.hwm = 1
-    iface = "inproc://%s" % binascii.hexlify(os.urandom(8))
+    iface = "inproc://{0:s}".format(binascii.hexlify(os.urandom(8)))
     a.bind(iface)
     b.connect(iface)
     return a, b

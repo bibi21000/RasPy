@@ -72,15 +72,15 @@ setup(
     packages = find_packages('src', exclude=["scripts"]),
     package_dir = { '': 'src' },
     install_requires=[
+                     'docutils >= 0.11',
                      'pyzmq == 14.4.1',
                      'CherryPy >= 3.5.0',
                      'Jinja2 >= 2.5.5',
                      'nose-html == 1.1',
                      'nose-progressive == 1.5.1',
-                     'python-daemon >= 1.5.5',
                      'nose >= 1.3.1',
                      'coverage >= 3.7.1',
                      'pylint >= 1.3.0',
-                     'docutils >= 0.11',
+                     'python-daemon >= 2.0.0',
                     ]
 )

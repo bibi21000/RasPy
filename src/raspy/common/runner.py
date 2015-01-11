@@ -138,12 +138,12 @@ class Runner(object):
                 self.options['pidfile_path'], self.pidfile_timeout)
         if self.pidfile.is_locked() and not is_pidfile_stale(self.pidfile) \
           and self.action == 'start':
-            print "Process already running. Exiting."
+            print("Process already running. Exiting.")
             sys.exit(1)
         if (not self.pidfile.is_locked() or is_pidfile_stale(self.pidfile)) \
           and (self.action == 'stop' or self.action == 'kill' or \
                 self.action == 'restart'):
-            print "Process not running. Exiting."
+            print("Process not running. Exiting.")
             sys.exit(1)
 
     def app_run(self):
@@ -212,14 +212,14 @@ class Runner(object):
     def sigterm_handler(self, signal, frame):
         """
         """
-        print 'TERM signal received : %s' % (signal)
+        print('TERM signal received : %s' % (signal))
         self.app_shutdown()
         sys.exit(0)
 
     def sighup_handler(self, signal, frame):
         """
         """
-        print 'HUP signal received : %s' % (signal)
+        print('HUP signal received : %s' % (signal))
         self.app_reload()
         sys.exit(0)
 

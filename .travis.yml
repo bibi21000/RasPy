@@ -1,4 +1,5 @@
 language: python
+cache: apt
 python:
   - "2.6"
   - "2.7"
@@ -7,6 +8,12 @@ python:
   - "3.4"
 # command to install dependencies
 install:
-  - make develop
+  - python setup.py -q install
 # command to run tests
 script: nosetests
+# package dependencies
+before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get dist-upgrade -qq
+ - sudo apt-get install -qq build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-setuptools python-docutils
+ - sudo apt-get remove -qq python-zmq libzmq1 libzmq-dev

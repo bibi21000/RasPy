@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Setup file of RasPy
+"""Setup file of RasPyWeb
 """
 __license__ = """
     This file is part of RasPy.
@@ -63,22 +63,29 @@ def data_files_config(target, source, pattern):
     return ret
 
 setup(
-    name = 'raspy',
+    name = 'raspyweb',
     author='Sébastien GALLET aka bibi2100 <bibi21000@gmail.com>',
     author_email='bibi21000@gmail.com',
     url='http://bibi21000.gallet.info/',
     version = '0.0.1',
     data_files =[],
-    packages = find_packages('src', exclude=["scripts"]),
-    package_dir = { '': 'src' },
+    packages = find_packages('src-web', exclude=["scripts"]),
+    package_dir = { '': 'src-web' },
     install_requires=[
+                     'raspy >= 0.0.1',
                      'lockfile >= 0.10',
                      'docutils >= 0.11',
                      'pyzmq == 14.4.1',
+                     'Flask == 0.10.1',
+                     'Flask-Testing == 0.4.2',
+                     'Flask-WTF == 0.9.5',
+                     'Babel >= 1.0',
+                     'Flask-Babel == 0.9',
+                     'Jinja2 >= 2.5.5',
                      'nose-html == 1.1',
                      'nose-progressive == 1.5.1',
                      'nose >= 1.3.1',
                      'coverage >= 3.7.1',
                      'python-daemon >= 2.0.0',
-                    ],
+                    ]
 )

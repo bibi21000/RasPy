@@ -112,8 +112,8 @@ class Proxy(threading.Thread):
         while not self._stopevent.isSet():
             try:
                 items = dict(self.poller.poll(self.speed*1000.0))
-            except KeyboardInterrupt:
-                break # Interrupted
+            except KeyboardInterrupt: # pragma: no cover
+                break                 # pragma: no cover
             except zmq.ZMQError as exc:
                 if not self._stopevent.isSet():
                     raise exc
@@ -136,14 +136,11 @@ class Proxy(threading.Thread):
                 else:
                     MDP.logger.error("PROXY - Server recevie bad request. Aborting.")
                     break
-
                 # Send state snapshot to client
                 route = Route(self.snapshot, identity, subtree)
-
                 # For each entry in kvmap, send kvmsg to client
                 for k, v in self.kvmap.items():
                     self.send_single(k, v, route)
-
                 # Now send END message with sequence number
                 MDP.logger.debug("PROXY - Sending state shapshot %5d", self.sequence)
                 self.snapshot.send(identity, zmq.SNDMORE)
@@ -230,8 +227,8 @@ class Broker(Executive):
         while not self._stopevent.isSet():
             try:
                 items = self.poller.poll(self.HEARTBEAT_INTERVAL)
-            except KeyboardInterrupt:
-                break # Interrupted
+            except KeyboardInterrupt: # pragma: no cover
+                break                 # pragma: no cover
             except zmq.ZMQError as exc:
                 if not self._stopevent.isSet():
                     raise exc

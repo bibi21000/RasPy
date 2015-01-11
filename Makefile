@@ -41,14 +41,14 @@ uninstall: clean
 	-sudo rm -rf raspy.egg-info
 	-sudo rm -rf src/raspy.egg-info
 	-sudo rm -rf raspyweb.egg-info
-	-sudo rm -rf src-http/raspyweb.egg-info
+	-sudo rm -rf src-web/raspyweb.egg-info
 	-sudo rm -Rf /usr/local/lib/python2.7/dist-packages/raspy*
 
 docs: cleandocs
 	-mkdir -p docs/html/nosetests
 	-mkdir -p docs/html/coverage
 	-mkdir -p docs/html/pylint
-	-$(NOSE) $(NOSEOPTS) $(NOSECOVER) tests/
+	$(NOSE) $(NOSEOPTS) $(NOSECOVER) tests/
 	-$(PYLINT) --output-format=html $(PYLINTOPTS) src/raspy src/scripts >docs/html/pylint/report.html
 	cd docs && make docs
 	cp docs/_build/text/README.txt README.md
@@ -62,7 +62,7 @@ install:
 
 develop:
 	sudo python setup.py develop
-	sudo python setup-http.py develop
+	sudo python setup-web.py develop
 	sudo python setup-ui.py develop
 	@echo
 	@echo "Installation for developpers finished."
@@ -87,7 +87,7 @@ git: clean docs
 
 pylint:
 	-mkdir -p docs/html/pylint
-	-$(PYLINT) $(PYLINTOPTS) src/raspy src/scripts src-http/raspyweb src-http/scripts src-ui/raspyweb src-ui/scripts
+	-$(PYLINT) $(PYLINTOPTS) src/raspy src/scripts src-web/raspyweb src-web/scripts src-ui/raspyweb src-ui/scripts
 	@echo
 	@echo "Pylint finished."
 

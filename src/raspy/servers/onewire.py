@@ -32,7 +32,8 @@ from raspy.common.zhelpers import dump
 import logging
 
 class OneWire(Server):
-    """The OneWire server
+    """
+    The OneWire server
 
     Configuration
     -------------
@@ -50,7 +51,6 @@ class OneWire(Server):
         # This file contains the names of kernel modules that should be loaded
         # at boot time, one per line. Lines beginning with "#" are ignored.
         # Parameters can be specified after the module name.
-
         w1-therm
         w1-gpio pullup=1
         i2c-dev
@@ -67,7 +67,6 @@ class OneWire(Server):
     .. code-block:: bash
 
         # blacklist spi and i2c by default (many users don't need them)
-
         blacklist spi-bcm2708
         blacklist i2c-bcm2708
         blacklist snd-soc-pcm512x
@@ -76,6 +75,7 @@ class OneWire(Server):
     At last, we must load the module in init script sothat we don't need to update this.
 
     From https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi
+
     """
 
     def __init__(self, hostname='localhost', service="onewire", broker_ip='127.0.0.1', broker_port=5514, \

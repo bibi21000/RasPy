@@ -1,5 +1,9 @@
 language: python
-cache: apt
+cache:
+  - apt
+  - directories:
+    - $HOME/.pip-cache/
+    - /home/travis/virtualenv/python2.7
 python:
   - "2.7"
 #  - "3.2"
@@ -7,8 +11,8 @@ python:
 #  - "3.4"
 # command to install dependencies
 install:
-  - pip install setuptools
-  - pip install docutils
+  - pip install setuptools --download-cache $HOME/.pip-cache
+  - pip install docutils --download-cache $HOME/.pip-cache
   - python setup.py -q install
 # command to run tests
 script: nosetests

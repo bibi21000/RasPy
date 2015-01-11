@@ -3,7 +3,7 @@ cache:
   - apt
   - directories:
     - $HOME/.pip-cache/
-    - /home/travis/virtualenv/python2.7
+    - $HOME/virtualenv/python2.7
 python:
   - "2.7"
 #  - "3.2"

@@ -70,7 +70,7 @@ language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', '_static', 'raspy.rst']
+exclude_patterns = ['_build', '_static', 'raspy.rst', 'raspyweb.rst', 'raspyui.rst']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -171,7 +171,7 @@ html_show_sphinx = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'big-ged'
+htmlhelp_basename = 'rapsy'
 
 
 # -- Options for LaTeX output --------------------------------------------------

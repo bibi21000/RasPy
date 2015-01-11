@@ -7,7 +7,6 @@ Subpackages
 .. toctree::
 
     raspy.common
-    raspy.http
     raspy.servers
 
 Module contents

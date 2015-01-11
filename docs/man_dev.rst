@@ -126,3 +126,5 @@ A new server
 ------------
 
 .. include:: raspy.rst
+
+.. include:: raspyweb.rst

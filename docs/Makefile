@@ -119,6 +119,8 @@ latexpdf:
 
 apidoc:
 	sphinx-apidoc --force --no-toc -o . ../src/
+	sphinx-apidoc --force --no-toc -o . ../src-web/
+	sphinx-apidoc --force --no-toc -o . ../src-ui/
 
 lastdoc: latexpdf
 	if test ! -d pdf; then mkdir pdf; fi

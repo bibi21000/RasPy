@@ -4,7 +4,6 @@ cache:
   - directories:
     - $HOME/.pip-cache/
     - $HOME/virtualenv/python2.7
-    - $HOME/virtualenv/python2.7.9
 python:
   - "2.7"
 #  - "3.2"

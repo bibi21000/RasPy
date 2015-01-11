@@ -76,7 +76,7 @@ I1
 sg19
 I0
 sg20
-I132
+I131
 sg21
 I3
 sg22
@@ -86,7 +86,7 @@ I33
 sg24
 I0
 sbssg25
-S'A\x9c\x98\xe6\x01\xbb\x99Nn|W\x9a\x13\xd4\xe2\x86'
+S',ZZO\x94f\xe4\xe9\xee\xbc\xa8\x0f\xa3\x9b\xf3l'
 p34
 ssS'raspy_common_zhelpers'
 p35
@@ -116,11 +116,11 @@ I0
 sg22
 I0
 sg23
-I3
+I13
 sg24
 I0
 sbssg25
-S'Mb\\\x00\xb3k\xf3\xa5\xb2\xf5p\xc0\xc7\xae\x9a\x9d'
+S'4X\xfe\x00\xb0\xe1\xae\xea9\r<\xb1\xc4\xf2\xdcc'
 p42
 ssS'raspy_servers_broker'
 p43
@@ -144,7 +144,7 @@ I1
 sg19
 I0
 sg20
-I281
+I280
 sg21
 I3
 sg22
@@ -154,7 +154,7 @@ I32
 sg24
 I0
 sbssg25
-S'\xa6\xc6\x87E\xa4!N\xcf\xae\xaadc\xc3\xc4D1'
+S'U\x05\xbc\xb3\x1cf\xd6\x87;h\xea\xbb\x95\xbev+'
 p50
 ssS'raspy_common_devices_device'
 p51
@@ -212,7 +212,7 @@ I1
 sg19
 I0
 sg20
-I57
+I56
 sg21
 I2
 sg22
@@ -222,7 +222,7 @@ I8
 sg24
 I0
 sbssg25
-S'\x99k\xa7\xdaR\xdb\x85)|\xafB\xc8\xa4\x9f\xd9\xfc'
+S'\xac\xe6\xb0h\x81\x11\xfa(=\xddI\xc0\xda\x1d\x9d\xca'
 p66
 ssS'raspy_common_mdwrkapi'
 p67
@@ -256,7 +256,7 @@ I15
 sg24
 I0
 sbssg25
-S';\x90\x14.\xda\x8a\xc3\xa6A\x80e>\x1f\x8e\xd0\xc6'
+S'\xfd\x9b\x9e\xcfwS\xa9\x91x\xb4a\xda\xed\xb8\x85u'
 p74
 ssS'raspy'
 p75
@@ -629,7 +629,7 @@ I5
 sg24
 I0
 sbssg25
-S'I\x8a\x05\x0bW\xc3\xb3Y\x01\xb3\x19\xfe\xb7\xfa=\x89'
+S'\xbe7H\n<\xeeA\xb7\x11,\xea\x84"\xb1\xbap'
 p161
 ssS'raspy_servers'
 p162

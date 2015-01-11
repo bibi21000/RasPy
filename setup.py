@@ -73,7 +73,7 @@ setup(
     package_dir = { '': 'src' },
     install_requires=[
                      'pyzmq == 14.4.1',
-                     'CherryPy >= 3.2.2',
+                     'CherryPy >= 3.5.0',
                      'Jinja2 >= 2.5.5',
                      'nose-html == 1.1',
                      'nose-progressive == 1.5.1',

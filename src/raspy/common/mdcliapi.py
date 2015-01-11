@@ -12,7 +12,6 @@ import zmq
 
 from raspy.common.zhelpers import zpipe
 import raspy.common.MDP as MDP
-from raspy.common.zhelpers import dump
 
 class MajorDomoClient(object):
     """Majordomo Protocol Client API, Python version.
@@ -64,7 +63,7 @@ class MajorDomoClient(object):
                 break                 # pragma: no cover
             if items:
                 msg = self.client.recv_multipart()
-                MDP.logger.debug("CLIENT - Received reply: %s", dump(msg))
+                MDP.logger.debug("CLIENT - Received reply: %s", msg)
                 # Don't try to handle errors, just assert noisily
                 assert len(msg) >= 3
                 header = msg.pop(0)

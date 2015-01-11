@@ -10,6 +10,12 @@ Installation
 Develop
 =======
 
+If you want to develop you surely need vim :
+
+.. code-block:: bash
+
+        sudo apt-get -y install vim-nox vim-addon-manager
+
 Phylosophy
 ----------
 
@@ -25,9 +31,22 @@ And documentation
 Documentation
 -------------
 
- - sphinx
+If you want to generate the documentation, you need to install some packages :
 
-You can generate the full documentation using :
+ .. code-block:: bash
+
+    sudo apt-get -y install python-sphinx graphviz
+
+And some eggs :
+
+ .. code-block:: bash
+
+    sudo pip install seqdiag sphinxcontrib-seqdiag
+    sudo pip install blockdiag sphinxcontrib-blockdiag
+    sudo pip install nwdiag sphinxcontrib-nwdiag
+    sudo pip install actdiag sphinxcontrib-actdiag
+
+You can now generate the full documentation using :
 
  .. code-block:: bash
 

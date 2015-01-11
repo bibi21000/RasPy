@@ -27,7 +27,6 @@ import os
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.zhelpers import dump
 import json
 import logging
 
@@ -221,7 +220,7 @@ class Core(Server):
             if not request:
                 break      # Interrupted, exit
             logging.debug("Receive job for service %s : %s", "%s.cron" % MDP.routing_key(self.hostname, self.service), \
-                            dump(request))
+                            request)
             try:
                 reply = [MDP.T_OK]
             except OSError as exc:

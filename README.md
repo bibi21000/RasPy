@@ -42,14 +42,14 @@ You can now update packages
    sudo apt-get -y update
    sudo apt-get -y dist-upgrade
 
-Some packages need to be removed as some new version are available
-from eggs :
+We need to install some packages to download and build RasPy:
 
-   sudo apt-get remove python-zmq libzmq1 libzmq3 libzmq3-dev libzmq-dev python-nose2 python-nose pylint
+   sudo apt-get -y install build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-setuptools python-docutils
 
-We also need to install some packages :
+Some packages need to be removed as new versions are available from
+eggs :
 
-   sudo apt-get -y install build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git
+   sudo apt-get remove python-zmq libzmq1 libzmq-dev python-nose pylint
 
 
 Download it
@@ -84,9 +84,8 @@ Otherwise install it normaly
 
    sudo make install
 
-Install some missing eggs ... to be sure
-
-   sudo pip install nose-progressive nose-html
+And be patient ... installation need to compile zmq ... It takes a
+while
 
 
 Run the tests

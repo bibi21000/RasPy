@@ -11,7 +11,7 @@ Based on Java example by Arkadiusz Orzechowski
 import time
 import zmq
 import threading
-from raspy.common.zhelpers import zpipe, dump
+from raspy.common.zhelpers import zpipe
 import raspy.common.MDP as MDP
 
 class MajorDomoWorker(object):
@@ -80,7 +80,7 @@ class MajorDomoWorker(object):
         if option:
             msg = [option] + msg
         msg = ['', MDP.W_WORKER, command] + msg
-        MDP.logger.debug("WORKER - Sending %s to broker", dump(msg))
+        MDP.logger.debug("WORKER - Sending %s to broker", msg)
         self.worker.send_multipart(msg)
 
     def recv(self, reply=None):
@@ -100,7 +100,7 @@ class MajorDomoWorker(object):
                 break                 # pragma: no cover
             if items:
                 msg = self.worker.recv_multipart()
-                MDP.logger.debug("WORKER - Received message %s from broker: ", dump(msg))
+                MDP.logger.debug("WORKER - Received message %s from broker: ", msg)
                 self.liveness = self.HEARTBEAT_LIVENESS
                 # Don't try to handle errors, just assert noisily
                 assert len(msg) >= 3
@@ -123,7 +123,7 @@ class MajorDomoWorker(object):
                 elif command == MDP.W_DISCONNECT:
                     self.reconnect_to_broker()
                 else:
-                    MDP.logger.error("WORKER - Invalid input message: %s", dump(msg))
+                    MDP.logger.error("WORKER - Invalid input message: %s", msg)
             else:
                 self.liveness -= 1
                 if self.liveness == 0:

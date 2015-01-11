@@ -40,7 +40,6 @@ import zmq
 
 import raspy.common.MDP as MDP
 from raspy.common.executive import Executive
-from raspy.common.zhelpers import dump
 from raspy.common.kvsimple import KVMsg
 
 # simple struct for routing information for a key-value snapshot
@@ -241,7 +240,7 @@ class Broker(Executive):
             if items:
                 try:
                     msg = self.socket.recv_multipart()
-                    MDP.logger.debug("BROKER - Received message: %s", dump(msg))
+                    MDP.logger.debug("BROKER - Received message: %s", msg)
                     sender = msg.pop(0)
                     empty = msg.pop(0)
                     assert empty == ''
@@ -251,7 +250,7 @@ class Broker(Executive):
                     elif MDP.W_WORKER == header:
                         self.process_worker(sender, msg)
                     else:
-                        MDP.logger.error("BROKER - Invalid message: %s", dump(msg))
+                        MDP.logger.error("BROKER - Invalid message: %s", msg)
                 except zmq.ZMQError as exc:
                     if not self._stopevent.isSet():
                         raise exc
@@ -324,7 +323,7 @@ class Broker(Executive):
         elif MDP.W_DISCONNECT == command:
             self.delete_worker(worker, False)
         else:
-            MDP.logger.error("BROKER - Invalid message: %s", dump(msg))
+            MDP.logger.error("BROKER - Invalid message: %s", msg)
 
     def delete_worker(self, worker, disconnect):
         """Deletes worker from all data structures, and deletes worker."""
@@ -432,7 +431,7 @@ class Broker(Executive):
         if option is not None:
             msg = [option] + msg
         msg = [worker.address, '', MDP.W_WORKER, command] + msg
-        MDP.logger.debug("BROKER - Sending %r to worker : %s", command, dump(msg))
+        MDP.logger.debug("BROKER - Sending %r to worker : %s", command, msg)
         self.socket.send_multipart(msg)
 
 if __name__ == '__main__': # pragma: no cover

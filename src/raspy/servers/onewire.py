@@ -34,6 +34,47 @@ import logging
 class OneWire(Server):
     """The OneWire server
 
+    Configuration
+    -------------
+
+    You need to load kernel module :
+
+    .. code-block:: bash
+
+        sudo vim /etc/modules
+
+    .. code-block:: bash
+
+        # /etc/modules: kernel modules to load at boot time.
+        #
+        # This file contains the names of kernel modules that should be loaded
+        # at boot time, one per line. Lines beginning with "#" are ignored.
+        # Parameters can be specified after the module name.
+
+        w1-therm
+        w1-gpio pullup=1
+        i2c-dev
+        i2c-bcm2708
+        spi-bcm2708
+        snd-bcm2835
+
+    And check that blacklist is correct :
+
+    .. code-block:: bash
+
+        sudo vim /etc/modprobe.d/raspi-blacklist.conf
+
+    .. code-block:: bash
+
+        # blacklist spi and i2c by default (many users don't need them)
+
+        blacklist spi-bcm2708
+        blacklist i2c-bcm2708
+        blacklist snd-soc-pcm512x
+        blacklist snd-soc-wm8804
+
+    At last, we must load the module in init script sothat we don't need to update this.
+
     From https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi
     """
 

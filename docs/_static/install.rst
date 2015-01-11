@@ -17,17 +17,17 @@ You can now update packages
         sudo apt-get -y update
         sudo apt-get -y dist-upgrade
 
-Some packages need to be removed as some new version are available from eggs :
+We need to install some packages to download and build RasPy:
 
 .. code-block:: bash
 
-        sudo apt-get remove python-zmq libzmq1 libzmq3 libzmq3-dev libzmq-dev python-nose2 python-nose pylint
+        sudo apt-get -y install build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-setuptools python-docutils
 
-We also need to install some packages :
+Some packages need to be removed as new versions are available from eggs :
 
 .. code-block:: bash
 
-        sudo apt-get -y install build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git
+        sudo apt-get remove python-zmq libzmq1 libzmq-dev python-nose pylint
 
 Download it
 -----------
@@ -55,20 +55,22 @@ If you want to develop for RasPy, you need to install it in develop mode :
 
         sudo make develop
 
-Otherwise install it normaly
+Otherwise install it normaly ... but not now ;) :
 
 .. code-block:: bash
 
         sudo make install
 
-Install some missing eggs ... to be sure
-
-.. code-block:: bash
-
-        sudo pip install nose-progressive nose-html
+And be patient ... installation need to compile zmq ... It takes a while ...
 
 Run the tests
 -------------
+
+Check that the SLEEP constant in tests/common.py ist set to 1.0 or 1.5
+
+.. code-block:: bash
+
+        vim tests/common.py
 
 You can now check that everything is fine running the tests :
 

@@ -23,6 +23,8 @@ __license__ = """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+SLEEP=0.25
+
 import sys, os
 import time
 import unittest
@@ -83,7 +85,7 @@ class TestRasPy(TestRasPy):
     service = "worker"
     logstdout = False
     #Update this value on a slow computer (ie Raspberry Pi)
-    sleep = .25
+    sleep = SLEEP
 
     @classmethod
     def setUpClass(self):

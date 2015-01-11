@@ -71,12 +71,12 @@
 sudo apt-get -y dist-upgrade
 </pre></div>
 </div>
-<p>Some packages need to be removed as some new version are available from eggs :</p>
-<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get remove python-zmq libzmq1 libzmq3 libzmq3-dev libzmq-dev python-nose2 python-nose pylint
+<p>We need to install some packages to download and build RasPy:</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get -y install build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-setuptools python-docutils
 </pre></div>
 </div>
-<p>We also need to install some packages :</p>
-<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get -y install build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git
+<p>Some packages need to be removed as new versions are available from eggs :</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get remove python-zmq libzmq1 libzmq-dev python-nose pylint
 </pre></div>
 </div>
 </div>
@@ -108,10 +108,7 @@ Idealy, you should create a special user for running RasPy or the pi user. Keep 
 <div class="highlight-bash"><div class="highlight"><pre>sudo make install
 </pre></div>
 </div>
-<p>Install some missing eggs ... to be sure</p>
-<div class="highlight-bash"><div class="highlight"><pre>sudo pip install nose-progressive nose-html
-</pre></div>
-</div>
+<p>And be patient ... installation need to compile zmq ... It takes a while</p>
 </div>
 <div class="section" id="run-the-tests">
 <h3>Run the tests<a class="headerlink" href="#run-the-tests" title="Permalink to this headline">¶</a></h3>
@@ -141,6 +138,10 @@ At last, copy / paste the full screen output and send it to the core team.</p>
 </div>
 <div class="section" id="develop">
 <h2>Develop<a class="headerlink" href="#develop" title="Permalink to this headline">¶</a></h2>
+<p>If you want to develop you surely need vim :</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get -y install vim-nox vim-addon-manager
+</pre></div>
+</div>
 <div class="section" id="phylosophy">
 <h3>Phylosophy<a class="headerlink" href="#phylosophy" title="Permalink to this headline">¶</a></h3>
 <p>Tests, tests, ... and tests :</p>
@@ -159,12 +160,22 @@ At last, copy / paste the full screen output and send it to the core team.</p>
 </div>
 <div class="section" id="documentation">
 <h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<p>If you want to generate the documentation, you need to install some packages :</p>
 <blockquote>
-<div><ul class="simple">
-<li>sphinx</li>
-</ul>
+<div><div class="highlight-bash"><div class="highlight"><pre>sudo apt-get -y install python-sphinx graphviz
+</pre></div>
+</div>
 </div></blockquote>
-<p>You can generate the full documentation using :</p>
+<p>And some eggs :</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>sudo pip install seqdiag sphinxcontrib-seqdiag
+sudo pip install blockdiag sphinxcontrib-blockdiag
+sudo pip install nwdiag sphinxcontrib-nwdiag
+sudo pip install actdiag sphinxcontrib-actdiag
+</pre></div>
+</div>
+</div></blockquote>
+<p>You can now generate the full documentation using :</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>make docs
 </pre></div>

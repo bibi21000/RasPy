@@ -87,6 +87,16 @@ Otherwise install it normaly ... but not now ;) :
 And be patient ... installation need to compile zmq ... It takes a
 while ...
 
+If something goes wrong during install or if you want to remove RasPy
+from you computer, you type :
+
+   sudo make uninstall
+
+If you want to remove dependencies, look at setup.py to get the list
+and use the following command for every package:
+
+   sudo pip uninstall package
+
 
 Run the tests
 =============

@@ -5,10 +5,12 @@ Developper manual of RasPy
 Installation
 ============
 
+The following lines "clone" a GitHub repository. If you want to submit "pull requests", you need to "fork" RasPy using this `guide <https://help.github.com/articles/fork-a-repo/>`_.
+
 .. include:: _static/install.rst
 
-Develop
-=======
+Before starting
+===============
 
 If you want to develop you surely need vim :
 
@@ -71,7 +73,18 @@ Nosetests and pylint are used to test quality of code. There reports are here :
 Coverage is not the goal but it's one : a module must have a coverage of 90% to be accpeted by core team. Otherwise it will block the packaging process.
 Of course, a FAILED test will also.
 
-You can run the developpers test running :
+Keep in mind that all tests must succeed before submitting pull request. But :
+
+ - if a test is a work in progress, you can skip it using self.wipTest()
+ - if a test can only be run on Raspberry (ie onewire), it must call self.skipTest(message) at its start.
+
+There is 2 ways to launch the tests. The first one to use on a Raspberry :
+
+.. code-block:: bash
+
+        make tests
+
+You can also run the developpers tests (without skipped one) on a standard computer running :
 
 .. code-block:: bash
 
@@ -90,6 +103,21 @@ Running only one test module :
         /usr/local/bin/nosetests --verbosity=2 --cover-package=raspy --with-coverage --cover-inclusive --cover-tests tests/devices/test_sensor.py
 
 You can follow automatic tests on `travis-ci <https://travis-ci.org/bibi21000/RasPy>`_.
+
+GitHub
+------
+
+You can test the code, build the doc and commit it using the following command :
+
+.. code-block:: bash
+
+        make git
+
+You may use ssh_keys to do it automatically without typing password.
+
+
+Develop
+=======
 
 A new device
 ------------

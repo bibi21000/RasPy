@@ -58,6 +58,7 @@
 <h1>Developper manual of RasPy<a class="headerlink" href="#developper-manual-of-raspy" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The following lines &#8220;clone&#8221; a GitHub repository. If you want to submit &#8220;pull requests&#8221;, you need to &#8220;fork&#8221; RasPy using this <a class="reference external" href="https://help.github.com/articles/fork-a-repo/">guide</a>.</p>
 <div class="section" id="raspbian">
 <h3>Raspbian<a class="headerlink" href="#raspbian" title="Permalink to this headline">¶</a></h3>
 <p>Install official raspbian from here : <a class="reference external" href="http://www.raspbian.org/">http://www.raspbian.org/</a>.</p>
@@ -109,6 +110,14 @@ Idealy, you should create a special user for running RasPy or the pi user. Keep 
 </pre></div>
 </div>
 <p>And be patient ... installation need to compile zmq ... It takes a while ...</p>
+<p>If something goes wrong during install or if you want to remove RasPy from you computer, you type :</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo make uninstall
+</pre></div>
+</div>
+<p>If you want to remove dependencies, look at setup.py to get the list and use the following command for every package:</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo pip uninstall package
+</pre></div>
+</div>
 </div>
 <div class="section" id="run-the-tests">
 <h3>Run the tests<a class="headerlink" href="#run-the-tests" title="Permalink to this headline">¶</a></h3>
@@ -140,8 +149,8 @@ At last, copy / paste the full screen output and send it to the core team.</p>
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="develop">
-<h2>Develop<a class="headerlink" href="#develop" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="before-starting">
+<h2>Before starting<a class="headerlink" href="#before-starting" title="Permalink to this headline">¶</a></h2>
 <p>If you want to develop you surely need vim :</p>
 <div class="highlight-bash"><div class="highlight"><pre>sudo apt-get -y install vim-nox vim-addon-manager
 </pre></div>
@@ -205,7 +214,18 @@ make html
 </div></blockquote>
 <p>Coverage is not the goal but it&#8217;s one : a module must have a coverage of 90% to be accpeted by core team. Otherwise it will block the packaging process.
 Of course, a FAILED test will also.</p>
-<p>You can run the developpers test running :</p>
+<p>Keep in mind that all tests must succeed before submitting pull request. But :</p>
+<blockquote>
+<div><ul class="simple">
+<li>if a test is a work in progress, you can skip it using self.wipTest()</li>
+<li>if a test can only be run on Raspberry (ie onewire), it must call self.skipTest(message) at its start.</li>
+</ul>
+</div></blockquote>
+<p>There is 2 ways to launch the tests. The first one to use on a Raspberry :</p>
+<div class="highlight-bash"><div class="highlight"><pre>make tests
+</pre></div>
+</div>
+<p>You can also run the developpers tests (without skipped one) on a standard computer running :</p>
 <div class="highlight-bash"><div class="highlight"><pre>make devtests
 </pre></div>
 </div>
@@ -219,6 +239,17 @@ Of course, a FAILED test will also.</p>
 </div>
 <p>You can follow automatic tests on <a class="reference external" href="https://travis-ci.org/bibi21000/RasPy">travis-ci</a>.</p>
 </div>
+<div class="section" id="github">
+<h3>GitHub<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h3>
+<p>You can test the code, build the doc and commit it using the following command :</p>
+<div class="highlight-bash"><div class="highlight"><pre>make git
+</pre></div>
+</div>
+<p>You may use ssh_keys to do it automatically without typing password.</p>
+</div>
+</div>
+<div class="section" id="develop">
+<h2>Develop<a class="headerlink" href="#develop" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="a-new-device">
 <h3>A new device<a class="headerlink" href="#a-new-device" title="Permalink to this headline">¶</a></h3>
 </div>
@@ -247,18 +278,25 @@ Of course, a FAILED test will also.</p>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.MDP">raspy.common.MDP module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.client">raspy.common.client module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.dynamic">raspy.common.dynamic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#raspy-common-dynamic-module">raspy.common.dynamic module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.executive">raspy.common.executive module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.kvcliapi">raspy.common.kvcliapi module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.kvsimple">raspy.common.kvsimple module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.mdcliapi">raspy.common.mdcliapi module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.mdwrkapi">raspy.common.mdwrkapi module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.runner">raspy.common.runner module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.common.html#raspy-common-runner-module">raspy.common.runner module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.server">raspy.common.server module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.statistics">raspy.common.statistics module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.supervisor">raspy.common.supervisor module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common.zhelpers">raspy.common.zhelpers module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspy.common.html#module-raspy.common">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="raspy.http.html">raspy.http package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="raspy.http.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.http.html#raspy-http-http-module">raspy.http.http module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.http.html#raspy-http-views-module">raspy.http.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspy.http.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="raspy.servers.html">raspy.servers package</a><ul>
@@ -300,10 +338,14 @@ Of course, a FAILED test will also.</p>
 <li><a class="reference internal" href="#read-the-doc">Read the doc</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#develop">Develop</a><ul>
+<li><a class="reference internal" href="#before-starting">Before starting</a><ul>
 <li><a class="reference internal" href="#phylosophy">Phylosophy</a></li>
 <li><a class="reference internal" href="#documentation">Documentation</a></li>
 <li><a class="reference internal" href="#tests">Tests</a></li>
+<li><a class="reference internal" href="#github">GitHub</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#develop">Develop</a><ul>
 <li><a class="reference internal" href="#a-new-device">A new device</a></li>
 <li><a class="reference internal" href="#a-new-server">A new server</a></li>
 </ul>

@@ -111,6 +111,14 @@ Idealy, you should create a special user for running RasPy or the pi user. Keep 
 </pre></div>
 </div>
 <p>And be patient ... installation need to compile zmq ... It takes a while ...</p>
+<p>If something goes wrong during install or if you want to remove RasPy from you computer, you type :</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo make uninstall
+</pre></div>
+</div>
+<p>If you want to remove dependencies, look at setup.py to get the list and use the following command for every package:</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo pip uninstall package
+</pre></div>
+</div>
 </div>
 <div class="section" id="run-the-tests">
 <h2>Run the tests<a class="headerlink" href="#run-the-tests" title="Permalink to this headline">¶</a></h2>

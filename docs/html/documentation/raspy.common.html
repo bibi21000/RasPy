@@ -100,7 +100,7 @@
 
 <dl class="data">
 <dt id="raspy.common.MDP.logger">
-<tt class="descclassname">raspy.common.MDP.</tt><tt class="descname">logger</tt><em class="property"> = &lt;logging.Logger object at 0x2af2b3edc410&gt;</em><a class="headerlink" href="#raspy.common.MDP.logger" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">raspy.common.MDP.</tt><tt class="descname">logger</tt><em class="property"> = &lt;logging.Logger object at 0x2b847642dfd0&gt;</em><a class="headerlink" href="#raspy.common.MDP.logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Majordomo Protocol definitions</p>
 </dd></dl>
 
@@ -139,13 +139,8 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-raspy.common.dynamic">
-<span id="raspy-common-dynamic-module"></span><h2>raspy.common.dynamic module<a class="headerlink" href="#module-raspy.common.dynamic" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="raspy.common.dynamic.importCode">
-<tt class="descclassname">raspy.common.dynamic.</tt><tt class="descname">importCode</tt><big>(</big><em>code</em>, <em>name</em>, <em>add_to_sys_modules=False</em><big>)</big><a class="headerlink" href="#raspy.common.dynamic.importCode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="raspy-common-dynamic-module">
+<h2>raspy.common.dynamic module<a class="headerlink" href="#raspy-common-dynamic-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-raspy.common.executive">
 <span id="raspy-common-executive-module"></span><h2>raspy.common.executive module<a class="headerlink" href="#module-raspy.common.executive" title="Permalink to this headline">¶</a></h2>
@@ -521,151 +516,8 @@ Based on Java example by Arkadiusz Orzechowski</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-raspy.common.runner">
-<span id="raspy-common-runner-module"></span><h2>raspy.common.runner module<a class="headerlink" href="#module-raspy.common.runner" title="Permalink to this headline">¶</a></h2>
-<p>The runner</p>
-<p>Start a worker or a broker as a daemon.</p>
-<p>Must be updated to work with multiple workers.</p>
-<p>What do we need :</p>
-<ul class="simple">
-<li>the user ou userid</li>
-<li>the log file</li>
-<li>the error output</li>
-<li>the standard output</li>
-<li>the pid file</li>
-<li>the working directory</li>
-</ul>
-<p>Based on the runner of python-daemon :</p>
-<ul class="simple">
-<li>Copyright © 2009–2010 Ben Finney &lt;<a class="reference external" href="mailto:ben+python&#37;&#52;&#48;benfinney&#46;id&#46;au">ben+python<span>&#64;</span>benfinney<span>&#46;</span>id<span>&#46;</span>au</a>&gt;</li>
-<li>Copyright © 2007–2008 Robert Niederreiter, Jens Klein</li>
-<li>Copyright © 2003 Clark Evans</li>
-<li>Copyright © 2002 Noah Spurrier</li>
-<li>Copyright © 2001 Jürgen Hermann</li>
-</ul>
-<dl class="class">
-<dt id="raspy.common.runner.Runner">
-<em class="property">class </em><tt class="descclassname">raspy.common.runner.</tt><tt class="descname">Runner</tt><big>(</big><em>hostname=None</em>, <em>service='myrunnerinstance'</em>, <em>user=None</em>, <em>log_dir='/var/log'</em>, <em>conf_dir='/etc'</em>, <em>run_dir='/var/run'</em>, <em>context=None</em>, <em>endpoint_autoconf=None</em><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p>Controller for a callable running in a separate background process.</p>
-<p>The first command-line argument is the action to take:</p>
-<ul class="simple">
-<li>&#8216;start&#8217;: Become a daemon and call <cite>app.run()</cite>.</li>
-<li>&#8216;stop&#8217;: Exit the daemon process specified in the PID file.</li>
-<li>&#8216;restart&#8217;: Stop, then start.</li>
-<li>&#8216;status&#8217;: Show the status of the process.</li>
-</ul>
-<dl class="attribute">
-<dt id="raspy.common.runner.Runner.action_funcs">
-<tt class="descname">action_funcs</tt><em class="property"> = {'status': &lt;function _status at 0x2af2b65becf8&gt;, 'reload': &lt;function _reload at 0x2af2b65bede8&gt;, 'stop': &lt;function _stop at 0x2af2b65bec08&gt;, 'start': &lt;function _start at 0x2af2b65be938&gt;, 'kill': &lt;function _kill at 0x2af2b65bec80&gt;, 'front': &lt;function _front at 0x2af2b65beaa0&gt;, 'restart': &lt;function _restart at 0x2af2b65bed70&gt;}</em><a class="headerlink" href="#raspy.common.runner.Runner.action_funcs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="raspy.common.runner.Runner.app_reload">
-<tt class="descname">app_reload</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.app_reload" title="Permalink to this definition">¶</a></dt>
-<dd><p>The reload process of the application</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raspy.common.runner.Runner.app_run">
-<tt class="descname">app_run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.app_run" title="Permalink to this definition">¶</a></dt>
-<dd><p>The running process of the application</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raspy.common.runner.Runner.app_shutdown">
-<tt class="descname">app_shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.app_shutdown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The shutdown process of the application</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raspy.common.runner.Runner.do_action">
-<tt class="descname">do_action</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.do_action" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform the requested action.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raspy.common.runner.Runner.parse_args">
-<tt class="descname">parse_args</tt><big>(</big><em>argv=None</em><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.parse_args" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse command-line arguments.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raspy.common.runner.Runner.sighup_handler">
-<tt class="descname">sighup_handler</tt><big>(</big><em>signal</em>, <em>frame</em><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.sighup_handler" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="raspy.common.runner.Runner.sigterm_handler">
-<tt class="descname">sigterm_handler</tt><big>(</big><em>signal</em>, <em>frame</em><big>)</big><a class="headerlink" href="#raspy.common.runner.Runner.sigterm_handler" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="raspy.common.runner.Runner.start_message">
-<tt class="descname">start_message</tt><em class="property"> = 'started with pid %(pid)d'</em><a class="headerlink" href="#raspy.common.runner.Runner.start_message" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="raspy.common.runner.Runner.status_message_not_running">
-<tt class="descname">status_message_not_running</tt><em class="property"> = 'process is not running'</em><a class="headerlink" href="#raspy.common.runner.Runner.status_message_not_running" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="raspy.common.runner.Runner.status_message_running">
-<tt class="descname">status_message_running</tt><em class="property"> = 'process is running'</em><a class="headerlink" href="#raspy.common.runner.Runner.status_message_running" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="exception">
-<dt id="raspy.common.runner.RunnerError">
-<em class="property">exception </em><tt class="descclassname">raspy.common.runner.</tt><tt class="descname">RunnerError</tt><a class="headerlink" href="#raspy.common.runner.RunnerError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
-<p>Abstract base class for errors.</p>
-</dd></dl>
-
-<dl class="exception">
-<dt id="raspy.common.runner.RunnerInvalidActionError">
-<em class="property">exception </em><tt class="descclassname">raspy.common.runner.</tt><tt class="descname">RunnerInvalidActionError</tt><a class="headerlink" href="#raspy.common.runner.RunnerInvalidActionError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.ValueError</span></tt>, <a class="reference internal" href="#raspy.common.runner.RunnerError" title="raspy.common.runner.RunnerError"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.runner.RunnerError</span></tt></a></p>
-<p>Raised when specified action is invalid.</p>
-</dd></dl>
-
-<dl class="exception">
-<dt id="raspy.common.runner.RunnerStartFailureError">
-<em class="property">exception </em><tt class="descclassname">raspy.common.runner.</tt><tt class="descname">RunnerStartFailureError</tt><a class="headerlink" href="#raspy.common.runner.RunnerStartFailureError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.RuntimeError</span></tt>, <a class="reference internal" href="#raspy.common.runner.RunnerError" title="raspy.common.runner.RunnerError"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.runner.RunnerError</span></tt></a></p>
-<p>Raised when failure starting.</p>
-</dd></dl>
-
-<dl class="exception">
-<dt id="raspy.common.runner.RunnerStopFailureError">
-<em class="property">exception </em><tt class="descclassname">raspy.common.runner.</tt><tt class="descname">RunnerStopFailureError</tt><a class="headerlink" href="#raspy.common.runner.RunnerStopFailureError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.RuntimeError</span></tt>, <a class="reference internal" href="#raspy.common.runner.RunnerError" title="raspy.common.runner.RunnerError"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.runner.RunnerError</span></tt></a></p>
-<p>Raised when failure stopping.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="raspy.common.runner.emit_message">
-<tt class="descclassname">raspy.common.runner.</tt><tt class="descname">emit_message</tt><big>(</big><em>message</em>, <em>stream=None</em><big>)</big><a class="headerlink" href="#raspy.common.runner.emit_message" title="Permalink to this definition">¶</a></dt>
-<dd><p>Emit a message to the specified stream (default <cite>sys.stderr</cite>).</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="raspy.common.runner.is_pidfile_stale">
-<tt class="descclassname">raspy.common.runner.</tt><tt class="descname">is_pidfile_stale</tt><big>(</big><em>pidfile</em><big>)</big><a class="headerlink" href="#raspy.common.runner.is_pidfile_stale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine whether a PID file is stale.</p>
-<p>Return <tt class="docutils literal"><span class="pre">True</span></tt> (“stale”) if the contents of the PID file are
-valid but do not match the PID of a currently-running process;
-otherwise return <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="raspy.common.runner.make_pidlockfile">
-<tt class="descclassname">raspy.common.runner.</tt><tt class="descname">make_pidlockfile</tt><big>(</big><em>path</em>, <em>acquire_timeout</em><big>)</big><a class="headerlink" href="#raspy.common.runner.make_pidlockfile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make a PIDLockFile instance with the given filesystem path.</p>
-</dd></dl>
-
+<div class="section" id="raspy-common-runner-module">
+<h2>raspy.common.runner module<a class="headerlink" href="#raspy-common-runner-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-raspy.common.server">
 <span id="raspy-common-server-module"></span><h2>raspy.common.server module<a class="headerlink" href="#module-raspy.common.server" title="Permalink to this headline">¶</a></h2>
@@ -876,13 +728,13 @@ messages.</p>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-raspy.common.MDP">raspy.common.MDP module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.client">raspy.common.client module</a></li>
-<li><a class="reference internal" href="#module-raspy.common.dynamic">raspy.common.dynamic module</a></li>
+<li><a class="reference internal" href="#raspy-common-dynamic-module">raspy.common.dynamic module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.executive">raspy.common.executive module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.kvcliapi">raspy.common.kvcliapi module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.kvsimple">raspy.common.kvsimple module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.mdcliapi">raspy.common.mdcliapi module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.mdwrkapi">raspy.common.mdwrkapi module</a></li>
-<li><a class="reference internal" href="#module-raspy.common.runner">raspy.common.runner module</a></li>
+<li><a class="reference internal" href="#raspy-common-runner-module">raspy.common.runner module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.server">raspy.common.server module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.statistics">raspy.common.statistics module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.supervisor">raspy.common.supervisor module</a></li>

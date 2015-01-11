@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="RasPy 0.0.1 documentation" href="index.html" />
     <link rel="up" title="Developper manual of RasPy" href="man_dev.html" />
-    <link rel="prev" title="raspy.common.devices package" href="raspy.common.devices.html" /> 
+    <link rel="prev" title="raspy.http package" href="raspy.http.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,7 +38,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="raspy.common.devices.html" title="raspy.common.devices package"
+          <a href="raspy.http.html" title="raspy.http package"
              accesskey="P">previous</a> |</li>
         <li><a href="contents.html">RasPy 0.0.1 documentation</a> &raquo;</li>
           <li><a href="index.html" >Welcome to RasPy documentation!</a> &raquo;</li>
@@ -576,6 +576,35 @@
 <em class="property">class </em><tt class="descclassname">raspy.servers.onewire.</tt><tt class="descname">OneWire</tt><big>(</big><em>hostname='localhost'</em>, <em>service='onewire'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em>, <em>devices_dir='/sys/bus/w1/devices'</em><big>)</big><a class="headerlink" href="#raspy.servers.onewire.OneWire" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="raspy.common.html#raspy.common.server.Server" title="raspy.common.server.Server"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.server.Server</span></tt></a></p>
 <p>The OneWire server</p>
+<p>You need to load kernel module :</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo vim /etc/modules
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># /etc/modules: kernel modules to load at boot time.</span>
+<span class="c">#</span>
+<span class="c"># This file contains the names of kernel modules that should be loaded</span>
+<span class="c"># at boot time, one per line. Lines beginning with &quot;#&quot; are ignored.</span>
+<span class="c"># Parameters can be specified after the module name.</span>
+w1-therm
+w1-gpio <span class="nv">pullup</span><span class="o">=</span>1
+i2c-dev
+i2c-bcm2708
+spi-bcm2708
+snd-bcm2835
+</pre></div>
+</div>
+<p>And check that blacklist is correct :</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo vim /etc/modprobe.d/raspi-blacklist.conf
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># blacklist spi and i2c by default (many users don&#39;t need them)</span>
+blacklist spi-bcm2708
+blacklist i2c-bcm2708
+blacklist snd-soc-pcm512x
+blacklist snd-soc-wm8804
+</pre></div>
+</div>
+<p>At last, we must load the module in init script sothat we don&#8217;t need to update this.</p>
 <p>From <a class="reference external" href="https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi">https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi</a></p>
 <dl class="method">
 <dt id="raspy.servers.onewire.OneWire.worker_devices">
@@ -685,8 +714,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="raspy.common.devices.html"
-                        title="previous chapter">raspy.common.devices package</a></p>
+  <p class="topless"><a href="raspy.http.html"
+                        title="previous chapter">raspy.http package</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/raspy.servers.txt"
@@ -719,7 +748,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="raspy.common.devices.html" title="raspy.common.devices package"
+          <a href="raspy.http.html" title="raspy.http package"
              >previous</a> |</li>
         <li><a href="contents.html">RasPy 0.0.1 documentation</a> &raquo;</li>
           <li><a href="index.html" >Welcome to RasPy documentation!</a> &raquo;</li>

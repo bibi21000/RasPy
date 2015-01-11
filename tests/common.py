@@ -23,7 +23,9 @@ __license__ = """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-SLEEP=0.25
+# Update this value when running on raspberry
+# 1.5 is a good choice
+SLEEP = 0.25
 
 import sys, os
 import time
@@ -31,8 +33,6 @@ import unittest
 import threading
 import logging
 import json as mjson
-from cStringIO import StringIO
-from contextlib import contextmanager
 
 from nose.plugins.skip import SkipTest
 
@@ -44,14 +44,6 @@ from raspy.common.mdcliapi import MajorDomoClient
 from raspy.common.devices import *
 import raspy.common.devices as devices
 from raspy.common.devices.device import DReg
-
-@contextmanager
-def capture(command, *args, **kwargs):
-  out, sys.stdout = sys.stdout, StringIO()
-  command(*args, **kwargs)
-  sys.stdout.seek(0)
-  yield sys.stdout.read()
-  sys.stdout = out
 
 class TestRasPy(unittest.TestCase):
     """Grand mother
@@ -85,8 +77,6 @@ class TestRasPy(TestRasPy):
     broker_port = 5514
     hostname = "localhost"
     service = "worker"
-    logstdout = False
-    #Update this value on a slow computer (ie Raspberry Pi)
     sleep = SLEEP
 
     @classmethod
@@ -95,16 +85,10 @@ class TestRasPy(TestRasPy):
         self.skip = True
         if 'NOSESKIP' in os.environ:
             self.skip = eval(os.environ['NOSESKIP'])
-        if not self.logstdout:
-            self.output = StringIO()
-            self.saved_stdout = sys.stdout
-            sys.stdout = self.output
 
     @classmethod
     def tearDownClass(self):
-        if not self.logstdout:
-            self.output.close()
-            sys.stdout = self.saved_stdout
+        pass
 
 class TestExecutive(TestRasPy):
     """
@@ -126,9 +110,6 @@ class TestExecutive(TestRasPy):
         self.mdclient = MajorDomoClient("tcp://%s:%s"%(self.broker_ip,self.broker_port))
 
     def tearDown(self):
-        if not self.logstdout:
-            self.output.close()
-            sys.stdout = self.saved_stdout
         if self.titanic:
             self.titanic.shutdown()
         if self.broker:

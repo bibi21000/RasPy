@@ -89,6 +89,8 @@ Running only one test module :
 
         /usr/local/bin/nosetests --verbosity=2 --cover-package=raspy --with-coverage --cover-inclusive --cover-tests tests/devices/test_sensor.py
 
+You can follow automatic tests on `travis-ci <https://travis-ci.org/bibi21000/RasPy>`_.
+
 A new device
 ------------
 

@@ -2703,24 +2703,24 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading
 import traceback
-import os
-import raspy.common.MDP as MDP
-from raspy.common.server import Server
-from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.zhelpers import dump
+import os, sys
+import time
+from raspy.common.executive import ExecutiveProcess
+from ConfigParser import SafeConfigParser
 
-import logging
+class Supervisor():
+    """The worker supervisor
 
-class Fake(Server):
-    """A fake server to test RasPy
+    Start executives in separate process see futures
+    Each executive start multiples threads of workers
 
-        - we must developp "real" fake device : ie a temperature sensors must not send random values
-        - a cyclic sensor : parameters : cycle length, min, max and unit. Will do cycle from min temp to max temp (at cycle/2) and fall back tp min temp at end of if
-        - a linear sensor
-        -
+    todo :
+     - bug : can't stop when jobs in queues
+
     """
+    #HB_INTERVAL = 1000  # in milliseconds
+    #__metaclass__ = AutoSlots
 </td>
 </tr>
 <tr class="odd">

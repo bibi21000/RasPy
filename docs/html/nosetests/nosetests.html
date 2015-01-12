@@ -145,9 +145,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Unit Test Report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2015-01-12 12:49:05</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:57.989723</p>
-<p class='attribute'><strong>Status:</strong> Pass 59</p>
+<p class='attribute'><strong>Start Time:</strong> 2015-01-12 13:08:51</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:57.254930</p>
+<p class='attribute'><strong>Status:</strong> Pass 60</p>
 
 <p class='description'></p>
 </div>
@@ -268,7 +268,7 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='passClass'>
-    <td>tests.raspy.test_onewire:TestOneWire</td>
+    <td>tests.raspy.test_fake:TestFake</td>
     <td>10.02</td>
     <td>9</td>
     <td>9</td>
@@ -320,19 +320,19 @@ function showOutput(id, name) {
 </tr>
 
 <tr id='pt2.8' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_102_devices_list_bad</div></td>
+    <td class='none'><div class='testcase'>test_101_devices_list</div></td>
     <td>1.01</td>
     <td colspan='5' align='center'>pass</td>
 </tr>
 
 <tr id='pt2.9' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_103_devices_not_implemented_action</div></td>
+    <td class='none'><div class='testcase'>test_102_devices_not_implemented_action</div></td>
     <td>1.01</td>
     <td colspan='5' align='center'>pass</td>
 </tr>
 
 <tr class='passClass'>
-    <td>tests.raspy.test_fake:TestFake</td>
+    <td>tests.raspy.test_onewire:TestOneWire</td>
     <td>10.02</td>
     <td>9</td>
     <td>9</td>
@@ -384,13 +384,13 @@ function showOutput(id, name) {
 </tr>
 
 <tr id='pt3.8' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_101_devices_list</div></td>
+    <td class='none'><div class='testcase'>test_102_devices_list_bad</div></td>
     <td>1.01</td>
     <td colspan='5' align='center'>pass</td>
 </tr>
 
 <tr id='pt3.9' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_102_devices_not_implemented_action</div></td>
+    <td class='none'><div class='testcase'>test_103_devices_not_implemented_action</div></td>
     <td>1.01</td>
     <td colspan='5' align='center'>pass</td>
 </tr>
@@ -459,7 +459,7 @@ function showOutput(id, name) {
 
 <tr id='pt5.2' class='hiddenRow'>
     <td class='none'><div class='testcase'>test_101_kv_snapshot</div></td>
-    <td>1.08</td>
+    <td>1.09</td>
     <td colspan='5' align='center'>pass</td>
 </tr>
 
@@ -515,16 +515,22 @@ function showOutput(id, name) {
 
 <tr class='passClass'>
     <td>tests.raspyweb.test_server:FlaskServerTest</td>
-    <td>0.00</td>
-    <td>1</td>
-    <td>1</td>
+    <td>0.01</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c8',1)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c8',2)">Detail</a></td>
 </tr>
 
 <tr id='pt8.1' class='hiddenRow'>
     <td class='none'><div class='testcase'>test_000_server_start</div></td>
+    <td>0.01</td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt8.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_001_server_is_running</div></td>
     <td>0.00</td>
     <td colspan='5' align='center'>pass</td>
 </tr>
@@ -564,13 +570,13 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='passClass'>
-    <td>tests.raspy.devices.test_media:TestCamera</td>
+    <td>tests.raspy.devices.test_sensor:TestTemperature</td>
     <td>0.00</td>
-    <td>3</td>
-    <td>3</td>
+    <td>4</td>
+    <td>4</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c10',3)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c10',4)">Detail</a></td>
 </tr>
 
 <tr id='pt10.1' class='hiddenRow'>
@@ -586,13 +592,19 @@ function showOutput(id, name) {
 </tr>
 
 <tr id='pt10.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_100_device_register</div></td>
+    <td>0.00</td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt10.4' class='hiddenRow'>
     <td class='none'><div class='testcase'>test_200_device_register</div></td>
     <td>0.00</td>
     <td colspan='5' align='center'>pass</td>
 </tr>
 
 <tr class='passClass'>
-    <td>tests.raspy.devices.test_media:TestTV</td>
+    <td>tests.raspy.devices.test_media:TestCamera</td>
     <td>0.00</td>
     <td>3</td>
     <td>3</td>
@@ -620,13 +632,13 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='passClass'>
-    <td>tests.raspy.devices.test_sensor:TestTemperature</td>
+    <td>tests.raspy.devices.test_media:TestTV</td>
     <td>0.00</td>
-    <td>4</td>
-    <td>4</td>
+    <td>3</td>
+    <td>3</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c12',4)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c12',3)">Detail</a></td>
 </tr>
 
 <tr id='pt12.1' class='hiddenRow'>
@@ -642,12 +654,6 @@ function showOutput(id, name) {
 </tr>
 
 <tr id='pt12.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_100_device_register</div></td>
-    <td>0.00</td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='pt12.4' class='hiddenRow'>
     <td class='none'><div class='testcase'>test_200_device_register</div></td>
     <td>0.00</td>
     <td colspan='5' align='center'>pass</td>
@@ -655,9 +661,9 @@ function showOutput(id, name) {
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>51.08</td>
-    <td>59</td>
-    <td>59</td>
+    <td>51.09</td>
+    <td>60</td>
+    <td>60</td>
     <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>

@@ -2919,11 +2919,11 @@ import os
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.zhelpers import dump
-
+import json
 import logging
 
-class OneWire(Server):
+class Scenario(threading.Thread):
+    """A scenario
     """</td>
 </tr>
 <tr class="odd">
@@ -2972,9 +2972,9 @@ import os
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.zhelpers import dump
-
-import logging</td>
+import json
+import logging
+</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -3153,7 +3153,7 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import pickle</td>
+import threading</td>
 </tr>
 <tr class="even">
 <td>refactor</td>

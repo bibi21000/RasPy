@@ -2808,22 +2808,22 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
+from uuid import uuid4
 import traceback
 import os
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
 import raspy.common.MDP as MDP
-from raspy.common.server import Server
+from raspy.common.executive import Executive
 from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.zhelpers import dump
-
-import logging
-
-class Fake(Server):
-    """A fake server to test RasPy
-
-        - we must developp "real" fake device : ie a temperature sensors must not send random values
-        - a cyclic sensor : parameters : cycle length, min, max and unit. Will do cycle from min temp to max temp (at cycle/2) and fall back tp min temp at end of if
-        - a linear sensor</td>
+from raspy.common.mdcliapi import MajorDomoClient</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -2861,19 +2861,19 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
+from uuid import uuid4
 import traceback
 import os
-import raspy.common.MDP as MDP
-from raspy.common.server import Server
-from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.zhelpers import dump
-
-import logging
-
-class Fake(Server):
-    """A fake server to test RasPy
-</td>
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
+import raspy.common.MDP as MDP</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -2972,9 +2972,9 @@ import os
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-import json
-import logging
-</td>
+from raspy.common.zhelpers import dump
+
+import logging</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -3017,12 +3017,12 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
+from uuid import uuid4
 import traceback
 import os
-import raspy.common.MDP as MDP
-from raspy.common.server import Server
-from raspy.common.mdwrkapi import MajorDomoWorker</td>
+try:</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -3068,11 +3068,11 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
+from uuid import uuid4
 import traceback
-import os
-import raspy.common.MDP as MDP
-from raspy.common.server import Server</td>
+import os</td>
 </tr>
 <tr class="even">
 <td>refactor</td>

@@ -2919,11 +2919,11 @@ import os
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-import json
+from raspy.common.zhelpers import dump
+
 import logging
 
-class Scenario(threading.Thread):
-    """A scenario
+class OneWire(Server):
     """</td>
 </tr>
 <tr class="odd">

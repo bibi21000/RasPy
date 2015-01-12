@@ -15,7 +15,7 @@ install:
   - pip install docutils --download-cache $HOME/.pip-cache
   - python setup.py -q install
   - python setup-web.py -q install
-  - python setup-ui.py -q install
+#  - python setup-ui.py -q install
 # command to run tests
 script: nosetests
 # package dependencies

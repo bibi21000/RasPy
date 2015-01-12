@@ -85,6 +85,7 @@ setup(
                      'js.jquery >= 1.9.1',
                      'js.jquery_timepicker_addon >= 1.3',
                      'js.jquery_datatables >= 1.10',
+                     'Flask-Themes >= 0.1.3',
                      'WebOb >= 1.4',
                      'Jinja2 >= 2.5.5',
                      'nose-html == 1.1',

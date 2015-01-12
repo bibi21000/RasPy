@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 """RasPyWeb app module.
+
+Use templates : https://pythonhosted.org/Flask-Themes/
+
 """
 
 __license__ = """

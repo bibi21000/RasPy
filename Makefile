@@ -63,7 +63,7 @@ install:
 develop:
 	sudo python setup.py develop
 	sudo python setup-web.py develop
-	sudo python setup-ui.py develop
+	#sudo python setup-ui.py develop
 	@echo
 	@echo "Installation for developpers finished."
 

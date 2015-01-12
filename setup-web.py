@@ -94,9 +94,8 @@ setup(
                      'coverage >= 3.7.1',
                      'python-daemon >= 2.0.0',
                     ],
-    include_package_data=True,
+    #include_package_data=True,
     package_data={
-      'static': 'src-web/app/static*',
-      'templates': 'src-web/app/templates/*',
+      'raspyweb': ['app/static/*/*', 'app/templates/*', 'app/templates/*/*'],
     },
 )

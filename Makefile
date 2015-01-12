@@ -57,6 +57,8 @@ docs: cleandocs
 
 install:
 	sudo python setup.py install
+	sudo python setup-web.py install
+	#sudo python setup-ui.py install
 	@echo
 	@echo "Installation for users finished."
 

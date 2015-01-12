@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">;
   </head>
   <body>
-    <header>
-    </header>
+    <script type=text/javascript>
+      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
     <div class="jumbo">
         <h1>Welcome to RasPyWeb</h1>
     </div>

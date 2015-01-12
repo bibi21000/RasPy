@@ -26,6 +26,8 @@ __email__ = 'bibi21000@gmail.com'
 
 import os,sys
 from flask import Flask, render_template, request
+from raspyweb.app import app
+
 
 @app.route('/')
 def home_req():

@@ -33,6 +33,21 @@ app = Flask(__name__)
 app.config.from_object('raspyweb.config.DevelopmentConfig')
 fanstatic = Fanstatic(app)
 
+@app.route('/')
+def home_req():
+    #res = mdp_request(socket, 'mmi.directory', [], 2.0)
+    #dirs = res[1].split('|')
+    res = '200'
+    dirs = []
+    links = []
+    #for diir in dirs :
+    #    service, numb = diir.split('=')
+    #    links.append(service)
+    #links.sort()
+    return render_template('home.html', links=links, res=res)
+
+#import raspyweb.app.views
+
 #db = SQLAlchemy(app)
 
 ########################

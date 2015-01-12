@@ -26,5 +26,10 @@ __license__ = """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-from app import app
-app.run(debug=True)
+from raspyweb.app import app
+
+def main():
+    app.run(debug=True)
+
+if __name__ == '__main__':
+    main()

@@ -42,9 +42,9 @@ class FlaskServerTest(FlaskTestCase):
         self.assertTrue('RasPyWeb' in rv.data)
 
     def test_001_server_is_running(self):
-        self.wipTest()
+        #self.wipTest()
         rv = self.app.get('/')
-        self.assertEqual(rv.status,'200')
+        self.assertEqual(rv.status,'200 OK')
 
 if __name__ == '__main__':
     sys.argv.append('-v')

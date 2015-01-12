@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 """Unittests for the Onewire Server.
+
+Credits : https://flask-testing.readthedocs.org/en/latest/
 """
 
 
@@ -23,38 +25,22 @@ __license__ = """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-# Update this value when running on raspberry
-# 1.5 is a good choice
-SLEEP = 0.50
-
 import sys, os
 import time
-import unittest
-import threading
 import logging
 import json as mjson
 
-from nose.plugins.skip import SkipTest
+from flask import Flask
 
-class TestRasPy(unittest.TestCase):
-    """Grand mother
-    """
-    loglevel = logging.DEBUG
+from raspyweb.app import app
 
-    @classmethod
-    def setUpClass(self):
-        logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S", level=self.loglevel)
-        self.skip = True
-        if 'NOSESKIP' in os.environ:
-            self.skip = eval(os.environ['NOSESKIP'])
+from tests.common import SLEEP
+from tests.common import TestRasPy
 
-    def skipTest(self, message):
-        """Skip a test
-        """
-        if self.skip == True:
-            raise SkipTest("%s" % (message))
+class FlaskTestCase(TestRasPy):
 
-    def wipTest(self):
-        """Work In Progress test
-        """
-        raise SkipTest("Work in progress")
+    def setUp(self):
+        self.app = app.test_client()
+
+    def tearDown(self):
+        pass

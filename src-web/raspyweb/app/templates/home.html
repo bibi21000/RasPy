@@ -1,0 +1,13 @@
+{{- g.fanstatic.needs('js.jquery:jquery') -}}
+{{- g.fanstatic.needs('js.jquery_datatables:jquery_datatables') -}}
+{% extends "layout.html" %}
+{% block content %}
+  <div class="listing">
+    <h1>Available services</h1>
+    <ul>
+    {% for link in links %}
+      <li><a href="{{ link }}">{{ link }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

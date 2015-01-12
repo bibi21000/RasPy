@@ -40,9 +40,9 @@ import threading
 import logging
 import zmq
 
-from tests.common import TestRasPy, TestExecutive
+from tests.raspy.common import TestRasPyIP, TestExecutive
 
-class TestProtocol(TestRasPy):
+class TestProtocol(TestRasPyIP):
     """
     Test ZMQ protocols : Majordomo, titanic and subtree publisher
     """

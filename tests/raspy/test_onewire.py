@@ -31,75 +31,58 @@ from pprint import pprint
 import raspy.common.MDP as MDP
 from raspy.servers.broker import Broker
 from raspy.servers.titanic import Titanic
-from raspy.servers.core import Core
+from raspy.servers.onewire import OneWire
 from raspy.common.mdcliapi import MajorDomoClient
 import threading
 import logging
 
-from tests.common import TestServer, ServerBase
+from tests.raspy.common import TestServer, ServerBase
 
-class TestCore(TestServer, ServerBase):
-    service="core"
+class TestOneWire(TestServer, ServerBase):
+    service="onewire"
 
     def startServer(self):
-        self.server = Core(hostname=self.hostname, broker_ip=self.broker_ip, broker_port=self.broker_port)
+        self.server = OneWire(hostname=self.hostname, broker_ip=self.broker_ip, broker_port=self.broker_port)
         self.server_thread = threading.Thread(target=self.server.run)
         self.server_thread.daemon = True
         self.server_thread.start()
         time.sleep(self.sleep/4.0)
 
-    def test_100_service_cron(self):
+    def test_100_service_devices(self):
         self.startServer()
-        request = "%s.cron"%MDP.routing_key(self.hostname, self.service)
+        request = "%s.devices"%MDP.routing_key(self.hostname, self.service)
         reply = self.mdclient.send("mmi.service", request)
         self.assertNotEqual(reply, None)
         self.assertEqual(reply[0], MDP.T_OK)
         self.stopServer()
 
-    def test_500_service_scenario(self):
-        self.startServer()
-        request = "%s.scenario"%MDP.routing_key(self.hostname, self.service)
-        reply = self.mdclient.send("mmi.service", request)
-        self.assertNotEqual(reply, None)
-        self.assertEqual(reply[0], MDP.T_OK)
-        self.stopServer()
-
-    def test_501_scenario_info(self):
-        self.startServer()
-        request = "info"
-        reply = self.mdclient.send("%s.scenario"%MDP.routing_key(self.hostname, self.service), request)
-        self.assertNotEqual(reply, None)
-        self.assertEqual(reply[-1], MDP.T_OK)
-        self.stopServer()
-
-    def test_502_scenario_not_implemented_action(self):
-        self.startServer()
-        request = "notimplemmmmment"
-        reply = self.mdclient.send("%s.scenario"%MDP.routing_key(self.hostname, self.service), request)
-        self.assertNotEqual(reply, None)
-        self.assertEqual(reply[-1], MDP.T_NOTIMPLEMENTED)
-        self.stopServer()
-
-    def test_600_service_scenarios(self):
-        self.startServer()
-        request = "%s.scenarios"%MDP.routing_key(self.hostname, self.service)
-        reply = self.mdclient.send("mmi.service", request)
-        self.assertNotEqual(reply, None)
-        self.assertEqual(reply[0], MDP.T_OK)
-        self.stopServer()
-
-    def test_601_scenarios_list_keys(self):
+    def test_101_devices_list(self):
+        self.skipTest("Only on Rapsberry Pi")
         self.startServer()
         request = "list_keys"
-        reply = self.mdclient.send("%s.scenarios"%MDP.routing_key(self.hostname, self.service), request)
+        reply = self.mdclient.send("%s.devices"%MDP.routing_key(self.hostname, self.service), request)
         self.assertNotEqual(reply, None)
         self.assertEqual(reply[-1], MDP.T_OK)
         self.stopServer()
 
-    def test_602_scenarios_not_implemented_action(self):
+    def test_102_devices_list_bad(self):
+        self.server = OneWire(hostname=self.hostname, service="onewire2", broker_ip=self.broker_ip, broker_port=self.broker_port, devices_dir='/tmp/badir')
+        self.server_thread = threading.Thread(target=self.server.run)
+        self.server_thread.daemon = True
+        self.server_thread.start()
+        request = "list_keys"
+        reply = self.mdclient.send("%s.devices"%MDP.routing_key(self.hostname, "onewire2"), request)
+        self.assertNotEqual(reply, None)
+        self.assertEqual(reply[-1], MDP.T_ERROR)
+        self.server.shutdown()
+        time.sleep(self.sleep/3.0)
+        self.server.destroy()
+        time.sleep(self.sleep)
+
+    def test_103_devices_not_implemented_action(self):
         self.startServer()
         request = "notimplemmmmment"
-        reply = self.mdclient.send("%s.scenarios"%MDP.routing_key(self.hostname, self.service), request)
+        reply = self.mdclient.send("%s.devices"%MDP.routing_key(self.hostname, self.service), request)
         self.assertNotEqual(reply, None)
         self.assertEqual(reply[-1], MDP.T_NOTIMPLEMENTED)
         self.stopServer()

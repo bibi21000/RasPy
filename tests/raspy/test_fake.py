@@ -36,7 +36,7 @@ from raspy.common.mdcliapi import MajorDomoClient
 import threading
 import logging
 
-from tests.common import TestServer, ServerBase
+from tests.raspy.common import TestServer, ServerBase
 
 class TestFake(TestServer, ServerBase):
     service="fake"

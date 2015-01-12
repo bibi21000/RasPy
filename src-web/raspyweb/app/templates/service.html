@@ -1,0 +1,25 @@
+{{- g.fanstatic.needs('js.jquery:jquery') -}}
+{{- g.fanstatic.needs('js.jquery_datatables:jquery_datatables') -}}
+{% extends "layout.html" %}
+{% block content %}
+  <div class="listing">
+    <h5>Available services</h5>
+    <ul>
+    {% for link in services %}
+      <li><a href="{{ path }}/{{ link }}?type=replies">{{ link }}</a></li>
+    {% endfor %}
+    </ul>
+    <h5>Available topics</h5>
+    <ul>
+    {% for link in topics %}
+      <li><a href="{{ path }}/{{ link }}?type=topics">{{ link }}</a></li>
+    {% endfor %}
+    </ul>
+    <h5>Available mmis</h5>
+    <ul>
+    {% for link in mmis %}
+      <li><a href="{{ path }}/{{ link }}?type=mmi">{{ link }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RasPyWeb</title>
+    {{ g.fanstatic.top }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">;
+  </head>
+  <body>
+    <header>
+    </header>
+    <div class="jumbo">
+        <h1>Welcome to RasPyWeb</h1>
+    </div>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+  <p>Reply : {% print res %}</p>
+  <p>Path : {% print path %}</p>
+  {{ g.fanstatic.bottom }}
+  </body>
+</html>

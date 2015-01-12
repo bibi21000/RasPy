@@ -311,18 +311,151 @@ Of course, a FAILED test will also.</p>
 </div>
 <div class="section" id="raspyweb-package">
 <h2>raspyweb package<a class="headerlink" href="#raspyweb-package" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>Subpackages<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="raspyweb.app.html">raspyweb.app package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="raspyweb.app.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspyweb.app.html#raspyweb-app-views-module">raspyweb.app.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspyweb.app.html#module-raspyweb.app">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="submodules">
 <h3>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="raspyweb-http-module">
-<h3>raspyweb.http module<a class="headerlink" href="#raspyweb-http-module" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="module-raspyweb.config">
+<span id="raspyweb-config-module"></span><h3>raspyweb.config module<a class="headerlink" href="#module-raspyweb.config" title="Permalink to this headline">¶</a></h3>
+<p>Storing all the module configurations. Here, the database is setup to use SQLite, because it&#8217;s a very convenient dev env database.
+Most likely /config.py won&#8217;t be a part of your repository and will be different on your test and production servers.</p>
+<blockquote>
+<div><ul class="simple">
+<li>_basedir is a trick for you to get the folder where the script runs</li>
+<li>DEBUG indicates that it is a dev environment, you&#8217;ll get the very helpful error page from flask when an error occurs.</li>
+<li>SECRET_KEY will be used to sign cookies. Change it and all your users will have to login again.</li>
+<li>ADMINS will be used if you need to email information to the site administrators.</li>
+<li>SQLALCHEMY_DATABASE_URI and DATABASE_CONNECT_OPTIONS are SQLAlchemy connection options (hard to guess)</li>
+<li>THREAD_PAGE my understanding was 2/core... might be wrong :)</li>
+<li>CSRF_ENABLED and CSRF_SESSION_KEY are protecting against form post fraud</li>
+<li>RECAPTCHA_* WTForms comes with a RecaptchaField ready to use... just need to go to recaptcha website and get your public and private key.</li>
+</ul>
+</div></blockquote>
+<p>Credits : <a class="reference external" href="https://github.com/mitsuhiko/flask/wiki/Large-app-how-to">https://github.com/mitsuhiko/flask/wiki/Large-app-how-to</a></p>
+<dl class="class">
+<dt id="raspyweb.config.Config">
+<em class="property">class </em><tt class="descclassname">raspyweb.config.</tt><tt class="descname">Config</tt><a class="headerlink" href="#raspyweb.config.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="raspyweb.config.Config.ADMINS">
+<tt class="descname">ADMINS</tt><em class="property"> = frozenset(['bibi21000&#64;gmail.com'])</em><a class="headerlink" href="#raspyweb.config.Config.ADMINS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.CSRF_ENABLED">
+<tt class="descname">CSRF_ENABLED</tt><em class="property"> = True</em><a class="headerlink" href="#raspyweb.config.Config.CSRF_ENABLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.CSRF_SESSION_KEY">
+<tt class="descname">CSRF_SESSION_KEY</tt><em class="property"> = 'somethingimpossibletoguess'</em><a class="headerlink" href="#raspyweb.config.Config.CSRF_SESSION_KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.DATABASE_URI">
+<tt class="descname">DATABASE_URI</tt><em class="property"> = 'sqlite://:memory:'</em><a class="headerlink" href="#raspyweb.config.Config.DATABASE_URI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.DEBUG">
+<tt class="descname">DEBUG</tt><em class="property"> = False</em><a class="headerlink" href="#raspyweb.config.Config.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.RECAPTCHA_OPTIONS">
+<tt class="descname">RECAPTCHA_OPTIONS</tt><em class="property"> = {'theme': 'white'}</em><a class="headerlink" href="#raspyweb.config.Config.RECAPTCHA_OPTIONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.RECAPTCHA_PRIVATE_KEY">
+<tt class="descname">RECAPTCHA_PRIVATE_KEY</tt><em class="property"> = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'</em><a class="headerlink" href="#raspyweb.config.Config.RECAPTCHA_PRIVATE_KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.RECAPTCHA_PUBLIC_KEY">
+<tt class="descname">RECAPTCHA_PUBLIC_KEY</tt><em class="property"> = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'</em><a class="headerlink" href="#raspyweb.config.Config.RECAPTCHA_PUBLIC_KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.RECAPTCHA_USE_SSL">
+<tt class="descname">RECAPTCHA_USE_SSL</tt><em class="property"> = False</em><a class="headerlink" href="#raspyweb.config.Config.RECAPTCHA_USE_SSL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.SECRET_KEY">
+<tt class="descname">SECRET_KEY</tt><em class="property"> = 'This string will be replaced with a proper key in production.'</em><a class="headerlink" href="#raspyweb.config.Config.SECRET_KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.TESTING">
+<tt class="descname">TESTING</tt><em class="property"> = False</em><a class="headerlink" href="#raspyweb.config.Config.TESTING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="raspyweb.config.Config.THREADS_PER_PAGE">
+<tt class="descname">THREADS_PER_PAGE</tt><em class="property"> = 8</em><a class="headerlink" href="#raspyweb.config.Config.THREADS_PER_PAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspyweb.config.DevelopmentConfig">
+<em class="property">class </em><tt class="descclassname">raspyweb.config.</tt><tt class="descname">DevelopmentConfig</tt><a class="headerlink" href="#raspyweb.config.DevelopmentConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspyweb.config.Config" title="raspyweb.config.Config"><tt class="xref py py-class docutils literal"><span class="pre">raspyweb.config.Config</span></tt></a></p>
+<dl class="attribute">
+<dt id="raspyweb.config.DevelopmentConfig.DEBUG">
+<tt class="descname">DEBUG</tt><em class="property"> = True</em><a class="headerlink" href="#raspyweb.config.DevelopmentConfig.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspyweb.config.ProductionConfig">
+<em class="property">class </em><tt class="descclassname">raspyweb.config.</tt><tt class="descname">ProductionConfig</tt><a class="headerlink" href="#raspyweb.config.ProductionConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspyweb.config.Config" title="raspyweb.config.Config"><tt class="xref py py-class docutils literal"><span class="pre">raspyweb.config.Config</span></tt></a></p>
+<dl class="attribute">
+<dt id="raspyweb.config.ProductionConfig.DATABASE_URI">
+<tt class="descname">DATABASE_URI</tt><em class="property"> = 'mysql://user&#64;localhost/foo'</em><a class="headerlink" href="#raspyweb.config.ProductionConfig.DATABASE_URI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspyweb.config.TestingConfig">
+<em class="property">class </em><tt class="descclassname">raspyweb.config.</tt><tt class="descname">TestingConfig</tt><a class="headerlink" href="#raspyweb.config.TestingConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspyweb.config.Config" title="raspyweb.config.Config"><tt class="xref py py-class docutils literal"><span class="pre">raspyweb.config.Config</span></tt></a></p>
+<dl class="attribute">
+<dt id="raspyweb.config.TestingConfig.TESTING">
+<tt class="descname">TESTING</tt><em class="property"> = True</em><a class="headerlink" href="#raspyweb.config.TestingConfig.TESTING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="raspyweb-views-module">
-<h3>raspyweb.views module<a class="headerlink" href="#raspyweb-views-module" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="raspyweb-run-module">
+<h3>raspyweb.run module<a class="headerlink" href="#raspyweb-run-module" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="id2">
-<h3>Module contents<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="module-raspyweb.shell">
+<span id="raspyweb-shell-module"></span><h3>raspyweb.shell module<a class="headerlink" href="#module-raspyweb.shell" title="Permalink to this headline">¶</a></h3>
+<p>will allow you to get a console and enter commands within your flask environment.
+Maybe not as nice as debugging with pdb, but always useful (when you will initialize your database).</p>
+<p>Credits : <a class="reference external" href="https://github.com/mitsuhiko/flask/wiki/Large-app-how-to">https://github.com/mitsuhiko/flask/wiki/Large-app-how-to</a></p>
 </div>
+<div class="section" id="id3">
+<h3>Module contents<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-raspyweb"></span></div>
 </div>
 </div>
 
@@ -364,10 +497,12 @@ Of course, a FAILED test will also.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#raspyweb-package">raspyweb package</a><ul>
+<li><a class="reference internal" href="#id2">Subpackages</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#raspyweb-http-module">raspyweb.http module</a></li>
-<li><a class="reference internal" href="#raspyweb-views-module">raspyweb.views module</a></li>
-<li><a class="reference internal" href="#id2">Module contents</a></li>
+<li><a class="reference internal" href="#module-raspyweb.config">raspyweb.config module</a></li>
+<li><a class="reference internal" href="#raspyweb-run-module">raspyweb.run module</a></li>
+<li><a class="reference internal" href="#module-raspyweb.shell">raspyweb.shell module</a></li>
+<li><a class="reference internal" href="#id3">Module contents</a></li>
 </ul>
 </li>
 </ul>

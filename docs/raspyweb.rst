@@ -1,21 +1,36 @@
 raspyweb package
 ================
 
+Subpackages
+-----------
+
+.. toctree::
+
+    raspyweb.app
+
 Submodules
 ----------
 
-raspyweb.http module
---------------------
+raspyweb.config module
+----------------------
 
-.. automodule:: raspyweb.http
+.. automodule:: raspyweb.config
     :members:
     :undoc-members:
     :show-inheritance:
 
-raspyweb.views module
+raspyweb.run module
+-------------------
+
+.. automodule:: raspyweb.run
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+raspyweb.shell module
 ---------------------
 
-.. automodule:: raspyweb.views
+.. automodule:: raspyweb.shell
     :members:
     :undoc-members:
     :show-inheritance:

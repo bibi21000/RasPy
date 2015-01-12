@@ -2703,24 +2703,24 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import threading
 import traceback
-import os, sys
-import time
-from raspy.common.executive import ExecutiveProcess
-from ConfigParser import SafeConfigParser
+import os
+import raspy.common.MDP as MDP
+from raspy.common.server import Server
+from raspy.common.mdwrkapi import MajorDomoWorker
+from raspy.common.zhelpers import dump
 
-class Supervisor():
-    """The worker supervisor
+import logging
 
-    Start executives in separate process see futures
-    Each executive start multiples threads of workers
+class Fake(Server):
+    """A fake server to test RasPy
 
-    todo :
-     - bug : can't stop when jobs in queues
-
+        - we must developp "real" fake device : ie a temperature sensors must not send random values
+        - a cyclic sensor : parameters : cycle length, min, max and unit. Will do cycle from min temp to max temp (at cycle/2) and fall back tp min temp at end of if
+        - a linear sensor
+        -
     """
-    #HB_INTERVAL = 1000  # in milliseconds
-    #__metaclass__ = AutoSlots
 </td>
 </tr>
 <tr class="odd">
@@ -2919,11 +2919,11 @@ import os
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.zhelpers import dump
-
+import json
 import logging
 
-class OneWire(Server):
+class Scenario(threading.Thread):
+    """A scenario
     """</td>
 </tr>
 <tr class="odd">
@@ -3068,11 +3068,11 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import threading
+import traceback
 import os
-import glob
-import logging
-modules = glob.glob(os.path.dirname(__file__)+"/*.py")
-__all__ = [ os.path.basename(f)[:-3] for f in modules]</td>
+import raspy.common.MDP as MDP
+from raspy.common.server import Server</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -3153,7 +3153,7 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import os</td>
+import pickle</td>
 </tr>
 <tr class="even">
 <td>refactor</td>

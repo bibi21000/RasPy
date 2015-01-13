@@ -30,6 +30,7 @@ __email__ = 'bibi21000@gmail.com'
 import sys
 import time
 import logging
+import json as mjson
 
 from tests.raspyweb.common import FlaskTestCase
 
@@ -41,9 +42,14 @@ class FlaskServerTest(FlaskTestCase):
         rv = self.app.get('/')
         self.assertTrue('RasPyWeb' in rv.data)
 
-    def test_001_server_is_running(self):
+    def test_100_home_is_running(self):
         #self.wipTest()
         rv = self.app.get('/')
+        self.assertEqual(rv.status,'200 OK')
+
+    def test_200_ajax_is_running(self):
+        #self.wipTest()
+        rv = self.app.get('/ajax/')
         self.assertEqual(rv.status,'200 OK')
 
 if __name__ == '__main__':

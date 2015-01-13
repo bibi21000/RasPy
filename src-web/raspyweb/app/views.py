@@ -27,9 +27,12 @@ import os,sys
 from flask import Flask, render_template, request
 from raspyweb.app import app
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
 
 @app.route('/')
-def home_req():
+def home():
     res = mdp_request(socket, 'mmi.directory', [], 2.0)
     dirs = res[1].split('|')
     links = []
@@ -39,7 +42,7 @@ def home_req():
     links.sort()
     return render_template('home.html', links=links, res=res)
 
-@app.route('/replies/<path:path>')
+#@app.route('/replies/<path:path>')
 def requests(path):
     ""
     ""

@@ -73,9 +73,6 @@ setup(
     package_dir = { '': 'src-web' },
     install_requires=[
                      'raspy >= 0.0.1',
-                     'lockfile >= 0.10',
-                     'docutils >= 0.11',
-                     'pyzmq == 14.4.1',
                      'Flask == 0.10.1',
                      'Flask-WTF == 0.9.5',
                      'Babel >= 1.0',
@@ -88,11 +85,6 @@ setup(
                      'Flask-Themes >= 0.1.3',
                      'WebOb >= 1.4',
                      'Jinja2 >= 2.5.5',
-                     'nose-html == 1.1',
-                     'nose-progressive == 1.5.1',
-                     'nose >= 1.3.1',
-                     'coverage >= 3.7.1',
-                     'python-daemon >= 2.0.0',
                     ],
     #include_package_data=True,
     package_data={

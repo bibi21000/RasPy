@@ -33,14 +33,11 @@ def not_found(error):
 
 @app.route('/')
 def home():
-    res = mdp_request(socket, 'mmi.directory', [], 2.0)
-    dirs = res[1].split('|')
+    #res = mdp_request(socket, 'mmi.directory', [], 2.0)
+    #dirs = res[1].split('|')
+    dirs = []
     links = []
-    for diir in dirs :
-        service, numb = diir.split('=')
-        links.append(service)
-    links.sort()
-    return render_template('home.html', links=links, res=res)
+    return render_template('home.html', links=links, res='200')
 
 #@app.route('/replies/<path:path>')
 def requests(path):

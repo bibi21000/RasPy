@@ -56,10 +56,14 @@ class Config(object):
     RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'
     RECAPTCHA_OPTIONS = {'theme': 'white'}
 
+    BROKER_IP = "127.0.0.1"
+    BROKER_PORT = 5514
+
 class ProductionConfig(Config):
     DATABASE_URI = 'mysql://user@localhost/foo'
 
 class DevelopmentConfig(Config):
+    TESTING = True
     DEBUG = True
 
 class TestingConfig(Config):

@@ -100,7 +100,7 @@
 
 <dl class="data">
 <dt id="raspy.common.MDP.logger">
-<tt class="descclassname">raspy.common.MDP.</tt><tt class="descname">logger</tt><em class="property"> = &lt;logging.Logger object at 0x2b02573a38d0&gt;</em><a class="headerlink" href="#raspy.common.MDP.logger" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">raspy.common.MDP.</tt><tt class="descname">logger</tt><em class="property"> = &lt;logging.Logger object at 0x2b2ec70b4e50&gt;</em><a class="headerlink" href="#raspy.common.MDP.logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Majordomo Protocol definitions</p>
 </dd></dl>
 
@@ -108,35 +108,6 @@
 <dt id="raspy.common.MDP.routing_key">
 <tt class="descclassname">raspy.common.MDP.</tt><tt class="descname">routing_key</tt><big>(</big><em>hostname</em>, <em>service</em><big>)</big><a class="headerlink" href="#raspy.common.MDP.routing_key" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-</div>
-<div class="section" id="module-raspy.common.client">
-<span id="raspy-common-client-module"></span><h2>raspy.common.client module<a class="headerlink" href="#module-raspy.common.client" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="raspy.common.client.Client">
-<em class="property">class </em><tt class="descclassname">raspy.common.client.</tt><tt class="descname">Client</tt><big>(</big><em>hostname='localhost'</em>, <em>service='worker'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em>, <em>poll=1500</em>, <em>ttl=900</em><big>)</big><a class="headerlink" href="#raspy.common.client.Client" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raspy.common.executive.Executive" title="raspy.common.executive.Executive"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.executive.Executive</span></tt></a></p>
-<p>The generic worker</p>
-<p>From <a class="reference external" href="http://zguide.zeromq.org/py:all#header-48">http://zguide.zeromq.org/py:all#header-48</a></p>
-<dl class="method">
-<dt id="raspy.common.client.Client.request">
-<tt class="descname">request</tt><big>(</big><em>service=None, data=['mmi.echo'], callback=None, args=(), kwargs={}</em><big>)</big><a class="headerlink" href="#raspy.common.client.Client.request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Request a job to a worker</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raspy.common.client.Client.run">
-<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.client.Client.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run the client</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raspy.common.client.Client.status">
-<tt class="descname">status</tt><big>(</big><em>uuid</em><big>)</big><a class="headerlink" href="#raspy.common.client.Client.status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Request a job to a worker</p>
-</dd></dl>
-
-</dd></dl>
 
 </div>
 <div class="section" id="raspy-common-dynamic-module">
@@ -340,7 +311,7 @@ Based on Java example by Arkadiusz Orzechowski</p>
 <em class="property">class </em><tt class="descclassname">raspy.common.mdcliapi.</tt><tt class="descname">MajorDomoClient</tt><big>(</big><em>broker</em><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Majordomo Protocol Client API, Python version.</p>
-<p>Implements the MDP/Worker spec at http:#rfc.zeromq.org/spec:7.</p>
+<p>Credits : <a class="reference external" href="https://github.com/imatix/zguide/blob/master/examples/Python/mdcliapi.py">https://github.com/imatix/zguide/blob/master/examples/Python/mdcliapi.py</a></p>
 <dl class="attribute">
 <dt id="raspy.common.mdcliapi.MajorDomoClient.broker">
 <tt class="descname">broker</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.broker" title="Permalink to this definition">¶</a></dt>
@@ -395,6 +366,44 @@ Returns the reply message or None if there was no reply.</p>
 <dt id="raspy.common.mdcliapi.MajorDomoClient.verbose">
 <tt class="descname">verbose</tt><em class="property"> = False</em><a class="headerlink" href="#raspy.common.mdcliapi.MajorDomoClient.verbose" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.common.mdcliapi.TitanicClient">
+<em class="property">class </em><tt class="descclassname">raspy.common.mdcliapi.</tt><tt class="descname">TitanicClient</tt><big>(</big><em>hostname='localhost'</em>, <em>service='worker'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em>, <em>poll=1500</em>, <em>ttl=900</em><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.TitanicClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raspy.common.executive.Executive" title="raspy.common.executive.Executive"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.executive.Executive</span></tt></a></p>
+<p>The titanic client</p>
+<p>Credits: <a class="reference external" href="https://github.com/imatix/zguide/blob/master/examples/Python/ticlient.py">https://github.com/imatix/zguide/blob/master/examples/Python/ticlient.py</a></p>
+<dl class="method">
+<dt id="raspy.common.mdcliapi.TitanicClient.destroy">
+<tt class="descname">destroy</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.TitanicClient.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroy object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdcliapi.TitanicClient.request">
+<tt class="descname">request</tt><big>(</big><em>service=None, data=['mmi.echo'], callback=None, args=(), kwargs={}</em><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.TitanicClient.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request a job for a worker to titanic</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdcliapi.TitanicClient.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.TitanicClient.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the client in a loop</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdcliapi.TitanicClient.send">
+<tt class="descname">send</tt><big>(</big><em>service</em>, <em>request</em><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.TitanicClient.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a Majordomo request directly to worker</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.mdcliapi.TitanicClient.status">
+<tt class="descname">status</tt><big>(</big><em>uuid</em><big>)</big><a class="headerlink" href="#raspy.common.mdcliapi.TitanicClient.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the status of a work from titanic</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -727,7 +736,6 @@ messages.</p>
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-raspy.common.MDP">raspy.common.MDP module</a></li>
-<li><a class="reference internal" href="#module-raspy.common.client">raspy.common.client module</a></li>
 <li><a class="reference internal" href="#raspy-common-dynamic-module">raspy.common.dynamic module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.executive">raspy.common.executive module</a></li>
 <li><a class="reference internal" href="#module-raspy.common.kvcliapi">raspy.common.kvcliapi module</a></li>

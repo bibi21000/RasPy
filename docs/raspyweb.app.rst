@@ -1,6 +1,13 @@
 raspyweb.app package
 ====================
 
+Subpackages
+-----------
+
+.. toctree::
+
+    raspyweb.app.ajax
+
 Submodules
 ----------
 

@@ -19,14 +19,6 @@ raspy.common.MDP module
     :undoc-members:
     :show-inheritance:
 
-raspy.common.client module
---------------------------
-
-.. automodule:: raspy.common.client
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 raspy.common.dynamic module
 ---------------------------
 

@@ -36,35 +36,35 @@ clean:
 	cd docs && make clean
 
 uninstall: clean
-	-sudo rm -rf build
-	-sudo rm -rf dist
-	-sudo rm -rf raspy.egg-info
-	-sudo rm -rf src/raspy.egg-info
-	-sudo rm -rf raspyweb.egg-info
-	-sudo rm -rf src-web/raspyweb.egg-info
-	-sudo rm -Rf /usr/local/lib/python2.7/dist-packages/raspy*
+	-rm -rf build
+	-rm -rf dist
+	-rm -rf raspy.egg-info
+	-rm -rf src/raspy.egg-info
+	-rm -rf raspyweb.egg-info
+	-rm -rf src-web/raspyweb.egg-info
+	-rm -Rf /usr/local/lib/python2.7/dist-packages/raspy*
 
 docs: cleandocs
 	-mkdir -p docs/html/nosetests
 	-mkdir -p docs/html/coverage
 	-mkdir -p docs/html/pylint
 	$(NOSE) $(NOSEOPTS) $(NOSECOVER) tests/
-	-$(PYLINT) --output-format=html $(PYLINTOPTS) src/raspy src/scripts >docs/html/pylint/report.html
+	-$(PYLINT) --output-format=html $(PYLINTOPTS) src/raspy src/scripts src-web/raspyweb src-web/scripts src-ui/raspyweb src-ui/scripts >docs/html/pylint/report.html
 	cd docs && make docs
 	cp docs/_build/text/README.txt README.md
 	@echo
 	@echo "Documentation finished."
 
 install:
-	sudo python setup.py install
-	sudo python setup-web.py install
+	python setup.py install
+	python setup-web.py install
 	#sudo python setup-ui.py install
 	@echo
 	@echo "Installation for users finished."
 
 develop:
-	sudo python setup.py develop
-	sudo python setup-web.py develop
+	python setup.py develop
+	python setup-web.py develop
 	#sudo python setup-ui.py develop
 	@echo
 	@echo "Installation for developpers finished."
@@ -77,7 +77,7 @@ tests:
 devtests:
 	-mkdir -p docs/html/nosetests
 	-mkdir -p docs/html/coverage
-	-$(NOSE) $(NOSEOPTS) $(NOSECOVER) tests/
+	$(NOSE) $(NOSEOPTS) $(NOSECOVER) tests/
 	@echo
 	@echo "Tests for developpers finished."
 
@@ -89,8 +89,8 @@ git: clean docs
 
 pylint:
 	-mkdir -p docs/html/pylint
-	-$(PYLINT) $(PYLINTOPTS) src/raspy src/scripts src-web/raspyweb src-web/scripts src-ui/raspyweb src-ui/scripts
+	$(PYLINT) $(PYLINTOPTS) src/raspy src/scripts src-web/raspyweb src-web/scripts src-ui/raspyweb src-ui/scripts
 	@echo
 	@echo "Pylint finished."
 
-all: clean devtests pylint docs
+all: clean docs

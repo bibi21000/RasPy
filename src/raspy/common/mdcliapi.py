@@ -10,6 +10,7 @@ Based on Java example by Arkadiusz Orzechowski
 
 import zmq
 
+from raspy.common.executive import Executive
 from raspy.common.zhelpers import zpipe
 import raspy.common.MDP as MDP
 
@@ -102,6 +103,11 @@ class TitanicClient(Executive):
         self.poll = poll
         self.ttl = ttl
         self.requests = {}
+
+    def send(self, service, request):
+        """Send a Majordomo request directly to worker
+        """
+        return seld.client.send(service, request)
 
     def request(self, service=None, data=["mmi.echo"], callback=None, args=(), kwargs={}):
         """Request a job for a worker to titanic

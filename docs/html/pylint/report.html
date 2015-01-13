@@ -2,7 +2,7 @@
 <body>
 <div>
 <h1>Report</h1>
-<p>1765 statements analysed.</p><div>
+<p>1953 statements analysed.</p><div>
 <h2>Statistics by type</h2>
 <table>
 <tr class="header">
@@ -15,41 +15,43 @@
 </tr>
 <tr class="even">
 <td>module</td>
-<td>24</td>
-<td>25</td>
-<td>-1.00</td>
-<td>37.50</td>
+<td>34</td>
+<td>NC</td>
+<td>NC</td>
+<td>52.94</td>
 <td>0.00</td>
 </tr>
 <tr class="odd">
 <td>class</td>
-<td>44</td>
-<td>44</td>
-<td>=</td>
-<td>97.73</td>
+<td>48</td>
+<td>NC</td>
+<td>NC</td>
+<td>89.58</td>
 <td>0.00</td>
 </tr>
 <tr class="even">
 <td>method</td>
 <td>160</td>
-<td>158</td>
-<td>+2.00</td>
+<td>NC</td>
+<td>NC</td>
 <td>97.50</td>
 <td>0.00</td>
 </tr>
 <tr class="odd">
 <td>function</td>
-<td>8</td>
-<td>8</td>
-<td>=</td>
-<td>75.00</td>
-<td>12.50</td>
+<td>17</td>
+<td>NC</td>
+<td>NC</td>
+<td>47.06</td>
+<td>5.88</td>
 </tr>
 </table>
 </div>
 <div>
 <h2>External dependencies</h2>
 <pre>daemon (raspy.common.runner)
+flask (raspyweb.app,raspyweb.app.ajax.views,raspyweb.app.ajax,raspyweb.app.views)
+flask_fanstatic (raspyweb.app,raspyweb.app.ajax)
 raspy 
   \-common 
     \-MDP (raspy.servers.onewire,raspy.servers.core,raspy.servers.fake,raspy.common.server,raspy.common.kvcliapi,raspy.servers.titanic,raspy.servers.broker,raspy.common.statistics,raspy.common.mdcliapi,raspy.common.mdwrkapi)
@@ -57,11 +59,16 @@ raspy
     | \-device (raspy.common.devices.sensor,raspy.common.devices.media)
     \-executive (raspy.common.server,raspy.common.supervisor,raspy.servers.titanic,raspy.servers.broker,raspy.common.statistics,raspy.common.mdcliapi)
     \-kvsimple (raspy.servers.broker,raspy.common.kvcliapi)
-    \-mdcliapi (raspy.servers.titanic)
+    \-mdcliapi (raspyweb.app.ajax.views,raspy.servers.titanic)
     \-mdwrkapi (raspy.servers.onewire,raspy.servers.core,raspy.servers.fake,raspy.common.server,raspy.servers.titanic,raspy.common.statistics)
     \-server (raspy.servers.onewire,raspy.servers.core,raspy.servers.fake)
     \-statistics (raspy.common.server)
     \-zhelpers (raspy.servers.onewire,raspy.servers.fake,raspy.common.server,raspy.servers.titanic,raspy.common.mdcliapi,raspy.common.mdwrkapi)
+raspyweb 
+  \-app (raspyweb.run,raspyweb.app.ajax.views,raspyweb.app.views)
+    \-ajax 
+    | \-views (raspyweb.app,raspyweb.app.ajax)
+    \-views (raspyweb.app)
 zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.servers.titanic,raspy.servers.broker,raspy.common.mdcliapi,raspy.common.mdwrkapi)</pre></div>
 <div>
 <h2>Raw metrics</h2>
@@ -75,31 +82,31 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 </tr>
 <tr class="even">
 <td>code</td>
-<td>2073</td>
-<td>64.14</td>
-<td>2094</td>
-<td>-21.00</td>
+<td>2428</td>
+<td>63.91</td>
+<td>NC</td>
+<td>NC</td>
 </tr>
 <tr class="odd">
 <td>docstring</td>
-<td>724</td>
-<td>22.40</td>
-<td>720</td>
-<td>+4.00</td>
+<td>787</td>
+<td>20.72</td>
+<td>NC</td>
+<td>NC</td>
 </tr>
 <tr class="even">
 <td>comment</td>
-<td>86</td>
-<td>2.66</td>
-<td>87</td>
-<td>-1.00</td>
+<td>171</td>
+<td>4.50</td>
+<td>NC</td>
+<td>NC</td>
 </tr>
 <tr class="odd">
 <td>empty</td>
-<td>349</td>
-<td>10.80</td>
-<td>349</td>
-<td>=</td>
+<td>413</td>
+<td>10.87</td>
+<td>NC</td>
+<td>NC</td>
 </tr>
 </table>
 </div>
@@ -114,15 +121,15 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 </tr>
 <tr class="even">
 <th>nb duplicated lines</th>
-<td>2498</td>
-<td>2700</td>
-<td>-202.00</td>
+<td>6611</td>
+<td>NC</td>
+<td>NC</td>
 </tr>
 <tr class="odd">
 <th>percent duplicated lines</th>
-<td>76.135</td>
-<td>81.818</td>
-<td>-5.68</td>
+<td>170.959</td>
+<td>NC</td>
+<td>NC</td>
 </tr>
 </table>
 </div>
@@ -137,27 +144,27 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 </tr>
 <tr class="even">
 <td>convention</td>
-<td>72</td>
-<td>73</td>
-<td>-1.00</td>
+<td>109</td>
+<td>NC</td>
+<td>NC</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
-<td>55</td>
-<td>54</td>
-<td>+1.00</td>
+<td>70</td>
+<td>NC</td>
+<td>NC</td>
 </tr>
 <tr class="even">
 <td>warning</td>
-<td>98</td>
-<td>99</td>
-<td>-1.00</td>
+<td>172</td>
+<td>NC</td>
+<td>NC</td>
 </tr>
 <tr class="odd">
 <td>error</td>
-<td>67</td>
-<td>51</td>
-<td>+16.00</td>
+<td>72</td>
+<td>NC</td>
+<td>NC</td>
 </tr>
 </table>
 </div>
@@ -173,178 +180,234 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 </tr>
 <tr class="even">
 <td>raspy.common.mdcliapi</td>
-<td>28.36</td>
-<td>3.06</td>
-<td>3.64</td>
-<td>1.39</td>
+<td>26.39</td>
+<td>1.74</td>
+<td>2.86</td>
+<td>0.92</td>
 </tr>
 <tr class="odd">
 <td>raspy.servers.broker</td>
-<td>20.90</td>
-<td>7.14</td>
-<td>10.91</td>
-<td>9.72</td>
+<td>19.44</td>
+<td>4.07</td>
+<td>8.57</td>
+<td>6.42</td>
 </tr>
 <tr class="even">
 <td>raspy.common.statistics</td>
-<td>14.93</td>
-<td>3.06</td>
-<td>7.27</td>
-<td>4.17</td>
+<td>13.89</td>
+<td>1.74</td>
+<td>5.71</td>
+<td>2.75</td>
 </tr>
 <tr class="odd">
 <td>raspy.common.kvcliapi</td>
-<td>13.43</td>
-<td>8.16</td>
-<td>1.82</td>
+<td>12.50</td>
+<td>4.65</td>
+<td>1.43</td>
 <td>0.00</td>
 </tr>
 <tr class="even">
+<td>raspyweb.app.views</td>
+<td>5.56</td>
+<td>3.49</td>
+<td>0.00</td>
+<td>11.01</td>
+</tr>
+<tr class="odd">
 <td>raspy.common.supervisor</td>
-<td>4.48</td>
-<td>4.08</td>
+<td>4.17</td>
+<td>2.33</td>
 <td>0.00</td>
-<td>2.78</td>
+<td>1.83</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>raspy.servers.titanic</td>
-<td>4.48</td>
-<td>2.04</td>
-<td>5.45</td>
-<td>16.67</td>
-</tr>
-<tr class="even">
-<td>raspy.common.mdwrkapi</td>
-<td>4.48</td>
-<td>1.02</td>
-<td>1.82</td>
-<td>0.00</td>
+<td>4.17</td>
+<td>1.16</td>
+<td>4.29</td>
+<td>11.01</td>
 </tr>
 <tr class="odd">
-<td>raspy.common.zhelpers</td>
-<td>4.48</td>
-<td>1.02</td>
+<td>raspy.common.mdwrkapi</td>
+<td>4.17</td>
+<td>0.58</td>
+<td>1.43</td>
 <td>0.00</td>
-<td>2.78</td>
 </tr>
 <tr class="even">
+<td>raspy.common.zhelpers</td>
+<td>4.17</td>
+<td>0.58</td>
+<td>0.00</td>
+<td>1.83</td>
+</tr>
+<tr class="odd">
 <td>raspy.common.runner</td>
-<td>2.99</td>
-<td>16.33</td>
-<td>1.82</td>
-<td>8.33</td>
+<td>2.78</td>
+<td>9.30</td>
+<td>1.43</td>
+<td>5.50</td>
+</tr>
+<tr class="even">
+<td>raspyweb.app.ajax.views</td>
+<td>1.39</td>
+<td>5.23</td>
+<td>0.00</td>
+<td>4.59</td>
 </tr>
 <tr class="odd">
 <td>raspy.common.MDP</td>
-<td>1.49</td>
-<td>1.02</td>
+<td>1.39</td>
+<td>0.58</td>
 <td>0.00</td>
-<td>5.56</td>
+<td>3.67</td>
 </tr>
 <tr class="even">
+<td>raspyweb.shell</td>
+<td>0.00</td>
+<td>31.98</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
 <td>raspy.servers.core</td>
 <td>0.00</td>
-<td>12.24</td>
-<td>12.73</td>
-<td>6.94</td>
+<td>6.98</td>
+<td>10.00</td>
+<td>4.59</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>raspy.common.devices.device</td>
 <td>0.00</td>
-<td>8.16</td>
-<td>5.45</td>
-<td>6.94</td>
+<td>4.65</td>
+<td>4.29</td>
+<td>4.59</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>raspy.common.devices.sensor</td>
 <td>0.00</td>
-<td>5.10</td>
-<td>5.45</td>
-<td>2.78</td>
+<td>2.91</td>
+<td>4.29</td>
+<td>1.83</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>raspy.common.devices.media</td>
 <td>0.00</td>
-<td>5.10</td>
-<td>5.45</td>
-<td>1.39</td>
+<td>2.91</td>
+<td>4.29</td>
+<td>0.92</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>raspy.servers.fake</td>
 <td>0.00</td>
-<td>4.08</td>
-<td>1.82</td>
-<td>4.17</td>
-</tr>
-<tr class="odd">
-<td>raspy.common.executive</td>
-<td>0.00</td>
-<td>4.08</td>
-<td>1.82</td>
-<td>2.78</td>
+<td>2.33</td>
+<td>1.43</td>
+<td>2.75</td>
 </tr>
 <tr class="even">
-<td>raspy.common.server</td>
+<td>raspy.common.executive</td>
 <td>0.00</td>
-<td>3.06</td>
-<td>1.82</td>
-<td>4.17</td>
+<td>2.33</td>
+<td>1.43</td>
+<td>1.83</td>
 </tr>
 <tr class="odd">
+<td>raspy.common.server</td>
+<td>0.00</td>
+<td>1.74</td>
+<td>1.43</td>
+<td>2.75</td>
+</tr>
+<tr class="even">
 <td>raspy.servers.onewire</td>
 <td>0.00</td>
-<td>3.06</td>
-<td>1.82</td>
-<td>2.78</td>
+<td>1.74</td>
+<td>1.43</td>
+<td>1.83</td>
+</tr>
+<tr class="odd">
+<td>raspyweb.app.ajax.__init__</td>
+<td>0.00</td>
+<td>1.16</td>
+<td>0.00</td>
+<td>5.50</td>
 </tr>
 <tr class="even">
 <td>raspy.common.dynamic</td>
 <td>0.00</td>
-<td>2.04</td>
+<td>1.16</td>
 <td>0.00</td>
-<td>8.33</td>
+<td>5.50</td>
 </tr>
 <tr class="odd">
 <td>raspy.common.kvsimple</td>
 <td>0.00</td>
-<td>2.04</td>
+<td>1.16</td>
 <td>0.00</td>
 <td>0.00</td>
 </tr>
 <tr class="even">
+<td>raspyweb.app.__init__</td>
+<td>0.00</td>
+<td>0.58</td>
+<td>0.00</td>
+<td>4.59</td>
+</tr>
+<tr class="odd">
 <td>raspy.common.devices.__init__</td>
 <td>0.00</td>
-<td>1.02</td>
+<td>0.58</td>
 <td>0.00</td>
-<td>4.17</td>
+<td>2.75</td>
+</tr>
+<tr class="even">
+<td>raspyweb</td>
+<td>0.00</td>
+<td>0.58</td>
+<td>0.00</td>
+<td>0.92</td>
 </tr>
 <tr class="odd">
 <td>raspy.servers.__init__</td>
 <td>0.00</td>
-<td>1.02</td>
+<td>0.58</td>
 <td>0.00</td>
-<td>1.39</td>
+<td>0.92</td>
 </tr>
 <tr class="even">
 <td>raspy.common.__init__</td>
 <td>0.00</td>
-<td>1.02</td>
+<td>0.58</td>
 <td>0.00</td>
-<td>1.39</td>
+<td>0.92</td>
 </tr>
 <tr class="odd">
 <td>raspy</td>
 <td>0.00</td>
-<td>1.02</td>
+<td>0.58</td>
 <td>0.00</td>
-<td>1.39</td>
+<td>0.92</td>
 </tr>
 <tr class="even">
 <td>scripts</td>
 <td>0.00</td>
 <td>0.00</td>
-<td>30.91</td>
+<td>40.00</td>
 <td>0.00</td>
+</tr>
+<tr class="odd">
+<td>raspyweb.config</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>5.71</td>
+<td>6.42</td>
+</tr>
+<tr class="even">
+<td>raspyweb.run</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.92</td>
 </tr>
 </table>
 </div>
@@ -356,79 +419,87 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 <th>occurrences</th>
 </tr>
 <tr class="even">
+<td>unused-import</td>
+<td>53</td>
+</tr>
+<tr class="odd">
+<td>unused-wildcard-import</td>
+<td>50</td>
+</tr>
+<tr class="even">
 <td>no-member</td>
 <td>46</td>
 </tr>
 <tr class="odd">
-<td>unused-import</td>
-<td>39</td>
-</tr>
-<tr class="even">
 <td>invalid-name</td>
-<td>31</td>
-</tr>
-<tr class="odd">
-<td>undefined-variable</td>
-<td>19</td>
+<td>37</td>
 </tr>
 <tr class="even">
 <td>missing-docstring</td>
-<td>19</td>
-</tr>
-<tr class="odd">
-<td>unused-variable</td>
-<td>18</td>
-</tr>
-<tr class="even">
-<td>too-few-public-methods</td>
-<td>18</td>
+<td>30</td>
 </tr>
 <tr class="odd">
 <td>duplicate-code</td>
+<td>26</td>
+</tr>
+<tr class="even">
+<td>undefined-variable</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>too-few-public-methods</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>unused-variable</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>unused-argument</td>
 <td>17</td>
 </tr>
 <tr class="even">
-<td>unused-argument</td>
-<td>16</td>
+<td>bad-whitespace</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>line-too-long</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>superfluous-parens</td>
+<td>10</td>
 </tr>
 <tr class="odd">
 <td>no-self-use</td>
 <td>10</td>
 </tr>
 <tr class="even">
-<td>line-too-long</td>
-<td>9</td>
-</tr>
-<tr class="odd">
 <td>too-many-instance-attributes</td>
 <td>7</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>dangerous-default-value</td>
 <td>6</td>
+</tr>
+<tr class="even">
+<td>redefined-outer-name</td>
+<td>5</td>
 </tr>
 <tr class="odd">
 <td>logging-not-lazy</td>
 <td>5</td>
 </tr>
 <tr class="even">
-<td>superfluous-parens</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>bad-whitespace</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>redefined-outer-name</td>
-<td>3</td>
-</tr>
-<tr class="odd">
 <td>empty-docstring</td>
-<td>3</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>bare-except</td>
+<td>4</td>
 </tr>
 <tr class="even">
-<td>bare-except</td>
+<td>parse-error</td>
 <td>3</td>
 </tr>
 <tr class="odd">
@@ -436,15 +507,23 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 <td>3</td>
 </tr>
 <tr class="even">
-<td>too-many-branches</td>
+<td>wildcard-import</td>
 <td>2</td>
 </tr>
 <tr class="odd">
-<td>old-style-class</td>
+<td>too-many-branches</td>
 <td>2</td>
 </tr>
 <tr class="even">
+<td>old-style-class</td>
+<td>2</td>
+</tr>
+<tr class="odd">
 <td>import-error</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>cyclic-import</td>
 <td>2</td>
 </tr>
 <tr class="odd">
@@ -468,11 +547,19 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 <td>1</td>
 </tr>
 <tr class="even">
-<td>parse-error</td>
+<td>relative-import</td>
 <td>1</td>
 </tr>
 <tr class="odd">
+<td>pointless-string-statement</td>
+<td>1</td>
+</tr>
+<tr class="even">
 <td>no-name-in-module</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>fatal</td>
 <td>1</td>
 </tr>
 <tr class="even">
@@ -483,7 +570,7 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 </div>
 <div>
 <h2>Global evaluation</h2>
-Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
+Your code has been rated at 6.36/10</div>
 <div>
 <h2>Messages</h2>
 <table>
@@ -496,6 +583,14 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <th>message</th>
 </tr>
 <tr class="even">
+<td>fatal</td>
+<td>src-ui/raspyweb</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>No module named src-ui/raspyweb</td>
+</tr>
+<tr class="odd">
 <td>convention</td>
 <td>raspy</td>
 <td>&#160;</td>
@@ -503,7 +598,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy</td>
 <td>&#160;</td>
@@ -511,7 +606,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>No exception type(s) specified</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.common.mdwrkapi</td>
 <td>MajorDomoWorker</td>
@@ -519,7 +614,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too many instance attributes (10/7)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdwrkapi</td>
 <td>MajorDomoWorker.__init__</td>
@@ -527,7 +622,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>22</td>
 <td>Module 'zmq' has no 'Poller' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdwrkapi</td>
 <td>MajorDomoWorker.reconnect_to_broker</td>
@@ -535,7 +630,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>38</td>
 <td>Module 'zmq' has no 'DEALER' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdwrkapi</td>
 <td>MajorDomoWorker.reconnect_to_broker</td>
@@ -543,7 +638,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>42</td>
 <td>Module 'zmq' has no 'POLLIN' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.mdwrkapi</td>
 <td>&#160;</td>
@@ -551,7 +646,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused zpipe imported from raspy.common.zhelpers</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.supervisor</td>
 <td>&#160;</td>
@@ -559,7 +654,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.supervisor</td>
 <td>Supervisor</td>
@@ -567,7 +662,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Old-style class defined.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.supervisor</td>
 <td>Supervisor.reload</td>
@@ -575,7 +670,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>62</td>
 <td>Undefined variable 'executive_name'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.supervisor</td>
 <td>Supervisor.reload</td>
@@ -583,7 +678,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>16</td>
 <td>Unused variable 'executive'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.supervisor</td>
 <td>Supervisor.get_instance_id</td>
@@ -591,7 +686,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>26</td>
 <td>Instance of 'Supervisor' has no 'service' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.supervisor</td>
 <td>Supervisor.get_instance_id</td>
@@ -599,7 +694,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>40</td>
 <td>Instance of 'Supervisor' has no 'hostname' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.supervisor</td>
 <td>Supervisor.shutdown</td>
@@ -607,7 +702,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Attribute '_stop' defined outside __init__</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.supervisor</td>
 <td>&#160;</td>
@@ -615,7 +710,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import traceback</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.supervisor</td>
 <td>&#160;</td>
@@ -623,7 +718,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import sys</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.executive</td>
 <td>&#160;</td>
@@ -631,7 +726,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.executive</td>
 <td>Executive</td>
@@ -639,7 +734,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too many instance attributes (10/7)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.executive</td>
 <td>Executive.destroy</td>
@@ -647,7 +742,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>12</td>
 <td>Unused variable 'thr'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.executive</td>
 <td>ExecutiveProcess.run</td>
@@ -655,7 +750,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Empty method docstring</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.executive</td>
 <td>&#160;</td>
@@ -663,7 +758,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import traceback</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.executive</td>
 <td>&#160;</td>
@@ -671,7 +766,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import time</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.executive</td>
 <td>&#160;</td>
@@ -679,7 +774,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import logging</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.server</td>
 <td>&#160;</td>
@@ -687,7 +782,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Line too long (141/130)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.server</td>
 <td>&#160;</td>
@@ -695,7 +790,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.server</td>
 <td>Server</td>
@@ -703,7 +798,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.server</td>
 <td>&#160;</td>
@@ -711,7 +806,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Invalid constant name "myserver"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.server</td>
 <td>&#160;</td>
@@ -719,7 +814,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import traceback</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.server</td>
 <td>&#160;</td>
@@ -727,7 +822,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import time</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.server</td>
 <td>&#160;</td>
@@ -735,7 +830,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused dump imported from raspy.common.zhelpers</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvPublisherClient.__init__</td>
@@ -743,7 +838,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>22</td>
 <td>Module 'zmq' has no 'Poller' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvPublisherClient.__init__</td>
@@ -751,7 +846,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>41</td>
 <td>Module 'zmq' has no 'PUSH' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvPublisherClient.__init__</td>
@@ -759,7 +854,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>23</td>
 <td>Unused argument 'hostname'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient</td>
@@ -767,7 +862,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too many instance attributes (9/7)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.__init__</td>
@@ -775,7 +870,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Explicit return in __init__</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.__init__</td>
@@ -783,7 +878,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>40</td>
 <td>Module 'zmq' has no 'DEALER' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.__init__</td>
@@ -791,7 +886,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>42</td>
 <td>Module 'zmq' has no 'SUB' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.__init__</td>
@@ -799,7 +894,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>35</td>
 <td>Module 'zmq' has no 'SUBSCRIBE' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.__init__</td>
@@ -807,7 +902,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>16</td>
 <td>Unreachable code</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.__init__</td>
@@ -815,7 +910,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>23</td>
 <td>Unused argument 'hostname'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.run</td>
@@ -823,7 +918,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>22</td>
 <td>Module 'zmq' has no 'Poller' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.run</td>
@@ -831,7 +926,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>46</td>
 <td>Module 'zmq' has no 'POLLIN' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.run</td>
@@ -839,7 +934,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>19</td>
 <td>Module 'zmq' has no 'ZMQError' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.run</td>
@@ -847,7 +942,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>12</td>
 <td>Specify string format arguments as logging function parameters</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.run</td>
@@ -855,7 +950,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>12</td>
 <td>Specify string format arguments as logging function parameters</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.kvcliapi</td>
 <td>KvSubscriberClient.run</td>
@@ -863,7 +958,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Attribute 'poller' defined outside __init__</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.kvcliapi</td>
 <td>&#160;</td>
@@ -871,7 +966,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import random</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.kvcliapi</td>
 <td>&#160;</td>
@@ -879,7 +974,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import time</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.runner</td>
 <td>&#160;</td>
@@ -887,7 +982,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unnecessary parens after u'print' keyword</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.runner</td>
 <td>&#160;</td>
@@ -895,7 +990,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unnecessary parens after u'print' keyword</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.runner</td>
 <td>&#160;</td>
@@ -903,7 +998,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unnecessary parens after u'print' keyword</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.runner</td>
 <td>&#160;</td>
@@ -911,7 +1006,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unnecessary parens after u'print' keyword</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.runner</td>
 <td>&#160;</td>
@@ -919,7 +1014,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>No name 'pidlockfile' in module 'daemon'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.runner</td>
 <td>Runner</td>
@@ -927,7 +1022,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too many instance attributes (10/7)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.runner</td>
 <td>Runner.__init__</td>
@@ -935,7 +1030,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>39</td>
 <td>Undefined variable 'url_autoconf'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner.__init__</td>
@@ -943,7 +1038,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>26</td>
 <td>Unused argument 'endpoint_autoconf'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner._usage_exit</td>
@@ -951,7 +1046,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Unused variable 'action_usage'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner._usage_exit</td>
@@ -959,7 +1054,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Unused variable 'progname'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner._start</td>
@@ -967,7 +1062,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Unused variable 'pid'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner._start</td>
@@ -975,7 +1070,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>12</td>
 <td>Unused variable 'pidfile_path'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner.sigterm_handler</td>
@@ -983,7 +1078,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>30</td>
 <td>Redefining name 'signal' from outer scope (line 52)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.runner</td>
 <td>Runner.sigterm_handler</td>
@@ -991,7 +1086,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Empty method docstring</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner.sigterm_handler</td>
@@ -999,7 +1094,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>38</td>
 <td>Unused argument 'frame'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner.sighup_handler</td>
@@ -1007,7 +1102,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>29</td>
 <td>Redefining name 'signal' from outer scope (line 52)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.runner</td>
 <td>Runner.sighup_handler</td>
@@ -1015,7 +1110,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Empty method docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner.sighup_handler</td>
@@ -1023,7 +1118,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>37</td>
 <td>Unused argument 'frame'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner._front</td>
@@ -1031,7 +1126,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Unused variable 'pid'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner._terminate_daemon_process</td>
@@ -1039,7 +1134,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>26</td>
 <td>Unused variable 'exc'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner._kill_daemon_process</td>
@@ -1047,7 +1142,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>24</td>
 <td>Unused variable 'exc'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner._stop</td>
@@ -1055,7 +1150,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>12</td>
 <td>Unused variable 'pidfile_path'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner._kill</td>
@@ -1063,7 +1158,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>12</td>
 <td>Unused variable 'pidfile_path'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>Runner._start</td>
@@ -1071,7 +1166,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Attribute 'daemon_context' defined outside __init__</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.runner</td>
 <td>emit_message</td>
@@ -1079,7 +1174,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>17</td>
 <td>Unused argument 'message'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.dynamic</td>
 <td>&#160;</td>
@@ -1087,7 +1182,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.dynamic</td>
 <td>importCode</td>
@@ -1095,7 +1190,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>15</td>
 <td>Redefining name 'code' from outer scope (line 19)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.dynamic</td>
 <td>importCode</td>
@@ -1103,7 +1198,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Invalid function name "importCode"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.dynamic</td>
 <td>importCode</td>
@@ -1111,7 +1206,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Missing function docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.dynamic</td>
 <td>importCode</td>
@@ -1119,7 +1214,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Use of exec</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.dynamic</td>
 <td>&#160;</td>
@@ -1127,7 +1222,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Invalid constant name "code"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.dynamic</td>
 <td>&#160;</td>
@@ -1135,7 +1230,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Invalid constant name "m"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.dynamic</td>
 <td>&#160;</td>
@@ -1143,7 +1238,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Invalid constant name "o"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common</td>
 <td>&#160;</td>
@@ -1151,7 +1246,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common</td>
 <td>&#160;</td>
@@ -1159,7 +1254,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>No exception type(s) specified</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.kvsimple</td>
 <td>&#160;</td>
@@ -1167,7 +1262,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import sys</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.kvsimple</td>
 <td>&#160;</td>
@@ -1175,7 +1270,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import zmq</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.mdcliapi</td>
 <td>&#160;</td>
@@ -1183,7 +1278,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Line too long (132/130)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>MajorDomoClient.__init__</td>
@@ -1191,7 +1286,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>22</td>
 <td>Module 'zmq' has no 'Poller' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>MajorDomoClient.reconnect_to_broker</td>
@@ -1199,7 +1294,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>38</td>
 <td>Module 'zmq' has no 'REQ' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>MajorDomoClient.reconnect_to_broker</td>
@@ -1207,7 +1302,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>42</td>
 <td>Module 'zmq' has no 'POLLIN' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.send</td>
@@ -1215,7 +1310,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>15</td>
 <td>Undefined variable 'seld'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.send</td>
@@ -1223,7 +1318,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Method could be a function</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.request</td>
@@ -1231,7 +1326,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Dangerous default value [] as argument</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.request</td>
@@ -1239,7 +1334,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Dangerous default value {} as argument</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.request</td>
@@ -1247,7 +1342,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>37</td>
 <td>Undefined variable 'time'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.request</td>
@@ -1255,7 +1350,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>16</td>
 <td>Undefined variable 'logging'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.request</td>
@@ -1263,7 +1358,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>16</td>
 <td>Undefined variable 'logging'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.request</td>
@@ -1271,7 +1366,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>16</td>
 <td>Undefined variable 'logging'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1279,7 +1374,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>23</td>
 <td>Undefined variable 'time'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1287,7 +1382,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>24</td>
 <td>Undefined variable 'logging'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1295,7 +1390,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>32</td>
 <td>Undefined variable 'logging'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1303,7 +1398,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>32</td>
 <td>Undefined variable 'logging'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1311,7 +1406,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>24</td>
 <td>Undefined variable 'logging'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1319,7 +1414,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>24</td>
 <td>Undefined variable 'logging'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1327,7 +1422,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>18</td>
 <td>Undefined variable 'time'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1335,7 +1430,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>16</td>
 <td>Undefined variable 'logging'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1343,7 +1438,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>38</td>
 <td>Undefined variable 'time'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1351,7 +1446,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>16</td>
 <td>Undefined variable 'logging'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.run</td>
@@ -1359,7 +1454,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Too many branches (13/12)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.mdcliapi</td>
 <td>TitanicClient.destroy</td>
@@ -1367,7 +1462,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Instance of 'TitanicClient' has no 'ctx' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.mdcliapi</td>
 <td>&#160;</td>
@@ -1375,7 +1470,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused zpipe imported from raspy.common.zhelpers</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.statistics</td>
 <td>&#160;</td>
@@ -1383,7 +1478,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Line too long (148/130)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.statistics</td>
 <td>&#160;</td>
@@ -1393,7 +1488,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
         if self.value &amp;gt; self.overflow :
                                       ^</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.statistics</td>
 <td>&#160;</td>
@@ -1401,7 +1496,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.statistics</td>
 <td>Statistics.__init__</td>
@@ -1409,7 +1504,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Instance of 'Statistics' has no '_active_threads' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.statistics</td>
 <td>Statistics.worker_statistics</td>
@@ -1417,7 +1512,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>50</td>
 <td>Instance of 'Statistics' has no 'broker_ip' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.statistics</td>
 <td>Statistics.worker_statistics</td>
@@ -1425,7 +1520,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>66</td>
 <td>Instance of 'Statistics' has no 'broker_port' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.statistics</td>
 <td>Statistics.worker_statistics</td>
@@ -1433,7 +1528,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>119</td>
 <td>Instance of 'Statistics' has no 'hostname' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.statistics</td>
 <td>Statistics.worker_statistics</td>
@@ -1441,7 +1536,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>134</td>
 <td>Instance of 'Statistics' has no 'service' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.statistics</td>
 <td>Statistics.worker_statistics</td>
@@ -1449,7 +1544,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Instance of 'Statistics' has no '_active_workers' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.statistics</td>
 <td>Statistics.worker_statistics</td>
@@ -1457,7 +1552,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>85</td>
 <td>Instance of 'Statistics' has no 'hostname' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.statistics</td>
 <td>Statistics.worker_statistics</td>
@@ -1465,7 +1560,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>100</td>
 <td>Instance of 'Statistics' has no 'service' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.statistics</td>
 <td>Statistics.worker_statistics</td>
@@ -1473,7 +1568,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>18</td>
 <td>Instance of 'Statistics' has no '_stopevent' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.common.statistics</td>
 <td>Statistics.worker_statistics</td>
@@ -1481,7 +1576,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>29</td>
 <td>Undefined variable 'json'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.statistics</td>
 <td>SNMP</td>
@@ -1489,7 +1584,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.common.statistics</td>
 <td>SNMPCounter</td>
@@ -1497,7 +1592,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.statistics</td>
 <td>SNMPFloat</td>
@@ -1505,7 +1600,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (0/2)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.common.statistics</td>
 <td>SNMPString</td>
@@ -1513,7 +1608,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (0/2)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.statistics</td>
 <td>&#160;</td>
@@ -1521,7 +1616,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import traceback</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.statistics</td>
 <td>&#160;</td>
@@ -1529,7 +1624,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import time</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.statistics</td>
 <td>&#160;</td>
@@ -1537,7 +1632,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused Executive imported from raspy.common.executive</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.MDP</td>
 <td>&#160;</td>
@@ -1545,7 +1640,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.MDP</td>
 <td>&#160;</td>
@@ -1553,7 +1648,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Invalid constant name "logger"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.MDP</td>
 <td>&#160;</td>
@@ -1561,7 +1656,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Invalid constant name "commands"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.MDP</td>
 <td>routing_key</td>
@@ -1569,7 +1664,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Missing function docstring</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.MDP</td>
 <td>GenericError.__init__</td>
@@ -1577,7 +1672,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>__init__ method from base class 'Exception' is not called</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.MDP</td>
 <td>GenericError.__str__</td>
@@ -1585,7 +1680,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>27</td>
 <td>Undefined variable 'value'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.zhelpers</td>
 <td>dump</td>
@@ -1593,7 +1688,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>8</td>
 <td>Unused variable 'is_text'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.zhelpers</td>
 <td>set_id</td>
@@ -1601,7 +1696,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>30</td>
 <td>Module 'zmq' has no 'IDENTITY' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.zhelpers</td>
 <td>zpipe</td>
@@ -1609,7 +1704,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Invalid variable name "a"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.zhelpers</td>
 <td>zpipe</td>
@@ -1617,7 +1712,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>19</td>
 <td>Module 'zmq' has no 'PAIR' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.zhelpers</td>
 <td>zpipe</td>
@@ -1625,7 +1720,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>4</td>
 <td>Invalid variable name "b"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.common.zhelpers</td>
 <td>zpipe</td>
@@ -1633,7 +1728,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>19</td>
 <td>Module 'zmq' has no 'PAIR' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.common.devices.media</td>
 <td>MediaDevice</td>
@@ -1641,7 +1736,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.devices.media</td>
 <td>MediaCamera</td>
@@ -1649,7 +1744,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.common.devices.media</td>
 <td>MediaTV</td>
@@ -1657,7 +1752,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.devices.media</td>
 <td>&#160;</td>
@@ -1665,7 +1760,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Invalid constant name "Camera"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.media</td>
 <td>&#160;</td>
@@ -1673,7 +1768,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import sys</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.devices.media</td>
 <td>&#160;</td>
@@ -1681,7 +1776,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import os</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.media</td>
 <td>&#160;</td>
@@ -1689,7 +1784,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import time</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.devices.media</td>
 <td>&#160;</td>
@@ -1697,7 +1792,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import logging</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.media</td>
 <td>&#160;</td>
@@ -1705,7 +1800,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused json imported as mjson</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.devices.sensor</td>
 <td>SensorDevice</td>
@@ -1713,7 +1808,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.common.devices.sensor</td>
 <td>SensorWind</td>
@@ -1721,7 +1816,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.devices.sensor</td>
 <td>SensorTemperature</td>
@@ -1729,7 +1824,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.devices.sensor</td>
 <td>&#160;</td>
@@ -1737,7 +1832,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Invalid constant name "Temperature"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.devices.sensor</td>
 <td>&#160;</td>
@@ -1745,7 +1840,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Invalid constant name "Wind"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.sensor</td>
 <td>&#160;</td>
@@ -1753,7 +1848,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import sys</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.devices.sensor</td>
 <td>&#160;</td>
@@ -1761,7 +1856,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import os</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.sensor</td>
 <td>&#160;</td>
@@ -1769,7 +1864,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import time</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.devices.sensor</td>
 <td>&#160;</td>
@@ -1777,7 +1872,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused import logging</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.sensor</td>
 <td>&#160;</td>
@@ -1785,7 +1880,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 <td>0</td>
 <td>Unused json imported as mjson</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.devices.__init__</td>
 <td>&#160;</td>
@@ -1795,7 +1890,7 @@ Your code has been rated at 6.83/10 (previous run: 7.28/10, -0.46)</div>
 __all__ = [ os.path.basename(f)[:-3] for f in modules]
           ^</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.devices</td>
 <td>&#160;</td>
@@ -1803,7 +1898,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.devices</td>
 <td>&#160;</td>
@@ -1811,7 +1906,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Invalid constant name "modules"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices</td>
 <td>&#160;</td>
@@ -1819,7 +1914,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Specify string format arguments as logging function parameters</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.devices.device</td>
 <td>&#160;</td>
@@ -1827,7 +1922,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Line too long (139/130)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.devices.device</td>
 <td>&#160;</td>
@@ -1837,7 +1932,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
     _base_template = { 'config' : {}, 'methods' : {} }
                      ^</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.devices.device</td>
 <td>&#160;</td>
@@ -1847,7 +1942,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
     _base_template = { 'config' : {}, 'methods' : {} }
                                                      ^</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.device</td>
 <td>BaseDevice.new</td>
@@ -1855,7 +1950,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>18</td>
 <td>Unused argument 'json'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.devices.device</td>
 <td>BaseDevice.new</td>
@@ -1863,7 +1958,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Method could be a function</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.device</td>
 <td>BaseDevice.check</td>
@@ -1871,7 +1966,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>20</td>
 <td>Unused argument 'json'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.common.devices.device</td>
 <td>BaseDevice.check</td>
@@ -1879,7 +1974,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Method could be a function</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.common.devices.device</td>
 <td>BaseDevice.name</td>
@@ -1887,7 +1982,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Missing method docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.devices.device</td>
 <td>DeviceRegister.check</td>
@@ -1895,7 +1990,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>20</td>
 <td>Unused argument 'json'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.common.devices.device</td>
 <td>DeviceRegister.check</td>
@@ -1903,7 +1998,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Method could be a function</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.devices.device</td>
 <td>DeviceRegister.register</td>
@@ -1911,7 +2006,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>8</td>
 <td>Specify string format arguments as logging function parameters</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.device</td>
 <td>DeviceRegister.new</td>
@@ -1919,7 +2014,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>8</td>
 <td>Specify string format arguments as logging function parameters</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.common.devices.device</td>
 <td>&#160;</td>
@@ -1927,7 +2022,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Invalid constant name "DReg"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.device</td>
 <td>&#160;</td>
@@ -1935,7 +2030,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused import sys</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.common.devices.device</td>
 <td>&#160;</td>
@@ -1943,7 +2038,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused import os</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.common.devices.device</td>
 <td>&#160;</td>
@@ -1951,7 +2046,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused import time</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>&#160;</td>
@@ -1959,7 +2054,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>fatal</td>
 <td>raspy.servers.titanic</td>
 <td>&#160;</td>
@@ -1967,7 +2062,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Unable to import 'configparser'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>fatal</td>
 <td>raspy.servers.titanic</td>
 <td>&#160;</td>
@@ -1975,7 +2070,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Unable to import 'configparser'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic</td>
@@ -1983,7 +2078,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Too many instance attributes (12/7)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.__init__</td>
@@ -1991,7 +2086,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>22</td>
 <td>Module 'zmq' has no 'Poller' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.__init__</td>
@@ -1999,7 +2094,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>48</td>
 <td>Module 'zmq' has no 'POLLIN' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.run</td>
@@ -2007,7 +2102,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>19</td>
 <td>Module 'zmq' has no 'ZMQError' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.run</td>
@@ -2015,7 +2110,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>77</td>
 <td>Invalid variable name "f"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.run</td>
@@ -2023,7 +2118,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>36</td>
 <td>Invalid variable name "e"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.run</td>
@@ -2031,7 +2126,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>75</td>
 <td>Invalid variable name "f"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.run</td>
@@ -2039,7 +2134,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>32</td>
 <td>Invalid variable name "e"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.run</td>
@@ -2047,7 +2142,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>77</td>
 <td>Invalid variable name "f"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.run</td>
@@ -2055,7 +2150,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>36</td>
 <td>Invalid variable name "e"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.run</td>
@@ -2063,7 +2158,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>36</td>
 <td>Unused variable 'e'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.titanic_request</td>
@@ -2071,7 +2166,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>40</td>
 <td>Invalid variable name "f"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.titanic_reply</td>
@@ -2079,7 +2174,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>48</td>
 <td>Invalid variable name "f"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.service_success</td>
@@ -2087,7 +2182,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>36</td>
 <td>Invalid variable name "f"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.service_success</td>
@@ -2095,7 +2190,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>44</td>
 <td>Invalid variable name "f"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.titanic_store</td>
@@ -2103,7 +2198,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Too many branches (20/12)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.titanic</td>
 <td>Titanic.titanic_store</td>
@@ -2111,7 +2206,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Too many statements (82/50)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.titanic</td>
 <td>&#160;</td>
@@ -2119,7 +2214,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Invalid constant name "mytitanic"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.servers.titanic</td>
 <td>&#160;</td>
@@ -2127,7 +2222,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused import traceback</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.broker</td>
 <td>&#160;</td>
@@ -2135,14 +2230,6 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Line too long (133/130)</td>
 </tr>
-<tr class="even">
-<td>warning</td>
-<td>raspy.servers.broker</td>
-<td>&#160;</td>
-<td>168</td>
-<td>0</td>
-<td>Anomalous backslash in string: '\.'. String constant might be missing an r prefix.</td>
-</tr>
 <tr class="odd">
 <td>warning</td>
 <td>raspy.servers.broker</td>
@@ -2152,6 +2239,14 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>Anomalous backslash in string: '\.'. String constant might be missing an r prefix.</td>
 </tr>
 <tr class="even">
+<td>warning</td>
+<td>raspy.servers.broker</td>
+<td>&#160;</td>
+<td>168</td>
+<td>0</td>
+<td>Anomalous backslash in string: '\.'. String constant might be missing an r prefix.</td>
+</tr>
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.broker</td>
 <td>&#160;</td>
@@ -2159,7 +2254,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.broker</td>
 <td>Route</td>
@@ -2167,7 +2262,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Missing class docstring</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.broker</td>
 <td>Route</td>
@@ -2175,7 +2270,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Old-style class defined.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.servers.broker</td>
 <td>Route</td>
@@ -2183,7 +2278,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Too few public methods (0/2)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.broker</td>
 <td>Service</td>
@@ -2191,7 +2286,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Too few public methods (0/2)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.servers.broker</td>
 <td>Worker</td>
@@ -2199,7 +2294,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Too few public methods (0/2)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.broker</td>
 <td>Proxy</td>
@@ -2207,7 +2302,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Too many instance attributes (10/7)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.__init__</td>
@@ -2215,7 +2310,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>40</td>
 <td>Module 'zmq' has no 'ROUTER' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.__init__</td>
@@ -2223,7 +2318,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>41</td>
 <td>Module 'zmq' has no 'PUB' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.__init__</td>
@@ -2231,7 +2326,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>41</td>
 <td>Module 'zmq' has no 'PULL' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.__init__</td>
@@ -2239,7 +2334,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>22</td>
 <td>Module 'zmq' has no 'Poller' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.__init__</td>
@@ -2247,7 +2342,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>45</td>
 <td>Module 'zmq' has no 'POLLIN' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.__init__</td>
@@ -2255,7 +2350,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>44</td>
 <td>Module 'zmq' has no 'POLLIN' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.__init__</td>
@@ -2263,7 +2358,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>45</td>
 <td>Unused argument 'service'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.__init__</td>
@@ -2271,7 +2366,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>23</td>
 <td>Unused argument 'hostname'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.run</td>
@@ -2279,7 +2374,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>19</td>
 <td>Module 'zmq' has no 'ZMQError' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.run</td>
@@ -2287,7 +2382,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>23</td>
 <td>Invalid variable name "v"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.run</td>
@@ -2295,7 +2390,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>45</td>
 <td>Module 'zmq' has no 'SNDMORE' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.send_single</td>
@@ -2303,7 +2398,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>46</td>
 <td>Module 'zmq' has no 'SNDMORE' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.send_single</td>
@@ -2311,7 +2406,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>26</td>
 <td>Unused argument 'key'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.broker</td>
 <td>Proxy.send_single</td>
@@ -2319,7 +2414,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Method could be a function</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.servers.broker</td>
 <td>Broker</td>
@@ -2327,7 +2422,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Too many instance attributes (8/7)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Broker.__init__</td>
@@ -2335,7 +2430,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>38</td>
 <td>Module 'zmq' has no 'ROUTER' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Broker.__init__</td>
@@ -2343,7 +2438,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>22</td>
 <td>Module 'zmq' has no 'Poller' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Broker.__init__</td>
@@ -2351,7 +2446,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>42</td>
 <td>Module 'zmq' has no 'POLLIN' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Broker.run</td>
@@ -2359,7 +2454,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>19</td>
 <td>Module 'zmq' has no 'ZMQError' member</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>error</td>
 <td>raspy.servers.broker</td>
 <td>Broker.run</td>
@@ -2367,7 +2462,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>23</td>
 <td>Module 'zmq' has no 'ZMQError' member</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.broker</td>
 <td>Broker.process_worker</td>
@@ -2375,7 +2470,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>16</td>
 <td>Unused variable 'empty'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.broker</td>
 <td>Broker.purge_workers</td>
@@ -2383,7 +2478,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>12</td>
 <td>Invalid variable name "w"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.broker</td>
 <td>&#160;</td>
@@ -2391,7 +2486,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Invalid constant name "mybroker"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.servers.broker</td>
 <td>&#160;</td>
@@ -2399,7 +2494,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused import logging</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers</td>
 <td>&#160;</td>
@@ -2407,7 +2502,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.servers</td>
 <td>&#160;</td>
@@ -2415,7 +2510,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>No exception type(s) specified</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.fake</td>
 <td>&#160;</td>
@@ -2423,7 +2518,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Line too long (165/130)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.fake</td>
 <td>&#160;</td>
@@ -2431,7 +2526,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.fake</td>
 <td>Fake.worker_devices</td>
@@ -2439,7 +2534,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>38</td>
 <td>Unused variable 'exc'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.fake</td>
 <td>Fake</td>
@@ -2447,7 +2542,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.fake</td>
 <td>&#160;</td>
@@ -2455,7 +2550,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Invalid constant name "myfake"</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.servers.fake</td>
 <td>&#160;</td>
@@ -2463,7 +2558,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused import traceback</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.fake</td>
 <td>&#160;</td>
@@ -2471,7 +2566,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused import os</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.servers.fake</td>
 <td>&#160;</td>
@@ -2479,7 +2574,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused dump imported from raspy.common.zhelpers</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.core</td>
 <td>&#160;</td>
@@ -2487,7 +2582,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Line too long (139/130)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.core</td>
 <td>&#160;</td>
@@ -2495,7 +2590,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Line too long (199/130)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.core</td>
 <td>&#160;</td>
@@ -2503,7 +2598,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Line too long (141/130)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.core</td>
 <td>&#160;</td>
@@ -2511,7 +2606,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.core</td>
 <td>Scenario.__init__</td>
@@ -2519,7 +2614,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>8</td>
 <td>Unused variable 'conf'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.core</td>
 <td>Scenario.fire</td>
@@ -2527,7 +2622,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Method could be a function</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.core</td>
 <td>Scenario.load</td>
@@ -2535,7 +2630,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>19</td>
 <td>Unused argument 'store'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.core</td>
 <td>Scenario.load</td>
@@ -2543,7 +2638,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Method could be a function</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.core</td>
 <td>Scenario.store</td>
@@ -2551,7 +2646,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>20</td>
 <td>Unused argument 'store'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.core</td>
 <td>Scenario.store</td>
@@ -2559,7 +2654,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Method could be a function</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.core</td>
 <td>ScenarioManager.load</td>
@@ -2567,7 +2662,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>19</td>
 <td>Unused argument 'store'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.core</td>
 <td>ScenarioManager.load</td>
@@ -2575,7 +2670,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Method could be a function</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.core</td>
 <td>ScenarioManager.store</td>
@@ -2583,21 +2678,13 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>20</td>
 <td>Unused argument 'store'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.core</td>
 <td>ScenarioManager.store</td>
 <td>129</td>
 <td>4</td>
 <td>Method could be a function</td>
-</tr>
-<tr class="odd">
-<td>warning</td>
-<td>raspy.servers.core</td>
-<td>ScenarioManager.add</td>
-<td>139</td>
-<td>4</td>
-<td>Dangerous default value {} as argument</td>
 </tr>
 <tr class="even">
 <td>warning</td>
@@ -2610,8 +2697,8 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <tr class="odd">
 <td>warning</td>
 <td>raspy.servers.core</td>
-<td>ScenarioManager.update</td>
-<td>144</td>
+<td>ScenarioManager.add</td>
+<td>139</td>
 <td>4</td>
 <td>Dangerous default value {} as argument</td>
 </tr>
@@ -2624,6 +2711,14 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>Dangerous default value {} as argument</td>
 </tr>
 <tr class="odd">
+<td>warning</td>
+<td>raspy.servers.core</td>
+<td>ScenarioManager.update</td>
+<td>144</td>
+<td>4</td>
+<td>Dangerous default value {} as argument</td>
+</tr>
+<tr class="even">
 <td>refactor</td>
 <td>raspy.servers.core</td>
 <td>Cron</td>
@@ -2631,7 +2726,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Too few public methods (0/2)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>raspy.servers.core</td>
 <td>CronManager</td>
@@ -2639,7 +2734,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Too few public methods (0/2)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.core</td>
 <td>Core.worker_cron</td>
@@ -2647,7 +2742,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>30</td>
 <td>Unused variable 'exc'</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.core</td>
 <td>&#160;</td>
@@ -2655,7 +2750,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Invalid constant name "mycore"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.core</td>
 <td>&#160;</td>
@@ -2663,7 +2758,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused import traceback</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.servers.core</td>
 <td>&#160;</td>
@@ -2671,7 +2766,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused import os</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>convention</td>
 <td>raspy.servers.onewire</td>
 <td>&#160;</td>
@@ -2679,7 +2774,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Missing module docstring</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.servers.onewire</td>
 <td>OneWire.worker_devices</td>
@@ -2687,7 +2782,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>38</td>
 <td>Unused variable 'exc'</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>raspy.servers.onewire</td>
 <td>OneWire</td>
@@ -2695,7 +2790,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Too few public methods (1/2)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>convention</td>
 <td>raspy.servers.onewire</td>
 <td>&#160;</td>
@@ -2703,7 +2798,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>4</td>
 <td>Invalid constant name "mywire"</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>warning</td>
 <td>raspy.servers.onewire</td>
 <td>&#160;</td>
@@ -2711,7 +2806,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused import traceback</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>warning</td>
 <td>raspy.servers.onewire</td>
 <td>&#160;</td>
@@ -2719,7 +2814,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>Unused dump imported from raspy.common.zhelpers</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>fatal</td>
 <td>scripts</td>
 <td>&#160;</td>
@@ -2727,15 +2822,1099 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]
 <td>0</td>
 <td>error while code parsing: Unable to load file 'src/scripts/__init__.py' ([Errno 2] No such file or directory: 'src/scripts/__init__.py')</td>
 </tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Missing module docstring</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb</td>
+<td>&#160;</td>
+<td>24</td>
+<td>0</td>
+<td>No exception type(s) specified</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Wildcard import flask</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>35</td>
+<td>0</td>
+<td>Wildcard import app</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>35</td>
+<td>0</td>
+<td>Relative import 'app', should be 'raspyweb.app'</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>31</td>
+<td>0</td>
+<td>Unused import readline</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>32</td>
+<td>0</td>
+<td>Unused pprint imported from pprint</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import render_template_string from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import flash from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import Flask from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import json_available from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import escape from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import request_tearing_down from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import send_from_directory from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import abort from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import Module from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import get_flashed_messages from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import Config from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import render_template from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import redirect from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import after_this_request from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import current_app from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import json from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import Response from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import request_started from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import has_app_context from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import Blueprint from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import get_template_attribute from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import Markup from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import copy_current_request_context from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import Request from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import send_file from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import safe_join from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import stream_with_context from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import template_rendered from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import got_request_exception from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import session from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import appcontext_tearing_down from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import url_for from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import g from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import appcontext_pushed from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import make_response from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import jsonify from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import request from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import message_flashed from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import Session from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import request_finished from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import signals_available from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import has_request_context from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>34</td>
+<td>0</td>
+<td>Unused import appcontext_popped from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>35</td>
+<td>0</td>
+<td>Unused import app from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>35</td>
+<td>0</td>
+<td>Unused import fanstatic from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>35</td>
+<td>0</td>
+<td>Unused import ajaxModule from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>35</td>
+<td>0</td>
+<td>Unused import raspyweb from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>35</td>
+<td>0</td>
+<td>Unused import install_secret_key from wildcard import</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>35</td>
+<td>0</td>
+<td>Unused import sys from wildcard import</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.shell</td>
+<td>&#160;</td>
+<td>35</td>
+<td>0</td>
+<td>Unused import Fanstatic from wildcard import</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.run</td>
+<td>main</td>
+<td>31</td>
+<td>0</td>
+<td>Missing function docstring</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.config</td>
+<td>&#160;</td>
+<td>3</td>
+<td>0</td>
+<td>Line too long (133/130)</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.config</td>
+<td>&#160;</td>
+<td>13</td>
+<td>0</td>
+<td>Line too long (140/130)</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.config</td>
+<td>&#160;</td>
+<td>39</td>
+<td>0</td>
+<td>Invalid constant name "_basedir"</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.config</td>
+<td>Config</td>
+<td>41</td>
+<td>0</td>
+<td>Missing class docstring</td>
+</tr>
+<tr class="odd">
+<td>refactor</td>
+<td>raspyweb.config</td>
+<td>Config</td>
+<td>41</td>
+<td>0</td>
+<td>Too few public methods (0/2)</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.config</td>
+<td>ProductionConfig</td>
+<td>62</td>
+<td>0</td>
+<td>Missing class docstring</td>
+</tr>
+<tr class="odd">
+<td>refactor</td>
+<td>raspyweb.config</td>
+<td>ProductionConfig</td>
+<td>62</td>
+<td>0</td>
+<td>Too few public methods (0/2)</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.config</td>
+<td>DevelopmentConfig</td>
+<td>65</td>
+<td>0</td>
+<td>Missing class docstring</td>
+</tr>
+<tr class="odd">
+<td>refactor</td>
+<td>raspyweb.config</td>
+<td>DevelopmentConfig</td>
+<td>65</td>
+<td>0</td>
+<td>Too few public methods (0/2)</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.config</td>
+<td>TestingConfig</td>
+<td>69</td>
+<td>0</td>
+<td>Missing class docstring</td>
+</tr>
+<tr class="odd">
+<td>refactor</td>
+<td>raspyweb.config</td>
+<td>TestingConfig</td>
+<td>69</td>
+<td>0</td>
+<td>Too few public methods (0/2)</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>26</td>
+<td>0</td>
+<td>Exactly one space required after comma
+import os,sys
+         ^</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>48</td>
+<td>0</td>
+<td>No space allowed before :
+    if path.find('/') != -1 :
+                            ^</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>49</td>
+<td>0</td>
+<td>Exactly one space required after comma
+        path,subpath = path.split("/")
+            ^</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>50</td>
+<td>0</td>
+<td>No space allowed before :
+    if subpath == "" :
+                     ^</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>53</td>
+<td>0</td>
+<td>No space allowed before :
+        if res != None and res[len(res)-1] == '200' :
+                                                    ^</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>61</td>
+<td>0</td>
+<td>No space allowed before :
+        else :
+             ^</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>66</td>
+<td>0</td>
+<td>No space allowed before :
+    else :
+         ^</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>71</td>
+<td>0</td>
+<td>No space allowed before :
+        if res != None and res[len(res)-1] == '200' :
+                                                    ^</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>79</td>
+<td>0</td>
+<td>No space allowed before :
+        else :
+             ^</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>not_found</td>
+<td>31</td>
+<td>0</td>
+<td>Missing function docstring</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.app.views</td>
+<td>not_found</td>
+<td>31</td>
+<td>14</td>
+<td>Unused argument 'error'</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>home</td>
+<td>35</td>
+<td>0</td>
+<td>Missing function docstring</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.app.views</td>
+<td>home</td>
+<td>38</td>
+<td>4</td>
+<td>Unused variable 'dirs'</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.views</td>
+<td>requests</td>
+<td>43</td>
+<td>0</td>
+<td>Empty function docstring</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.app.views</td>
+<td>requests</td>
+<td>45</td>
+<td>4</td>
+<td>String statement has no effect</td>
+</tr>
+<tr class="odd">
+<td>error</td>
+<td>raspyweb.app.views</td>
+<td>requests</td>
+<td>51</td>
+<td>14</td>
+<td>Undefined variable 'mdp_request'</td>
+</tr>
+<tr class="even">
+<td>error</td>
+<td>raspyweb.app.views</td>
+<td>requests</td>
+<td>51</td>
+<td>26</td>
+<td>Undefined variable 'socket'</td>
+</tr>
+<tr class="odd">
+<td>error</td>
+<td>raspyweb.app.views</td>
+<td>requests</td>
+<td>69</td>
+<td>14</td>
+<td>Undefined variable 'mdp_request'</td>
+</tr>
+<tr class="even">
+<td>error</td>
+<td>raspyweb.app.views</td>
+<td>requests</td>
+<td>69</td>
+<td>26</td>
+<td>Undefined variable 'socket'</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>26</td>
+<td>0</td>
+<td>Unused import sys</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>26</td>
+<td>0</td>
+<td>Unused import os</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.app.views</td>
+<td>&#160;</td>
+<td>27</td>
+<td>0</td>
+<td>Unused Flask imported from flask</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.__init__</td>
+<td>&#160;</td>
+<td>60</td>
+<td>0</td>
+<td>Unnecessary parens after u'print' keyword</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.__init__</td>
+<td>&#160;</td>
+<td>63</td>
+<td>0</td>
+<td>Unnecessary parens after u'print' keyword</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.__init__</td>
+<td>&#160;</td>
+<td>64</td>
+<td>0</td>
+<td>Unnecessary parens after u'print' keyword</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app</td>
+<td>&#160;</td>
+<td>36</td>
+<td>0</td>
+<td>Invalid constant name "app"</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app</td>
+<td>&#160;</td>
+<td>38</td>
+<td>0</td>
+<td>Invalid constant name "fanstatic"</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.app</td>
+<td>install_secret_key</td>
+<td>47</td>
+<td>23</td>
+<td>Redefining name 'app' from outer scope (line 36)</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>38</td>
+<td>0</td>
+<td>No space allowed before bracket
+@mod.route ('/mmi/')
+           ^</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>43</td>
+<td>0</td>
+<td>Exactly one space required after assignment
+    data['iTotalDisplayRecords'] =  2
+                                 ^</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>31</td>
+<td>0</td>
+<td>Invalid constant name "mod"</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.ajax.views</td>
+<td>home</td>
+<td>34</td>
+<td>0</td>
+<td>Missing function docstring</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.ajax.views</td>
+<td>mmi</td>
+<td>39</td>
+<td>0</td>
+<td>Missing function docstring</td>
+</tr>
+<tr class="odd">
+<td>error</td>
+<td>raspyweb.app.ajax.views</td>
+<td>mmi</td>
+<td>53</td>
+<td>11</td>
+<td>Undefined variable 'jmson'</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>26</td>
+<td>0</td>
+<td>Unused redirect imported from flask</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>26</td>
+<td>0</td>
+<td>Unused url_for imported from flask</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>26</td>
+<td>0</td>
+<td>Unused g imported from flask</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>26</td>
+<td>0</td>
+<td>Unused flash imported from flask</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>26</td>
+<td>0</td>
+<td>Unused request imported from flask</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>26</td>
+<td>0</td>
+<td>Unused session imported from flask</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>26</td>
+<td>0</td>
+<td>Unused render_template imported from flask</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>28</td>
+<td>0</td>
+<td>Unused app imported from raspyweb.app</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.app.ajax.views</td>
+<td>&#160;</td>
+<td>29</td>
+<td>0</td>
+<td>Unused TitanicClient imported from raspy.common.mdcliapi</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.ajax.__init__</td>
+<td>&#160;</td>
+<td>73</td>
+<td>0</td>
+<td>Unnecessary parens after u'print' keyword</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.ajax.__init__</td>
+<td>&#160;</td>
+<td>76</td>
+<td>0</td>
+<td>Unnecessary parens after u'print' keyword</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.ajax.__init__</td>
+<td>&#160;</td>
+<td>77</td>
+<td>0</td>
+<td>Unnecessary parens after u'print' keyword</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.ajax</td>
+<td>&#160;</td>
+<td>36</td>
+<td>0</td>
+<td>Invalid constant name "app"</td>
+</tr>
+<tr class="odd">
+<td>convention</td>
+<td>raspyweb.app.ajax</td>
+<td>&#160;</td>
+<td>38</td>
+<td>0</td>
+<td>Invalid constant name "fanstatic"</td>
+</tr>
+<tr class="even">
+<td>convention</td>
+<td>raspyweb.app.ajax</td>
+<td>home_req</td>
+<td>41</td>
+<td>0</td>
+<td>Missing function docstring</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>raspyweb.app.ajax</td>
+<td>home_req</td>
+<td>45</td>
+<td>4</td>
+<td>Unused variable 'dirs'</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>raspyweb.app.ajax</td>
+<td>install_secret_key</td>
+<td>60</td>
+<td>23</td>
+<td>Redefining name 'app' from outer scope (line 36)</td>
+</tr>
+<tr class="odd">
+<td>fatal</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>error while code parsing: Unable to load file 'src-web/scripts/__init__.py' ([Errno 2] No such file or directory: 'src-web/scripts/__init__.py')</td>
+</tr>
+<tr class="even">
+<td>fatal</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>error while code parsing: Unable to load file 'src-ui/scripts/__init__.py' ([Errno 2] No such file or directory: 'src-ui/scripts/__init__.py')</td>
+</tr>
+<tr class="odd">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Cyclic import (raspyweb.app -&amp;gt; raspyweb.app.ajax.views)</td>
+</tr>
 <tr class="even">
 <td>refactor</td>
 <td>scripts</td>
 <td>&#160;</td>
 <td>1</td>
 <td>0</td>
+<td>Cyclic import (raspyweb.app -&amp;gt; raspyweb.app.views)</td>
+</tr>
+<tr class="odd">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
 <td>Similar lines in 2 files
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.views:6
+__license__ = """
+    This file is part of RasPy.
+
+    RasPy is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    RasPy is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+
+import os
+import sys
+
+from flask import Flask, render_template
+
+from flask_fanstatic import Fanstatic
+#from flask.ext.sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config.from_object('raspyweb.config.DevelopmentConfig')
+fanstatic = Fanstatic(app)
+
+@app.route('/')
+def home_req():
+    #res = mdp_request(socket, 'mmi.directory', [], 2.0)
+    #dirs = res[1].split('|')
+    res = '200'
+    dirs = []
+    links = []
+    #for diir in dirs :
+    #    service, numb = diir.split('=')
+    #    links.append(service)
+    #links.sort()
+    return render_template('home.html', links=links, res=res)
+
+#import raspyweb.app.views
+
+#db = SQLAlchemy(app)
+
+########################
+# Configure Secret Key #
+########################
+def install_secret_key(app, filename='secret_key'):
+    """Configure the SECRET_KEY from a file
+    in the instance directory.
+
+    If the file does not exist, print instructions
+    to create it from a shell with a random key,
+    then exit.
+    """</td>
+</tr>
+<tr class="even">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Similar lines in 3 files
 ==raspy.common.devices.device:5
-==raspy.servers.titanic:3
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.views:6
 __license__ = """
     This file is part of RasPy.
 
@@ -2783,7 +3962,14 @@ class BaseDevice(object):
     We shoud do auto-mapping :
 
         - python object &amp;lt;-&amp;gt; json
-        - python object &amp;lt;-&amp;gt; html</td>
+        - python object &amp;lt;-&amp;gt; html
+
+    We whould manage complex devices, ie a TV : it groups a channel selector (+, -, and direct access to a channel), a volume selector, ...
+    In an ideal world we should not be obliged to create each sub-devices.
+
+    Naming convention of devices on the network : (MDP.routing_key(hostname, service)).{device_name}[.subdevice]
+    """
+</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -2793,9 +3979,9 @@ class BaseDevice(object):
 <td>0</td>
 <td>Similar lines in 4 files
 ==raspy.common.devices.device:5
-==raspy.common.supervisor:2
-==raspy.servers.fake:3
-==raspy.servers.titanic:3
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.views:6
+==raspyweb.config:18
 __license__ = """
     This file is part of RasPy.
 
@@ -2812,28 +3998,42 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import traceback
-import os, sys
-import time
-from raspy.common.executive import ExecutiveProcess
-from ConfigParser import SafeConfigParser
+import os
+_basedir = os.path.abspath(os.path.dirname(__file__))
 
-class Supervisor():
-    """The worker supervisor
+class Config(object):
+    DEBUG = False
+    TESTING = False
+    DATABASE_URI = 'sqlite://:memory:'
 
-    Start executives in separate process see futures
-    Each executive start multiples threads of workers
+    ADMINS = frozenset(['bibi21000@gmail.com'])
+    SECRET_KEY = 'This string will be replaced with a proper key in production.'
 
-    todo :
-     - bug : can't stop when jobs in queues
+    THREADS_PER_PAGE = 8
 
-    """
-    #HB_INTERVAL = 1000  # in milliseconds
-    #__metaclass__ = AutoSlots
+    CSRF_ENABLED = True
+    CSRF_SESSION_KEY = "somethingimpossibletoguess"
+
+    RECAPTCHA_USE_SSL = False
+    RECAPTCHA_PUBLIC_KEY = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'
+    RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'
+    RECAPTCHA_OPTIONS = {'theme': 'white'}
+
+    BROKER_IP = "127.0.0.1"
+    BROKER_PORT = 5514
+
+class ProductionConfig(Config):
+    DATABASE_URI = 'mysql://user@localhost/foo'
+
+class DevelopmentConfig(Config):
+    TESTING = True
+    DEBUG = True
+
+class TestingConfig(Config):
+    TESTING = True
 </td>
 </tr>
 <tr class="even">
@@ -2844,10 +4044,197 @@ class Supervisor():
 <td>0</td>
 <td>Similar lines in 5 files
 ==raspy.common.devices.device:5
-==raspy.common.server:2
+==raspy.servers.titanic:3
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.views:6
+==raspyweb.config:18
+__license__ = """
+    This file is part of RasPy.
+
+    RasPy is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    RasPy is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+
+import os
+_basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config(object):
+    DEBUG = False
+    TESTING = False
+    DATABASE_URI = 'sqlite://:memory:'
+
+    ADMINS = frozenset(['bibi21000@gmail.com'])
+    SECRET_KEY = 'This string will be replaced with a proper key in production.'
+
+    THREADS_PER_PAGE = 8
+
+    CSRF_ENABLED = True
+    CSRF_SESSION_KEY = "somethingimpossibletoguess"
+
+    RECAPTCHA_USE_SSL = False
+    RECAPTCHA_PUBLIC_KEY = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'
+    RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'
+    RECAPTCHA_OPTIONS = {'theme': 'white'}
+
+    BROKER_IP = "127.0.0.1"
+    BROKER_PORT = 5514
+
+class ProductionConfig(Config):
+    DATABASE_URI = 'mysql://user@localhost/foo'
+
+class DevelopmentConfig(Config):
+    TESTING = True</td>
+</tr>
+<tr class="odd">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Similar lines in 6 files
+==raspy.common.devices.device:5
+==raspy.servers.titanic:3
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
+__license__ = """
+    This file is part of RasPy.
+
+    RasPy is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    RasPy is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+
+import os
+_basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config(object):
+    DEBUG = False
+    TESTING = False
+    DATABASE_URI = 'sqlite://:memory:'
+
+    ADMINS = frozenset(['bibi21000@gmail.com'])
+    SECRET_KEY = 'This string will be replaced with a proper key in production.'
+
+    THREADS_PER_PAGE = 8
+
+    CSRF_ENABLED = True
+    CSRF_SESSION_KEY = "somethingimpossibletoguess"
+
+    RECAPTCHA_USE_SSL = False
+    RECAPTCHA_PUBLIC_KEY = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'
+    RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'
+    RECAPTCHA_OPTIONS = {'theme': 'white'}
+
+    BROKER_IP = "127.0.0.1"
+    BROKER_PORT = 5514
+
+class ProductionConfig(Config):
+    DATABASE_URI = 'mysql://user@localhost/foo'
+
+class DevelopmentConfig(Config):</td>
+</tr>
+<tr class="even">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Similar lines in 7 files
+==raspy.common.devices.device:5
+==raspy.servers.titanic:3
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
+__license__ = """
+    This file is part of RasPy.
+
+    RasPy is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    RasPy is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+
+import os
+_basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config(object):
+    DEBUG = False
+    TESTING = False
+    DATABASE_URI = 'sqlite://:memory:'
+
+    ADMINS = frozenset(['bibi21000@gmail.com'])
+    SECRET_KEY = 'This string will be replaced with a proper key in production.'
+
+    THREADS_PER_PAGE = 8
+
+    CSRF_ENABLED = True
+    CSRF_SESSION_KEY = "somethingimpossibletoguess"
+
+    RECAPTCHA_USE_SSL = False
+    RECAPTCHA_PUBLIC_KEY = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'
+    RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'
+    RECAPTCHA_OPTIONS = {'theme': 'white'}
+
+    BROKER_IP = "127.0.0.1"
+    BROKER_PORT = 5514
+
+class ProductionConfig(Config):
+    DATABASE_URI = 'mysql://user@localhost/foo'
+</td>
+</tr>
+<tr class="odd">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Similar lines in 9 files
+==raspy.common.devices.device:5
 ==raspy.common.supervisor:2
 ==raspy.servers.fake:3
 ==raspy.servers.titanic:3
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
 __license__ = """
     This file is part of RasPy.
 
@@ -2868,23 +4255,81 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import traceback
-import time
+import pickle
 import threading
-import logging
+from uuid import uuid4
+import traceback
+import os
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
 import raspy.common.MDP as MDP
 from raspy.common.executive import Executive
 from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.statistics import Statistics
+from raspy.common.mdcliapi import MajorDomoClient
+from raspy.common.zhelpers import zpipe
+
+class Titanic(Executive):</td>
+</tr>
+<tr class="even">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Similar lines in 10 files
+==raspy.common.devices.device:5
+==raspy.common.supervisor:2
+==raspy.servers.fake:3
+==raspy.servers.titanic:3
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
+__license__ = """
+    This file is part of RasPy.
+
+    RasPy is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    RasPy is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+"""
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+
+import threading
+import traceback
+import os
+import raspy.common.MDP as MDP
+from raspy.common.server import Server
+from raspy.common.mdwrkapi import MajorDomoWorker
 from raspy.common.zhelpers import dump
 
-class Server(Executive, Statistics):
-    """The generic worker
+import logging
 
-    From http://zguide.zeromq.org/py:all#header-48
+class Fake(Server):
+    """A fake server to test RasPy
 
-    """
-</td>
+        - we must developp "real" fake device : ie a temperature sensors must not send random values
+        - a cyclic sensor : parameters : cycle length, min, max and unit. Will do cycle from min temp to max temp (at cycle/2) and fall back tp min temp at end of if
+        - a linear sensor
+        -
+    """</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -2892,7 +4337,63 @@ class Server(Executive, Statistics):
 <td>&#160;</td>
 <td>1</td>
 <td>0</td>
-<td>Similar lines in 7 files
+<td>Similar lines in 11 files
+==raspy.common.devices.device:5
+==raspy.common.server:2
+==raspy.common.supervisor:2
+==raspy.servers.fake:3
+==raspy.servers.titanic:3
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
+__license__ = """
+    This file is part of RasPy.
+
+    RasPy is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    RasPy is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+"""
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+
+import pickle
+import threading
+from uuid import uuid4
+import traceback
+import os
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
+import raspy.common.MDP as MDP
+from raspy.common.executive import Executive
+from raspy.common.mdwrkapi import MajorDomoWorker
+from raspy.common.mdcliapi import MajorDomoClient
+from raspy.common.zhelpers import zpipe</td>
+</tr>
+<tr class="even">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Similar lines in 13 files
 ==raspy.common.devices.device:5
 ==raspy.common.executive:2
 ==raspy.common.runner:27
@@ -2900,6 +4401,12 @@ class Server(Executive, Statistics):
 ==raspy.common.supervisor:2
 ==raspy.servers.fake:3
 ==raspy.servers.titanic:3
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
 __license__ = """
     This file is part of RasPy.
 
@@ -2937,13 +4444,13 @@ class Fake(Server):
         - a cyclic sensor : parameters : cycle length, min, max and unit. Will do cycle from min temp to max temp (at cycle/2) and fall back tp min temp at end of if
         - a linear sensor</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>scripts</td>
 <td>&#160;</td>
 <td>1</td>
 <td>0</td>
-<td>Similar lines in 8 files
+<td>Similar lines in 14 files
 ==raspy.common.devices.device:5
 ==raspy.common.executive:2
 ==raspy.common.runner:27
@@ -2952,6 +4459,12 @@ class Fake(Server):
 ==raspy.common.supervisor:2
 ==raspy.servers.fake:3
 ==raspy.servers.titanic:3
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
 __license__ = """
     This file is part of RasPy.
 
@@ -2986,13 +4499,13 @@ class Fake(Server):
     """A fake server to test RasPy
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>refactor</td>
 <td>scripts</td>
 <td>&#160;</td>
 <td>1</td>
 <td>0</td>
-<td>Similar lines in 10 files
+<td>Similar lines in 16 files
 ==raspy.common.devices.device:5
 ==raspy.common.executive:2
 ==raspy.common.runner:27
@@ -3003,6 +4516,12 @@ class Fake(Server):
 ==raspy.servers.fake:3
 ==raspy.servers.onewire:3
 ==raspy.servers.titanic:3
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
 __license__ = """
     This file is part of RasPy.
 
@@ -3029,20 +4548,20 @@ import os
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.zhelpers import dump
-
+import json
 import logging
 
-class OneWire(Server):
+class Scenario(threading.Thread):
+    """A scenario
     """</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>refactor</td>
 <td>scripts</td>
 <td>&#160;</td>
 <td>1</td>
 <td>0</td>
-<td>Similar lines in 12 files
+<td>Similar lines in 18 files
 ==raspy.common.devices.device:5
 ==raspy.common.devices.media:4
 ==raspy.common.devices.sensor:4
@@ -3055,6 +4574,12 @@ class OneWire(Server):
 ==raspy.servers.fake:3
 ==raspy.servers.onewire:3
 ==raspy.servers.titanic:3
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
 __license__ = """
     This file is part of RasPy.
 
@@ -3085,13 +4610,67 @@ from raspy.common.zhelpers import dump
 
 import logging</td>
 </tr>
+<tr class="even">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Similar lines in 19 files
+==raspy.common.devices.device:5
+==raspy.common.devices.media:4
+==raspy.common.devices.sensor:4
+==raspy.common.executive:2
+==raspy.common.runner:27
+==raspy.common.server:2
+==raspy.common.statistics:2
+==raspy.common.supervisor:2
+==raspy.servers.core:3
+==raspy.servers.fake:3
+==raspy.servers.onewire:3
+==raspy.servers.titanic:3
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
+==raspyweb.shell:10
+__license__ = """
+    This file is part of RasPy.
+
+    RasPy is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    RasPy is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+"""
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'
+
+import threading
+import traceback
+import os
+import raspy.common.MDP as MDP
+from raspy.common.server import Server
+from raspy.common.mdwrkapi import MajorDomoWorker
+from raspy.common.zhelpers import dump</td>
+</tr>
 <tr class="odd">
 <td>refactor</td>
 <td>scripts</td>
 <td>&#160;</td>
 <td>1</td>
 <td>0</td>
-<td>Similar lines in 13 files
+<td>Similar lines in 21 files
 ==raspy.common.devices.__init__:1
 ==raspy.common.devices.device:5
 ==raspy.common.devices.media:4
@@ -3105,6 +4684,14 @@ import logging</td>
 ==raspy.servers.fake:3
 ==raspy.servers.onewire:3
 ==raspy.servers.titanic:3
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
+==raspyweb.run:9
+==raspyweb.shell:10
 __license__ = """
     This file is part of RasPy.
 
@@ -3138,7 +4725,7 @@ from raspy.common.mdwrkapi import MajorDomoWorker</td>
 <td>&#160;</td>
 <td>1</td>
 <td>0</td>
-<td>Similar lines in 16 files
+<td>Similar lines in 25 files
 ==raspy.common.__init__:1
 ==raspy.common.devices.__init__:1
 ==raspy.common.devices.device:5
@@ -3155,6 +4742,15 @@ from raspy.common.mdwrkapi import MajorDomoWorker</td>
 ==raspy.servers.onewire:3
 ==raspy.servers.titanic:3
 ==raspy:1
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
+==raspyweb.run:9
+==raspyweb.shell:10
+==raspyweb:1
 __license__ = """
     This file is part of RasPy.
 
@@ -3171,15 +4767,15 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
 import os
-import glob
-import logging
-modules = glob.glob(os.path.dirname(__file__)+"/*.py")
-__all__ = [ os.path.basename(f)[:-3] for f in modules]</td>
+_basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config(object):
+    DEBUG = False
+    TESTING = False</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -3221,7 +4817,7 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]</td>
 <td>&#160;</td>
 <td>1</td>
 <td>0</td>
-<td>Similar lines in 17 files
+<td>Similar lines in 26 files
 ==raspy.common.__init__:1
 ==raspy.common.devices.__init__:1
 ==raspy.common.devices.device:5
@@ -3239,6 +4835,15 @@ __all__ = [ os.path.basename(f)[:-3] for f in modules]</td>
 ==raspy.servers.onewire:3
 ==raspy.servers.titanic:3
 ==raspy:1
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
+==raspyweb.run:9
+==raspyweb.shell:10
+==raspyweb:1
 __license__ = """
     This file is part of RasPy.
 
@@ -3255,11 +4860,89 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import os</td>
+import os
+_basedir = os.path.abspath(os.path.dirname(__file__))</td>
+</tr>
+<tr class="odd">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Similar lines in 27 files
+==raspy.common.__init__:1
+==raspy.common.devices.__init__:1
+==raspy.common.devices.device:5
+==raspy.common.devices.media:4
+==raspy.common.devices.sensor:4
+==raspy.common.executive:2
+==raspy.common.runner:27
+==raspy.common.server:2
+==raspy.common.statistics:2
+==raspy.common.supervisor:2
+==raspy.servers.__init__:1
+==raspy.servers.broker:3
+==raspy.servers.core:3
+==raspy.servers.fake:3
+==raspy.servers.onewire:3
+==raspy.servers.titanic:3
+==raspy:1
+==raspyweb.app.__init__:8
+==raspyweb.app.ajax.__init__:8
+==raspyweb.app.ajax.constants:6
+==raspyweb.app.ajax.models:6
+==raspyweb.app.ajax.views:6
+==raspyweb.app.views:6
+==raspyweb.config:18
+==raspyweb.run:9
+==raspyweb.shell:10
+==raspyweb:1
+__license__ = """
+    This file is part of RasPy.
+
+    RasPy is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    RasPy is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+"""
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'</td>
+</tr>
+<tr class="even">
+<td>refactor</td>
+<td>scripts</td>
+<td>&#160;</td>
+<td>1</td>
+<td>0</td>
+<td>Similar lines in 2 files
+==raspyweb.app.__init__:54
+==raspyweb.app.ajax.__init__:67
+    filename = os.path.join(app.instance_path, filename)
+
+    try:
+        app.config['SECRET_KEY'] = open(filename, 'rb').read()
+    except IOError:
+        print('Error: No secret key. Create it with:')
+        full_path = os.path.dirname(filename)
+        if not os.path.isdir(full_path):
+            print('mkdir -p {filename}'.format(filename=full_path))
+        print('head -c 24 /dev/urandom &amp;gt; {filename}'.format(filename=filename))
+        sys.exit(1)
+
+if not app.config['DEBUG']:
+    install_secret_key(app)
+</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>

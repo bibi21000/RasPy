@@ -189,8 +189,8 @@ class Broker(Executive):
 
     # We'd normally pull these from config data
     INTERNAL_SERVICE_PREFIX = "mmi."
-    HEARTBEAT_LIVENESS = 3 # 3-5 is reasonable
-    HEARTBEAT_INTERVAL = 2500 # msecs
+    HEARTBEAT_LIVENESS = 5 # 3-5 is reasonable
+    HEARTBEAT_INTERVAL = 3500 # msecs
     HEARTBEAT_EXPIRY = HEARTBEAT_INTERVAL * HEARTBEAT_LIVENESS
 
     ctx = None # Our context
@@ -304,7 +304,7 @@ class Broker(Executive):
                 worker.service = self.require_service(service)
                 self.worker_waiting(worker)
         elif MDP.W_REPLY == command:
-            if worker_ready:
+            if worker_ready == True:
                 # Remove & save client return envelope and insert the
                 # protocol header and service name, then rewrap envelope.
                 client = msg.pop(0)
@@ -315,7 +315,7 @@ class Broker(Executive):
             else:
                 self.delete_worker(worker, True)
         elif MDP.W_HEARTBEAT == command:
-            if worker_ready:
+            if worker_ready == True:
                 worker.expiry = time.time() + 1e-3*self.HEARTBEAT_EXPIRY
             else:
                 self.delete_worker(worker, True)
@@ -327,7 +327,7 @@ class Broker(Executive):
     def delete_worker(self, worker, disconnect):
         """Deletes worker from all data structures, and deletes worker."""
         assert worker is not None
-        if disconnect:
+        if disconnect == True:
             self.send_to_worker(worker, MDP.W_DISCONNECT, None, None)
         if worker.service is not None:
             worker.service.waiting.remove(worker)

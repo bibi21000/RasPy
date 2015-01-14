@@ -28,17 +28,20 @@ import sys
 import time
 import unittest
 from pprint import pprint
+import threading
 
 import raspy.common.MDP as MDP
 from raspy.servers.broker import Broker
 from raspy.servers.titanic import Titanic
-from raspy.common.mdcliapi import MajorDomoClient
+from raspy.common.mdcliapi import MajorDomoClient, TitanicClient
+from raspy.common.mdwrkapi import MajorDomoWorker
 from raspy.common.server import Server
 from raspy.common.kvsimple import KVMsg
 from raspy.common.kvcliapi import KvPublisherClient, KvSubscriberClient
 import threading
 import logging
 import zmq
+import shutil
 
 from tests.raspy.common import TestRasPyIP, TestExecutive
 
@@ -47,6 +50,11 @@ class TestProtocol(TestRasPyIP):
     Test ZMQ protocols : Majordomo, titanic and subtree publisher
     """
     service=""
+    def tearDown(self):
+        try:
+            shutil.rmtree('.raspy_test2')
+        except:
+            pass
 
     def test_001_start_wait_and_stop(self):
         self.broker = Server(hostname=self.hostname, broker_ip=self.broker_ip, broker_port=self.broker_port)
@@ -152,6 +160,69 @@ class TestTitanic(TestExecutive):
         self.assertNotEqual(reply, None)
         self.assertEqual(reply[-1], MDP.T_OK)
 
+    def test_110_titanic_request(self):
+
+        def long_worker(stopevent):
+                worker = MajorDomoWorker("tcp://%s:%s" % (self.broker_ip, self.broker_port), "%s.long" % MDP.routing_key(self.hostname, "test"))
+                reply = None
+                logging.debug("Start worker for service %s", "%s.long"%MDP.routing_key(self.hostname, "test"))
+                while not stopevent.isSet():
+                    request = worker.recv(reply)
+                    if not request:
+                        break      # Interrupted, exit
+                    reply = [MDP.T_ERROR]
+                    try:
+                        action = request.pop(0)
+                        logging.debug("long_worker received action %s", action)
+                        reply = [MDP.T_ERROR]
+                        if action == "wait":
+                            status = True
+                            stopevent.wait(self.sleep/2.0)
+                            reply = [MDP.T_OK]
+                        else:
+                            reply = [MDP.T_NOTIMPLEMENTED]
+                            logging.debug("long_worker send [%s][%s]", action, MDP.T_NOTIMPLEMENTED)
+                    except IndexError:
+                        logging.exception("Exception in long_worker")
+                        reply = [MDP.T_ERROR]
+                worker.destroy()
+
+        stopevent = threading.Event()
+        worker_long_thread = threading.Thread(target=long_worker,args=[stopevent])
+        worker_long_thread.daemon = True
+        worker_long_thread.start()
+        time.sleep(self.sleep)
+        client = TitanicClient(broker_ip=self.broker_ip, broker_port=5514)
+        client_thread = threading.Thread(target=client.run)
+        client_thread.daemon = True
+        client_thread.start()
+        uuid = client.request(hostname="localhost", service="test.long", data=["wait"])
+        self.assertNotEqual(uuid, None)
+        stopevent.wait(self.sleep/2)
+        reply = client.status(uuid)
+        try :
+            self.assertEqual(reply[-1], MDP.T_PENDING)
+            stopevent.wait(self.sleep*4.0)
+        except :
+            stopevent.wait(self.sleep*2.0)
+            reply = client.status(uuid)
+            self.assertEqual(reply[-1], MDP.T_PENDING)
+            stopevent.wait(self.sleep*5.0)
+        reply = client.status(uuid)
+        try :
+            self.assertEqual(reply[-1], MDP.T_OK)
+        except :
+            stopevent.wait(self.sleep*5.0)
+            reply = client.status(uuid)
+            self.assertEqual(reply[-1], MDP.T_OK)
+        reply = client.status('bad_uuid')
+        self.assertEqual(reply[-1], MDP.T_UNKNOWN)
+        stopevent.set()
+        client.shutdown()
+        time.sleep(self.sleep/4.0)
+        self.worker_long_thread = None
+        client = None
+
     def test_200_mmi_titanic_store(self):
         request = ["titanic.store"]
         reply = self.mdclient.send("mmi.service", request)
@@ -175,6 +246,10 @@ class TestTitanic(TestExecutive):
         reply = self.mdclient.send("titanic.store", request)
         self.assertNotEqual(reply, None)
         #self.assertEqual(reply[-1], MDP.T_ERROR)
+        request = ["delete"]
+        reply = self.mdclient.send("titanic.store", request)
+        self.assertNotEqual(reply, None)
+        self.assertEqual(reply[-1], MDP.T_ERROR)
 
     def test_202_titanic_store(self):
         request = ["set"] + ["testservice"] + ["testsection"] + ["testkey"] + ['testvalue']
@@ -200,14 +275,6 @@ class TestTitanic(TestExecutive):
         self.assertEqual(reply[-1], MDP.T_OK)
         request = ["delete"] + ["testservice"]
         reply = self.mdclient.send("titanic.store", request)
-        self.assertNotEqual(reply, None)
-        self.assertEqual(reply[-1], MDP.T_OK)
-
-    def test_300_titanic_request(self):
-        self.wipTest()
-        service = "%s.request" % self.service
-        request = []
-        reply = self.mdclient.send(service, request)
         self.assertNotEqual(reply, None)
         self.assertEqual(reply[-1], MDP.T_OK)
 

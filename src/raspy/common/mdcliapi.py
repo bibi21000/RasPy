@@ -13,6 +13,9 @@ import zmq
 from raspy.common.executive import Executive
 from raspy.common.zhelpers import zpipe
 import raspy.common.MDP as MDP
+import threading
+import time
+import logging
 
 class MajorDomoClient(object):
     """Majordomo Protocol Client API, Python version.
@@ -23,8 +26,8 @@ class MajorDomoClient(object):
     ctx = None
     client = None
     poller = None
-    timeout = 2500
-    retries = 3
+    timeout = 500
+    retries = 5
     verbose = False
 
     def __init__(self, broker):
@@ -74,7 +77,7 @@ class MajorDomoClient(object):
                 reply = msg
                 break
             else:
-                if retries:
+                if retries > 0:
                     MDP.logger.warn("CLIENT - No reply, reconnecting...")
                     self.reconnect_to_broker()
                 else:
@@ -88,31 +91,38 @@ class MajorDomoClient(object):
         """
         self.ctx.destroy(0)
 
-class TitanicClient(Executive):
+class TitanicClient(object):
     """The titanic client
 
     Credits: https://github.com/imatix/zguide/blob/master/examples/Python/ticlient.py
 
     """
 
-    def __init__(self, hostname='localhost', service="worker", broker_ip='127.0.0.1', broker_port=5514, poll=1500, ttl=900):
+    def __init__(self, broker_ip='localhost', broker_port=5514, poll=1500, ttl=900):
         """Initialize the client
         """
-        Executive.__init__(self, hostname, service, broker_ip, broker_port)
+        self.broker_ip = broker_ip
+        self.broker_port = broker_port
+        self._stopevent = threading.Event()
         self.client = MajorDomoClient("tcp://%s:%s" % (broker_ip, broker_port))
         self.poll = poll
         self.ttl = ttl
         self.requests = {}
+
+    def shutdown(self):
+        """Shutdown executive.
+        """
+        self._stopevent.set()
 
     def send(self, service, request):
         """Send a Majordomo request directly to worker
         """
         return seld.client.send(service, request)
 
-    def request(self, service=None, data=["mmi.echo"], callback=None, args=(), kwargs={}):
+    def request(self, hostname="localhost", service="worker", data=["mmi.echo"], callback=None, args=(), kwargs={}):
         """Request a job for a worker to titanic
         """
-        req = [MDP.routing_key(self.hostname, service)] + data if service else [MDP.routing_key(self.hostname, self.service)] + data
+        req = [MDP.routing_key(hostname, service)] + data if service else [MDP.routing_key(self.hostname, self.service)] + data
         reply = self.client.send("titanic.request", req)
         uuid = None
         if reply:
@@ -145,8 +155,8 @@ class TitanicClient(Executive):
                 if status != MDP.T_PENDING:
                     #The tasks is finished or is in error. Remove it from pending requests
                     del self.requests[uuid]
-                return status
-        return MDP.T_UNKNOWN
+                return [status]
+        return [MDP.T_UNKNOWN]
 
     def run(self):
         """Run the client in a loop
@@ -155,6 +165,7 @@ class TitanicClient(Executive):
             start_at = time.clock()
             uuids = [uid for uid in self.requests.keys() if self.requests[uid]['status'] == MDP.T_PENDING]
             for uuid in uuids:
+                logging.debug("CLIENT - titanic.reply for uuid %s", uuid)
                 reply = self.client.send("titanic.reply", [uuid])
                 if reply:
                     status = reply.pop(0)
@@ -193,8 +204,3 @@ class TitanicClient(Executive):
                 self._stopevent.wait(sleep_time/500.0)
             else:
                 logging.warning("CLIENT - Not enough time to sleep with current poll : %s ", sleep_time)
-
-    def destroy(self):
-        """ Destroy object
-        """
-        self.ctx.destroy(0)

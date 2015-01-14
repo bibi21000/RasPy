@@ -42,12 +42,12 @@ class FlaskServerTest(FlaskTestCase):
         rv = self.app.get('/')
         self.assertTrue('RasPyWeb' in rv.data)
 
-    def test_100_home_is_running(self):
+    def test_100_home_is_up(self):
         #self.wipTest()
         rv = self.app.get('/')
         self.assertEqual(rv.status,'200 OK')
 
-    def test_200_ajax_is_running(self):
+    def test_200_ajax_is_up(self):
         #self.wipTest()
         rv = self.app.get('/ajax/')
         self.assertEqual(rv.status,'200 OK')

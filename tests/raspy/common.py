@@ -29,7 +29,7 @@ import unittest
 import threading
 import logging
 import json as mjson
-
+import shutil
 from nose.plugins.skip import SkipTest
 
 import raspy.common.MDP as MDP
@@ -88,6 +88,10 @@ class TestExecutive(TestRasPyIP):
         if self.broker:
             self.broker.destroy()
             self.broker = None
+        try:
+            shutil.rmtree('.raspy_test')
+        except:
+            pass
 
 class TestServer(TestExecutive):
     """

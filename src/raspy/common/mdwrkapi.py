@@ -20,7 +20,7 @@ class MajorDomoWorker(object):
     Implements the MDP/Worker spec at http:#rfc.zeromq.org/spec:7.
     """
 
-    HEARTBEAT_LIVENESS = 3 # 3-5 is reasonable
+    HEARTBEAT_LIVENESS = 5 # 3-5 is reasonable
     broker = None
     ctx = None
     service = None
@@ -28,8 +28,8 @@ class MajorDomoWorker(object):
     worker = None # Socket to broker
     heartbeat_at = 0 # When to send HEARTBEAT (relative to time.time(), so in seconds)
     liveness = 0 # How many attempts left
-    heartbeat = 2500 # Heartbeat delay, msecs
-    reconnect = 2500 # Reconnect delay, msecs
+    heartbeat = 3500 # Heartbeat delay, msecs
+    reconnect = 3500 # Reconnect delay, msecs
 
     # Internal state
     expect_reply = False # False only at start

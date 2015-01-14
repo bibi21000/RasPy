@@ -97,16 +97,17 @@ class Titanic(Executive):
             # We'll dispatch once per second, if there's no activity
             try:
                 items = self.poller.poll(self.speed*1000.0)
-            except KeyboardInterrupt:
-                break          # Interrupted
+            except KeyboardInterrupt: # pragma: no cover
+                break                 # pragma: no cover
             except zmq.ZMQError as exc:
                 if not self._stopevent.isSet():
                     raise exc
                 else:
-                    items = None
+                    items = None      # pragma: no cover
             if items:
                 # Append UUID to queue, prefixed with '-' for pending
                 uuid = self.request_pipe.recv()
+                MDP.logger.debug("TITANIC - Store new uid %s in queue", uuid)
                 try:
                     with open(os.path.join(self.queue_dir, 'queue'), 'a') as f:
                         f.write("-%s\n" % uuid)
@@ -336,7 +337,7 @@ class Titanic(Executive):
                             reply = [service] + [MDP.T_ERROR]
                 else:
                     reply = [MDP.T_NOTIMPLEMENTED]
-            except IndexError:
+            except:
                 MDP.logger.exception("TITANIC - Exception in store")
                 reply = [MDP.T_ERROR]
 

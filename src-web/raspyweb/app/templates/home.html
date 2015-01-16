@@ -1,11 +1,17 @@
+{{- g.fanstatic.needs('js.bootstrap:bootstrap') -}}
+{{- g.fanstatic.needs('js.bootstrap:bootstrap_theme') -}}
 {{- g.fanstatic.needs('js.jquery:jquery') -}}
 {{- g.fanstatic.needs('js.jquery_datatables:jquery_datatables') -}}
+{{- g.fanstatic.needs('js.jquery_datatables:responsive') -}}
 {% extends "layout.html" %}
 {% block content %}
-    <table id="example">
+    <table id="example" class="display" cellspacing="0" width="100%">
       <thead>
-        <tr><th class="site_name">Name</th><th>Url </th><th>Type</th><th>Last modified</th></tr>
+        <tr><th class="site_name">Name</th><th>Url</th><th>Type</th><th>Last modified</th></tr>
       </thead>
+      <tfoot>
+        <tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
+      </tfoot>
       <tbody>
       </tbody>
     </table>
@@ -21,21 +27,29 @@
       "aoColumnDefs":[{
             "sTitle":"Site name"
           , "aTargets": [ "site_name" ]
-      },{
-            "aTargets": [ 1 ]
-          , "bSortable": false
-          , "mRender": function ( url, type, full )  {
-              return  '<a href="'+url+'">' + url + '</a>';
-          }
-      },{
-            "aTargets":[ 3 ]
-          , "sType": "date"
-          , "mRender": function(date, type, full) {
-              return (full[2] == "Blog")
-                        ? new Date(date).toDateString()
-                        : "N/A" ;
-          }
+        },
+        {
+              "aTargets": [ 1 ]
+            , "bSortable": false
+            , "mRender": function ( url, type, full )  {
+                return  '<a href="'+url+'">' + url + '</a>';
+            }
+        },
+        {
+              "aTargets":[ 3 ]
+            , "sType": "date"
+            , "mRender": function(date, type, full) {
+                return (full[2] == "Blog")
+                          ? new Date(date).toDateString()
+                          : "N/A" ;
+            }
       }]
     });
+    $(document).ready(function() {
+        // Add `no-wrap` class so the text doesn't wrap for this example
+        $('#example').addClass('no-wrap');
+        $('#example').responsive = true;
+    } );
+
     </script>
 {% endblock %}

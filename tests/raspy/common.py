@@ -39,7 +39,7 @@ from raspy.common.server import Server
 from raspy.common.mdcliapi import MajorDomoClient
 from raspy.common.devices import *
 import raspy.common.devices as devices
-from raspy.common.devices.device import DReg
+from raspy.common.devices.device import DReg, BaseDevice
 
 from tests.common import SLEEP
 from tests.common import TestRasPy
@@ -168,7 +168,7 @@ class ServerBase():
 class TestDevice(TestRasPy):
     key="base"
 
-class BaseDevice(object):
+class DeviceBase(object):
 
     def test_000_device_register(self):
         device_name = 'test_%s_device' % self.oid
@@ -197,3 +197,54 @@ class BaseDevice(object):
             })
         self.assertRaises(KeyError, DReg.new,json=conf)
 
+    def test_010_cmd_commands(self):
+        device_name = 'test_%s_device' % self.oid
+        device = BaseDevice()
+        cmds = device.cmd_commands().split('|')
+        self.assertTrue('config' in cmds)
+        self.assertTrue('poll' in cmds)
+        self.assertTrue('reset' in cmds)
+
+    def test_020_cmd_config(self):
+        device_name = 'test_%s_device' % self.oid
+        device = BaseDevice()
+        self.assertNotEqual(device, None)
+        conf = device.cmd_config()
+        self.assertTrue('name' in conf)
+        self.assertTrue(device.cmd_config(value={'name':device_name}))
+        conf = device.cmd_config()
+        self.assertTrue('name' in conf)
+        self.assertEqual(conf['name'], device_name)
+
+    def test_021_cmd_bad_config(self):
+        device_name = 'test_%s_device' % self.oid
+        device = BaseDevice()
+        self.assertNotEqual(device, None)
+        self.assertTrue(device.cmd_config(value={}) is None)
+
+    def test_030_cmd_poll(self):
+        device_name = 'test_%s_device' % self.oid
+        device = BaseDevice()
+        self.assertNotEqual(device, None)
+        device.poll = -1
+        res = device.cmd_poll()
+        self.assertEqual(res, -1)
+        res = device.cmd_poll(5)
+        self.assertTrue(res is None)
+        self.assertEqual(device.poll, -1)
+        device.poll = 0
+        res = device.cmd_poll(5)
+        self.assertEqual(res, True)
+        res = device.cmd_poll()
+        self.assertEqual(res, 5)
+
+    def test_040_cmd_log(self):
+        device_name = 'test_%s_device' % self.oid
+        device = BaseDevice()
+        self.assertNotEqual(device, None)
+        device.log = False
+        res = device.cmd_log()
+        self.assertEqual(res, False)
+        self.assertTrue(device.cmd_log(True))
+        res = device.cmd_log()
+        self.assertEqual(res, True)

@@ -135,15 +135,6 @@ class Titanic(Executive):
                 except (IOError) as e:
                     MDP.logger.error("TITANIC - Can't create file %s", os.path.join(self.queue_dir, 'queue'))
 
-    #def destroy(self):
-    #    """Wait for threads and destroy contexts.
-    #    """
-    #    self.request_thread.join()
-    #    self.reply_thread.join()
-    #    self.close_thread.join()
-    #    self.store_thread.join()
-    #    self.ctx.destroy(0)
-
     def request_filename(self, uuid):
         """Returns freshly allocated request filename for given UUID"""
         return os.path.join(self.queue_dir, "%s.req" % uuid)

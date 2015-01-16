@@ -32,13 +32,13 @@ from pprint import pprint
 from raspy.common.devices import *
 import raspy.common.devices as devices
 from raspy.common.devices.device import DReg
-from tests.raspy.common import TestDevice, BaseDevice
+from tests.raspy.common import TestDevice, DeviceBase
 import json as mjson
 
-class BaseMedia(object):
+class MediaBase(object):
     pass
 
-class TestCamera(TestDevice, BaseDevice, BaseMedia):
+class TestCamera(TestDevice, DeviceBase, MediaBase):
     key="media"
     oid = "camera"
 
@@ -52,7 +52,7 @@ class TestCamera(TestDevice, BaseDevice, BaseMedia):
         self.assertIsInstance(device, devices.media.MediaCamera)
 
 
-class TestTV(TestDevice, BaseDevice, BaseMedia):
+class TestTV(TestDevice, DeviceBase, MediaBase):
     key="media"
     oid = "tv"
     def test_200_device_register(self):

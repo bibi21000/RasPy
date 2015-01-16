@@ -51,6 +51,7 @@ class TestProtocol(TestRasPyIP):
     """
     service=""
     def tearDown(self):
+        #pass
         try:
             shutil.rmtree('.raspy_test2')
         except:
@@ -198,6 +199,10 @@ class TestTitanic(TestExecutive):
         client_thread.start()
         uuid = client.request(hostname="localhost", service="test.long", data=["wait"])
         self.assertNotEqual(uuid, None)
+        uuid2 = client.request(hostname="localhost", service="test.long", data=["wait"])
+        self.assertNotEqual(uuid2, None)
+        uuid3 = client.request(hostname="localhost", service="test.long", data=["wait"])
+        self.assertNotEqual(uuid3, None)
         stopevent.wait(self.sleep/2)
         reply = client.status(uuid)
         try :
@@ -215,8 +220,25 @@ class TestTitanic(TestExecutive):
             stopevent.wait(self.sleep*5.0)
             reply = client.status(uuid)
             self.assertEqual(reply[-1], MDP.T_OK)
+        reply = client.status(uuid)
+        self.assertEqual(reply[-1], MDP.T_UNKNOWN)
         reply = client.status('bad_uuid')
         self.assertEqual(reply[-1], MDP.T_UNKNOWN)
+        stopevent.wait(self.sleep*2.0)
+        reply = client.status(uuid2)
+        try :
+            self.assertEqual(reply[-1], MDP.T_OK)
+        except :
+            stopevent.wait(self.sleep*5.0)
+            reply = client.status(uuid2)
+            self.assertEqual(reply[-1], MDP.T_OK)
+        reply = client.status(uuid3)
+        try :
+            self.assertEqual(reply[-1], MDP.T_OK)
+        except :
+            stopevent.wait(self.sleep*5.0)
+            reply = client.status(uuid3)
+            self.assertEqual(reply[-1], MDP.T_OK)
         stopevent.set()
         client.shutdown()
         time.sleep(self.sleep/4.0)

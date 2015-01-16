@@ -32,10 +32,10 @@ from raspy.common.devices import *
 import raspy.common.devices as devices
 from raspy.common.devices.device import DReg
 
-from tests.raspy.common import TestDevice, BaseDevice
+from tests.raspy.common import TestDevice, DeviceBase
 import json as mjson
 
-class BaseSensor(object):
+class SensorBase(object):
 
     def test_100_device_register(self):
         device_name = 'test_%s_device' % self.oid
@@ -47,7 +47,7 @@ class BaseSensor(object):
         device = DReg.new(json=conf)
         self.assertEqual(device.config['unit'], 'some_unit')
 
-class TestWind(TestDevice, BaseDevice, BaseSensor):
+class TestWind(TestDevice, DeviceBase, SensorBase):
     oid = "wind"
     key="sensor"
 
@@ -60,7 +60,7 @@ class TestWind(TestDevice, BaseDevice, BaseSensor):
         device = DReg.new(json=conf)
         self.assertIsInstance(device, devices.sensor.SensorWind)
 
-class TestTemperature(TestDevice, BaseDevice, BaseSensor):
+class TestTemperature(TestDevice, DeviceBase, SensorBase):
     oid = "temperature"
     key="sensor"
 

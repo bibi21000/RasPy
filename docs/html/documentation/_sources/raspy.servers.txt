@@ -28,6 +28,14 @@ raspy.servers.fake module
     :undoc-members:
     :show-inheritance:
 
+raspy.servers.logger module
+---------------------------
+
+.. automodule:: raspy.servers.logger
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 raspy.servers.onewire module
 ----------------------------
 

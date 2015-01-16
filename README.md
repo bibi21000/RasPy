@@ -46,6 +46,10 @@ We need to install some packages to download and build RasPy:
 
    sudo apt-get -y install build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-setuptools python-docutils python-pylint
 
+And some development librairies for rrdtool (for the logger) :
+
+   sudo apt-get -y install libcairo2-dev libpango1.0-dev libglib2.0-dev libxml2-dev librrd-dev
+
 Some packages need to be removed as new versions are available from
 eggs :
 

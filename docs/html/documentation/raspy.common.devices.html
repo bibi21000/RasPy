@@ -81,9 +81,10 @@
 <li>...</li>
 </ul>
 </div></blockquote>
-<p>What can we do with a device :</p>
+<p>What can we do with a device : a command (same &#8220;spirit&#8221; as zwave&#8217;s command classes</p>
 <blockquote>
 <div><ul class="simple">
+<li>configure it</li>
 <li>get value of a sensor</li>
 <li>dim a dimmer</li>
 <li>take a photo with camera</li>
@@ -99,11 +100,100 @@
 </div></blockquote>
 <p>We whould manage complex devices, ie a TV : it groups a channel selector (+, -, and direct access to a channel), a volume selector, ...
 In an ideal world we should not be obliged to create each sub-devices.</p>
-<p>Naming convention of devices on the network : (MDP.routing_key(hostname, service)).{device_name}[.subdevice]</p>
+<p>Naming convention of devices on the network : (MDP.routing_key(hostname, service)).{device_name}[.subdevice]
+Naming convention for devices / subdevices : categorie.device-subdevice (ie media.tv-volume, ... )</p>
 <dl class="method">
 <dt id="raspy.common.devices.device.BaseDevice.check">
 <tt class="descname">check</tt><big>(</big><em>json=None</em><big>)</big><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that the JSON is a valid device</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.devices.device.BaseDevice.cmd_commands">
+<tt class="descname">cmd_commands</tt><big>(</big><em>value=None</em><big>)</big><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.cmd_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command fof retrieving all commands supported by this device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> &#8211; the value. If value is None this command send the current config. Otherwise it will set it to calue</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.devices.device.BaseDevice.cmd_config">
+<tt class="descname">cmd_config</tt><big>(</big><em>value=None</em><big>)</big><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.cmd_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command for configuring device
+Must be overloaded and called by the subclass</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> &#8211; the value. If value is None this command send the current config. Otherwise it will set it to calue</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.devices.device.BaseDevice.cmd_log">
+<tt class="descname">cmd_log</tt><big>(</big><em>value=None</em><big>)</big><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.cmd_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command for configuring logging of the device</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.devices.device.BaseDevice.cmd_poll">
+<tt class="descname">cmd_poll</tt><big>(</big><em>value=None</em><big>)</big><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.cmd_poll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command for configuring polling of the device</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.devices.device.BaseDevice.cmd_reset">
+<tt class="descname">cmd_reset</tt><big>(</big><em>value=None</em><big>)</big><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.cmd_reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command for resetting device
+Must be overloaded (and called) by the subclass</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.devices.device.BaseDevice.commands">
+<tt class="descname">commands</tt><em class="property"> = {}</em><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>The commands available on the device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.devices.device.BaseDevice.config">
+<tt class="descname">config</tt><em class="property"> = {'name': None}</em><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>The device&#8217;s configuration</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.devices.device.BaseDevice.do_poll">
+<tt class="descname">do_poll</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.do_poll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grab the value and return it</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.devices.device.BaseDevice.exec_cmd">
+<tt class="descname">exec_cmd</tt><big>(</big><em>oid</em>, <em>command</em>, <em>value=None</em><big>)</big><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.exec_cmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute a command</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>device</strong> &#8211; the oid device</li>
+<li><strong>command</strong> &#8211; the cid device</li>
+<li><strong>value</strong> &#8211; the value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a value if the command succeed. None if it fails</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -116,6 +206,12 @@ In an ideal world we should not be obliged to create each sub-devices.</p>
 <dt id="raspy.common.devices.device.BaseDevice.json">
 <tt class="descname">json</tt><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that the JSON is a valid device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.devices.device.BaseDevice.log">
+<tt class="descname">log</tt><em class="property"> = False</em><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Should we log this value (in the RasPy Logger)</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -140,6 +236,18 @@ Need to define a naming convention : sensor, sensor.temperature, media.camera, .
 </dd></dl>
 
 <dl class="attribute">
+<dt id="raspy.common.devices.device.BaseDevice.poll">
+<tt class="descname">poll</tt><em class="property"> = -1</em><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.poll" title="Permalink to this definition">¶</a></dt>
+<dd><p>The poll value of this device : -1 not pollable, 0 : not poll and other = poll delay in seconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.devices.device.BaseDevice.subdevices">
+<tt class="descname">subdevices</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.subdevices" title="Permalink to this definition">¶</a></dt>
+<dd><p>The subdevices of this device</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="raspy.common.devices.device.BaseDevice.template">
 <tt class="descname">template</tt><a class="headerlink" href="#raspy.common.devices.device.BaseDevice.template" title="Permalink to this definition">¶</a></dt>
 <dd><p>The template of the device</p>
@@ -151,6 +259,63 @@ Need to define a naming convention : sensor, sensor.temperature, media.camera, .
 <dd><p>The templates dictionnary
 Every device must add an entry for its config
 Will be used to check the device</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.common.devices.device.Command">
+<em class="property">class </em><tt class="descclassname">raspy.common.devices.device.</tt><tt class="descname">Command</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#raspy.common.devices.device.Command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A command for a device. Use the same &#8220;spirit&#8221; as ZWave command classes</p>
+<dl class="attribute">
+<dt id="raspy.common.devices.device.Command.callback">
+<tt class="descname">callback</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.devices.device.Command.callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback method associated with this command</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.devices.device.Command.from_json">
+<tt class="descname">from_json</tt><big>(</big><em>json=None</em><big>)</big><a class="headerlink" href="#raspy.common.devices.device.Command.from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the command from JSON</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.devices.device.Command.info">
+<tt class="descname">info</tt><em class="property"> = 'info'</em><a class="headerlink" href="#raspy.common.devices.device.Command.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Some information about the command
+Will be used to represent the value ie in a form, in a graph, ...</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.devices.device.Command.readonly">
+<tt class="descname">readonly</tt><em class="property"> = False</em><a class="headerlink" href="#raspy.common.devices.device.Command.readonly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is this command readonly ie a sensor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.common.devices.device.Command.to_json">
+<tt class="descname">to_json</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.common.devices.device.Command.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy command to JSON</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.devices.device.Command.type">
+<tt class="descname">type</tt><em class="property"> = 'List'</em><a class="headerlink" href="#raspy.common.devices.device.Command.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of the value
+Will be used to represent the value ie in a form, in a graph, ...</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.devices.device.Command.value">
+<tt class="descname">value</tt><em class="property"> = None</em><a class="headerlink" href="#raspy.common.devices.device.Command.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raspy.common.devices.device.Command.writeonly">
+<tt class="descname">writeonly</tt><em class="property"> = False</em><a class="headerlink" href="#raspy.common.devices.device.Command.writeonly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is this command writeonly ie a change dimmer command</p>
 </dd></dl>
 
 </dd></dl>

@@ -13,7 +13,7 @@ def importCode(code, name, add_to_sys_modules=False):
     if add_to_sys_modules:
         import sys
         sys.modules[name] = module
-    exec(code in module.__dict__)
+    exec code in module.__dict__
     return module
 
 code = """

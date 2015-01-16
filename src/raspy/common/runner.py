@@ -73,14 +73,14 @@ class RunnerStopFailureError(RuntimeError, RunnerError):
 class Runner(object):
     """ Controller for a callable running in a separate background process.
 
-        The first command-line argument is the action to take:
+    The first command-line argument is the action to take:
 
-        * 'start': Become a daemon and call `app.run()`.
-        * 'stop': Exit the daemon process specified in the PID file.
-        * 'restart': Stop, then start.
-        * 'status': Show the status of the process.
+    * 'start': Become a daemon and call `app.run()`.
+    * 'stop': Exit the daemon process specified in the PID file.
+    * 'restart': Stop, then start.
+    * 'status': Show the status of the process.
 
-        """
+    """
 
     start_message = "started with pid %(pid)d"
     status_message_running = "process is running"

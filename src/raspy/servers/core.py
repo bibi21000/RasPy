@@ -104,6 +104,7 @@ class ScenarioManager(object):
     http://lucumr.pocoo.org/2011/2/1/exec-in-python/
     http://late.am/post/2012/04/30/the-exec-statement-and-a-python-mystery
     """
+
     scenarios = {}
     """The scenarios
     """
@@ -117,6 +118,7 @@ class ScenarioManager(object):
         """Load the scenarios from titanic store
 
         store keys :
+
             - scenario.main.conf : a json dict for configuration of scenario
             - scenario.main.keys : a json list of the scenario's names
             - scenario.key1.conf : a json dict for configuration of scenario key1
@@ -176,6 +178,7 @@ class Core(Server):
 
     - Cron
         - Generate events in the publisher
+
     - Scenario
         - a scenario can run in background at startup (ie thermostat) or fired by an event (ie cron, sun is down, temperature is under 0°C)
         - a scenario can be a loop so it must be launch in a separate thread : start filling, loop until water level is ok : need to call self._stopevent.isSet() in it so that the tread can shutdown.
@@ -184,6 +187,7 @@ class Core(Server):
         - do some work using inline code python :
         - send commands to devices, cron jobs, start other scenario, update some variables in publisher
         - we can export/import scenarios : share with friends
+
     - NTP / Sytem Time / RTC Sync
         - sync from ntp to rtc
         - sync from trc to system : using sudo with no password
@@ -293,6 +297,5 @@ class Core(Server):
                 reply = [MDP.T_ERROR]
 
 if __name__ == '__main__': # pragma: no cover
-    mycore = Core()     # pragma: no cover
+    mycore = Core()        # pragma: no cover
     mycore.run()           # pragma: no cover
-

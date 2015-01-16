@@ -209,7 +209,7 @@ class TestTitanic(TestExecutive):
             self.assertEqual(reply[-1], MDP.T_PENDING)
             stopevent.wait(self.sleep*4.0)
         except :
-            stopevent.wait(self.sleep*2.0)
+            stopevent.wait(self.sleep*5.0)
             reply = client.status(uuid)
             self.assertEqual(reply[-1], MDP.T_PENDING)
             stopevent.wait(self.sleep*5.0)

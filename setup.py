@@ -80,5 +80,6 @@ setup(
                      'nose >= 1.3.1',
                      'coverage >= 3.7.1',
                      'python-daemon == 2.0.1',
+                     'python-rrdtool >= 1.4.3',
                     ],
 )

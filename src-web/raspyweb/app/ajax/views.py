@@ -50,4 +50,21 @@ def mmi():
     #    aaData.append([user.id, user.username, user.email, 'Modify'])
 
     #data['aaData']=aaData
-    return jmson.dumps(data)
+    return mjson.dumps(data)
+
+@mod.route ('/devices/')
+def devices():
+    data = {}
+    data['iTotalRecords'] = 2
+    data['sEcho'] = 1
+    data['iTotalDisplayRecords'] =  2
+
+    #aaData = []
+    #users=models.Users.query.with_entities(
+    #    models.Users.id, models.Users.username,
+    #    models.Users.email).order_by(models.Users.username).all()
+    #for user in users:
+    #    aaData.append([user.id, user.username, user.email, 'Modify'])
+
+    #data['aaData']=aaData
+    return mjson.dumps(data)

@@ -2,10 +2,6 @@
 # -*- coding: utf-8 -*-
 
 """Unittests for the Onewire Server.
-
-See http://werkzeug.pocoo.org/docs/0.9/test/
-See http://werkzeug.pocoo.org/docs/0.9/wrappers/
-
 """
 
 __license__ = """
@@ -29,38 +25,28 @@ __email__ = 'bibi21000@gmail.com'
 
 import sys
 import time
+import unittest
+from pprint import pprint
+
+import raspy.common.MDP as MDP
+from raspy.servers.broker import Broker
+from raspy.servers.titanic import Titanic
+from raspy.servers.logger import Logger
+from raspy.common.mdcliapi import MajorDomoClient
+import threading
 import logging
-import json as mjson
 
-from tests.raspyweb.common import FlaskTestCase
+from tests.raspy.common import TestServer, ServerBase
 
-from raspyweb.app import app
+class TestLogger(TestServer, ServerBase):
+    service="logger"
 
-class FlaskServerTest(FlaskTestCase):
-
-    def test_000_server_start(self):
-        rv = self.app.get('/')
-        self.assertTrue('RasPyWeb' in rv.data)
-
-    def test_100_home_is_up(self):
-        #self.wipTest()
-        rv = self.app.get('/')
-        self.assertEqual(rv.status,'200 OK')
-
-    def test_200_ajax_is_up(self):
-        #self.wipTest()
-        rv = self.app.get('/ajax/')
-        self.assertEqual(rv.status,'200 OK')
-
-    def test_201_ajax_mmi_is_up(self):
-        #self.wipTest()
-        rv = self.app.get('/ajax/mmi/')
-        self.assertEqual(rv.status,'200 OK')
-
-    def test_202_ajax_devices_is_up(self):
-        #self.wipTest()
-        rv = self.app.get('/ajax/mmi/')
-        self.assertEqual(rv.status,'200 OK')
+    def startServer(self):
+        self.server = Logger(hostname=self.hostname, broker_ip=self.broker_ip, broker_port=self.broker_port)
+        self.server_thread = threading.Thread(target=self.server.run)
+        self.server_thread.daemon = True
+        self.server_thread.start()
+        time.sleep(self.sleep/4.0)
 
 if __name__ == '__main__':
     sys.argv.append('-v')

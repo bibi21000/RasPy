@@ -1,6 +1,6 @@
 
-Welcome to RasPy
-****************
+RasPy
+*****
 
 RasPy will be an automate to manage Aquarium / Terrarium ... and more
 ...
@@ -20,11 +20,11 @@ At last, it will :
 
 
 Installation
-************
+============
 
 
 Raspbian
-========
+--------
 
 Install official raspbian from here : http://www.raspbian.org/.
 
@@ -35,7 +35,7 @@ Developpers or others can also install it on standard distributions
 
 
 Update packages
-===============
+---------------
 
 You can now update packages
 
@@ -57,7 +57,7 @@ eggs :
 
 
 Download it
-===========
+-----------
 
 You should now download RasPy using git. You should not download and
 install RasPy with root user. Idealy, you should create a special user
@@ -68,7 +68,7 @@ support for installation as root !!!).
 
 
 Configure your system
-=====================
+---------------------
 
    * access rights
 
@@ -78,7 +78,7 @@ Configure your system
 
 
 Installation
-============
+------------
 
 If you want to develop for RasPy, you need to install it in develop
 mode :
@@ -104,7 +104,7 @@ and use the following command for every package:
 
 
 Run the tests
-=============
+-------------
 
 Check that the SLEEP constant in tests/common.py ist set to 1.0 or 1.5
 
@@ -119,7 +119,7 @@ output and send it to the core team.
 
 
 Start it
-========
+--------
 
 In the next monthes, you should be abble to start it :
 
@@ -127,7 +127,7 @@ In the next monthes, you should be abble to start it :
 
 
 Read the doc
-============
+------------
 
    * docs/pdf
 

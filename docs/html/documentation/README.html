@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to RasPy &mdash; RasPy 0.0.1 documentation</title>
+    <title>RasPy &mdash; RasPy 0.0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -48,8 +48,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="welcome-to-raspy">
-<h1>Welcome to RasPy<a class="headerlink" href="#welcome-to-raspy" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="raspy">
+<h1>RasPy<a class="headerlink" href="#raspy" title="Permalink to this headline">¶</a></h1>
 <p>RasPy will be an automate to manage Aquarium / Terrarium ... and more ...</p>
 <p>Actually it does nothing ... So don&#8217;t install it ... Except if you want to help me :)</p>
 <p>At last, it will :</p>
@@ -61,17 +61,16 @@
 <li>sensors ...</li>
 </ul>
 </div></blockquote>
-</div>
 <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="raspbian">
-<h2>Raspbian<a class="headerlink" href="#raspbian" title="Permalink to this headline">¶</a></h2>
+<h3>Raspbian<a class="headerlink" href="#raspbian" title="Permalink to this headline">¶</a></h3>
 <p>Install official raspbian from here : <a class="reference external" href="http://www.raspbian.org/">http://www.raspbian.org/</a>.</p>
 <p>Newbies can install it from : <a class="reference external" href="http://www.raspberrypi.org/downloads/">http://www.raspberrypi.org/downloads/</a>.</p>
 <p>Developpers or others can also install it on standard distributions (Ubuntu, Debian, RedHat, ...).</p>
 </div>
 <div class="section" id="update-packages">
-<h2>Update packages<a class="headerlink" href="#update-packages" title="Permalink to this headline">¶</a></h2>
+<h3>Update packages<a class="headerlink" href="#update-packages" title="Permalink to this headline">¶</a></h3>
 <p>You can now update packages</p>
 <div class="highlight-bash"><div class="highlight"><pre>sudo apt-get -y update
 sudo apt-get -y dist-upgrade
@@ -91,7 +90,7 @@ sudo apt-get -y dist-upgrade
 </div>
 </div>
 <div class="section" id="download-it">
-<h2>Download it<a class="headerlink" href="#download-it" title="Permalink to this headline">¶</a></h2>
+<h3>Download it<a class="headerlink" href="#download-it" title="Permalink to this headline">¶</a></h3>
 <p>You should now download RasPy using git. You should not download and install RasPy with root user.
 Idealy, you should create a special user for running RasPy or the pi user. Keep in mind root is baaaddddd (Not support for installation as root !!!).</p>
 <div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/bibi21000/RasPy.git
@@ -99,7 +98,7 @@ Idealy, you should create a special user for running RasPy or the pi user. Keep 
 </div>
 </div>
 <div class="section" id="configure-your-system">
-<h2>Configure your system<a class="headerlink" href="#configure-your-system" title="Permalink to this headline">¶</a></h2>
+<h3>Configure your system<a class="headerlink" href="#configure-your-system" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li>access rights</li>
@@ -109,7 +108,7 @@ Idealy, you should create a special user for running RasPy or the pi user. Keep 
 </div></blockquote>
 </div>
 <div class="section" id="id1">
-<h2>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h3>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>If you want to develop for RasPy, you need to install it in develop mode :</p>
 <div class="highlight-bash"><div class="highlight"><pre>sudo make develop
 </pre></div>
@@ -129,7 +128,7 @@ Idealy, you should create a special user for running RasPy or the pi user. Keep 
 </div>
 </div>
 <div class="section" id="run-the-tests">
-<h2>Run the tests<a class="headerlink" href="#run-the-tests" title="Permalink to this headline">¶</a></h2>
+<h3>Run the tests<a class="headerlink" href="#run-the-tests" title="Permalink to this headline">¶</a></h3>
 <p>Check that the SLEEP constant in tests/common.py ist set to 1.0 or 1.5</p>
 <div class="highlight-bash"><div class="highlight"><pre>vim tests/common.py
 </pre></div>
@@ -142,20 +141,21 @@ Idealy, you should create a special user for running RasPy or the pi user. Keep 
 At last, copy / paste the full screen output and send it to the core team.</p>
 </div>
 <div class="section" id="start-it">
-<h2>Start it<a class="headerlink" href="#start-it" title="Permalink to this headline">¶</a></h2>
+<h3>Start it<a class="headerlink" href="#start-it" title="Permalink to this headline">¶</a></h3>
 <p>In the next monthes, you should be abble to start it :</p>
 <div class="highlight-bash"><div class="highlight"><pre>make start
 </pre></div>
 </div>
 </div>
 <div class="section" id="read-the-doc">
-<h2>Read the doc<a class="headerlink" href="#read-the-doc" title="Permalink to this headline">¶</a></h2>
+<h3>Read the doc<a class="headerlink" href="#read-the-doc" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li>docs/pdf</li>
 <li>docs/html</li>
 </ul>
 </div></blockquote>
+</div>
 </div>
 </div>
 
@@ -167,7 +167,7 @@ At last, copy / paste the full screen output and send it to the core team.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="contents.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to RasPy</a></li>
+<li><a class="reference internal" href="#">RasPy</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
 <li><a class="reference internal" href="#raspbian">Raspbian</a></li>
 <li><a class="reference internal" href="#update-packages">Update packages</a></li>
@@ -177,6 +177,8 @@ At last, copy / paste the full screen output and send it to the core team.</p>
 <li><a class="reference internal" href="#run-the-tests">Run the tests</a></li>
 <li><a class="reference internal" href="#start-it">Start it</a></li>
 <li><a class="reference internal" href="#read-the-doc">Read the doc</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -1,9 +1,6 @@
-===============================
-Welcome to RasPy documentation!
-===============================
-
-Contents
-========
+========================
+Full RasPy documentation
+========================
 
 .. toctree::
     :maxdepth: 3

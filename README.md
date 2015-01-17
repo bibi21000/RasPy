@@ -1,6 +1,6 @@
 
-RasPy
-*****
+Quick start for RasPy
+*********************
 
 RasPy will be an automate to manage Aquarium / Terrarium ... and more
 ...

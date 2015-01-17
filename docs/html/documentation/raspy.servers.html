@@ -575,6 +575,38 @@
 <div class="section" id="module-raspy.servers.logger">
 <span id="raspy-servers-logger-module"></span><h2>raspy.servers.logger module<a class="headerlink" href="#module-raspy.servers.logger" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="raspy.servers.logger.CompressedFile">
+<em class="property">class </em><tt class="descclassname">raspy.servers.logger.</tt><tt class="descname">CompressedFile</tt><big>(</big><em>filename='/tmp/log1.txt'</em>, <em>mode='a+'</em>, <em>compresslevel=1</em><big>)</big><a class="headerlink" href="#raspy.servers.logger.CompressedFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A compressed log file</p>
+<dl class="method">
+<dt id="raspy.servers.logger.CompressedFile.close">
+<tt class="descname">close</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.logger.CompressedFile.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.logger.CompressedFile.log">
+<tt class="descname">log</tt><big>(</big><em>level</em>, <em>message</em><big>)</big><a class="headerlink" href="#raspy.servers.logger.CompressedFile.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.logger.CompressedFile.open">
+<tt class="descname">open</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.logger.CompressedFile.open" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.logger.CompressedFile.readline">
+<tt class="descname">readline</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.logger.CompressedFile.readline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.logger.CompressedFile.rotate">
+<tt class="descname">rotate</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.logger.CompressedFile.rotate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="raspy.servers.logger.Logger">
 <em class="property">class </em><tt class="descclassname">raspy.servers.logger.</tt><tt class="descname">Logger</tt><big>(</big><em>hostname='localhost'</em>, <em>service='logger'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em><big>)</big><a class="headerlink" href="#raspy.servers.logger.Logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="raspy.common.html#raspy.common.server.Server" title="raspy.common.server.Server"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.server.Server</span></tt></a></p>
@@ -636,6 +668,7 @@ It can be called via the worker  or it can log data in pthe publisher</p>
 <dt id="raspy.servers.logger.ThreadedTCPRequestHandler">
 <em class="property">class </em><tt class="descclassname">raspy.servers.logger.</tt><tt class="descname">ThreadedTCPRequestHandler</tt><big>(</big><em>request</em>, <em>client_address</em>, <em>server</em><big>)</big><a class="headerlink" href="#raspy.servers.logger.ThreadedTCPRequestHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">SocketServer.BaseRequestHandler</span></tt></p>
+<p>The request handler</p>
 <dl class="method">
 <dt id="raspy.servers.logger.ThreadedTCPRequestHandler.handle">
 <tt class="descname">handle</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.logger.ThreadedTCPRequestHandler.handle" title="Permalink to this definition">¶</a></dt>
@@ -659,6 +692,7 @@ Be careful ... no security at all</p>
 <em class="property">class </em><tt class="descclassname">raspy.servers.onewire.</tt><tt class="descname">OneWire</tt><big>(</big><em>hostname='localhost'</em>, <em>service='onewire'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em>, <em>devices_dir='/sys/bus/w1/devices'</em><big>)</big><a class="headerlink" href="#raspy.servers.onewire.OneWire" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="raspy.common.html#raspy.common.server.Server" title="raspy.common.server.Server"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.server.Server</span></tt></a></p>
 <p>The OneWire server</p>
+<p><strong>Configuration</strong></p>
 <p>You need to load kernel module :</p>
 <div class="highlight-bash"><div class="highlight"><pre>sudo vim /etc/modules
 </pre></div>

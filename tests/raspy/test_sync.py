@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-"""Unittests for the Logger Server.
+"""Unittests for the Onewire Server.
 """
 
 __license__ = """
@@ -31,27 +31,22 @@ from pprint import pprint
 import raspy.common.MDP as MDP
 from raspy.servers.broker import Broker
 from raspy.servers.titanic import Titanic
-from raspy.servers.logger import Logger
+from raspy.servers.sync import Sync
 from raspy.common.mdcliapi import MajorDomoClient
 import threading
 import logging
-from urllib2 import urlopen
 
 from tests.raspy.common import TestServer, ServerBase
 
-class TestLogger(TestServer, ServerBase):
-    service="logger"
+class TestSync(TestServer, ServerBase):
+    service="sync"
 
     def startServer(self):
-        self.server = Logger(hostname=self.hostname, broker_ip=self.broker_ip, broker_port=self.broker_port)
+        self.server = Sync(hostname=self.hostname, broker_ip=self.broker_ip, broker_port=self.broker_port)
         self.server_thread = threading.Thread(target=self.server.run)
         self.server_thread.daemon = True
         self.server_thread.start()
         time.sleep(self.sleep/4.0)
-
-    #def stopServer(self):
-    #    TestServer.stopServer(self)
-    #    time.sleep(self.sleep*10.0)
 
     def test_100_service(self):
         self.startServer()
@@ -61,12 +56,6 @@ class TestLogger(TestServer, ServerBase):
         self.assertEqual(reply[0], MDP.T_OK)
         self.stopServer()
 
-    def test_110_http_server(self):
-        self.startServer()
-        url = "http://127.0.0.1:%s" % (self.broker_port+4)
-        response = urlopen(url)
-        self.assertEqual(response.getcode(), 200)
-        self.stopServer()
 
 if __name__ == '__main__':
     sys.argv.append('-v')

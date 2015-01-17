@@ -64,10 +64,17 @@ class CompressedFile(object):
 
     def readlines(self, start=0, end=-1, limit=20):
         """Return lines from a file
-
         """
         res = []
         return res
+
+class Graph(object):
+    """A graph
+    """
+    def __init__(self, logfile='log1.log', mode='a+', compresslevel=1):
+        """Initialize the server
+        """
+        pass
 
 class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
     """The request handler
@@ -75,15 +82,16 @@ class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
     def handle(self):
         data = "Ok"
         cur_thread = threading.current_thread()
-        response = "{}: {}".format(cur_thread.name, data)
+        response = "{}: {}".format(cur_thread.name, self.server.logger.data_dir )
         self.request.sendall(response)
 
 class ThreadedTCPServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
     """The simple HTTP server
     Be careful ... no security at all
     """
-    pass
-
+    logger = None
+    """The logger used to retrieve data_dir, log and graph dictionnaries
+    """
 
 class Logger(Server):
     """
@@ -100,41 +108,51 @@ class Logger(Server):
 
     How to log :
 
-     - RRDtool:
+     - RRDtool for nuerical values:
 
       - http://segfault.in/2010/03/python-rrdtool-tutorial/
       - we must use rrcached : https://github.com/pbanaszkiewicz/python-rrdtool/blob/master/rrdtool-1.4.7/etc/rrdcached-init
 
-     - Compressed text files :
+     - Compressed text files for log :
       - stream compression : http://pymotw.com/2/bz2/index.html#module-bz2
       - file rotation
       - http://pymotw.com/2/gzip/
+      - http://www.tutorialspoint.com/python/python_files_io.htm
 
     How to distribute graph, text logs
 
      - via a local directory. The http server will server them to the final client => raspyweb and the logger must be launch on the same server : NO
      - via sync : add a ftp server service (in python or a a package : vsftp with xinet or in standalone) : Use a lot of bandwith, How to transfer log : every minutes ??? : NO
      - add a simpleHttp server here which will serve file  to the proxy (apache ? so that it will cache them).
+      - /graph/graphkey/day, /graph/graphkey/week, /graph/graphkey/month, /graph/graphkey/year
+      - /log/logkey
 
     """
+    graphes = {}
 
-    def __init__(self, hostname='localhost', service="logger", broker_ip='127.0.0.1', broker_port=5514):
+    def __init__(self, hostname='localhost', service="logger", broker_ip='127.0.0.1', broker_port=5514, \
+            data_dir='.rapsy'):
         """Initialize the server
         """
         Server.__init__(self, hostname, service, broker_ip, broker_port)
-        self.worker_logger_thread = threading.Thread(target=self.worker_logger)
-        self.worker_logger_thread.daemon = True
-        self._active_threads.append(self.worker_logger_thread)
+        self.worker_log_thread = threading.Thread(target=self.worker_log)
+        self.worker_log_thread.daemon = True
+        self._active_threads.append(self.worker_log_thread)
+        self.worker_graph_thread = threading.Thread(target=self.worker_graph)
+        self.worker_graph_thread.daemon = True
+        self._active_threads.append(self.worker_graph_thread)
         self.http_server = ThreadedTCPServer(('', broker_port+4), ThreadedTCPRequestHandler)
+        self.http_server.logger = self
         self.http_thread = threading.Thread(target=self.http_server.serve_forever)
         self.http_thread.daemon = True
         self._active_threads.append(self.http_thread)
+        self.data_dir = data_dir
 
-    def worker_logger(self):
+    def worker_log(self):
         """Create a worker to handle logger requests
         """
         worker = MajorDomoWorker("tcp://%s:%s" % (self.broker_ip, self.broker_port), \
-                "%s" % MDP.routing_key(self.hostname, self.service))
+                "%s.log" % MDP.routing_key(self.hostname, self.service))
         self._active_workers.append(worker)
         reply = None
         logging.debug("Start worker for service %s", "%s" % MDP.routing_key(self.hostname, self.service))
@@ -149,6 +167,57 @@ class Logger(Server):
             try:
                 reply = [MDP.T_OK]
             except OSError as exc:
+                reply = [MDP.T_ERROR]
+
+    def worker_graph(self):
+        """Create a worker to handle graph requests
+        """
+        worker = MajorDomoWorker("tcp://%s:%s" % (self.broker_ip, self.broker_port), \
+                "%s.graph" % MDP.routing_key(self.hostname, self.service))
+        self._active_workers.append(worker)
+        reply = None
+        logging.debug("Start worker for service %s", "%s" % MDP.routing_key(self.hostname, self.service))
+        while not self._stopevent.isSet():
+            request = worker.recv(reply)
+            if not request:
+                break      # Interrupted, exit
+            reply = [MDP.T_ERROR]
+            try:
+                action = request.pop(0)
+                logging.debug("work_graph received action %s", action)
+                reply = [action] + [MDP.T_ERROR]
+                if action == "list_keys":
+                    res = None
+                    for key in self.commands.iterkeys():
+                        if res == None:
+                            res = key
+                        else:
+                            res = res + '|' + key
+                    reply = [res] + [MDP.T_OK]
+                    logging.debug("work_graph send [%s]", action)
+                elif action == "add":
+                    #We should do something like this
+                    #"net.rrd", "--step", "300", "--start", '0',
+                    #"DS:input:COUNTER:600:U:U",
+                    #"DS:output:COUNTER:600:U:U",
+                    #"RRA:AVERAGE:0.5:1:600",
+                    #"RRA:AVERAGE:0.5:6:700",
+                    #"RRA:AVERAGE:0.5:24:775",
+                    #"RRA:AVERAGE:0.5:288:797",
+                    #"RRA:MAX:0.5:1:600",
+                    #"RRA:MAX:0.5:6:700",
+                    #"RRA:MAX:0.5:24:775",
+                    #"RRA:MAX:0.5:444:797"
+                    reply = [MDP.T_OK]
+                    logging.debug("work_graph send [%s]", action)
+                elif action == "remove":
+                    reply = [MDP.T_OK]
+                    logging.debug("work_graph send [%s]", action)
+                else:
+                    reply = [action] + [MDP.T_NOTIMPLEMENTED]
+                    logging.debug("work_graph send [%s][%s]", action, MDP.T_NOTIMPLEMENTED)
+            except IndexError:
+                logging.exception("Exception in work_graph")
                 reply = [MDP.T_ERROR]
 
     def shutdown(self):

@@ -53,15 +53,27 @@ class TestLogger(TestServer, ServerBase):
     #    TestServer.stopServer(self)
     #    time.sleep(self.sleep*10.0)
 
-    def test_100_service(self):
+    def test_100_service_log_graph(self):
         self.startServer()
-        request = "%s"%MDP.routing_key(self.hostname, self.service)
+        request = "%s.%s"%(MDP.routing_key(self.hostname, self.service), 'log')
+        reply = self.mdclient.send("mmi.service", request)
+        self.assertNotEqual(reply, None)
+        self.assertEqual(reply[0], MDP.T_OK)
+        request = "%s.%s"%(MDP.routing_key(self.hostname, self.service), 'graph')
         reply = self.mdclient.send("mmi.service", request)
         self.assertNotEqual(reply, None)
         self.assertEqual(reply[0], MDP.T_OK)
         self.stopServer()
 
-    def test_110_http_server(self):
+    def test_101_logger_log_list_keys(self):
+        self.startServer()
+        request = "list_keys"
+        reply = self.mdclient.send("%s.log"%MDP.routing_key(self.hostname, self.service), request)
+        self.assertNotEqual(reply, None)
+        self.assertEqual(reply[-1], MDP.T_OK)
+        self.stopServer()
+
+    def test_500_http_server(self):
         self.startServer()
         url = "http://127.0.0.1:%s" % (self.broker_port+4)
         response = urlopen(url)

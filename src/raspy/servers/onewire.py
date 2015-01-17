@@ -35,8 +35,7 @@ class OneWire(Server):
     """
     The OneWire server
 
-    Configuration
-    -------------
+    **Configuration**
 
     You need to load kernel module :
 

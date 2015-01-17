@@ -27,14 +27,51 @@ import os
 import SocketServer
 import BaseHTTPServer
 import SimpleHTTPServer
+import gzip
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
 
 import logging
 
-class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
+class CompressedFile(object):
+    """A compressed log file
+    """
+    def __init__(self, logfile='log1.log', mode='a+', compresslevel=1):
+        """Initialize the server
+        """
+        pass
 
+    def open(self):
+        """
+        """
+        pass
+
+    def close(self):
+        """
+        """
+        pass
+
+    def log(self, level, message):
+        """
+        """
+        pass
+
+    def rotate(self):
+        """
+        """
+        pass
+
+    def readlines(self, start=0, end=-1, limit=20):
+        """Return lines from a file
+
+        """
+        res = []
+        return res
+
+class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
+    """The request handler
+    """
     def handle(self):
         data = "Ok"
         cur_thread = threading.current_thread()
@@ -46,6 +83,7 @@ class ThreadedTCPServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
     Be careful ... no security at all
     """
     pass
+
 
 class Logger(Server):
     """
@@ -68,7 +106,7 @@ class Logger(Server):
       - we must use rrcached : https://github.com/pbanaszkiewicz/python-rrdtool/blob/master/rrdtool-1.4.7/etc/rrdcached-init
 
      - Compressed text files :
-
+      - stream compression : http://pymotw.com/2/bz2/index.html#module-bz2
       - file rotation
       - http://pymotw.com/2/gzip/
 

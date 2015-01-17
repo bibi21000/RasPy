@@ -113,16 +113,12 @@ class ServerBase():
     """
     Common tests class for servers
     """
-    def test_000_service_mmi(self):
+    def test_000_service_mmi_statistics(self):
         self.startServer()
         request = "%s.mmi"%MDP.routing_key(self.hostname, self.service)
         reply = self.mdclient.send("mmi.service", request)
         self.assertNotEqual(reply, None)
         self.assertEqual(reply[0], MDP.T_OK)
-        self.stopServer()
-
-    def test_001_service_statistics(self):
-        self.startServer()
         request = "%s.statistics"%MDP.routing_key(self.hostname, self.service)
         reply = self.mdclient.send("mmi.service", request)
         self.assertNotEqual(reply, None)

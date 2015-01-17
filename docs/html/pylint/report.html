@@ -4337,26 +4337,26 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
+from uuid import uuid4
 import traceback
 import os
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
 import raspy.common.MDP as MDP
-from raspy.common.server import Server
+from raspy.common.executive import Executive
 from raspy.common.mdwrkapi import MajorDomoWorker
-import json
-import logging
+from raspy.common.mdcliapi import MajorDomoClient
+from raspy.common.zhelpers import zpipe
 
-class Sync(Server):
-    """The Sync server
-
-    Sync data from a or many folders (which we can configure via zmq) to a remote server.
-
-    Used by logger, camera, ...
-
-    Sync can be sheduled ( ie every day, ...) or laucnh on demand via worker
-    We can sync a file or a directory
-
-    """
+class Titanic(Executive):
+    """The Titanic helper
 </td>
 </tr>
 <tr class="odd">
@@ -4391,29 +4391,29 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading
-import traceback
-import os
-import SocketServer
-import BaseHTTPServer
-import SimpleHTTPServer
-import raspy.common.MDP as MDP
-from raspy.common.server import Server
-from raspy.common.mdwrkapi import MajorDomoWorker
+from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
+import json as mjson
+from raspyweb.app import app
+from raspy.common.mdcliapi import TitanicClient
 
-import logging
+mod = Blueprint('ajax', __name__, url_prefix='/ajax')
 
-class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
+@mod.route('/')
+def home():
+    data = {}
+    return mjson.dumps(data)
 
-    def handle(self):
-        data = "Ok"
-        cur_thread = threading.current_thread()
-        response = "{}: {}".format(cur_thread.name, data)
-        self.request.sendall(response)</td>
+@mod.route ('/mmi/')
+def mmi():
+    data = {}
+    data['iTotalRecords'] = 2
+    data['sEcho'] = 1
+    data['iTotalDisplayRecords'] =  2
+
+    #aaData = []</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4505,27 +4505,27 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading
-import traceback
-import os
-import SocketServer
-import BaseHTTPServer
-import SimpleHTTPServer
-import raspy.common.MDP as MDP
-from raspy.common.server import Server
-from raspy.common.mdwrkapi import MajorDomoWorker
+from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
+import json as mjson
+from raspyweb.app import app
+from raspy.common.mdcliapi import TitanicClient
 
-import logging
+mod = Blueprint('ajax', __name__, url_prefix='/ajax')
 
-class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
+@mod.route('/')
+def home():
+    data = {}
+    return mjson.dumps(data)
 
-    def handle(self):
-        data = "Ok"
-        cur_thread = threading.current_thread()</td>
+@mod.route ('/mmi/')
+def mmi():
+    data = {}
+    data['iTotalRecords'] = 2
+    data['sEcho'] = 1
+    data['iTotalDisplayRecords'] =  2</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4563,26 +4563,26 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading
-import traceback
-import os
-import SocketServer
-import BaseHTTPServer
-import SimpleHTTPServer
-import raspy.common.MDP as MDP
-from raspy.common.server import Server
-from raspy.common.mdwrkapi import MajorDomoWorker
+from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
+import json as mjson
+from raspyweb.app import app
+from raspy.common.mdcliapi import TitanicClient
 
-import logging
+mod = Blueprint('ajax', __name__, url_prefix='/ajax')
 
-class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
+@mod.route('/')
+def home():
+    data = {}
+    return mjson.dumps(data)
 
-    def handle(self):
-        data = "Ok"</td>
+@mod.route ('/mmi/')
+def mmi():
+    data = {}
+    data['iTotalRecords'] = 2
+    data['sEcho'] = 1</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4621,23 +4621,23 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading
-import traceback
-import os
-import SocketServer
-import BaseHTTPServer
-import SimpleHTTPServer
-import raspy.common.MDP as MDP
-from raspy.common.server import Server
-from raspy.common.mdwrkapi import MajorDomoWorker
+from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
+import json as mjson
+from raspyweb.app import app
+from raspy.common.mdcliapi import TitanicClient
 
-import logging
+mod = Blueprint('ajax', __name__, url_prefix='/ajax')
 
-class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):</td>
+@mod.route('/')
+def home():
+    data = {}
+    return mjson.dumps(data)
+
+@mod.route ('/mmi/')
+def mmi():</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4737,19 +4737,19 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading
-import traceback
-import os
-import SocketServer
-import BaseHTTPServer
-import SimpleHTTPServer
-import raspy.common.MDP as MDP
-from raspy.common.server import Server
-from raspy.common.mdwrkapi import MajorDomoWorker</td>
+from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
+import json as mjson
+from raspyweb.app import app
+from raspy.common.mdcliapi import TitanicClient
+
+mod = Blueprint('ajax', __name__, url_prefix='/ajax')
+
+@mod.route('/')
+def home():
+    data = {}</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4794,17 +4794,17 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading
-import traceback
-import os
-import SocketServer
-import BaseHTTPServer
-import SimpleHTTPServer
-import raspy.common.MDP as MDP</td>
+from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
+import json as mjson
+from raspyweb.app import app
+from raspy.common.mdcliapi import TitanicClient
+
+mod = Blueprint('ajax', __name__, url_prefix='/ajax')
+
+@mod.route('/')</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4851,16 +4851,16 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading
-import traceback
-import os
-import raspy.common.MDP as MDP
-from raspy.common.server import Server
-from raspy.common.mdwrkapi import MajorDomoWorker</td>
+from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
+import json as mjson
+from raspyweb.app import app
+from raspy.common.mdcliapi import TitanicClient
+
+mod = Blueprint('ajax', __name__, url_prefix='/ajax')
+</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -5009,10 +5009,10 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-try:
-    __import__('pkg_resources').declare_namespace(__name__)
-except:  # pragma: no cover
-    # bootstrapping</td>
+import threading
+import traceback
+import os
+import raspy.common.MDP as MDP</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -5069,7 +5069,7 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-"""</td>
+import threading</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -5151,8 +5151,8 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
-__author__ = 'Sébastien GALLET aka bibi21000'</td>
+__author__ = 'Sébastien GALLET aka bibi21000'
+__email__ = 'bibi21000@gmail.com'</td>
 </tr>
 <tr class="even">
 <td>refactor</td>

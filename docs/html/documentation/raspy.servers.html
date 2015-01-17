@@ -576,7 +576,7 @@
 <span id="raspy-servers-logger-module"></span><h2>raspy.servers.logger module<a class="headerlink" href="#module-raspy.servers.logger" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raspy.servers.logger.CompressedFile">
-<em class="property">class </em><tt class="descclassname">raspy.servers.logger.</tt><tt class="descname">CompressedFile</tt><big>(</big><em>filename='/tmp/log1.txt'</em>, <em>mode='a+'</em>, <em>compresslevel=1</em><big>)</big><a class="headerlink" href="#raspy.servers.logger.CompressedFile" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">raspy.servers.logger.</tt><tt class="descname">CompressedFile</tt><big>(</big><em>logfile='log1.log'</em>, <em>mode='a+'</em>, <em>compresslevel=1</em><big>)</big><a class="headerlink" href="#raspy.servers.logger.CompressedFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>A compressed log file</p>
 <dl class="method">
@@ -595,9 +595,10 @@
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="raspy.servers.logger.CompressedFile.readline">
-<tt class="descname">readline</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.logger.CompressedFile.readline" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="raspy.servers.logger.CompressedFile.readlines">
+<tt class="descname">readlines</tt><big>(</big><em>start=0</em>, <em>end=-1</em>, <em>limit=20</em><big>)</big><a class="headerlink" href="#raspy.servers.logger.CompressedFile.readlines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return lines from a file</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="raspy.servers.logger.CompressedFile.rotate">
@@ -637,6 +638,7 @@ It can be called via the worker  or it can log data in pthe publisher</p>
 </ul>
 <blockquote>
 <div><ul class="simple">
+<li>stream compression : <a class="reference external" href="http://pymotw.com/2/bz2/index.html#module-bz2">http://pymotw.com/2/bz2/index.html#module-bz2</a></li>
 <li>file rotation</li>
 <li><a class="reference external" href="http://pymotw.com/2/gzip/">http://pymotw.com/2/gzip/</a></li>
 </ul>

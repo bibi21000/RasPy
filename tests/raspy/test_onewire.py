@@ -46,7 +46,7 @@ class TestOneWire(TestServer, ServerBase):
         self.server_thread = threading.Thread(target=self.server.run)
         self.server_thread.daemon = True
         self.server_thread.start()
-        time.sleep(self.sleep/4.0)
+        time.sleep(self.sleep/3.0)
 
     def test_100_service_devices(self):
         self.startServer()

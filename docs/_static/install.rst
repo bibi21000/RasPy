@@ -39,7 +39,7 @@ Download it
 -----------
 
 You should now download RasPy using git. You should not download and install RasPy with root user.
-Idealy, you should create a special user for running RasPy or the pi user. Keep in mind root is baaaddddd.
+Idealy, you should create a special user for running RasPy or the pi user. Keep in mind root is baaaddddd (Not support for installation as root !!!).
 
 .. code-block:: bash
 

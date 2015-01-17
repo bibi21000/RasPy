@@ -44,6 +44,14 @@ raspy.servers.onewire module
     :undoc-members:
     :show-inheritance:
 
+raspy.servers.sync module
+-------------------------
+
+.. automodule:: raspy.servers.sync
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 raspy.servers.titanic module
 ----------------------------
 

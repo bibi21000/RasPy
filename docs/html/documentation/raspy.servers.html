@@ -579,10 +579,76 @@
 <em class="property">class </em><tt class="descclassname">raspy.servers.logger.</tt><tt class="descname">Logger</tt><big>(</big><em>hostname='localhost'</em>, <em>service='logger'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em><big>)</big><a class="headerlink" href="#raspy.servers.logger.Logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="raspy.common.html#raspy.common.server.Server" title="raspy.common.server.Server"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.server.Server</span></tt></a></p>
 <p>The logger server</p>
-<p>Will log data, events, ... in files, rrd, ...</p>
-<p>It can be called via the worker  or it can log data in pthe publisher</p>
-<p>From : <a class="reference external" href="http://segfault.in/2010/03/python-rrdtool-tutorial/">http://segfault.in/2010/03/python-rrdtool-tutorial/</a>
-From :</p>
+<p>Will log data, events, ... in files, rrd, ...
+It can be called via the worker  or it can log data in pthe publisher</p>
+<p>What to log :</p>
+<blockquote>
+<div><ul class="simple">
+<li>numeric : data for a device. We must be abble to aggregate data from multiple devices ( ie a graph for inside/outqide temperature)</li>
+<li>text events : door open, notification, server log, ...</li>
+<li>images for webcam ??? large amount of data, not a good idea to tranport it using zmq. A ftp client which sync to a server.</li>
+</ul>
+</div></blockquote>
+<p>How to log :</p>
+<blockquote>
+<div><ul class="simple">
+<li>RRDtool:</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://segfault.in/2010/03/python-rrdtool-tutorial/">http://segfault.in/2010/03/python-rrdtool-tutorial/</a></li>
+<li>we must use rrcached : <a class="reference external" href="https://github.com/pbanaszkiewicz/python-rrdtool/blob/master/rrdtool-1.4.7/etc/rrdcached-init">https://github.com/pbanaszkiewicz/python-rrdtool/blob/master/rrdtool-1.4.7/etc/rrdcached-init</a></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Compressed text files :</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>file rotation</li>
+<li><a class="reference external" href="http://pymotw.com/2/gzip/">http://pymotw.com/2/gzip/</a></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>How to distribute graph, text logs</p>
+<blockquote>
+<div><ul class="simple">
+<li>via a local directory. The http server will server them to the final client =&gt; raspyweb and the logger must be launch on the same server : NO</li>
+<li>via sync : add a ftp server service (in python or a a package : vsftp with xinet or in standalone) : Use a lot of bandwith, How to transfer log : every minutes ??? : NO</li>
+<li>add a simpleHttp server here which will serve file  to the proxy (apache ? so that it will cache them).</li>
+</ul>
+</div></blockquote>
+<dl class="method">
+<dt id="raspy.servers.logger.Logger.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.logger.Logger.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown executive.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.logger.Logger.worker_logger">
+<tt class="descname">worker_logger</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.logger.Logger.worker_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle logger requests</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.servers.logger.ThreadedTCPRequestHandler">
+<em class="property">class </em><tt class="descclassname">raspy.servers.logger.</tt><tt class="descname">ThreadedTCPRequestHandler</tt><big>(</big><em>request</em>, <em>client_address</em>, <em>server</em><big>)</big><a class="headerlink" href="#raspy.servers.logger.ThreadedTCPRequestHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">SocketServer.BaseRequestHandler</span></tt></p>
+<dl class="method">
+<dt id="raspy.servers.logger.ThreadedTCPRequestHandler.handle">
+<tt class="descname">handle</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.logger.ThreadedTCPRequestHandler.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raspy.servers.logger.ThreadedTCPServer">
+<em class="property">class </em><tt class="descclassname">raspy.servers.logger.</tt><tt class="descname">ThreadedTCPServer</tt><big>(</big><em>server_address</em>, <em>RequestHandlerClass</em>, <em>bind_and_activate=True</em><big>)</big><a class="headerlink" href="#raspy.servers.logger.ThreadedTCPServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">SocketServer.ThreadingMixIn</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">SocketServer.TCPServer</span></tt></p>
+<p>The simple HTTP server
+Be careful ... no security at all</p>
 </dd></dl>
 
 </div>
@@ -627,6 +693,32 @@ blacklist snd-soc-wm8804
 <dt id="raspy.servers.onewire.OneWire.worker_devices">
 <tt class="descname">worker_devices</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.onewire.OneWire.worker_devices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a worker to handle devices requests</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-raspy.servers.sync">
+<span id="raspy-servers-sync-module"></span><h2>raspy.servers.sync module<a class="headerlink" href="#module-raspy.servers.sync" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raspy.servers.sync.Sync">
+<em class="property">class </em><tt class="descclassname">raspy.servers.sync.</tt><tt class="descname">Sync</tt><big>(</big><em>hostname='localhost'</em>, <em>service='sync'</em>, <em>broker_ip='127.0.0.1'</em>, <em>broker_port=5514</em><big>)</big><a class="headerlink" href="#raspy.servers.sync.Sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="raspy.common.html#raspy.common.server.Server" title="raspy.common.server.Server"><tt class="xref py py-class docutils literal"><span class="pre">raspy.common.server.Server</span></tt></a></p>
+<p>The Sync server</p>
+<p>Sync data from a or many folders (which we can configure via zmq) to a remote server.</p>
+<p>Used by logger, camera, ...</p>
+<p>Sync can be sheduled ( ie every day, ...) or laucnh on demand via worker
+We can sync a file or a directory</p>
+<dl class="method">
+<dt id="raspy.servers.sync.Sync.run">
+<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.sync.Sync.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sync data in a separate thread</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raspy.servers.sync.Sync.worker_sync">
+<tt class="descname">worker_sync</tt><big>(</big><big>)</big><a class="headerlink" href="#raspy.servers.sync.Sync.worker_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a worker to handle sync requests</p>
 </dd></dl>
 
 </dd></dl>
@@ -725,6 +817,7 @@ blacklist snd-soc-wm8804
 <li><a class="reference internal" href="#module-raspy.servers.fake">raspy.servers.fake module</a></li>
 <li><a class="reference internal" href="#module-raspy.servers.logger">raspy.servers.logger module</a></li>
 <li><a class="reference internal" href="#module-raspy.servers.onewire">raspy.servers.onewire module</a></li>
+<li><a class="reference internal" href="#module-raspy.servers.sync">raspy.servers.sync module</a></li>
 <li><a class="reference internal" href="#module-raspy.servers.titanic">raspy.servers.titanic module</a></li>
 <li><a class="reference internal" href="#module-raspy.servers">Module contents</a></li>
 </ul>

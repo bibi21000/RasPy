@@ -248,15 +248,8 @@ class Core(Server):
                 logging.debug("worker_scenario received action %s", action)
                 reply = [MDP.T_ERROR]
                 if action == "info":
-                    #try:
                     logging.debug("worker_scenario send %s", json.dumps(self.manager_scenario.scenarios.keys()))
                     reply = [json.dumps(self.manager_scenario.scenarios.keys())] + [MDP.T_OK]
-                    #except TypeError:
-                    #    logging.exception("TypeError Exception in worker_scenario for action %s", action)
-                    #    reply = [action] + [MDP.T_ERROR]
-                    #except ValueError:
-                    #    logging.exception("ValueError Exception in worker_scenario for action %s", action)
-                    #    reply = [action] + [MDP.T_ERROR]
                 else:
                     reply = [MDP.T_NOTIMPLEMENTED]
             except IndexError:
@@ -281,15 +274,13 @@ class Core(Server):
                 logging.debug("worker_scenario received action %s", action)
                 reply = [MDP.T_ERROR]
                 if action == "list_keys":
-                    #try:
-                    logging.debug("worker_scenarios send %s", json.dumps(self.manager_scenario.scenarios.keys()))
-                    reply = [json.dumps(self.manager_scenario.scenarios.keys())] + [MDP.T_OK]
-                    #except TypeError:
-                    #    logging.exception("TypeError Exception in worker_scenario for action %s", action)
-                    #    reply = [action] + [MDP.T_ERROR]
-                    #except ValueError:
-                    #    logging.exception("ValueError Exception in worker_scenario for action %s", action)
-                    #    reply = [action] + [MDP.T_ERROR]
+                    res = ""
+                    for key in self.manager_scenario.scenarios.iterkeys():
+                        if res == None:
+                            res = key
+                        else:
+                            res = res + '|' + key
+                    reply = [res] + [MDP.T_OK]
                 else:
                     reply = [MDP.T_NOTIMPLEMENTED]
             except IndexError:

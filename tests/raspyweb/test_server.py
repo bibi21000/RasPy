@@ -42,8 +42,11 @@ class FlaskServerTest(FlaskTestCase):
         rv = self.app.get('/')
         self.assertTrue('RasPyWeb' in rv.data)
 
+    def test_001_error_404(self):
+        rv = self.app.get('/bad_page')
+        self.assertEqual(rv.status,'404 NOT FOUND')
+
     def test_100_home_is_up(self):
-        #self.wipTest()
         rv = self.app.get('/')
         self.assertEqual(rv.status,'200 OK')
 

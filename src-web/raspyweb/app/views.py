@@ -40,45 +40,44 @@ def home():
     return render_template('home.html', links=links, res='200')
 
 #@app.route('/replies/<path:path>')
-def requests(path):
-    ""
-    ""
-    path = path.encode('ascii', 'ignore')
-    subpath = ""
-    if path.find('/') != -1 :
-        path,subpath = path.split("/")
-    if subpath == "" :
-        res = mdp_request(socket, b'%s' % path, [b'mmi.directory'], 2.0)
-        print res
-        if res != None and res[len(res)-1] == '200' :
-            print "yeah"
-            services = res[2].split('|')
-            services.sort()
-            topics = res[3].split('|')
-            topics.sort()
-            mmis = res[4].split('|')
-            mmis.sort()
-        else :
-            services = []
-            topics = []
-            mmis = []
-        return render_template('service.html', services=services, topics=topics, mmis=mmis, res=res, path=path)
-    else :
-        rtype = request.args.get('type')
-        rtype = rtype.encode('ascii', 'ignore')
-        res = mdp_request(socket, b'%s' % path, [b'mmi.helper.%s' % rtype, subpath], 2.0)
-        print res
-        if res != None and res[len(res)-1] == '200' :
-            print "yeah"
-            services = res[2].split('|')
-            services.sort()
-            topics = res[3].split('|')
-            topics.sort()
-            mmis = res[4].split('|')
-            mmis.sort()
-        else :
-            services = []
-            topics = []
-            mmis = []
-        return render_template('reply.html', services=services, topics=topics, mmis=mmis, res=res, path=path)
-
+#def requests(path):
+#    ""
+#    ""
+#    path = path.encode('ascii', 'ignore')
+#    subpath = ""
+#    if path.find('/') != -1 :
+#        path,subpath = path.split("/")
+#    if subpath == "" :
+#        res = mdp_request(socket, b'%s' % path, [b'mmi.directory'], 2.0)
+#        print res
+#        if res != None and res[len(res)-1] == '200' :
+#            print "yeah"
+#            services = res[2].split('|')
+#            services.sort()
+#            topics = res[3].split('|')
+#            topics.sort()
+#            mmis = res[4].split('|')
+#            mmis.sort()
+#        else :
+#            services = []
+#            topics = []
+#            mmis = []
+#        return render_template('service.html', services=services, topics=topics, mmis=mmis, res=res, path=path)
+#    else :
+#        rtype = request.args.get('type')
+#        rtype = rtype.encode('ascii', 'ignore')
+#        res = mdp_request(socket, b'%s' % path, [b'mmi.helper.%s' % rtype, subpath], 2.0)
+#        print res
+#        if res != None and res[len(res)-1] == '200' :
+#            print "yeah"
+#            services = res[2].split('|')
+#            services.sort()
+#            topics = res[3].split('|')
+#            topics.sort()
+#            mmis = res[4].split('|')
+#            mmis.sort()
+#        else :
+#            services = []
+#            topics = []
+#            mmis = []
+#        return render_template('reply.html', services=services, topics=topics, mmis=mmis, res=res, path=path)

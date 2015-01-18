@@ -107,8 +107,14 @@ class OneWire(Server):
                 reply = [action] + [MDP.T_ERROR]
                 if action == "list_keys":
                     try:
-                        onlyfiles = [f for f in os.listdir(self.devices_dir) if os.path.isfile(os.path.join(self.devices_dir, f))]
-                        reply = onlyfiles + [MDP.T_OK]
+                        res = ""
+                        for key in os.listdir(self.devices_dir):
+                            if os.path.isfile(os.path.join(self.devices_dir, f)) == True:
+                                if res == None:
+                                    res = key
+                                else:
+                                    res = res + '|' + key
+                        reply = [res] + [MDP.T_OK]
                         logging.debug("worker_devices send [%s][%s]", action, onlyfiles)
                     except OSError as exc:
                         logging.exception("OSError Exception in worker_devices for action %s", action)

@@ -118,7 +118,7 @@ class Proxy(threading.Thread):
                 if not self._stopevent.isSet():
                     raise exc
                 else:
-                    items = None
+                    items = []
             # Apply state update sent from client
             if self.collector in items:
                 kvmsg = KVMsg.recv(self.collector)
@@ -233,7 +233,7 @@ class Broker(Executive):
                 if not self._stopevent.isSet():
                     raise exc
                 else:
-                    items = None
+                    items = []
             if items:
                 try:
                     msg = self.socket.recv_multipart()

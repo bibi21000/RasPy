@@ -25,6 +25,7 @@ import threading
 import traceback
 import os
 import SocketServer
+import socket
 import BaseHTTPServer
 import SimpleHTTPServer
 import gzip
@@ -33,6 +34,41 @@ from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
 
 import logging
+
+class RrdCachedClient:
+    '''demonstration class only
+      - coded for clarity, not efficiency
+    '''
+
+    def __init__(self, path="/var/run/rrdcached.sock"):
+        self.sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        self.sock.connect(path)
+        self.sock.send("BATCH\n")
+        rep = self.sock.recv(1024)
+        assert rep.startswith("0")
+
+    def update(self, msg):
+        sent = self.sock.send(msg)
+        if sent == 0:
+            raise RuntimeError("socket connection broken")
+#~ sub update {
+    #~ my $this = shift;
+    #~ my $file = shift;
+    #~ ## @updates = @_;
+#~
+    #~ @_ or warn "No updates for $file!";
+#~
+    #~ ## rrdcached doesn't handle N: timestamps
+    #~ my $now = time();
+    #~ s/^N(?=:)/$now/ for (@_);
+#~
+    #~ $this->{sock}->print("update $file @_\n");
+#~ }
+
+    def shutdown(self):
+        """Shutdown the client
+        """
+        self.sock.close()
 
 class CompressedFile(object):
     """A compressed log file

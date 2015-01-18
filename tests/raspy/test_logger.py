@@ -31,7 +31,7 @@ from pprint import pprint
 import raspy.common.MDP as MDP
 from raspy.servers.broker import Broker
 from raspy.servers.titanic import Titanic
-from raspy.servers.logger import Logger
+from raspy.servers.logger import Logger, RrdCachedClient
 from raspy.common.mdcliapi import MajorDomoClient
 import threading
 import logging
@@ -79,6 +79,10 @@ class TestLogger(TestServer, ServerBase):
         response = urlopen(url)
         self.assertEqual(response.getcode(), 200)
         self.stopServer()
+
+    def test_900_rrdcached_client(self):
+        client = RrdCachedClient()
+        client.shutdown()
 
 if __name__ == '__main__':
     sys.argv.append('-v')

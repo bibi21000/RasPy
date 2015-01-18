@@ -22,4 +22,6 @@ before_install:
  - sudo apt-get install -y -qq build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git pylint
  - sudo apt-get install -y -qq libcairo2-dev libpango1.0-dev libglib2.0-dev libxml2-dev librrd-dev
  - sudo apt-get install -y -qq vsftpd
+ - sudo apt-get install -y -qq rrdcached
+ - sudo chmod 777 /var/run/rrdcached.sock
  - sudo apt-get remove -y -qq python-zmq libzmq1 libzmq-dev

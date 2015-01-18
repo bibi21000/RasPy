@@ -192,9 +192,9 @@
 <p id='n129' class='stm run hide_run'><a href='#n129'>129</a></p>
 <p id='n130' class='stm run hide_run'><a href='#n130'>130</a></p>
 <p id='n131' class='stm run hide_run'><a href='#n131'>131</a></p>
-<p id='n132' class='stm run hide_run'><a href='#n132'>132</a></p>
+<p id='n132' class='stm mis'><a href='#n132'>132</a></p>
 <p id='n133' class='stm mis'><a href='#n133'>133</a></p>
-<p id='n134' class='stm mis'><a href='#n134'>134</a></p>
+<p id='n134' class='stm run hide_run'><a href='#n134'>134</a></p>
 <p id='n135' class='pln'><a href='#n135'>135</a></p>
 <p id='n136' class='stm run hide_run'><a href='#n136'>136</a></p>
 <p id='n137' class='stm run hide_run'><a href='#n137'>137</a></p>
@@ -346,9 +346,9 @@
 <p id='t129' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>MDP</span><span class='op'>.</span><span class='nam'>logger</span><span class='op'>.</span><span class='nam'>warn</span><span class='op'>(</span><span class='str'>&quot;WORKER - Disconnected from broker - retrying...&quot;</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
 <p id='t130' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>try</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
 <p id='t131' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>time</span><span class='op'>.</span><span class='nam'>sleep</span><span class='op'>(</span><span class='num'>1e-3</span><span class='op'>*</span><span class='nam'>self</span><span class='op'>.</span><span class='nam'>reconnect</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
-<p id='t132' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>except</span> <span class='nam'>KeyboardInterrupt</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
+<p id='t132' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>except</span> <span class='nam'>KeyboardInterrupt</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
 <p id='t133' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>break</span><span class='strut'>&nbsp;</span></p>
-<p id='t134' class='stm mis'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>self</span><span class='op'>.</span><span class='nam'>reconnect_to_broker</span><span class='op'>(</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
+<p id='t134' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>self</span><span class='op'>.</span><span class='nam'>reconnect_to_broker</span><span class='op'>(</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
 <p id='t135' class='pln'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='com'># Send HEARTBEAT if it&#39;s time</span><span class='strut'>&nbsp;</span></p>
 <p id='t136' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='key'>if</span> <span class='nam'>time</span><span class='op'>.</span><span class='nam'>time</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='nam'>self</span><span class='op'>.</span><span class='nam'>heartbeat_at</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
 <p id='t137' class='stm run hide_run'>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class='nam'>self</span><span class='op'>.</span><span class='nam'>send_to_broker</span><span class='op'>(</span><span class='nam'>MDP</span><span class='op'>.</span><span class='nam'>W_HEARTBEAT</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>

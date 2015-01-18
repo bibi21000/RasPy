@@ -27,7 +27,7 @@ import os
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.zhelpers import dump
+#from raspy.common.zhelpers import dump
 
 import logging
 

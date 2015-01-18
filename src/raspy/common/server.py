@@ -28,7 +28,7 @@ import raspy.common.MDP as MDP
 from raspy.common.executive import Executive
 from raspy.common.mdwrkapi import MajorDomoWorker
 from raspy.common.statistics import Statistics
-from raspy.common.zhelpers import dump
+#from raspy.common.zhelpers import dump
 
 class Server(Executive, Statistics):
     """The generic worker

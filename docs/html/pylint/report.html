@@ -24,16 +24,16 @@
 <tr class="odd">
 <td>class</td>
 <td>56</td>
-<td>55</td>
-<td>+1.00</td>
+<td>56</td>
+<td>=</td>
 <td>91.07</td>
 <td>0.00</td>
 </tr>
 <tr class="even">
 <td>method</td>
 <td>188</td>
-<td>185</td>
-<td>+3.00</td>
+<td>188</td>
+<td>=</td>
 <td>95.21</td>
 <td>0.00</td>
 </tr>
@@ -84,29 +84,29 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 <td>code</td>
 <td>2659</td>
 <td>62.64</td>
-<td>2645</td>
-<td>+14.00</td>
+<td>2659</td>
+<td>=</td>
 </tr>
 <tr class="odd">
 <td>docstring</td>
 <td>900</td>
 <td>21.20</td>
-<td>895</td>
-<td>+5.00</td>
+<td>900</td>
+<td>=</td>
 </tr>
 <tr class="even">
 <td>comment</td>
 <td>217</td>
 <td>5.11</td>
-<td>205</td>
-<td>+12.00</td>
+<td>217</td>
+<td>=</td>
 </tr>
 <tr class="odd">
 <td>empty</td>
 <td>469</td>
 <td>11.05</td>
-<td>464</td>
-<td>+5.00</td>
+<td>469</td>
+<td>=</td>
 </tr>
 </table>
 </div>
@@ -122,14 +122,14 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 <tr class="even">
 <th>nb duplicated lines</th>
 <td>7444</td>
-<td>7011</td>
-<td>+433.00</td>
+<td>7444</td>
+<td>=</td>
 </tr>
 <tr class="odd">
 <th>percent duplicated lines</th>
 <td>172.514</td>
-<td>163.847</td>
-<td>+8.67</td>
+<td>172.514</td>
+<td>=</td>
 </tr>
 </table>
 </div>
@@ -145,14 +145,14 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 <tr class="even">
 <td>convention</td>
 <td>120</td>
-<td>118</td>
-<td>+2.00</td>
+<td>120</td>
+<td>=</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
 <td>78</td>
-<td>77</td>
-<td>+1.00</td>
+<td>78</td>
+<td>=</td>
 </tr>
 <tr class="even">
 <td>warning</td>
@@ -580,7 +580,7 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 </div>
 <div>
 <h2>Global evaluation</h2>
-Your code has been rated at 6.89/10 (previous run: 6.88/10, +0.01)</div>
+Your code has been rated at 6.89/10 (previous run: 6.89/10, +0.00)</div>
 <div>
 <h2>Messages</h2>
 <table>
@@ -4449,24 +4449,24 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
+from uuid import uuid4
 import traceback
 import os
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
 import raspy.common.MDP as MDP
-from raspy.common.server import Server
+from raspy.common.executive import Executive
 from raspy.common.mdwrkapi import MajorDomoWorker
-#from raspy.common.zhelpers import dump
-
-import logging
-
-class Fake(Server):
-    """A fake server to test RasPy
-
-        - we must developp "real" fake device : ie a temperature sensors must not send random values
-        - a cyclic sensor : parameters : cycle length, min, max and unit. Will do cycle from min temp to max temp (at cycle/2) and fall back tp min temp at end of if
-        - a linear sensor
-        -
-    """</td>
+from raspy.common.mdcliapi import MajorDomoClient
+from raspy.common.zhelpers import zpipe
+</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4502,27 +4502,27 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
+import threading
+from uuid import uuid4
+import traceback
 import os
-_basedir = os.path.abspath(os.path.dirname(__file__))
-
-class Config(object):
-    DEBUG = False
-    TESTING = False
-    DATABASE_URI = 'sqlite://:memory:'
-
-    ADMINS = frozenset(['bibi21000@gmail.com'])
-    SECRET_KEY = 'This string will be replaced with a proper key in production.'
-
-    THREADS_PER_PAGE = 8
-
-    CSRF_ENABLED = True
-    CSRF_SESSION_KEY = "somethingimpossibletoguess"
-
-    RECAPTCHA_USE_SSL = False
-    RECAPTCHA_PUBLIC_KEY = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'</td>
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
+import raspy.common.MDP as MDP
+from raspy.common.executive import Executive
+from raspy.common.mdwrkapi import MajorDomoWorker
+from raspy.common.mdcliapi import MajorDomoClient
+from raspy.common.zhelpers import zpipe</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4560,26 +4560,26 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
+import threading
+from uuid import uuid4
+import traceback
 import os
-_basedir = os.path.abspath(os.path.dirname(__file__))
-
-class Config(object):
-    DEBUG = False
-    TESTING = False
-    DATABASE_URI = 'sqlite://:memory:'
-
-    ADMINS = frozenset(['bibi21000@gmail.com'])
-    SECRET_KEY = 'This string will be replaced with a proper key in production.'
-
-    THREADS_PER_PAGE = 8
-
-    CSRF_ENABLED = True
-    CSRF_SESSION_KEY = "somethingimpossibletoguess"
-
-    RECAPTCHA_USE_SSL = False</td>
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
+import raspy.common.MDP as MDP
+from raspy.common.executive import Executive
+from raspy.common.mdwrkapi import MajorDomoWorker
+from raspy.common.mdcliapi import MajorDomoClient</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4618,23 +4618,23 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import threading
+import traceback
 import os
-_basedir = os.path.abspath(os.path.dirname(__file__))
+import raspy.common.MDP as MDP
+from raspy.common.server import Server
+from raspy.common.mdwrkapi import MajorDomoWorker
+import json
+import logging
 
-class Config(object):
-    DEBUG = False
-    TESTING = False
-    DATABASE_URI = 'sqlite://:memory:'
+class Sync(Server):
+    """The Sync server
 
-    ADMINS = frozenset(['bibi21000@gmail.com'])
-    SECRET_KEY = 'This string will be replaced with a proper key in production.'
-
-    THREADS_PER_PAGE = 8
-
-    CSRF_ENABLED = True</td>
+    Sync data from a or many folders (which we can configure via zmq) to a remote server.</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4675,22 +4675,22 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import threading
+import traceback
 import os
-_basedir = os.path.abspath(os.path.dirname(__file__))
+import raspy.common.MDP as MDP
+from raspy.common.server import Server
+from raspy.common.mdwrkapi import MajorDomoWorker
+#from raspy.common.zhelpers import dump
 
-class Config(object):
-    DEBUG = False
-    TESTING = False
-    DATABASE_URI = 'sqlite://:memory:'
+import logging
 
-    ADMINS = frozenset(['bibi21000@gmail.com'])
-    SECRET_KEY = 'This string will be replaced with a proper key in production.'
-
-    THREADS_PER_PAGE = 8
-</td>
+class OneWire(Server):
+    """</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4848,16 +4848,16 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
+import threading
+from uuid import uuid4
+import traceback
 import os
-_basedir = os.path.abspath(os.path.dirname(__file__))
-
-class Config(object):
-    DEBUG = False
-    TESTING = False
-    DATABASE_URI = 'sqlite://:memory:'</td>
+try:</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4908,15 +4908,15 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import os
-_basedir = os.path.abspath(os.path.dirname(__file__))
-
-class Config(object):
-    DEBUG = False
-    TESTING = False</td>
+import pickle
+import threading
+from uuid import uuid4
+import traceback
+import os</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -5006,10 +5006,10 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
-import traceback
-import os
-import raspy.common.MDP as MDP</td>
+from uuid import uuid4
+import traceback</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -5066,7 +5066,7 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-"""</td>
+import threading</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>

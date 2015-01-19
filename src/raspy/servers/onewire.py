@@ -109,7 +109,7 @@ class OneWire(Server):
                     try:
                         res = ""
                         for key in os.listdir(self.devices_dir):
-                            if os.path.isfile(os.path.join(self.devices_dir, f)) == True:
+                            if os.path.isfile(os.path.join(self.devices_dir, key)) == True:
                                 if res == None:
                                     res = key
                                 else:

@@ -9,14 +9,15 @@ NOSECOVER     = --cover-package=raspy,raspyweb,raspyui --cover-min-percentage= -
 PYLINT        = /usr/local/bin/pylint
 PYLINTOPTS    = --max-line-length=130 --max-args=9 --extension-pkg-whitelist=zmq
 
-.PHONY: help clean all develop install uninstall cleandoc docs tests devtests pylint commit deps
+.PHONY: help clean all develop install uninstall cleandoc docs tests devtests pylint commit apt pip
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  develop    to install RasPy for developpers"
 	@echo "  install    to install RasPy for users"
 	@echo "  uninstall  to uninstall RasPy"
-	@echo "  deps       to install all dependencies"
+	@echo "  apt        to install packaged dependencies with apt"
+	@echo "  pip        to install python dependencies with pip"
 	@echo "  docs       to make all documentation"
 	@echo "  tests      to launch tests for users"
 	@echo "  devtests   to launch detailled tests for developpers"
@@ -45,7 +46,7 @@ uninstall: clean
 	-rm -rf src-web/raspyweb.egg-info
 	-rm -Rf /usr/local/lib/python2.7/dist-packages/raspy*
 
-deps:
+apt:
 	apt-get update -y -qq
 	apt-get install -y -qq build-essential python2.7-dev python2.7-minimal python2.7 git python-pip
 	apt-get install -y -qq libcairo2-dev libpango1.0-dev libglib2.0-dev libxml2-dev librrd-dev
@@ -53,6 +54,8 @@ deps:
 	-apt-get install -y -qq rrdcached
 	-chmod 777 /var/run/rrdcached.sock
 	apt-get remove -y -qq python-zmq libzmq1 libzmq-dev pylint
+
+pip:
 	pip install setuptools
 	pip install docutils
 

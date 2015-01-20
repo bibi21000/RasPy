@@ -117,12 +117,12 @@ class TitanicClient(object):
     def send(self, service, request):
         """Send a Majordomo request directly to worker
         """
-        return seld.client.send(service, request)
+        return self.client.send(service, request)
 
     def request(self, hostname="localhost", service="worker", data=["mmi.echo"], callback=None, args=(), kwargs={}):
         """Request a job for a worker to titanic
         """
-        req = [MDP.routing_key(hostname, service)] + data if service else [MDP.routing_key(self.hostname, self.service)] + data
+        req = [MDP.routing_key(hostname, service)] + data
         reply = self.client.send("titanic.request", req)
         uuid = None
         if reply:

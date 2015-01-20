@@ -35,7 +35,7 @@ class GenericError(Exception):
     def __init__(self, value):
         self.value = value
     def __str__(self):
-        return self.__repr(value)
+        return self.__repr()
     def __repr__(self):
         return "Generic Error :" + repr(self.value)
 

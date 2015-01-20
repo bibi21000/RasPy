@@ -238,14 +238,14 @@ class BaseDevice(object):
     def exec_cmd(self, oid, command, value=None):
         """Execute a command
 
-        :parameter device: the oid device
+        :parameter oid: the oid device
         :parameter command: the cid device
         :parameter value: the value
         :returns: a value if the command succeed. None if it fails
         """
         if command in self.commands:
             return self.commands[command](value)
-        subdev = device.split(oid, "-", 1)
+        subdev = oid.split("-", 1)
         if len(subdev) > 0:
             if self.subdevices is not None and subdev in self.subdevices:
                 if command in self.subdevices[subdev].commands and self.subdevices[subdev].commands[command] is not None:

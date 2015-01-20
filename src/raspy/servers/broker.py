@@ -165,8 +165,7 @@ class Proxy(threading.Thread):
         self._stopevent.set()
 
 class Broker(Executive):
-    """
-    Majordomo Protocol broker and key/value proxy.
+    """Majordomo Protocol broker and key/value proxy.
 
     **Discovery process**
 

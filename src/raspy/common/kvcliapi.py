@@ -81,11 +81,7 @@ class KvSubscriberClient(object):
         self._stopevent = threading.Event()
         self.snapshot.send_multipart(["ICANHAZ?", self.subtree])
         while not self._stopevent.isSet():
-            try:
-                kvmsg = KVMsg.recv(self.snapshot)
-            except:
-                raise
-                return False
+            kvmsg = KVMsg.recv(self.snapshot)
             if kvmsg.key == "KTHXBAI":
                 self.sequence = kvmsg.sequence
                 MDP.logger.debug("PROXY - Client received snaphot for subtree %s with sequence %s", self.subtree, self.sequence)

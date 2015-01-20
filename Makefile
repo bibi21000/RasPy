@@ -7,7 +7,7 @@ NOSE          = /usr/local/bin/nosetests
 NOSEOPTS      = --verbosity=2
 NOSECOVER     = --cover-package=raspy,raspyweb,raspyui --cover-min-percentage= --with-coverage --cover-inclusive --cover-tests --cover-html --cover-html-dir=docs/html/coverage --with-html --html-file=docs/html/nosetests/nosetests.html
 PYLINT        = /usr/local/bin/pylint
-PYLINTOPTS    = --max-line-length=130 --max-args=9 --extension-pkg-whitelist=zmq
+PYLINTOPTS    = --max-line-length=140 --max-args=9 --extension-pkg-whitelist=zmq --ignored-classes=zmq --min-public-methods=0
 
 .PHONY: help clean all develop install uninstall cleandoc docs tests devtests pylint commit apt pip travis-deps
 

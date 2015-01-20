@@ -47,7 +47,7 @@ uninstall: clean
 
 deps:
 	apt-get update -y -qq
-	apt-get install -y -qq build-essential python-dev python-minimal python python2.7-dev python2.7-minimal python2.7 git python-pip
+	apt-get install -y -qq build-essential python2.7-dev python2.7-minimal python2.7 git python-pip
 	apt-get install -y -qq libcairo2-dev libpango1.0-dev libglib2.0-dev libxml2-dev librrd-dev
 	apt-get install -y -qq vsftpd
 	-apt-get install -y -qq rrdcached

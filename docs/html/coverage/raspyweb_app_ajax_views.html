@@ -171,12 +171,12 @@
 <p id='t35' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>data</span> <span class='op'>=</span> <span class='op'>{</span><span class='op'>}</span><span class='strut'>&nbsp;</span></p>
 <p id='t36' class='stm run hide_run'>&nbsp; &nbsp; <span class='key'>return</span> <span class='nam'>mjson</span><span class='op'>.</span><span class='nam'>dumps</span><span class='op'>(</span><span class='nam'>data</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
 <p id='t37' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t38' class='stm run hide_run'><span class='op'>@</span><span class='nam'>mod</span><span class='op'>.</span><span class='nam'>route</span> <span class='op'>(</span><span class='str'>&#39;/mmi/&#39;</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
+<p id='t38' class='stm run hide_run'><span class='op'>@</span><span class='nam'>mod</span><span class='op'>.</span><span class='nam'>route</span><span class='op'>(</span><span class='str'>&#39;/mmi/&#39;</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
 <p id='t39' class='pln'><span class='key'>def</span> <span class='nam'>mmi</span><span class='op'>(</span><span class='op'>)</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
 <p id='t40' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>data</span> <span class='op'>=</span> <span class='op'>{</span><span class='op'>}</span><span class='strut'>&nbsp;</span></p>
 <p id='t41' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>data</span><span class='op'>[</span><span class='str'>&#39;iTotalRecords&#39;</span><span class='op'>]</span> <span class='op'>=</span> <span class='num'>2</span><span class='strut'>&nbsp;</span></p>
 <p id='t42' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>data</span><span class='op'>[</span><span class='str'>&#39;sEcho&#39;</span><span class='op'>]</span> <span class='op'>=</span> <span class='num'>1</span><span class='strut'>&nbsp;</span></p>
-<p id='t43' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>data</span><span class='op'>[</span><span class='str'>&#39;iTotalDisplayRecords&#39;</span><span class='op'>]</span> <span class='op'>=</span>&nbsp; <span class='num'>2</span><span class='strut'>&nbsp;</span></p>
+<p id='t43' class='stm run hide_run'>&nbsp; &nbsp; <span class='nam'>data</span><span class='op'>[</span><span class='str'>&#39;iTotalDisplayRecords&#39;</span><span class='op'>]</span> <span class='op'>=</span> <span class='num'>2</span><span class='strut'>&nbsp;</span></p>
 <p id='t44' class='pln'><span class='strut'>&nbsp;</span></p>
 <p id='t45' class='pln'>&nbsp; &nbsp; <span class='com'>#aaData = []</span><span class='strut'>&nbsp;</span></p>
 <p id='t46' class='pln'>&nbsp; &nbsp; <span class='com'>#users=models.Users.query.with_entities(</span><span class='strut'>&nbsp;</span></p>
@@ -188,12 +188,12 @@
 <p id='t52' class='pln'>&nbsp; &nbsp; <span class='com'>#data[&#39;aaData&#39;]=aaData</span><span class='strut'>&nbsp;</span></p>
 <p id='t53' class='stm run hide_run'>&nbsp; &nbsp; <span class='key'>return</span> <span class='nam'>mjson</span><span class='op'>.</span><span class='nam'>dumps</span><span class='op'>(</span><span class='nam'>data</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
 <p id='t54' class='pln'><span class='strut'>&nbsp;</span></p>
-<p id='t55' class='stm run hide_run'><span class='op'>@</span><span class='nam'>mod</span><span class='op'>.</span><span class='nam'>route</span> <span class='op'>(</span><span class='str'>&#39;/devices/&#39;</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
+<p id='t55' class='stm run hide_run'><span class='op'>@</span><span class='nam'>mod</span><span class='op'>.</span><span class='nam'>route</span><span class='op'>(</span><span class='str'>&#39;/devices/&#39;</span><span class='op'>)</span><span class='strut'>&nbsp;</span></p>
 <p id='t56' class='pln'><span class='key'>def</span> <span class='nam'>devices</span><span class='op'>(</span><span class='op'>)</span><span class='op'>:</span><span class='strut'>&nbsp;</span></p>
 <p id='t57' class='stm mis'>&nbsp; &nbsp; <span class='nam'>data</span> <span class='op'>=</span> <span class='op'>{</span><span class='op'>}</span><span class='strut'>&nbsp;</span></p>
 <p id='t58' class='stm mis'>&nbsp; &nbsp; <span class='nam'>data</span><span class='op'>[</span><span class='str'>&#39;iTotalRecords&#39;</span><span class='op'>]</span> <span class='op'>=</span> <span class='num'>2</span><span class='strut'>&nbsp;</span></p>
 <p id='t59' class='stm mis'>&nbsp; &nbsp; <span class='nam'>data</span><span class='op'>[</span><span class='str'>&#39;sEcho&#39;</span><span class='op'>]</span> <span class='op'>=</span> <span class='num'>1</span><span class='strut'>&nbsp;</span></p>
-<p id='t60' class='stm mis'>&nbsp; &nbsp; <span class='nam'>data</span><span class='op'>[</span><span class='str'>&#39;iTotalDisplayRecords&#39;</span><span class='op'>]</span> <span class='op'>=</span>&nbsp; <span class='num'>2</span><span class='strut'>&nbsp;</span></p>
+<p id='t60' class='stm mis'>&nbsp; &nbsp; <span class='nam'>data</span><span class='op'>[</span><span class='str'>&#39;iTotalDisplayRecords&#39;</span><span class='op'>]</span> <span class='op'>=</span> <span class='num'>2</span><span class='strut'>&nbsp;</span></p>
 <p id='t61' class='pln'><span class='strut'>&nbsp;</span></p>
 <p id='t62' class='pln'>&nbsp; &nbsp; <span class='com'>#aaData = []</span><span class='strut'>&nbsp;</span></p>
 <p id='t63' class='pln'>&nbsp; &nbsp; <span class='com'>#users=models.Users.query.with_entities(</span><span class='strut'>&nbsp;</span></p>

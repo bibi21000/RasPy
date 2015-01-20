@@ -115,7 +115,7 @@ class OneWire(Server):
                                 else:
                                     res = res + '|' + key
                         reply = [res] + [MDP.T_OK]
-                        logging.debug("worker_devices send [%s][%s]", action, onlyfiles)
+                        logging.debug("worker_devices send [%s][%s]", action, res)
                     except OSError as exc:
                         logging.exception("OSError Exception in worker_devices for action %s", action)
                         reply = [MDP.T_ERROR]

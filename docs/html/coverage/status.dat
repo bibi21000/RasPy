@@ -37,7 +37,7 @@ p19
 I0
 sS'n_statements'
 p20
-I122
+I124
 sS'n_excluded'
 p21
 I3
@@ -46,13 +46,13 @@ p22
 I0
 sS'n_missing'
 p23
-I30
+I24
 sS'n_missing_branches'
 p24
 I0
 sbssS'hash'
 p25
-S'\xe8\x94?L\x02t\x9e)\xc3\xc6<\xb3\xf5"52'
+S'\xe8\xa9\\\xc8:M=\xd8T\x9b8\xe5\x14Z \xaf'
 p26
 ssS'raspyweb'
 p27
@@ -459,7 +459,7 @@ I9
 sg24
 I0
 sbssg25
-S'\x1au\xa7X\x95\x1b\xea9\xe1\x8e\xaf\xa4\xab\x0bfT'
+S"\x9b\xbeh\xd2\xc9'\xee\xc2\x97MV[R\x16{C"
 p121
 ssS'raspyweb_app_views'
 p122

@@ -54,6 +54,12 @@ class TestRasPy(unittest.TestCase):
         if self.skip == True:
             raise SkipTest("%s" % (message))
 
+    def skipTravisTest(self):
+        """Skip a test on travis
+        """
+        if 'TRAVIS_OS_NAME' in os.environ:
+            raise SkipTest("%s" % ("Skip on travis"))
+
     def wipTest(self):
         """Work In Progress test
         """

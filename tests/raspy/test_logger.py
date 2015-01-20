@@ -82,7 +82,7 @@ class TestLogger(TestServer, ServerBase):
         self.stopServer()
 
     def test_900_rrdcached_client(self):
-        self.skipTest('Segfault on travis')
+        self.skipTravisTest()
         ret = rrdtool.create("/tmp/test.rrd", "--step", "1", "--start", '0',
              "DS:input:COUNTER:600:U:U",
              "DS:output:COUNTER:600:U:U",

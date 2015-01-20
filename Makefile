@@ -9,7 +9,7 @@ NOSECOVER     = --cover-package=raspy,raspyweb,raspyui --cover-min-percentage= -
 PYLINT        = /usr/local/bin/pylint
 PYLINTOPTS    = --max-line-length=130 --max-args=9 --extension-pkg-whitelist=zmq
 
-.PHONY: help clean all develop install uninstall cleandoc docs tests devtests pylint git deps
+.PHONY: help clean all develop install uninstall cleandoc docs tests devtests pylint commit deps
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -21,7 +21,7 @@ help:
 	@echo "  tests      to launch tests for users"
 	@echo "  devtests   to launch detailled tests for developpers"
 	@echo "  pylint     to check code quality"
-	@echo "  git        to publish RasPy on GitHub"
+	@echo "  commit     to publish RasPy updates on GitHub"
 	@echo "  clean      to clean the development directory"
 	@echo "  cleandocs  to clean the documentation generated"
 
@@ -55,7 +55,6 @@ deps:
 	apt-get remove -y -qq python-zmq libzmq1 libzmq-dev pylint
 	pip install setuptools
 	pip install docutils
-
 
 docs: cleandocs
 	-mkdir -p docs/html/nosetests
@@ -94,7 +93,7 @@ devtests:
 	@echo
 	@echo "Tests for developpers finished."
 
-git: clean docs
+commit: clean docs
 	git commit -m "Auto-commit for docs" README.md docs/
 	git push
 	@echo

@@ -11,7 +11,7 @@ python:
 #  - "3.4"
 # command to install python dependencies and program
 install:
-  - env
+#  - env
   - make pip
   - make install
 # command to run tests
@@ -19,6 +19,6 @@ script:
   - nosetests --cover-package=raspy,raspyweb,raspyui --with-coverage
 # package dependencies
 before_install:
-  - env
+#  - env
   - sudo apt-get update -y -qq
   - sudo make travis-deps

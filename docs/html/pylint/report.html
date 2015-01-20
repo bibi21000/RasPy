@@ -163,8 +163,8 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 <tr class="odd">
 <td>error</td>
 <td>56</td>
-<td>57</td>
-<td>-1.00</td>
+<td>56</td>
+<td>=</td>
 </tr>
 </table>
 </div>
@@ -580,7 +580,7 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 </div>
 <div>
 <h2>Global evaluation</h2>
-Your code has been rated at 6.93/10 (previous run: 6.91/10, +0.02)</div>
+Your code has been rated at 6.93/10 (previous run: 6.93/10, +0.00)</div>
 <div>
 <h2>Messages</h2>
 <table>
@@ -4386,25 +4386,25 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
+from uuid import uuid4
 import traceback
 import os
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
 import raspy.common.MDP as MDP
-from raspy.common.server import Server
+from raspy.common.executive import Executive
 from raspy.common.mdwrkapi import MajorDomoWorker
-import json
-import logging
+from raspy.common.mdcliapi import MajorDomoClient
+from raspy.common.zhelpers import zpipe
 
-class Sync(Server):
-    """The Sync server
-
-    Sync data from a or many folders (which we can configure via zmq) to a remote server.
-
-    Used by logger, camera, ...
-
-    Sync can be sheduled ( ie every day, ...) or laucnh on demand via worker
-    We can sync a file or a directory
-</td>
+class Titanic(Executive):</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4443,24 +4443,24 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
+from uuid import uuid4
 import traceback
 import os
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
 import raspy.common.MDP as MDP
-from raspy.common.server import Server
+from raspy.common.executive import Executive
 from raspy.common.mdwrkapi import MajorDomoWorker
-import json
-import logging
-
-class Sync(Server):
-    """The Sync server
-
-    Sync data from a or many folders (which we can configure via zmq) to a remote server.
-
-    Used by logger, camera, ...
-
-    Sync can be sheduled ( ie every day, ...) or laucnh on demand via worker
-    We can sync a file or a directory</td>
+from raspy.common.mdcliapi import MajorDomoClient
+from raspy.common.zhelpers import zpipe
+</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4500,23 +4500,23 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
+from uuid import uuid4
 import traceback
 import os
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
 import raspy.common.MDP as MDP
-from raspy.common.server import Server
+from raspy.common.executive import Executive
 from raspy.common.mdwrkapi import MajorDomoWorker
-import json
-import logging
-
-class Sync(Server):
-    """The Sync server
-
-    Sync data from a or many folders (which we can configure via zmq) to a remote server.
-
-    Used by logger, camera, ...
-
-    Sync can be sheduled ( ie every day, ...) or laucnh on demand via worker</td>
+from raspy.common.mdcliapi import MajorDomoClient
+from raspy.common.zhelpers import zpipe</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4558,22 +4558,22 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
+import pickle
 import threading
+from uuid import uuid4
 import traceback
 import os
+try:
+    from ConfigParser import SafeConfigParser
+    import ConfigParser
+except ImportError:
+    from configparser import SafeConfigParser
+    import configparser as ConfigParser
+import zmq
 import raspy.common.MDP as MDP
-from raspy.common.server import Server
+from raspy.common.executive import Executive
 from raspy.common.mdwrkapi import MajorDomoWorker
-import json
-import logging
-
-class Sync(Server):
-    """The Sync server
-
-    Sync data from a or many folders (which we can configure via zmq) to a remote server.
-
-    Used by logger, camera, ...
-</td>
+from raspy.common.mdcliapi import MajorDomoClient</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4612,23 +4612,23 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-# User role
-ADMIN = 0
-STAFF = 1
-USER = 2
-ROLE = {
-    ADMIN: 'admin',
-    STAFF: 'staff',
-    USER: 'user',
-}
+import threading
+import traceback
+import os
+import raspy.common.MDP as MDP
+from raspy.common.server import Server
+from raspy.common.mdwrkapi import MajorDomoWorker
+import json
+import logging
 
-# user status
-INACTIVE = 0
-NEW = 1
-ACTIVE = 2</td>
+class Sync(Server):
+    """The Sync server
+
+    Sync data from a or many folders (which we can configure via zmq) to a remote server.</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4682,9 +4682,9 @@ from raspy.common.mdwrkapi import MajorDomoWorker
 import json
 import logging
 
-class Sync(Server):
-    """The Sync server
-</td>
+class Scenario(threading.Thread):
+    """A scenario
+    """</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4842,16 +4842,16 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading
-import traceback
 import os
-import raspy.common.MDP as MDP
-from raspy.common.server import Server
-from raspy.common.mdwrkapi import MajorDomoWorker</td>
+_basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config(object):
+    DEBUG = False
+    TESTING = False
+    DATABASE_URI = 'sqlite://:memory:'</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4902,15 +4902,15 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
-__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading
-import traceback
 import os
-import raspy.common.MDP as MDP
-from raspy.common.server import Server</td>
+_basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config(object):
+    DEBUG = False
+    TESTING = False</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>

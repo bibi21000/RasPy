@@ -9,7 +9,7 @@ NOSECOVER     = --cover-package=raspy,raspyweb,raspyui --cover-min-percentage= -
 PYLINT        = /usr/local/bin/pylint
 PYLINTOPTS    = --max-line-length=130 --max-args=9 --extension-pkg-whitelist=zmq
 
-.PHONY: help clean all develop install uninstall cleandoc docs tests devtests pylint commit apt pip
+.PHONY: help clean all develop install uninstall cleandoc docs tests devtests pylint commit apt pip travis-deps
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -46,13 +46,15 @@ uninstall: clean
 	-rm -rf src-web/raspyweb.egg-info
 	-rm -Rf /usr/local/lib/python2.7/dist-packages/raspy*
 
-apt:
+travis-deps:
 	apt-get install -y build-essential python2.7-dev python2.7-minimal python2.7 git python-pip
 	apt-get install -y libcairo2-dev libpango1.0-dev libglib2.0-dev libxml2-dev librrd-dev
 	apt-get install -y vsftpd
-	#-apt-get install -y rrdcached
-	#-chmod 777 /var/run/rrdcached.sock
 	apt-get remove -y python-zmq libzmq1 libzmq-dev pylint
+
+apt: travis-deps
+	-apt-get install -y rrdcached
+	-chmod 777 /var/run/rrdcached.sock
 
 pip:
 	pip install setuptools

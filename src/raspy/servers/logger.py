@@ -47,10 +47,12 @@ class RrdCachedClient:
         rep = self.sock.recv(1024)
         assert rep.startswith("0")
 
-    def update(self, msg):
+    def update(self, rrdfile, rrdtime, msg):
+        nmsg = "update %s %s:%s" % (rrdfile, rrdtime, msg)
         sent = self.sock.send(msg)
         if sent == 0:
-            raise RuntimeError("socket connection broken")
+            raise RuntimeError("socket connection to rrdcached broken")
+        return True
 #~ sub update {
     #~ my $this = shift;
     #~ my $file = shift;

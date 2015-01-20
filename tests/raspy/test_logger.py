@@ -27,7 +27,8 @@ import sys
 import time
 import unittest
 from pprint import pprint
-
+import datetime
+import random
 import raspy.common.MDP as MDP
 from raspy.servers.broker import Broker
 from raspy.servers.titanic import Titanic
@@ -36,7 +37,7 @@ from raspy.common.mdcliapi import MajorDomoClient
 import threading
 import logging
 from urllib2 import urlopen
-
+import rrdtool
 from tests.raspy.common import TestServer, ServerBase
 
 class TestLogger(TestServer, ServerBase):
@@ -81,8 +82,30 @@ class TestLogger(TestServer, ServerBase):
         self.stopServer()
 
     def test_900_rrdcached_client(self):
-        self.skipTest('Segfault aon travis')
+        #self.skipTest('Segfault on travis')
+        ret = rrdtool.create("/tmp/test.rrd", "--step", "5", "--start", '0',
+             "DS:input:COUNTER:600:U:U",
+             "DS:output:COUNTER:600:U:U",
+             "RRA:AVERAGE:0.5:1:600",
+             "RRA:AVERAGE:0.5:6:700",
+             "RRA:AVERAGE:0.5:24:775",
+             "RRA:AVERAGE:0.5:288:797",
+             "RRA:MAX:0.5:1:600",
+             "RRA:MAX:0.5:6:700",
+             "RRA:MAX:0.5:24:775",
+             "RRA:MAX:0.5:444:797")
+        self.assertTrue(ret is None)
         client = RrdCachedClient()
+        i = 0
+        total_input_traffic = 0
+        total_output_traffic = 0
+        while i<3:
+            total_input_traffic += random.randrange(1000, 1500)
+            total_output_traffic += random.randrange(1000, 3000)
+            ret = client.update('/tmp/test.rrd', datetime.datetime.now(), "%s:%s" %(total_input_traffic, total_output_traffic));
+            self.assertTrue(ret)
+            time.sleep(5)
+            i += 1
         client.shutdown()
 
 if __name__ == '__main__':

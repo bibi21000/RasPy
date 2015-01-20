@@ -23,12 +23,13 @@ __license__ = """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import sys
+import sys, os
 import time
 import unittest
 from pprint import pprint
 import datetime
 import random
+import socket
 import raspy.common.MDP as MDP
 from raspy.servers.broker import Broker
 from raspy.servers.titanic import Titanic
@@ -82,7 +83,7 @@ class TestLogger(TestServer, ServerBase):
         self.stopServer()
 
     def test_900_rrdcached_client(self):
-        self.skipTravisTest()
+        self.skipTravisTest("segfault")
         ret = rrdtool.create("/tmp/test.rrd", "--step", "1", "--start", '0',
              "DS:input:COUNTER:600:U:U",
              "DS:output:COUNTER:600:U:U",

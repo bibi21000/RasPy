@@ -54,13 +54,17 @@ class TestRasPy(unittest.TestCase):
         if self.skip == True:
             raise SkipTest("%s" % (message))
 
-    def skipTravisTest(self):
+    def skipTravisTest(self, message):
         """Skip a test on travis
         """
         if 'TRAVIS_OS_NAME' in os.environ:
-            raise SkipTest("%s" % ("Skip on travis"))
+            raise SkipTest("%s" % ("Skip on travis : %s" % message))
 
     def wipTest(self):
         """Work In Progress test
         """
         raise SkipTest("Work in progress")
+
+    def touchFile(self, path):
+        with open(path, 'a'):
+            os.utime(path, None)

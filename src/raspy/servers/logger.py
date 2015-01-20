@@ -23,11 +23,8 @@ __email__ = 'bibi21000@gmail.com'
 
 import threading
 import traceback
-import os
 import SocketServer
 import socket
-import BaseHTTPServer
-import SimpleHTTPServer
 import gzip
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
@@ -40,12 +37,13 @@ class RrdCachedClient:
       - coded for clarity, not efficiency
     '''
 
-    def __init__(self, path="/var/run/rrdcached.sock"):
+    def __init__(self, socket_path="/var/run/rrdcached.sock"):
         self.sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-        self.sock.connect(path)
+        self.sock.connect(socket_path)
         self.sock.send("BATCH\n")
         rep = self.sock.recv(1024)
-        assert rep.startswith("0")
+        if rep.startswith("0") != True:
+            raise RuntimeError("Can't connect to rrdcached socket")
 
     def update(self, rrdfile, rrdtime, msg):
         nmsg = "update %s %s:%s" % (rrdfile, rrdtime, msg)
@@ -53,19 +51,6 @@ class RrdCachedClient:
         if sent == 0:
             raise RuntimeError("socket connection to rrdcached broken")
         return True
-#~ sub update {
-    #~ my $this = shift;
-    #~ my $file = shift;
-    #~ ## @updates = @_;
-#~
-    #~ @_ or warn "No updates for $file!";
-#~
-    #~ ## rrdcached doesn't handle N: timestamps
-    #~ my $now = time();
-    #~ s/^N(?=:)/$now/ for (@_);
-#~
-    #~ $this->{sock}->print("update $file @_\n");
-#~ }
 
     def shutdown(self):
         """Shutdown the client
@@ -204,7 +189,7 @@ class Logger(Server):
                             request)
             try:
                 reply = [MDP.T_OK]
-            except OSError as exc:
+            except OSError:
                 reply = [MDP.T_ERROR]
 
     def worker_graph(self):

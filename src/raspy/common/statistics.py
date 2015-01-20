@@ -117,7 +117,7 @@ class SNMPCounter(SNMP):
         """Add value (default=1) to current value. Also manage overflow.
         """
         self.value += value
-        if self.value > self.overflow :
+        if self.value > self.overflow:
             self.value -= self.overflow
 
 class SNMPFloat(SNMP):

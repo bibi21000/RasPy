@@ -105,7 +105,7 @@ class ThreadedTCPRequestHandler(SocketServer.BaseRequestHandler):
     def handle(self):
         data = "Ok"
         cur_thread = threading.current_thread()
-        response = "{}: {}".format(cur_thread.name, self.server.logger.data_dir )
+        response = "{}: {}".format(cur_thread.name, self.server.logger.data_dir)
         self.request.sendall(response)
 
 class ThreadedTCPServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
@@ -211,7 +211,7 @@ class Logger(Server):
                 reply = [action] + [MDP.T_ERROR]
                 if action == "list_keys":
                     res = None
-                    for key in self.commands.iterkeys():
+                    for key in self.graphes.iterkeys():
                         if res == None:
                             res = key
                         else:

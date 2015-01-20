@@ -35,12 +35,12 @@ def home():
     data = {}
     return mjson.dumps(data)
 
-@mod.route ('/mmi/')
+@mod.route('/mmi/')
 def mmi():
     data = {}
     data['iTotalRecords'] = 2
     data['sEcho'] = 1
-    data['iTotalDisplayRecords'] =  2
+    data['iTotalDisplayRecords'] = 2
 
     #aaData = []
     #users=models.Users.query.with_entities(
@@ -52,12 +52,12 @@ def mmi():
     #data['aaData']=aaData
     return mjson.dumps(data)
 
-@mod.route ('/devices/')
+@mod.route('/devices/')
 def devices():
     data = {}
     data['iTotalRecords'] = 2
     data['sEcho'] = 1
-    data['iTotalDisplayRecords'] =  2
+    data['iTotalDisplayRecords'] = 2
 
     #aaData = []
     #users=models.Users.query.with_entities(

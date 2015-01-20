@@ -23,7 +23,7 @@ __license__ = """
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import os,sys
+import os, sys
 from flask import Flask, render_template, request
 from raspyweb.app import app
 

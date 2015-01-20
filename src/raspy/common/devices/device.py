@@ -131,7 +131,7 @@ class BaseDevice(object):
     It should be given by the core team as it can break other devices.
     Need to define a naming convention : sensor, sensor.temperature, media.camera, ...
     """
-    _base_template = { 'config' : {}, 'commands' : {} }
+    _base_template = {'config' : {}, 'commands' : {}}
 
     templates = {}
     """The templates dictionnary
@@ -230,7 +230,7 @@ class BaseDevice(object):
         """Command for resetting device
         Must be overloaded (and called) by the subclass
         """
-        if value == True :
+        if value == True:
             self.poll = -1
             return True
         return None
@@ -243,10 +243,10 @@ class BaseDevice(object):
         :parameter value: the value
         :returns: a value if the command succeed. None if it fails
         """
-        if command in self.commands :
+        if command in self.commands:
             return self.commands[command](value)
         subdev = device.split(oid, "-", 1)
-        if len(subdev) > 0 :
+        if len(subdev) > 0:
             if self.subdevices is not None and subdev in self.subdevices:
                 if command in self.subdevices[subdev].commands and self.subdevices[subdev].commands[command] is not None:
                     return self.subdevices[subdev].commands[command](value)

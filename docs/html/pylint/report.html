@@ -84,8 +84,8 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 <td>code</td>
 <td>2661</td>
 <td>62.66</td>
-<td>2659</td>
-<td>+2.00</td>
+<td>2661</td>
+<td>=</td>
 </tr>
 <tr class="odd">
 <td>docstring</td>
@@ -122,14 +122,14 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 <tr class="even">
 <th>nb duplicated lines</th>
 <td>7446</td>
-<td>7444</td>
-<td>+2.00</td>
+<td>7446</td>
+<td>=</td>
 </tr>
 <tr class="odd">
 <th>percent duplicated lines</th>
 <td>172.481</td>
-<td>172.514</td>
-<td>-0.03</td>
+<td>172.481</td>
+<td>=</td>
 </tr>
 </table>
 </div>
@@ -157,14 +157,14 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 <tr class="even">
 <td>warning</td>
 <td>186</td>
-<td>185</td>
-<td>+1.00</td>
+<td>186</td>
+<td>=</td>
 </tr>
 <tr class="odd">
 <td>error</td>
 <td>57</td>
-<td>58</td>
-<td>-1.00</td>
+<td>57</td>
+<td>=</td>
 </tr>
 </table>
 </div>
@@ -580,7 +580,7 @@ zmq (raspy.common.zhelpers,raspy.common.kvcliapi,raspy.common.kvsimple,raspy.ser
 </div>
 <div>
 <h2>Global evaluation</h2>
-Your code has been rated at 6.91/10 (previous run: 6.89/10, +0.02)</div>
+Your code has been rated at 6.91/10 (previous run: 6.91/10, +0.00)</div>
 <div>
 <h2>Messages</h2>
 <table>
@@ -4397,21 +4397,21 @@ __email__ = 'bibi21000@gmail.com'
 import threading
 import traceback
 import os
-import SocketServer
-import socket
-import BaseHTTPServer
-import SimpleHTTPServer
-import gzip
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
+#from raspy.common.zhelpers import dump
 
 import logging
 
-class RrdCachedClient:
-    '''demonstration class only
-      - coded for clarity, not efficiency
-    '''
+class Fake(Server):
+    """A fake server to test RasPy
+
+        - we must developp "real" fake device : ie a temperature sensors must not send random values
+        - a cyclic sensor : parameters : cycle length, min, max and unit. Will do cycle from min temp to max temp (at cycle/2) and fall back tp min temp at end of if
+        - a linear sensor
+        -
+    """
 </td>
 </tr>
 <tr class="odd">
@@ -4511,20 +4511,20 @@ __email__ = 'bibi21000@gmail.com'
 import threading
 import traceback
 import os
-import SocketServer
-import socket
-import BaseHTTPServer
-import SimpleHTTPServer
-import gzip
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-
+import json
 import logging
 
-class RrdCachedClient:
-    '''demonstration class only
-      - coded for clarity, not efficiency</td>
+class Sync(Server):
+    """The Sync server
+
+    Sync data from a or many folders (which we can configure via zmq) to a remote server.
+
+    Used by logger, camera, ...
+
+    Sync can be sheduled ( ie every day, ...) or laucnh on demand via worker</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4566,22 +4566,22 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import pickle
 import threading
-from uuid import uuid4
 import traceback
 import os
-try:
-    from ConfigParser import SafeConfigParser
-    import ConfigParser
-except ImportError:
-    from configparser import SafeConfigParser
-    import configparser as ConfigParser
-import zmq
 import raspy.common.MDP as MDP
-from raspy.common.executive import Executive
+from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-from raspy.common.mdcliapi import MajorDomoClient</td>
+import json
+import logging
+
+class Sync(Server):
+    """The Sync server
+
+    Sync data from a or many folders (which we can configure via zmq) to a remote server.
+
+    Used by logger, camera, ...
+</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -4687,11 +4687,11 @@ import os
 import raspy.common.MDP as MDP
 from raspy.common.server import Server
 from raspy.common.mdwrkapi import MajorDomoWorker
-import json
+#from raspy.common.zhelpers import dump
+
 import logging
 
-class Scenario(threading.Thread):
-    """A scenario
+class OneWire(Server):
     """</td>
 </tr>
 <tr class="even">
@@ -4736,19 +4736,19 @@ __license__ = """
     You should have received a copy of the GNU General Public License
     along with RasPy. If not, see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
 """
+__copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import os,sys
-from flask import Flask, render_template, request
-from raspyweb.app import app
-
-@app.errorhandler(404)
-def not_found(error):
-    return render_template('404.html'), 404
-
-@app.route('/')
-def home():</td>
+import threading
+import traceback
+import os
+import raspy.common.MDP as MDP
+from raspy.common.server import Server
+from raspy.common.mdwrkapi import MajorDomoWorker
+import json
+import logging
+</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4854,12 +4854,12 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import pickle
 import threading
-from uuid import uuid4
 import traceback
 import os
-try:</td>
+import raspy.common.MDP as MDP
+from raspy.common.server import Server
+from raspy.common.mdwrkapi import MajorDomoWorker</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>
@@ -4917,8 +4917,8 @@ __email__ = 'bibi21000@gmail.com'
 import threading
 import traceback
 import os
-import SocketServer
-import socket</td>
+import raspy.common.MDP as MDP
+from raspy.common.server import Server</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -5011,7 +5011,7 @@ __email__ = 'bibi21000@gmail.com'
 import threading
 import traceback
 import os
-import SocketServer</td>
+import raspy.common.MDP as MDP</td>
 </tr>
 <tr class="even">
 <td>refactor</td>
@@ -5068,7 +5068,7 @@ __copyright__ = "Copyright © 2013-2014 Sébastien GALLET aka bibi21000"
 __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 
-import threading</td>
+"""</td>
 </tr>
 <tr class="odd">
 <td>refactor</td>

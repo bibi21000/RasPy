@@ -220,17 +220,22 @@ class Logger(Server):
                     logging.debug("work_graph send [%s]", action)
                 elif action == "add":
                     #We should do something like this
-                    #"net.rrd", "--step", "300", "--start", '0',
-                    #"DS:input:COUNTER:600:U:U",
-                    #"DS:output:COUNTER:600:U:U",
-                    #"RRA:AVERAGE:0.5:1:600",
-                    #"RRA:AVERAGE:0.5:6:700",
-                    #"RRA:AVERAGE:0.5:24:775",
-                    #"RRA:AVERAGE:0.5:288:797",
-                    #"RRA:MAX:0.5:1:600",
-                    #"RRA:MAX:0.5:6:700",
-                    #"RRA:MAX:0.5:24:775",
-                    #"RRA:MAX:0.5:444:797"
+                    #http://oss.oetiker.ch/rrdtool/tut/rrd-beginners.en.html
+                    #Parameters : filename, DS(s), name and DST (COUNTER, ...) and a topic on the publisher (or an action from service ?)
+                    #ret = rrdtool.create("/tmp/test.rrd", "--step", "300", "--start", '0',
+                    #     "DS:input:COUNTER:600:U:U",
+                    #     "DS:output:COUNTER:600:U:U",
+                    #     "RRA:AVERAGE:0.5:1:288",
+                    #     "RRA:AVERAGE:0.5:3:672",
+                    #     "RRA:AVERAGE:0.5:12:744",
+                    #     "RRA:AVERAGE:0.5:72:1480",
+                    #     "RRA:AVERAGE:0.5:144:1480",
+                    #     "RRA:MAX:0.5:1:288",
+                    #     "RRA:MAX:0.5:3:672",
+                    #     "RRA:MAX:0.5:12:744",
+                    #     "RRA:MAX:0.5:72:1480",
+                    #     "RRA:MAX:0.5:144:1480")
+                    #self.assertTrue(ret is None)
                     reply = [MDP.T_OK]
                     logging.debug("work_graph send [%s]", action)
                 elif action == "remove":

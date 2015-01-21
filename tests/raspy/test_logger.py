@@ -87,14 +87,16 @@ class TestLogger(TestServer, ServerBase):
         ret = rrdtool.create("/tmp/test.rrd", "--step", "1", "--start", '0',
              "DS:input:COUNTER:600:U:U",
              "DS:output:COUNTER:600:U:U",
-             "RRA:AVERAGE:0.5:1:600",
-             "RRA:AVERAGE:0.5:6:700",
-             "RRA:AVERAGE:0.5:24:775",
-             "RRA:AVERAGE:0.5:288:797",
-             "RRA:MAX:0.5:1:600",
-             "RRA:MAX:0.5:6:700",
-             "RRA:MAX:0.5:24:775",
-             "RRA:MAX:0.5:444:797")
+             "RRA:AVERAGE:0.5:1:288",
+             "RRA:AVERAGE:0.5:3:672",
+             "RRA:AVERAGE:0.5:12:744",
+             "RRA:AVERAGE:0.5:72:1480",
+             "RRA:AVERAGE:0.5:144:1480",
+             "RRA:MAX:0.5:1:288",
+             "RRA:MAX:0.5:3:672",
+             "RRA:MAX:0.5:12:744",
+             "RRA:MAX:0.5:72:1480",
+             "RRA:MAX:0.5:144:1480")
         self.assertTrue(ret is None)
         client = RrdCachedClient()
         i = 0
@@ -103,7 +105,7 @@ class TestLogger(TestServer, ServerBase):
         while i<5:
             total_input_traffic += random.randrange(1000, 1500)
             total_output_traffic += random.randrange(1000, 3000)
-            ret = client.update('/tmp/test.rrd', datetime.datetime.now(), "%s:%s" %(total_input_traffic, total_output_traffic));
+            ret = client.update('/tmp/test.rrd', time.time(), "%s:%s" %(total_input_traffic, total_output_traffic));
             self.assertTrue(ret)
             time.sleep(1)
             i += 1

@@ -27,35 +27,61 @@ import time
 import json as mjson
 import logging
 
-CommandTypes = ['List', 'Bool', "Byte", "Int", "Real", "Str", "Sch", "Dict"]
+valueTypes = ['List', 'Bool', "Byte", "Int", "Real", "Str", "Sch", "Dict"]
+"""The types of value's command.
+"""
+
+dataSourceTypes = ['COUNTER', 'DERIVE', "ABSOLUTE", "GAUGE"]
+"""The types of Data Sources for RrdTool
+DST (Data Source Type) defines the type of the DS. It can be COUNTER, DERIVE, ABSOLUTE, GAUGE.
+
+A DS declared as COUNTER will save the rate of change of the value over a step period. This assumes that the value is always increasing (the difference between the current and the previous value is greater than 0). Traffic counters on a router are an ideal candidate for using COUNTER as DST.
+
+DERIVE is the same as COUNTER, but it allows negative values as well. If you want to see the rate of change in free disk space on your server, then you might want to use the DERIVE data type.
+
+ABSOLUTE also saves the rate of change, but it assumes that the previous value is set to 0. The difference between the current and the previous value is always equal to the current value. Thus it just stores the current value divided by the step interval (300 seconds in our example).
+
+GAUGE does not save the rate of change. It saves the actual value itself. There are no divisions or calculations. Memory consumption in a server is a typical example of gauge.
+"""
 
 class Command(object):
     """A command for a device. Use the same "spirit" as ZWave command classes
     """
+
     readonly = False
     """Is this command readonly ie a sensor
     """
+
     writeonly = False
     """Is this command writeonly ie a change dimmer command
     """
-    type = CommandTypes[0]
+
+    valuetype = valueTypes[0]
     """The type of the value
     Will be used to represent the value ie in a form, in a graph, ...
     """
+
+    datasource = None
+    """The type of the datasource associated to this value
+    """
+
     value = None
     """The value
     """
+
     info = "info"
     """Some information about the command
     Will be used to represent the value ie in a form, in a graph, ...
     """
+
     callback = None
     """The callback method associated with this command
     """
 
-    _fields = ['info', 'readonly', 'writeonly', 'type', 'value']
+    _fields = ['info', 'readonly', 'writeonly', 'datasource', 'valuetype', 'value']
     """What to jsonify
     """
+
     def __init__(self, **kwargs):
         """Initialize the Command
         """
@@ -66,12 +92,6 @@ class Command(object):
                 setattr(self, field, kwargs[field])
         if 'callback ' in kwargs:
             self.callback = kwargs["callback"]
-
-#    def __init__(self, readonly=False, writeonly=False, callback=None):
-#        """Initialize the Command
-#        """
-#        if json is not None:
-#            self.from_json(json)
 
     def from_json(self, json=None):
         """Create the command from JSON
@@ -243,13 +263,14 @@ class BaseDevice(object):
         :parameter value: the value
         :returns: a value if the command succeed. None if it fails
         """
-        if command in self.commands:
-            return self.commands[command](value)
         subdev = oid.split("-", 1)
         if len(subdev) > 0:
             if self.subdevices is not None and subdev in self.subdevices:
                 if command in self.subdevices[subdev].commands and self.subdevices[subdev].commands[command] is not None:
                     return self.subdevices[subdev].commands[command](value)
+        else:
+            if command in self.commands:
+                return self.commands[command](value)
         return None
 
     def new(self, json=None):
